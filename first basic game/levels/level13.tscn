@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://spike.tscn" type="PackedScene" id=4]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Finish" parent="." instance=ExtResource( 2 )]
+position = Vector2( 955.241, 530.69 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 449.065
+margin_top = 289.248
+margin_right = 564.065
+margin_bottom = 303.248
+text = "diagon alley"
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 964.505, 231.264 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 880.162, 319.688 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 797.179, 409.473 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 764.53, 102.028 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 677.466, 185.011 )
+
+[node name="StaticBody2D6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 589.042, 276.156 )
+
+[node name="StaticBody2D7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 504.699, 360.499 )
+
+[node name="StaticBody2D8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 418.995, 451.644 )
+
+[node name="StaticBody2D9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 331.931, 540.068 )
+
+[node name="StaticBody2D10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 93.8658, 414.914 )
+
+[node name="StaticBody2D11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 182.29, 331.931 )
+
+[node name="StaticBody2D12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 262.552, 247.588 )
+
+[node name="StaticBody2D13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 346.895, 160.524 )
+
+[node name="StaticBody2D14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 428.518, 73.4602 )
+
+[node name="StaticBody2D15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 521.023, -12.2434 )
+
+[node name="StaticBody2D16" parent="." instance=ExtResource( 3 )]
+position = Vector2( -25.8472, 168.686 )
+
+[node name="StaticBody2D17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 61.2168, 85.7036 )
+
+[node name="spike" parent="." instance=ExtResource( 4 )]
+position = Vector2( 149.641, 111.551 )
+
+[node name="spike2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 404.031, 53.0546 )
+
+[node name="spike3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 393.148, 435.32 )
+
+[node name="spike4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 512.861, 131.956 )
+
+[node name="spike5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 847.512, 84.3437 )
+
+[node name="spike6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 769.972, 382.265 )
+
+[node name="spike7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 574.078, 442.121 )
+
+[node name="spike12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 606.727, 302.003 )
+
+[node name="spike13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 292.48, 280.237 )
+
+[node name="spike14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 988.992, 258.471 )
+
+[node name="spike8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 145.56, 330.571 )
+
+[node name="spike9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 182.29, 469.329 )
+
+[node name="spike10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 960.424, 384.986 )
+
+[node name="spike11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 609.448, -25.8472 )

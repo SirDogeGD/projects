@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6.99811, -16.3289 )
+
+[node name="finish" parent="." instance=ExtResource( 2 )]
+position = Vector2( 947.077, 514.361 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 437.382, 230.937 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 414.055
+margin_top = 135.297
+margin_right = 556.055
+margin_bottom = 234.297
+text = "Obstacles may appear"

@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Idlegame"
+run/main_scene="res://scenes/main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+you="*res://scripts/you.gd"
+stats="*res://scripts/stats.gd"
+item_creator="*res://scripts/item_creator.gd"
+inventory="*res://scripts/inventory.gd"
+guy="res://scripts/guy.gd"
+heal_perks="*res://scripts/heal_perks.gd"
+perk_info="*res://scripts/perk_info.gd"
+
+[display]
+
+window/size/width=750
+window/size/height=750
+window/size/resizable=false
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

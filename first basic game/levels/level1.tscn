@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://finish.tscn" type="PackedScene" id=2]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Finish" parent="." instance=ExtResource( 2 )]
+position = Vector2( 955.241, 530.69 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 439.542
+margin_top = 272.924
+margin_right = 554.542
+margin_bottom = 286.924
+text = "press BLUE to win"

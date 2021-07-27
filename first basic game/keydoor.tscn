@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 49.8423, 51.1188 )
+
+[node name="door" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 49.7143, 51.3635 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 0.377365
+margin_top = 0.754715
+margin_right = 100.377
+margin_bottom = 100.755
+color = Color( 0.678431, 0.254902, 0.85098, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 29.1588
+margin_top = 30.1588
+margin_right = 70.1588
+margin_bottom = 71.1588
+color = Color( 0.509804, 0.254902, 0.85098, 1 )

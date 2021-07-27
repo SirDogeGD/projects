@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://spike.tscn" type="PackedScene" id=3]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+z_index = 10
+
+[node name="Finish" parent="." instance=ExtResource( 2 )]
+position = Vector2( 955.241, 530.69 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 438.376
+margin_top = 272.924
+margin_right = 553.376
+margin_bottom = 286.924
+text = "time for crab"
+
+[node name="spike" parent="." instance=ExtResource( 3 )]
+position = Vector2( 553.901, 379.298 )
+
+[node name="spike2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 625.048, 355.971 )
+
+[node name="spike3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 636.712, 290.655 )
+
+[node name="spike4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 703.194, 347.807 )
+
+[node name="spike5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 382.447, 387.463 )
+
+[node name="spike6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320.631, 350.139 )
+
+[node name="spike7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 294.971, 289.489 )
+
+[node name="spike8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 251.816, 359.47 )
+
+[node name="spike9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 394.111, 469.107 )
+
+[node name="spike10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 532.907, 473.773 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 444.38, 361.569 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 99.1398, -19.8279 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 176.119, 46.654 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 251.932, 167.954 )
+
+[node name="StaticBody2D6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 812.946, 519.026 )
+
+[node name="StaticBody2D7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 842.105, 424.552 )
+
+[node name="StaticBody2D8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 851.436, 342.907 )
+
+[node name="StaticBody2D9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 860.325, 266.377 )
+
+[node name="StaticBody2D10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 849.828, 169.57 )
+
+[node name="StaticBody2D11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 764.684, 101.921 )
+
+[node name="StaticBody2D12" parent="." instance=ExtResource( 4 )]
+position = Vector2( 670.21, 64.5982 )
+
+[node name="StaticBody2D13" parent="." instance=ExtResource( 4 )]
+position = Vector2( 573.403, 65.7645 )
+
+[node name="StaticBody2D14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 485.927, 83.2598 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 221.607, 115.469 )
