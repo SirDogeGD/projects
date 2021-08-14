@@ -9,6 +9,8 @@ func _ready():
 	new_enemy()
 	update_stats()
 	var perks = you.get_perks()
+	
+	perk_info.make_choice()
 
 func update_stats():
 	$C1/TB/LXP.set_text("XP: " + String(stats.xp))
@@ -77,7 +79,7 @@ func inputdmgcalc(a, b, w):
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
 #	weapon multi perks
-#	TODO
+	dmg = p.offensive_two(a, b, dmg)
 #	dmg boost shop upgrade
 	var dict = a.get_upgrades()
 	var boost = 1 + dict["dmgboost"]/100

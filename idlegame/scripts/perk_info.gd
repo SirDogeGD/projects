@@ -1,6 +1,7 @@
 extends Node
 
 var perkfile = load("res://scripts/perk.gd")
+var choice = [1, 2, 3]
 
 func perkinfo(id):
 	match id:
@@ -22,3 +23,21 @@ func make(n, d):
 	perkinfo.set_name(n)
 	perkinfo.set_desc(d)
 	return perkinfo
+
+func make_choice():
+	var array_pool = []
+	var default_perks = [1, 2, 3, 4, 5]
+#	add perks to pool
+	array_pool += default_perks
+#	remove perks player already has
+	for x in you.perks:
+		if array_pool.has(x):
+			array_pool.erase(x)
+#	get random perks from pool
+	randomize()
+	array_pool.shuffle()
+	choice.clear()
+	choice.append(array_pool[0])
+	choice.append(array_pool[1])
+	choice.append(array_pool[2])
+	return choice

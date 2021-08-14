@@ -1,6 +1,7 @@
 extends "res://scripts/guy.gd"
 
 var selected = 0
+var max_perks = 1
 
 func _ready():
 	create_empty_inv()
@@ -10,6 +11,8 @@ func death():
 	get_tree().change_scene("res://scenes/camp.tscn")
 	current_hp = hp
 	remove_on_death()
+	perks.clear()
+	scene_handler.reset()
 
 func kill():
 	you.streak += 1

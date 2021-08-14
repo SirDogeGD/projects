@@ -28,6 +28,7 @@ inventory="*res://scripts/inventory.gd"
 guy="res://scripts/guy.gd"
 heal_perks="*res://scripts/heal_perks.gd"
 perk_info="*res://scripts/perk_info.gd"
+scene_handler="*res://scripts/scene_handler.gd"
 
 [display]
 

@@ -29,3 +29,4 @@ func offensive_two(a, b, d):
 func offensive_three(a, b, d):
 	var perks_a = a.get_perks()
 	return d
+

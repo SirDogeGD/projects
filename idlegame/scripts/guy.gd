@@ -21,7 +21,6 @@ var upgrades = {
 }
 
 func _ready():
-#	self.perks.append(0)
 	pass
 
 func get_hp():

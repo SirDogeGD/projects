@@ -11,7 +11,7 @@ func update_stats():
 	$C1/VC/CCInv/Control.fill()
 
 func _on_ButtonJD_pressed():
-	get_tree().change_scene("res://scenes/fight.tscn")
+	scene_handler.next_scene()
 
 func _on_ButtonSh_pressed():
 	get_tree().change_scene("res://scenes/shop.tscn")
