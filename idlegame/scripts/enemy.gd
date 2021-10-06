@@ -7,6 +7,7 @@ func _ready():
 
 func death():
 	you.kill()
+	scene_handler.next_scene()
 
 func knockback(power):
 	distance += power

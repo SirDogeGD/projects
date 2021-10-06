@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/runshop.gd" type="Script" id=1]
+
+[node name="runshop" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 750.0
+margin_bottom = 750.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelG" type="Label" parent="VBox"]
+margin_right = 750.0
+margin_bottom = 14.0
+text = "Gold:"
+align = 1
+
+[node name="ShopItems" type="GridContainer" parent="VBox"]
+margin_top = 18.0
+margin_right = 750.0
+margin_bottom = 726.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="C1" type="VBoxContainer" parent="VBox/ShopItems"]
+margin_right = 148.0
+margin_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="L" type="Label" parent="VBox/ShopItems/C1"]
+margin_right = 148.0
+margin_bottom = 14.0
+text = "Diamond Sword"
+align = 1
+valign = 1
+
+[node name="B" type="Button" parent="VBox/ShopItems/C1"]
+margin_top = 18.0
+margin_right = 148.0
+margin_bottom = 38.0
+text = "200g"
+
+[node name="C2" type="VBoxContainer" parent="VBox/ShopItems"]
+margin_left = 152.0
+margin_right = 300.0
+margin_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="L" type="Label" parent="VBox/ShopItems/C2"]
+margin_right = 148.0
+margin_bottom = 14.0
+text = "Diamond Boots"
+align = 1
+valign = 1
+
+[node name="B" type="Button" parent="VBox/ShopItems/C2"]
+margin_top = 18.0
+margin_right = 148.0
+margin_bottom = 38.0
+text = "300g"
+
+[node name="C3" type="VBoxContainer" parent="VBox/ShopItems"]
+margin_left = 304.0
+margin_right = 452.0
+margin_bottom = 708.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="L" type="Label" parent="VBox/ShopItems/C3"]
+margin_right = 148.0
+margin_bottom = 14.0
+text = "Diamond Chestplate"
+align = 1
+valign = 1
+
+[node name="B" type="Button" parent="VBox/ShopItems/C3"]
+margin_top = 18.0
+margin_right = 148.0
+margin_bottom = 38.0
+text = "500g"
+
+[node name="ContinueB" type="Button" parent="VBox"]
+margin_top = 730.0
+margin_right = 750.0
+margin_bottom = 750.0
+text = "Continue"
+[connection signal="pressed" from="VBox/ShopItems/C1/B" to="." method="_on_B1_pressed"]
+[connection signal="pressed" from="VBox/ShopItems/C2/B" to="." method="_on_B2_pressed"]
+[connection signal="pressed" from="VBox/ShopItems/C3/B" to="." method="_on_B3_pressed"]
+[connection signal="pressed" from="VBox/ContinueB" to="." method="_on_ContinueB_pressed"]

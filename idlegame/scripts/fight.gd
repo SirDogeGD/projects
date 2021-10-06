@@ -36,7 +36,6 @@ func new_enemy():
 	enemy = enemyFile.new()
 	enemy.create_empty_inv()
 	enemy.add_to_inv(item_creator.default_sword())
-#	enemy.perks.append(0)
 	enemy.random_hp()
 	update_hp()
 
@@ -63,11 +62,11 @@ func atk(a, b, w):
 	var heal = load("res://scripts/heal.gd")
 	#shield takes dmg before hp
 	if(b.current_shield > 0):
-		b.current_shield -= outputdmgcalc(inputdmgcalc(a, b, w), b)
+		b.current_shield -= outputdmgcalc(a, b, inputdmgcalc(a, b, w))
 		if(b.current_shield < 0):
 			b.current_shield = 0
 	else:
-		b.current_hp -= outputdmgcalc(inputdmgcalc(a ,b ,w), b)
+		b.current_hp -= outputdmgcalc(a, b, inputdmgcalc(a ,b ,w))
 	#if "weapon" is a healing item, use it
 	if(w.get_script() == heal):
 		w.use_on(a)
@@ -89,10 +88,19 @@ func inputdmgcalc(a, b, w):
 	return dmg
 
 #calculate dmg based on input dmg and persons armor
-func outputdmgcalc(dmg, person):
-	for n in range(person.get_armor()):
-		dmg = dmg * 0.99
-	return dmg
+func outputdmgcalc(a, b, d):
+	p = perkFile.new()
+	var armor = b.get_armor()
+#	armor base def
+	armor = p.defensive_one(a, b, armor)
+#	armor def multi
+	armor = p.defensive_two(a, b, armor)
+#	calculate dmg taken
+	for n in range(armor):
+		d = d * 0.99
+#	armor true def
+	d = p.defensive_three(a, b, d)
+	return d
 
 #check if guy is dead
 func isDead(who):

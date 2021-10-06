@@ -7,7 +7,6 @@ func _ready():
 func choose(num):
 	you.perks.append(perk_info.choice[num])
 	scene_handler.next_scene()
-	print(you.perks)
 
 func c1():
 	choose(0)

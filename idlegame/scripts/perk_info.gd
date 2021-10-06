@@ -17,6 +17,12 @@ func perkinfo(id):
 			return make("Pain Focus", "Deal +1% damage per hp❤ you're missing")
 		5:
 			return make("Gold and Boosted", "Deal +5% damage when you have shield hp")
+		6:
+			return make("Prot boots", "Gain +5 armor")
+		7:
+			return make("Prot Chestplate", "Gain +6 armor")
+		8:
+			return make("Diamond Weapon" , "Your weapon deals +1 dmg")
 
 func make(n, d):
 	var perkinfo = perkfile.new()
