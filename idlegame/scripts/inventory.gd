@@ -17,24 +17,6 @@ func fill():
 func get_selected():
 	return selected
 
-func _on_Item_pressed():
-	you.set_selected(0)
-
-func _on_Item2_pressed():
-	you.set_selected(1)
-
-func _on_Item3_pressed():
-	you.set_selected(2)
-
-func _on_Item4_pressed():
-	you.set_selected(3)
-
-func _on_Item5_pressed():
-	you.set_selected(4)
-
-func _on_Item6_pressed():
-	you.set_selected(5)
-
 func create_label(slot):
 	var item = you.get_inv_slot(slot)
 	var label = item.get_name()
@@ -42,3 +24,17 @@ func create_label(slot):
 		label += " x"
 		label += String(item.amount)
 	return label
+
+func _process(delta):
+	if Input.is_action_pressed("inv_1"):
+		you.set_selected(0)
+	if Input.is_action_pressed("inv_2"):
+		you.set_selected(1)
+	if Input.is_action_pressed("inv_3"):
+		you.set_selected(2)
+	if Input.is_action_pressed("inv_4"):
+		you.set_selected(3)
+	if Input.is_action_pressed("inv_5"):
+		you.set_selected(4)
+	if Input.is_action_pressed("inv_6"):
+		you.set_selected(5)

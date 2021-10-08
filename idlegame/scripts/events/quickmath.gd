@@ -5,11 +5,18 @@ var two
 var thr
 var ans = 0
 var rng = RandomNumberGenerator.new()
+var is_ready
 
 func _ready():
-	pass
+	is_ready = false
+
+func _process(delta):
+	if is_ready == false:
+		if Input.is_action_just_pressed("attack"):
+			_on_BReady_pressed()
 
 func _on_BReady_pressed():
+	is_ready = true
 	$VBox/CReady/BReady.queue_free()
 	equation()
 	$Timer.start()

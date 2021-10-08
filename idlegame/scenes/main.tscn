@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://icons/titles/mainTitle.png" type="Texture" id=2]
 
 [node name="menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,16 +25,9 @@ rect_pivot_offset = Vector2( -692.794, -50.6927 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="C/C1"]
-margin_left = 347.0
-margin_top = 116.0
-margin_right = 403.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "PitRogue"
-align = 1
-valign = 1
+[node name="Title" type="Sprite" parent="C/C1"]
+texture = ExtResource( 2 )
+offset = Vector2( 375, 100 )
 
 [node name="C21" type="HBoxContainer" parent="C"]
 margin_left = 346.0

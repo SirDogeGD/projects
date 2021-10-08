@@ -81,12 +81,15 @@ text = "enemy HP Label
 align = 1
 valign = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="C1/CEnemy"]
+[node name="CEnemy" type="CenterContainer" parent="C1/CEnemy"]
 margin_top = 49.0
 margin_right = 750.0
 margin_bottom = 517.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Enemy" type="Sprite" parent="C1/CEnemy/CEnemy"]
+position = Vector2( 375, 200 )
 
 [node name="CInv" type="VBoxContainer" parent="C1"]
 margin_top = 539.0
@@ -146,7 +149,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="C1/CChF"]
-margin_right = 248.0
+margin_right = 750.0
 margin_bottom = 104.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -155,6 +158,7 @@ text = "Chat Label
 "
 
 [node name="CF" type="CenterContainer" parent="C1/CChF"]
+visible = false
 margin_left = 252.0
 margin_right = 750.0
 margin_bottom = 104.0
@@ -167,5 +171,7 @@ margin_left = 223.0
 margin_top = 42.0
 margin_right = 275.0
 margin_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Attack"
 [connection signal="pressed" from="C1/CChF/CF/BAtk" to="." method="_on_BAtk_pressed"]

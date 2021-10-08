@@ -37,7 +37,23 @@ func new_enemy():
 	enemy.create_empty_inv()
 	enemy.add_to_inv(item_creator.default_sword())
 	enemy.random_hp()
+	
+#	random image
+	var e1 = preload("res://icons/enemy1.png")
+	var e2 = preload("res://icons/enemy2.png")
+	var e3 = preload("res://icons/enemy3.png")
+	var e4 = preload("res://icons/enemy4.png")
+	var e5 = preload("res://icons/enemy5.png")
+	var earray = [e1, e2, e3, e4, e5]
+	var eimg = earray[randi() % earray.size()]
+	var sprite = $C1/CEnemy/CEnemy/Enemy
+	sprite.texture = eimg
+	
 	update_hp()
+
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		_on_BAtk_pressed()
 
 func _on_BAtk_pressed():
 	#check if weapon is insta use or not
