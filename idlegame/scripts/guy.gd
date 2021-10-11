@@ -12,6 +12,7 @@ var invsize = 6
 var inv = {}
 var heal_perk = "gap"
 var perks = []
+var effects = []
 var upgrades = {
 	"xpboost":0,
 	"gboost":0,
@@ -109,3 +110,13 @@ func random_hp():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	self.current_hp = rng.randf_range(self.hp/2, self.hp)
+
+#add effect name, level, duration
+func add_effect(e):
+	effects.append(e)
+	
+func clear_effects():
+	effects.clear()
+
+func get_effects():
+	return self.effects

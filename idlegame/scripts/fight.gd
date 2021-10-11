@@ -1,6 +1,6 @@
 extends Node2D
 
-var perkFile = load("res://scripts/perk_handler.gd")
+var perkFile = load("res://scripts/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://scripts/enemy.gd")
 var enemy
@@ -71,11 +71,13 @@ func _on_BAtk_pressed():
 			atk(enemy, you, enemy.get_inv_slot(0))
 	if(isDead(you)):
 		you.death()
+#	use potion effects
+	effect_handler.turn(you)
 	update_stats()
 
 #atk(attacker, defender, weapon)
 func atk(a, b, w):
-	var heal = load("res://scripts/heal.gd")
+	var heal = load("res://scripts/items/heal.gd")
 	#shield takes dmg before hp
 	if(b.current_shield > 0):
 		b.current_shield -= outputdmgcalc(a, b, inputdmgcalc(a, b, w))

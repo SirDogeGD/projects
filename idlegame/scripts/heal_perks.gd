@@ -7,20 +7,23 @@ func get_healing(x):
 		"ghead":
 			print("Two are better than one!")
 
-func make_healing(n, ss, h, sh, d):
-	var healFile = load("res://scripts/heal.gd")
+func make_healing(n, ss, h, sh, d, e):
+	var healFile = load("res://scripts/items/heal.gd")
 	var heal = healFile.new()
 	heal.set_name(n)
 	heal.set_ssize(ss)
 	heal.set_hp(h)
 	heal.set_shield(sh)
 	heal.set_on_death(d)
+	heal.add_effects(e)
 	return heal
 
 func gapple():
-	 return make_healing("Golden Apple", 2, 5, 5, false)
+	var e = [effect_handler.new_effect("r", 1, 3)]
+	return make_healing("Golden Apple", 2, 5, 10, false, e)
 
 func ghead():
-	var ghead = make_healing("Golden Apple", 2, 5, 5, false)
+	var e = [effect_handler.new_effect("r", 1, 3)]
+	var ghead = make_healing("Golden Head", 2, 5, 10, false, e)
 	ghead.is_insta()
 	return ghead

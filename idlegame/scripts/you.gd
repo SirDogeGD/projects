@@ -13,6 +13,7 @@ func death():
 	remove_on_death()
 	perks.clear()
 	scene_handler.reset()
+	clear_effects()
 
 func kill():
 	you.streak += 1

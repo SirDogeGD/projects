@@ -24,7 +24,7 @@ align = 1
 [node name="CTitle" type="CenterContainer" parent="VBox"]
 margin_top = 18.0
 margin_right = 750.0
-margin_bottom = 370.0
+margin_bottom = 259.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -33,16 +33,16 @@ texture = ExtResource( 2 )
 offset = Vector2( 375, 150 )
 
 [node name="ShopItems" type="GridContainer" parent="VBox"]
-margin_top = 374.0
+margin_top = 263.0
 margin_right = 750.0
-margin_bottom = 726.0
+margin_bottom = 504.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
 [node name="C1" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_right = 148.0
-margin_bottom = 352.0
+margin_bottom = 241.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -62,7 +62,7 @@ text = "200g"
 [node name="C2" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_left = 152.0
 margin_right = 300.0
-margin_bottom = 352.0
+margin_bottom = 241.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -82,7 +82,7 @@ text = "300g"
 [node name="C3" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_left = 304.0
 margin_right = 452.0
-margin_bottom = 352.0
+margin_bottom = 241.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -99,12 +99,19 @@ margin_right = 148.0
 margin_bottom = 38.0
 text = "500g"
 
-[node name="ContinueB" type="Button" parent="VBox"]
-margin_top = 730.0
+[node name="CenterContainer" type="CenterContainer" parent="VBox"]
+margin_top = 508.0
 margin_right = 750.0
 margin_bottom = 750.0
+size_flags_vertical = 3
+
+[node name="ContinueB" type="Button" parent="VBox/CenterContainer"]
+margin_left = 340.0
+margin_top = 111.0
+margin_right = 409.0
+margin_bottom = 131.0
 text = "Continue"
 [connection signal="pressed" from="VBox/ShopItems/C1/B" to="." method="_on_B1_pressed"]
 [connection signal="pressed" from="VBox/ShopItems/C2/B" to="." method="_on_B2_pressed"]
 [connection signal="pressed" from="VBox/ShopItems/C3/B" to="." method="_on_B3_pressed"]
-[connection signal="pressed" from="VBox/ContinueB" to="." method="_on_ContinueB_pressed"]
+[connection signal="pressed" from="VBox/CenterContainer/ContinueB" to="." method="_on_ContinueB_pressed"]

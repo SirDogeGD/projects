@@ -23,12 +23,13 @@ config/icon="res://icon.png"
 
 you="*res://scripts/you.gd"
 stats="*res://scripts/stats.gd"
-item_creator="*res://scripts/item_creator.gd"
+item_creator="*res://scripts/items/item_creator.gd"
 inventory="*res://scripts/inventory.gd"
 guy="res://scripts/guy.gd"
 heal_perks="*res://scripts/heal_perks.gd"
-perk_info="*res://scripts/perk_info.gd"
+perk_info="*res://scripts/perks/perk_info.gd"
 scene_handler="*res://scripts/scene_handler.gd"
+effect_handler="*res://scripts/effects/effect_handler.gd"
 
 [display]
 

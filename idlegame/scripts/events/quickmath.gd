@@ -35,19 +35,15 @@ func equation():
 		1:
 			ans = one + two + thr
 			l.set_text(String(one) + " + " + String(two) + " + " + String(thr))
-			print(ans)
 		2:
 			ans = one - two + thr
 			l.set_text(String(one) + " - " + String(two) + " + " + String(thr))
-			print(ans)
 		3:
 			ans = one * two - thr
 			l.set_text(String(one) + " * " + String(two) + " - " + String(thr))
-			print(ans)
 		4:
 			ans = (one - two) * thr
 			l.set_text("(" + String(one) + " - " + String(two) + ") * " + String(thr))
-			print(ans)
 
 func _on_Guess_text_entered(new_text):
 	if new_text == String(ans):
