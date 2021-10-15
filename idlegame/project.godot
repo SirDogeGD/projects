@@ -24,12 +24,14 @@ config/icon="res://icon.png"
 you="*res://scripts/you.gd"
 stats="*res://scripts/stats.gd"
 item_creator="*res://scripts/items/item_creator.gd"
-inventory="*res://scripts/inventory.gd"
 guy="res://scripts/guy.gd"
 heal_perks="*res://scripts/heal_perks.gd"
 perk_info="*res://scripts/perks/perk_info.gd"
 scene_handler="*res://scripts/scene_handler.gd"
 effect_handler="*res://scripts/effects/effect_handler.gd"
+megastreak_handler="*res://scripts/megastreak_handler.gd"
+inventory="*res://scripts/inventory.gd"
+chat="*res://scripts/ui/chat.gd"
 
 [display]
 

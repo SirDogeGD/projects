@@ -17,7 +17,8 @@ func update_stats():
 	$C1/TB/LG.set_text("Gold: " + String(stats.gold))
 	$C1/TB/LS.set_text("Streak: " + String(you.streak))
 	update_hp()
-	$C1/CInv/CCInv/Control.fill()
+	$C1/CInv/CCInv/Inv.fill()
+	$C1/CChF/Lchat.set_text(chat.make_chat())
 
 func update_hp():
 	$C1/CInv/CHP/PBHP.max_value = you.hp
@@ -63,6 +64,8 @@ func _on_BAtk_pressed():
 	#you attack enemy
 	atk(you, enemy, you.get_inv_slot(you.get_selected()))
 	if(isDead(enemy)):
+		you.kill()
+		chat.make_chat()
 		enemy.death()
 		new_enemy()
 	else:
@@ -101,8 +104,6 @@ func inputdmgcalc(a, b, w):
 	var dict = a.get_upgrades()
 	var boost = 1 + dict["dmgboost"]/100
 	dmg = dmg * boost
-#	weapon true perks
-#	TODO
 	return dmg
 
 #calculate dmg based on input dmg and persons armor
@@ -118,6 +119,8 @@ func outputdmgcalc(a, b, d):
 		d = d * 0.99
 #	armor true def
 	d = p.defensive_three(a, b, d)
+#	megastreak true dmg
+	d = d + b.mtd
 	return d
 
 #check if guy is dead

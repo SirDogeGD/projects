@@ -16,7 +16,6 @@ func add_effect(e, w):
 	w.add_effect(e)
 
 func turn(who):
-	print(who.get_effects())
 	for e in who.get_effects():
 		match e.get_name():
 			"r":

@@ -17,10 +17,14 @@ func death():
 
 func kill():
 	you.streak += 1
-	stats.add_stats("xp", calc_xp())
-	stats.add_stats("g", calc_gold())
+	update_megas()
+	var xp = calc_xp()
+	var gold = calc_gold()
+	stats.add_stats("xp", xp)
+	stats.add_stats("g", gold)
 	stats.add_stats("k", 1)
 	get_on_kill_heal()
+	return[xp, gold]
 
 func set_selected(s):
 	selected = s
@@ -47,6 +51,8 @@ func calc_xp():
 #	xpboost
 	var xpboost = 1 + float(upgrades["xpboost"])/10
 	base = base * xpboost
+#	megastreak xp boost
+	base = base * (mxpb + 1) 
 	return base
 
 func calc_gold():
@@ -57,4 +63,6 @@ func calc_gold():
 #	gold boost
 	var gboost = 1 + float(upgrades["gboost"])/10
 	base = base * gboost
+#	megastreak gold boost
+	base = base * (mgb + 1)
 	return base

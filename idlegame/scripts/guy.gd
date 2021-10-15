@@ -6,8 +6,6 @@ var current_shield = 0
 var armor = 10
 var streak = 0
 
-var mega = "od"
-var attack_speed = 1000
 var invsize = 6
 var inv = {}
 var heal_perk = "gap"
@@ -20,6 +18,13 @@ var upgrades = {
 	"defboost":0,
 	"elgato":0
 }
+
+#megastreak variables (dmg taken, resource rewards)
+var mega = "od"
+var mtd = 0
+var md = 0
+var mgb = 0
+var mxpb = 0
 
 func _ready():
 	pass
@@ -111,7 +116,6 @@ func random_hp():
 	rng.randomize()
 	self.current_hp = rng.randf_range(self.hp/2, self.hp)
 
-#add effect name, level, duration
 func add_effect(e):
 	effects.append(e)
 	
@@ -120,3 +124,16 @@ func clear_effects():
 
 func get_effects():
 	return self.effects
+
+func set_mega(name):
+	mega = name
+
+func get_mega():
+	return mega
+
+func update_megas():
+	var arr = megastreak_handler.get_all(self, streak)
+	mtd = arr[0]
+	md = arr[1]
+	mgb = arr[2]
+	mxpb = arr[3]

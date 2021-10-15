@@ -30,13 +30,16 @@ func check_price(price):
 		return false
 
 func _on_B1_pressed():
-	buy("sword")
+	if $VBox/ShopItems/C1/B.text != "bought":
+		buy("sword")
 
 func _on_B2_pressed():
-	buy("boots")
+	if $VBox/ShopItems/C2/B.text != "bought":
+		buy("boots")
 
 func _on_B3_pressed():
-	buy("cp")
+	if $VBox/ShopItems/C3/B.text != "bought":
+		buy("cp")
 
 func check_bought():
 	if you.perks.has(6):

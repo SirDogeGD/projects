@@ -6,7 +6,6 @@ func _ready():
 	pass
 
 func death():
-	you.kill()
 	scene_handler.next_scene()
 
 func knockback(power):
