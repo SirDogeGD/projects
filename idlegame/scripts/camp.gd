@@ -4,6 +4,7 @@ func _ready():
 	you.create_empty_inv()
 	you.add_to_inv(item_creator.default_sword())
 	update_stats()
+	chat.clear()
 
 func update_stats():
 	$C1/TB/LXP.set_text("XP: " + String(stats.xp))

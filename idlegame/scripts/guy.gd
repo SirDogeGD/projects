@@ -21,6 +21,7 @@ var upgrades = {
 
 #megastreak variables (dmg taken, resource rewards)
 var mega = "od"
+var mactive = false
 var mtd = 0
 var md = 0
 var mgb = 0
@@ -131,6 +132,7 @@ func set_mega(name):
 func get_mega():
 	return mega
 
+#updates the megastreak variables based on the current streak
 func update_megas():
 	var arr = megastreak_handler.get_all(self, streak)
 	mtd = arr[0]

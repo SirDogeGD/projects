@@ -7,7 +7,9 @@ func _ready():
 	create_empty_inv()
 
 func death():
-	you.streak = 0
+	megastreak_handler.on_death(self, streak)
+	streak = 0
+	mactive = false
 	get_tree().change_scene("res://scenes/camp.tscn")
 	current_hp = hp
 	remove_on_death()
