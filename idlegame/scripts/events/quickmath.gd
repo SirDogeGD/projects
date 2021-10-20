@@ -19,6 +19,7 @@ func _on_BReady_pressed():
 	is_ready = true
 	$VBox/CReady/BReady.queue_free()
 	equation()
+	$VBox/CAnswer/Guess.grab_focus()
 	$Timer.start()
 
 func _on_Timer_timeout():
@@ -48,8 +49,11 @@ func equation():
 func _on_Guess_text_entered(new_text):
 	if new_text == String(ans):
 		win()
+	$VBox/CAnswer/Guess.clear()
 
 func win():
 	stats.add_stats("xp", 250)
 	stats.add_stats("g", 500)
+	chat.won_event("math")
+	contract_handler.event("quick maths")
 	scene_handler.next_scene()

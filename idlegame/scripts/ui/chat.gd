@@ -24,3 +24,11 @@ func mega(name):
 
 func clear():
 	chat = ["", "", "", ""]
+
+func contract_comp(gold):
+	add(str("Contract completed! +", gold, "g"))
+
+func won_event(which):
+	match which:
+		"math":
+			add("Correct! +250xp +500g")

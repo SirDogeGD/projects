@@ -1,7 +1,6 @@
 extends "res://scripts/guy.gd"
 
 var selected = 0
-var max_perks = 1
 
 func _ready():
 	create_empty_inv()
@@ -26,6 +25,7 @@ func kill():
 	stats.add_stats("g", gold)
 	stats.add_stats("k", 1)
 	get_on_kill_heal()
+	contract_handler.perk_and_kills(self.perks)
 	return[xp, gold]
 
 func set_selected(s):

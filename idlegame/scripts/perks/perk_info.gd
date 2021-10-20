@@ -6,7 +6,7 @@ var choice = [1, 2, 3]
 func perkinfo(id):
 	match id:
 		0:
-			return make("Barbarian", "Your weapon has +1 dmg")
+			return make("Barbarian", "Your weapon deals +1 dmg")
 		1:
 			return make("Sharp", "Deal +4% melee damage")
 		2:
@@ -18,11 +18,11 @@ func perkinfo(id):
 		5:
 			return make("Gold and Boosted", "Deal +5% damage when you have shield hp")
 		6:
-			return make("Prot boots", "Gain +5 armor")
+			return make("Diamond boots", "Gain +5 armor")
 		7:
-			return make("Prot Chestplate", "Gain +6 armor")
+			return make("Diamond Chestplate", "Gain +6 armor")
 		8:
-			return make("Diamond Weapon" , "Your weapon deals +1 dmg")
+			return make("Diamond Sword" , "Your weapon deals +1 dmg")
 
 func make(n, d):
 	var perkinfo = perkfile.new()

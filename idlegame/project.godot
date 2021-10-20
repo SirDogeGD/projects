@@ -32,6 +32,7 @@ effect_handler="*res://scripts/effects/effect_handler.gd"
 megastreak_handler="*res://scripts/megastreak_handler.gd"
 inventory="*res://scripts/inventory.gd"
 chat="*res://scripts/ui/chat.gd"
+contract_handler="*res://scripts/events/contract/contract_handler.gd"
 
 [display]
 
