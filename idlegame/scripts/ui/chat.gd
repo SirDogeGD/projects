@@ -21,6 +21,8 @@ func mega(name):
 	match name:
 		"od":
 			add("Overdrive Activated!")
+		"b":
+			add("Beastmode on!")
 
 func clear():
 	chat = ["", "", "", ""]

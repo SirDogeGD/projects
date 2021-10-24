@@ -65,6 +65,7 @@ func _on_BAtk_pressed():
 	if(you.get_inv_slot(you.get_selected()).takes_turn):
 		your_turn = false
 	#you attack enemy
+	perk_handler.combo += 1
 	atk(you, enemy, you.get_inv_slot(you.get_selected()))
 	if(isDead(enemy)):
 		chat.kill_msg(you.kill())
@@ -97,7 +98,7 @@ func atk(a, b, w):
 
 #calculate dmg based on weapon dmg and persons multipliers
 func inputdmgcalc(a, b, w):
-	p = perkFile.new()
+	p = perk_handler
 	var dmg = w.get_damage()
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
@@ -111,7 +112,7 @@ func inputdmgcalc(a, b, w):
 
 #calculate dmg based on input dmg and persons armor
 func outputdmgcalc(a, b, d):
-	p = perkFile.new()
+	p = perk_handler
 	var armor = b.get_armor()
 #	armor base def
 	armor = p.defensive_one(a, b, armor)

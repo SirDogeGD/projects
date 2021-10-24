@@ -1,5 +1,8 @@
 extends Node
 
+var rng = RandomNumberGenerator.new()
+var combo = 0
+
 #weapon dmg perks/a = attacker/b = attacked person/d = dmg
 #weapon base dmg perks
 func offensive_one(a, b, d):
@@ -12,6 +15,7 @@ func offensive_one(a, b, d):
 	return d
 #weapon multi perks
 func offensive_two(a, b, d):
+	rng.randomize()
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
 	if perks_a.has(1):
@@ -28,11 +32,20 @@ func offensive_two(a, b, d):
 	if perks_a.has(5):
 		if(a.current_shield > 0):
 			d = d*1.05
+	if perks_a.has(9):
+		if rng.randi_range(1, 100) <= 12:
+			d = d*1.5
+	if perks_a.has(11):
+		if combo%4 == 0:
+			d = d*1.2
 	return d
 #weapon true perks
 func offensive_three(a, b, d):
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
+	if perks_a.has(12):
+		if combo%4 == 0:
+			a.heal(0, 0.8)
 	return d
 #armor base perks
 func defensive_one(a, b, armor):

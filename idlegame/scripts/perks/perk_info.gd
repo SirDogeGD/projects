@@ -22,7 +22,16 @@ func perkinfo(id):
 		7:
 			return make("Diamond Chestplate", "Gain +6 armor")
 		8:
-			return make("Diamond Sword" , "Your weapon deals +1 dmg")
+			return make("Diamond Sword", "Your weapon deals +1 dmg")
+#			mysticism 1
+		9:
+			return make("Berserker", "12% chance to crit for 50% extra damage")
+		10:
+			return make("Guts", "Heal 0.25hp on kill")
+		11:
+			return make("Combo: Damage", "Every fourth strike deals +20% damage")
+		12:
+			return make("Combo: Shield", "Every fourth strike gives 0.8 shield hp")
 
 func make(n, d):
 	var perkinfo = perkfile.new()
@@ -33,17 +42,21 @@ func make(n, d):
 func make_choice():
 	var array_pool = []
 	var default_perks = [1, 2, 3, 4, 5]
+	var myst1 = [9, 10, 11, 12]
 #	add perks to pool
 	array_pool += default_perks
-#	remove perks player already has
-	for x in you.perks:
-		if array_pool.has(x):
-			array_pool.erase(x)
+	if 1 in stats.pUpgrades:
+		array_pool += myst1
+#	get perks player doesnt already have
+	var perks = []
+	for x in array_pool.size():
+		if not array_pool[x] in you.get_perks():
+			perks.append(array_pool[x])
 #	get random perks from pool
 	randomize()
-	array_pool.shuffle()
+	perks.shuffle()
 	choice.clear()
-	choice.append(array_pool[0])
-	choice.append(array_pool[1])
-	choice.append(array_pool[2])
+	choice.append(perks[0])
+	choice.append(perks[1])
+	choice.append(perks[2])
 	return choice

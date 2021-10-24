@@ -134,6 +134,8 @@ func get_mega():
 
 #updates the megastreak variables based on the current streak
 func update_megas():
+	if 2 in stats.pUpgrades:
+		mega = "b"
 	var arr = megastreak_handler.get_all(self, streak)
 	mtd = arr[0]
 	md = arr[1]

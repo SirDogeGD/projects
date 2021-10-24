@@ -1,5 +1,6 @@
 extends "res://scripts/guy.gd"
 
+#for inventory
 var selected = 0
 
 func _ready():
@@ -40,6 +41,11 @@ func remove_on_death():
 			inv[n] = item_creator.empty_slot()
 
 func get_on_kill_heal():
+	if 0 in stats.pUpgrades: #tenacity
+		heal(1, 0)
+	if 10 in get_perks(): #guts
+		print("guts worked")
+		heal(0.25, 0)
 	add_to_inv(heal_perks.get_healing(heal_perk))
 
 func calc_xp():

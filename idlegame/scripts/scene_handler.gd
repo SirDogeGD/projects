@@ -2,17 +2,13 @@ extends Node
 
 var count = 0
 var perks = 0
-var max_perks = 1
 var rng = RandomNumberGenerator.new()
 
 func next_scene():
 	effect_handler.turn(you)
-	if(is_perk()):
-		perks += 1
-		get_tree().change_scene("res://scenes/perk_choose.tscn")
-	elif(is_shop()):
+	if(count == 0):
 		count += 1
-		get_tree().change_scene("res://scenes/runshop.tscn")
+		get_tree().change_scene("res://scenes/perk_choose.tscn")
 	elif(is_minor()):
 		count += 1
 		what_minor()
@@ -21,12 +17,11 @@ func next_scene():
 		get_tree().change_scene("res://scenes/fight.tscn")
 
 func is_perk():
-	if(perks < max_perks):
-		return true
-	return false
-
-func is_shop():
-	if(count == 2):
+	var extra_perks = 0
+	if 1 in stats.pUpgrades:
+		extra_perks += 1
+	if(perks < extra_perks):
+		perks += 1
 		return true
 	return false
 
@@ -36,17 +31,23 @@ func reset():
 
 func is_minor():
 	rng.randomize()
-	var chance = rng.randi_range(1,10)
+	var chance = rng.randi_range(1,70)
 	if(chance <= 5):
 		return true
 	return false
 
 func what_minor():
 	rng.randomize()
-	var which = rng.randi_range(1,2)
+	var which = rng.randi_range(0,3)
 	match which:
+		0:
+			if is_perk():
+				get_tree().change_scene("res://scenes/perk_choose.tscn")
+			else:
+				what_minor()
 		1:
-			get_tree().change_scene("res://scenes/events/quickmath.tscn")
-#			get_tree().change_scene("res://scripts/events/contract/contract.tscn")
+			get_tree().change_scene("res://scenes/runshop.tscn")
 		2:
+			get_tree().change_scene("res://scenes/events/quickmath.tscn")
+		3:
 			get_tree().change_scene("res://scripts/events/contract/contract.tscn")

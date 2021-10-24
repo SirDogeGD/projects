@@ -16,3 +16,6 @@ func _on_ButtonJD_pressed():
 
 func _on_ButtonSh_pressed():
 	get_tree().change_scene("res://scenes/shop.tscn")
+
+func _on_ButtonP_pressed():
+	get_tree().change_scene("res://scripts/prestige/prestige.tscn")

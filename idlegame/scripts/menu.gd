@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+#	stats.save_Stats()
 	stats.load_Stats()
 
 #go into main game "Lobby"

@@ -8,9 +8,9 @@ var elgatocost = 0
 var maxupgrade = 5
 
 func _ready():
-	update_stats()
+	update_labels()
 
-func update_stats():
+func update_labels():
 	set_costs("xpboost")
 	set_costs("gboost")
 	set_costs("dmgboost")
@@ -88,7 +88,7 @@ func buy(what):
 		if(stats.gold >= cost_var):
 			you.upgrade(upgrade_var)
 			stats.add_stats("g", -cost_var)
-			update_stats()
+			update_labels()
 		else:
 			pass
 	else:

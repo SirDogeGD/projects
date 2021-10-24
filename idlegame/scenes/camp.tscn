@@ -3,7 +3,6 @@
 [ext_resource path="res://scripts/camp.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/inventory.tscn" type="PackedScene" id=2]
 
-
 [node name="main" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -45,35 +44,49 @@ margin_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CCShop" type="CenterContainer" parent="C1/VC"]
+[node name="Margin" type="CenterContainer" parent="C1/VC"]
 margin_right = 750.0
-margin_bottom = 241.0
+margin_bottom = 180.0
+size_flags_vertical = 3
+
+[node name="CCShop" type="VBoxContainer" parent="C1/VC"]
+margin_top = 184.0
+margin_right = 750.0
+margin_bottom = 364.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonSh" type="Button" parent="C1/VC/CCShop"]
 margin_left = 353.0
-margin_top = 110.0
 margin_right = 396.0
-margin_bottom = 130.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
 text = "Shop"
 
+[node name="ButtonP" type="Button" parent="C1/VC/CCShop"]
+margin_left = 343.0
+margin_top = 24.0
+margin_right = 407.0
+margin_bottom = 44.0
+size_flags_horizontal = 4
+text = "Prestige"
+
 [node name="CCJumpDown" type="CenterContainer" parent="C1/VC"]
-margin_top = 245.0
+margin_top = 368.0
 margin_right = 750.0
-margin_bottom = 486.0
+margin_bottom = 548.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonJD" type="Button" parent="C1/VC/CCJumpDown"]
 margin_left = 333.0
-margin_top = 110.0
+margin_top = 80.0
 margin_right = 417.0
-margin_bottom = 130.0
+margin_bottom = 100.0
 text = "Jump Down"
 
 [node name="CCInv" type="CenterContainer" parent="C1/VC"]
-margin_top = 490.0
+margin_top = 552.0
 margin_right = 750.0
 margin_bottom = 732.0
 size_flags_horizontal = 3
@@ -83,10 +96,11 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 375.0
-margin_top = 121.0
+margin_top = 90.0
 margin_right = 375.0
-margin_bottom = 121.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="pressed" from="C1/VC/CCShop/ButtonSh" to="." method="_on_ButtonSh_pressed"]
+[connection signal="pressed" from="C1/VC/CCShop/ButtonP" to="." method="_on_ButtonP_pressed"]
 [connection signal="pressed" from="C1/VC/CCJumpDown/ButtonJD" to="." method="_on_ButtonJD_pressed"]
