@@ -22,10 +22,11 @@ var upgrades = {
 #megastreak variables (dmg taken, resource rewards)
 var mega = "od"
 var mactive = false
-var mtd = 0
-var md = 0
-var mgb = 0
-var mxpb = 0
+var mtd : float = 0
+var md : float = 0
+var mgb : float = 0
+var mxpb : float = 0
+var mdb : float = 0
 
 func _ready():
 	pass
@@ -141,3 +142,4 @@ func update_megas():
 	md = arr[1]
 	mgb = arr[2]
 	mxpb = arr[3]
+	mdb = arr[4]

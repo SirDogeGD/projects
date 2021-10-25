@@ -100,6 +100,8 @@ func atk(a, b, w):
 func inputdmgcalc(a, b, w):
 	p = perk_handler
 	var dmg = w.get_damage()
+#	megastreak other persons extra base dmg taken
+	dmg += b.md
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
 #	weapon multi perks
@@ -108,6 +110,8 @@ func inputdmgcalc(a, b, w):
 	var dict = a.get_upgrades()
 	var boost = 1 + dict["dmgboost"]/100
 	dmg = dmg * boost
+#	megastreak dmg boost
+	dmg = dmg * (a.mdb + 1)
 	return dmg
 
 #calculate dmg based on input dmg and persons armor

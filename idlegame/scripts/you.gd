@@ -44,7 +44,6 @@ func get_on_kill_heal():
 	if 0 in stats.pUpgrades: #tenacity
 		heal(1, 0)
 	if 10 in get_perks(): #guts
-		print("guts worked")
 		heal(0.25, 0)
 	add_to_inv(heal_perks.get_healing(heal_perk))
 

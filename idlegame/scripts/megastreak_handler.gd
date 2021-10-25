@@ -7,7 +7,13 @@ func get_all(who, s):
 		chat.mega(mega)
 		who.mactive = true
 	
-	return([get_true(mega, s), get_dmg(mega, s), get_gboost(mega, s), get_xpboost(mega, s)])
+	var arr = []
+	arr.append(get_true(mega, s))
+	arr.append(get_dmg(mega, s))
+	arr.append(get_gboost(mega, s))
+	arr.append(get_xpboost(mega, s))
+	arr.append(get_dmgboost(mega, s))
+	return(arr)
 
 func get_true(name, s):
 	match name:
@@ -15,17 +21,18 @@ func get_true(name, s):
 			if s >= 10:
 				var dmg : float = ((float(s) - 10) / 5) / 10
 				return dmg
-		"b":
-			return 0
+		_:
+			pass
 	return 0
 
 func get_dmg(name, s):
 	match name:
-		"od":
-			return 0
 		"b":
 			if s >= 20:
-				pass
+				var dmg : float = ((float(s) - 10) / 5) / 10
+				return dmg
+		_:
+			pass
 	return 0
 
 func get_gboost(name, s):
@@ -47,6 +54,13 @@ func get_xpboost(name, s):
 			if s>= 20:
 				return 0.5
 	return 0
+
+func get_dmgboost(name, s):
+	match name:
+		"b":
+			return 0.25
+		_:
+			pass
 
 func check_activated(name, s):
 	match name:
