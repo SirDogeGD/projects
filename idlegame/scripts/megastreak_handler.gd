@@ -22,7 +22,7 @@ func get_true(name, s):
 				var dmg : float = ((float(s) - 10) / 5) / 10
 				return dmg
 		_:
-			pass
+			return 0
 	return 0
 
 func get_dmg(name, s):
@@ -32,7 +32,7 @@ func get_dmg(name, s):
 				var dmg : float = ((float(s) - 10) / 5) / 10
 				return dmg
 		_:
-			pass
+			return 0
 	return 0
 
 func get_gboost(name, s):
@@ -60,7 +60,7 @@ func get_dmgboost(name, s):
 		"b":
 			return 0.25
 		_:
-			pass
+			return 0
 
 func check_activated(name, s):
 	match name:

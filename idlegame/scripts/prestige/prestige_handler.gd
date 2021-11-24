@@ -11,8 +11,8 @@ func make_shop_items():
 	var Upgrades = []
 	for n in 3:
 		Upgrades.append(n)
-	var boughtUpgrades = stats.pUpgrades
 #	get upgrades players doesnt have
+	var boughtUpgrades = stats.pUpgrades
 	var pool = []
 	for x in Upgrades.size():
 		if not Upgrades[x] in boughtUpgrades:

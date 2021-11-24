@@ -61,5 +61,6 @@ margin_bottom = 750.0
 rect_pivot_offset = Vector2( -692.794, -50.6927 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
 [connection signal="pressed" from="C/C21/C2/BS" to="." method="_on_BS_pressed"]
 [connection signal="pressed" from="C/C21/C2/BC" to="." method="_on_BC_pressed"]

@@ -16,7 +16,8 @@ var upgrades = {
 	"gboost":0,
 	"dmgboost":0,
 	"defboost":0,
-	"elgato":0
+	"elgato":0,
+	"Purchases":[]
 }
 
 #megastreak variables (dmg taken, resource rewards)
@@ -77,13 +78,12 @@ func upgrade(what):
 			defboost += 1
 		"el":
 			elgato += 1
-	upgrades = {
-	"xpboost":xpboost,
-	"gboost":gboost,
-	"dmgboost":dmgboost,
-	"defboost":defboost,
-	"elgato":elgato
-}
+	
+	upgrades["xpboost"] = xpboost
+	upgrades["gboost"] = gboost
+	upgrades["dmgboost"] = dmgboost
+	upgrades["defboost"] = defboost
+	upgrades["elgato"] = elgato
 
 func get_upgrades():
 	return self.upgrades
@@ -135,8 +135,6 @@ func get_mega():
 
 #updates the megastreak variables based on the current streak
 func update_megas():
-	if 2 in stats.pUpgrades:
-		mega = "b"
 	var arr = megastreak_handler.get_all(self, streak)
 	mtd = arr[0]
 	md = arr[1]

@@ -63,7 +63,7 @@ func calc_xp():
 	return base
 
 func calc_gold():
-	var base = 10
+	var base = 10000
 #	elgato
 	if(streak > 6):
 		base += int(upgrades["elgato"])

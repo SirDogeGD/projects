@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	check_bought()
-	update_stats()
+	$VBox/GStatShower.type("g")
 
 func _on_ContinueB_pressed():
 	scene_handler.next_scene()
@@ -23,7 +23,6 @@ func buy(what):
 				you.perks.append(7)
 				contract_handler.buy(7)
 	check_bought()
-	update_stats()
 
 func check_price(price):
 	if stats.gold > price:
@@ -51,6 +50,3 @@ func check_bought():
 		$VBox/ShopItems/C2/B.text = "bought"
 	if you.perks.has(7):
 		$VBox/ShopItems/C3/B.text = "bought"
-
-func update_stats():
-	$VBox/LabelG.text = "Gold: " + String(stats.gold)

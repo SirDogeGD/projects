@@ -46,7 +46,7 @@ func what_minor():
 			else:
 				what_minor()
 		1:
-			get_tree().change_scene("res://scenes/runshop.tscn")
+			get_tree().change_scene("res://scenes/shop/runshop.tscn")
 		2:
 			get_tree().change_scene("res://scenes/events/quickmath.tscn")
 		3:

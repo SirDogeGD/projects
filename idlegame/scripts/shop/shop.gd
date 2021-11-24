@@ -8,7 +8,10 @@ var elgatocost = 0
 var maxupgrade = 5
 
 func _ready():
+	$C1/HBoxContainer/GStatShower.type("g")
 	update_labels()
+	if not 2 in stats.pUpgrades:
+		$C1/CMega/BMegastreak.hide()
 
 func update_labels():
 	set_costs("xpboost")
@@ -16,7 +19,6 @@ func update_labels():
 	set_costs("dmgboost")
 	set_costs("defboost")
 	set_costs("elgato")
-	$C1/CLabel/LabelGold.set_text("Gold: " + String(stats.gold))
 	$C1/ShopItems/XPBoost/XPBoostButton.set_text(String(xpboostcost))
 	$C1/ShopItems/GBoost/GBoostButton.set_text(String(gboostcost))
 	$C1/ShopItems/DmgBoost/DmgBoostButton.set_text(String(dmgboostcost))
@@ -108,3 +110,6 @@ func _on_DefBoostButton_pressed():
 
 func _on_ElgatoButton_pressed():
 	buy("el")
+
+func _on_BMegastreak_pressed():
+	get_tree().change_scene("res://scenes/shop/mega shop.tscn")

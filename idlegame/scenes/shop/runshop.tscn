@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/runshop.gd" type="Script" id=1]
 [ext_resource path="res://icons/titles/shop.png" type="Texture" id=2]
+[ext_resource path="res://scenes/UI/statShower.tscn" type="PackedScene" id=3]
 
 [node name="runshop" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,16 +16,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelG" type="Label" parent="VBox"]
+[node name="GStatShower" parent="VBox" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 750.0
-margin_bottom = 14.0
-text = "Gold:"
-align = 1
+margin_bottom = 184.0
 
 [node name="CTitle" type="CenterContainer" parent="VBox"]
-margin_top = 18.0
+margin_top = 188.0
 margin_right = 750.0
-margin_bottom = 259.0
+margin_bottom = 373.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -33,16 +34,16 @@ texture = ExtResource( 2 )
 offset = Vector2( 375, 150 )
 
 [node name="ShopItems" type="GridContainer" parent="VBox"]
-margin_top = 263.0
+margin_top = 377.0
 margin_right = 750.0
-margin_bottom = 504.0
+margin_bottom = 561.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
 [node name="C1" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_right = 148.0
-margin_bottom = 241.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -62,7 +63,7 @@ text = "200g"
 [node name="C2" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_left = 152.0
 margin_right = 300.0
-margin_bottom = 241.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -82,7 +83,7 @@ text = "300g"
 [node name="C3" type="VBoxContainer" parent="VBox/ShopItems"]
 margin_left = 304.0
 margin_right = 452.0
-margin_bottom = 241.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -100,17 +101,18 @@ margin_bottom = 38.0
 text = "500g"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
-margin_top = 508.0
+margin_top = 565.0
 margin_right = 750.0
 margin_bottom = 750.0
 size_flags_vertical = 3
 
 [node name="ContinueB" type="Button" parent="VBox/CenterContainer"]
 margin_left = 340.0
-margin_top = 111.0
+margin_top = 82.0
 margin_right = 409.0
-margin_bottom = 131.0
+margin_bottom = 102.0
 text = "Continue"
+
 [connection signal="pressed" from="VBox/ShopItems/C1/B" to="." method="_on_B1_pressed"]
 [connection signal="pressed" from="VBox/ShopItems/C2/B" to="." method="_on_B2_pressed"]
 [connection signal="pressed" from="VBox/ShopItems/C3/B" to="." method="_on_B3_pressed"]

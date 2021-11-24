@@ -6,6 +6,8 @@ var enemyFile = load("res://scripts/enemy.gd")
 var enemy
 
 func _ready():
+	$C1/TB/XPStatShower.type("xp")
+	$C1/TB/GStatShower.type("g")
 	new_enemy()
 	update_stats()
 	var perks = you.get_perks()
@@ -13,8 +15,6 @@ func _ready():
 	perk_info.make_choice()
 
 func update_stats():
-	$C1/TB/LXP.set_text("XP: " + String(stats.xp))
-	$C1/TB/LG.set_text("Gold: " + String(stats.gold))
 	$C1/TB/LS.set_text("Streak: " + String(you.streak))
 	update_hp()
 	$C1/CInv/CCInv/Inv.fill()
