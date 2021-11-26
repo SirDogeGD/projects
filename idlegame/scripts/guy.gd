@@ -17,11 +17,12 @@ var upgrades = {
 	"dmgboost":0,
 	"defboost":0,
 	"elgato":0,
-	"Purchases":[]
+	"purchases":[],
+	"selected_mega":mega
 }
 
 #megastreak variables (dmg taken, resource rewards)
-var mega = "od"
+onready var mega = stats.load_Stats()["Upgrades"]["selected_mega"]
 var mactive = false
 var mtd : float = 0
 var md : float = 0
@@ -86,6 +87,8 @@ func upgrade(what):
 	upgrades["elgato"] = elgato
 
 func get_upgrades():
+	upgrades["purchases"] = shop_handler.get_purchases()
+	upgrades["selected_mega"] = mega
 	return self.upgrades
 
 func add_to_inv(item):

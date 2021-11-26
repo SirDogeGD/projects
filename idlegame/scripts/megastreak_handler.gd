@@ -17,7 +17,7 @@ func get_all(who, s):
 
 func get_true(name, s):
 	match name:
-		"od":
+		"overdrive":
 			if s >= 10:
 				var dmg : float = ((float(s) - 10) / 5) / 10
 				return dmg
@@ -37,37 +37,37 @@ func get_dmg(name, s):
 
 func get_gboost(name, s):
 	match name:
-		"od":
+		"overdrive":
 			if s >= 10:
 				return 0.5
-		"b":
+		"beastmode":
 			if s>= 20:
 				return 0.75
 	return 0
 
 func get_xpboost(name, s):
 	match name:
-		"od":
+		"overdrive":
 			if s >= 10:
 				return 1
-		"b":
+		"beastmode":
 			if s>= 20:
 				return 0.5
 	return 0
 
 func get_dmgboost(name, s):
 	match name:
-		"b":
+		"beastmode":
 			return 0.25
 		_:
 			return 0
 
 func check_activated(name, s):
 	match name:
-		"od":
+		"overdrive":
 			if s == 10:
 				return true
-		"b":
+		"beastmode":
 			if s == 20:
 				return true
 
@@ -75,5 +75,5 @@ func on_death(who, s):
 	if who.mactive:
 		var mega = who.get_mega()
 		match mega:
-			"od":
+			"overdrive":
 				stats.add_stats("xp", 4000)

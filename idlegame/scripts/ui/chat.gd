@@ -19,9 +19,9 @@ func kill_msg(arr):
 
 func mega(name):
 	match name:
-		"od":
+		"overdrive":
 			add("Overdrive Activated!")
-		"b":
+		"beastmode":
 			add("Beastmode on!")
 
 func clear():

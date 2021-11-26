@@ -11,7 +11,7 @@ var prestige = 0
 var renown = 0
 var pUpgrades = []
 
-var dict = save()
+var dict
 var echest = {}
 
 func save():
@@ -48,10 +48,13 @@ func load_Stats():
 #stats
 	kills = int(dict["Kills"])
 	you.upgrades = dict["Upgrades"]
+	shop_handler.purchases = dict["Upgrades"]["purchases"]
 #prestige
 	prestige = dict["Prestige"]
 	renown = int(dict["Renown"])
 	pUpgrades = dict["pUpgrades"]
+	
+	return dict
 
 func add_stats(what, value):
 #resources
