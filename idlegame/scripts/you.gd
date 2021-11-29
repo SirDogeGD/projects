@@ -55,6 +55,11 @@ func calc_xp():
 #	streak multi
 	if(streak > 2):
 		base += round(streak/3)
+#	renown xp bump
+	var xp_bump_ids = [4]
+	for id in xp_bump_ids:
+		if id in stats.pUpgrades:
+			base += 1
 #	xpboost
 	var xpboost = 1 + float(upgrades["xpboost"])/10
 	base = base * xpboost
@@ -72,4 +77,9 @@ func calc_gold():
 	base = base * gboost
 #	megastreak gold boost
 	base = base * (mgb + 1)
+#	renown gold boost
+	var gold_boost_ids = [5]
+	for id in gold_boost_ids:
+		if id in stats.pUpgrades:
+			base = base * 1.025
 	return base
