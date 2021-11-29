@@ -38,3 +38,43 @@ func _process(delta):
 		you.set_selected(4)
 	if Input.is_action_pressed("inv_6"):
 		you.set_selected(5)
+
+func get_item(slot):
+	var item = you.get_inv_slot(slot)
+	return item
+
+func _on_Slot1_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(0))
+
+func _on_Slot1_mouse_exited():
+	get_tree().call_group("chat", "update_label")
+
+func _on_Slot2_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(1))
+
+func _on_Slot2_mouse_exited():
+	get_tree().call_group("chat", "update_label")
+
+func _on_Slot3_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(2))
+
+func _on_Slot3_mouse_exited():
+	get_tree().call_group("chat", "update_label")
+
+func _on_Slot4_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(3))
+
+func _on_Slot4_mouse_exited():
+	get_tree().call_group("chat", "update_label")
+
+func _on_Slot5_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(4))
+
+func _on_Slot5_mouse_exited():
+	get_tree().call_group("chat", "update_label")
+
+func _on_Slot6_mouse_entered():
+	get_tree().call_group("chat", "item_data", get_item(5))
+
+func _on_Slot6_mouse_exited():
+	get_tree().call_group("chat", "update_label")

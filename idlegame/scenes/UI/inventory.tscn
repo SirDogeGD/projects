@@ -47,7 +47,7 @@ align = 1
 
 [node name="Slot2" type="CenterContainer" parent="HBoxInventory"]
 margin_left = 125.0
-margin_right = 246.0
+margin_right = 247.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -67,8 +67,8 @@ text = "empty"
 align = 1
 
 [node name="Slot3" type="CenterContainer" parent="HBoxInventory"]
-margin_left = 250.0
-margin_right = 371.0
+margin_left = 251.0
+margin_right = 372.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -88,8 +88,8 @@ text = "empty"
 align = 1
 
 [node name="Slot4" type="CenterContainer" parent="HBoxInventory"]
-margin_left = 375.0
-margin_right = 496.0
+margin_left = 376.0
+margin_right = 498.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -109,8 +109,8 @@ text = "empty"
 align = 1
 
 [node name="Slot5" type="CenterContainer" parent="HBoxInventory"]
-margin_left = 500.0
-margin_right = 621.0
+margin_left = 502.0
+margin_right = 624.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -130,16 +130,16 @@ text = "empty"
 align = 1
 
 [node name="Slot6" type="CenterContainer" parent="HBoxInventory"]
-margin_left = 625.0
+margin_left = 628.0
 margin_right = 750.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Vbox6" type="VBoxContainer" parent="HBoxInventory/Slot6"]
-margin_left = 42.0
+margin_left = 40.0
 margin_top = 13.0
-margin_right = 83.0
+margin_right = 81.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -149,3 +149,16 @@ margin_right = 41.0
 margin_bottom = 14.0
 text = "empty"
 align = 1
+
+[connection signal="mouse_entered" from="HBoxInventory/Slot1" to="." method="_on_Slot1_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot1" to="." method="_on_Slot1_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxInventory/Slot2" to="." method="_on_Slot2_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot2" to="." method="_on_Slot2_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxInventory/Slot3" to="." method="_on_Slot3_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot3" to="." method="_on_Slot3_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxInventory/Slot4" to="." method="_on_Slot4_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot4" to="." method="_on_Slot4_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxInventory/Slot5" to="." method="_on_Slot5_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot5" to="." method="_on_Slot5_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxInventory/Slot6" to="." method="_on_Slot6_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxInventory/Slot6" to="." method="_on_Slot6_mouse_exited"]

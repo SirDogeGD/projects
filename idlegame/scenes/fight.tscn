@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/fight.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/statShower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/UI/chat_scene.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 1 )
@@ -147,11 +148,11 @@ margin_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Lchat" type="Label" parent="C1/CChF"]
+[node name="Chat" parent="C1/CChF" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 750.0
 margin_bottom = 104.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="CF" type="CenterContainer" parent="C1/CChF"]
 visible = false

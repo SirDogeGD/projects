@@ -20,6 +20,9 @@ func set_shield(s):
 func add_effects(e):
 	self.effects += e
 
+func get_effects():
+	return effects
+
 func use_on(who):
 	who.heal(self.get_hp(), self.get_shield())
 	for e in effects:

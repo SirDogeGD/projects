@@ -18,7 +18,7 @@ func update_stats():
 	$C1/TB/LS.set_text("Streak: " + String(you.streak))
 	update_hp()
 	$C1/CInv/CCInv/Inv.fill()
-	update_chat()
+#	update_chat()
 
 func update_hp():
 	$C1/CInv/CHP/PBHP.max_value = you.hp
@@ -33,8 +33,8 @@ func update_hp():
 	$C1/CEnemy/CeHP/PBeHP.value = enemy.current_hp
 	$C1/CEnemy/CeHP/LeHP.set_text(String(round(enemy.get_hp())) + "/" + String(enemy.hp))
 
-func update_chat():
-	$C1/CChF/Lchat.set_text(chat.make_chat())
+#func update_chat():
+#	$C1/CChF/Chat/Label.set_text(chat.make_chat())
 
 func new_enemy():
 	enemy = enemyFile.new()
@@ -69,7 +69,7 @@ func _on_BAtk_pressed():
 	atk(you, enemy, you.get_inv_slot(you.get_selected()))
 	if(isDead(enemy)):
 		chat.kill_msg(you.kill())
-		update_chat()
+#		update_chat()
 		enemy.death()
 		new_enemy()
 	else:

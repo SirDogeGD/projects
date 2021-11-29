@@ -13,6 +13,8 @@ func add(line):
 		chat[1] = chat[2]
 		chat[2] = chat[3]
 		chat[3] = line
+	
+	get_tree().call_group("chat", "update_label")
 
 func kill_msg(arr):
 	add("Kill! you earned " + String(arr[0]) + " xp and " + String(arr[1]) + " gold")
