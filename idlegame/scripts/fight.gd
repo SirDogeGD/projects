@@ -122,6 +122,10 @@ func outputdmgcalc(a, b, d):
 	armor = p.defensive_one(a, b, armor)
 #	armor def multi
 	armor = p.defensive_two(a, b, armor)
+#	resistance effect
+	for e in b.get_effects():
+		if e.get_name() == "res":
+			armor += (e.get_level() * 10)
 #	calculate dmg taken
 	for n in range(armor):
 		d = d * 0.99

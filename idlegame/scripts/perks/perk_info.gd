@@ -32,6 +32,15 @@ func perkinfo(id):
 			return make("Combo: Damage", "Every fourth strike deals +20% damage")
 		12:
 			return make("Combo: Shield", "Every fourth strike gives 0.8 shield hp")
+#		mysticism 2
+		13:
+			return make("Counter-Janitor", "Gain Resistance I (2 turns) on kill")
+		14:
+			return make("Crush", "Strikes apply Weakness I for a turn")
+		15:
+			return make("Lifesteal", "Heal for 4% of damage dealt")
+		16:
+			return make("First Strike", "First hit against an enemy deals +35% dmg")
 
 func make(n, d):
 	var perkinfo = perkfile.new()
@@ -43,10 +52,13 @@ func make_choice():
 	var array_pool = []
 	var default_perks = [1, 2, 3, 4, 5]
 	var myst1 = [9, 10, 11, 12]
+	var myst2 = [13, 14, 15, 16]
 #	add perks to pool
 	array_pool += default_perks
 	if 1 in stats.pUpgrades:
 		array_pool += myst1
+	if 6 in stats.pUpgrades:
+		array_pool += myst2
 #	get perks player doesnt already have
 	var perks = []
 	for x in array_pool.size():

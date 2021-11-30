@@ -8,9 +8,9 @@ var combo = 0
 func offensive_one(a, b, d):
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
-	if perks_a.has(0):
+	if 0 in perks_a:
 		d += 1
-	if perks_a.has(8):
+	if 8 in perks_a:
 		d += 1
 	return d
 #weapon multi perks
@@ -18,24 +18,24 @@ func offensive_two(a, b, d):
 	rng.randomize()
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
-	if perks_a.has(1):
+	if 1 in perks_a:
 		d = d*1.04
-	if perks_a.has(2):
+	if 2 in perks_a:
 		if(b.current_hp <= b.hp/2):
 			d = d*1.06
-	if perks_a.has(3):
+	if 3 in perks_a:
 		if(b.current_hp >= b.hp/2):
 			d = d*1.07
-	if perks_a.has(4):
+	if 4 in perks_a:
 		for n in range(a.hp - a.current_hp):
 			d = d*1.01
-	if perks_a.has(5):
+	if 5 in perks_a:
 		if(a.current_shield > 0):
 			d = d*1.05
-	if perks_a.has(9):
+	if 9 in perks_a:
 		if rng.randi_range(1, 100) <= 12:
 			d = d*1.5
-	if perks_a.has(11):
+	if 11 in perks_a:
 		if combo%4 == 0:
 			d = d*1.2
 	return d
@@ -43,7 +43,7 @@ func offensive_two(a, b, d):
 func offensive_three(a, b, d):
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
-	if perks_a.has(12):
+	if 12 in perks_a:
 		if combo%4 == 0:
 			a.heal(0, 0.8)
 	return d
@@ -51,9 +51,9 @@ func offensive_three(a, b, d):
 func defensive_one(a, b, armor):
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
-	if perks_b.has(6):
+	if 6 in perks_b:
 		armor += 5
-	if perks_b.has(7):
+	if 7 in perks_b:
 		armor += 6
 	return armor
 #armor multi perks

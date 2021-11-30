@@ -12,8 +12,19 @@ func new_effect(n, l, d):
 	e.set_duration(d)
 	return e
 
-func add_effect(e, w):
-	w.add_effect(e)
+func add_effect(new, w):
+	if w.get_effects().empty():
+		w.add_effect(new)
+
+	for e in w.get_effects():
+		if e.get_name() == new.get_name():
+			if e.get_level() < new.get_level():
+				w.get_effects().erase(e)
+				w.add_effect(new)
+			else:
+				if e.get_duration() < new.get_duration() and e.get_level() == new.get_level():
+					w.get_effects().erase(e)
+					w.add_effect(new)
 
 func turn(who):
 	for e in who.get_effects():

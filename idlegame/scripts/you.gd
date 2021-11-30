@@ -45,6 +45,9 @@ func get_on_kill_heal():
 		heal(1, 0)
 	if 10 in get_perks(): #guts
 		heal(0.25, 0)
+	if 13 in get_perks(): #cjan
+		var e = effect_handler.new_effect("res", 1, 2)
+		effect_handler.add_effect(e, self)
 	add_to_inv(heal_perks.get_healing(heal_perk))
 
 func calc_xp():
@@ -70,7 +73,7 @@ func calc_xp():
 func calc_gold():
 	var base = 10
 #	elgato
-	if(streak > 6):
+	if(streak < 6):
 		base += int(upgrades["elgato"])
 #	gold boost
 	var gboost = 1 + float(upgrades["gboost"])/10
