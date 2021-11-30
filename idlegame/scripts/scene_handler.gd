@@ -15,6 +15,7 @@ func next_scene():
 	else:
 		count += 1
 		get_tree().change_scene("res://scenes/fight.tscn")
+		you.first_strike = true
 
 func is_perk():
 	var extra_perks = 0

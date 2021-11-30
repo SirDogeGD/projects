@@ -100,10 +100,15 @@ func atk(a, b, w):
 func inputdmgcalc(a, b, w):
 	p = perk_handler
 	var dmg = w.get_damage()
+#	weakness potions effect
+	for e in a.get_effects():
+		if e.get_name() == "weakness":
+			dmg -= e.get_level()
 #	megastreak other persons extra base dmg taken
 	dmg += b.md
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
+	
 #	weapon multi perks
 	dmg = p.offensive_two(a, b, dmg)
 #	dmg boost shop upgrade
@@ -112,6 +117,9 @@ func inputdmgcalc(a, b, w):
 	dmg = dmg * boost
 #	megastreak dmg boost
 	dmg = dmg * (a.mdb + 1)
+	
+#	weapon true perks (healing/true dmg)
+	dmg = p.offensive_three(a, b, dmg)
 	return dmg
 
 #calculate dmg based on input dmg and persons armor
@@ -120,6 +128,7 @@ func outputdmgcalc(a, b, d):
 	var armor = b.get_armor()
 #	armor base def
 	armor = p.defensive_one(a, b, armor)
+	
 #	armor def multi
 	armor = p.defensive_two(a, b, armor)
 #	resistance effect
@@ -129,6 +138,7 @@ func outputdmgcalc(a, b, d):
 #	calculate dmg taken
 	for n in range(armor):
 		d = d * 0.99
+	
 #	armor true def
 	d = p.defensive_three(a, b, d)
 #	megastreak true dmg

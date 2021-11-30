@@ -3,7 +3,7 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
-#add effect name, level, duration, who
+#add effect name, level, duration
 func new_effect(n, l, d):
 	var effectFile = load("res://scripts/effects/effect.gd")
 	var e = effectFile.new()

@@ -5,6 +5,7 @@ var current_hp = 20
 var current_shield = 0
 var armor = 10
 var streak = 0
+var first_strike = true
 
 var invsize = 6
 var inv = {}

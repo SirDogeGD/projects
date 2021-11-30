@@ -36,7 +36,7 @@ func perkinfo(id):
 		13:
 			return make("Counter-Janitor", "Gain Resistance I (2 turns) on kill")
 		14:
-			return make("Crush", "Strikes apply Weakness I for a turn")
+			return make("Combo: Crush", "Every fourth strike apply Weakness I for a turn")
 		15:
 			return make("Lifesteal", "Heal for 4% of damage dealt")
 		16:
@@ -54,9 +54,9 @@ func make_choice():
 	var myst1 = [9, 10, 11, 12]
 	var myst2 = [13, 14, 15, 16]
 #	add perks to pool
-	array_pool += default_perks
-	if 1 in stats.pUpgrades:
-		array_pool += myst1
+#	array_pool += default_perks
+#	if 1 in stats.pUpgrades:
+#		array_pool += myst1
 	if 6 in stats.pUpgrades:
 		array_pool += myst2
 #	get perks player doesnt already have
