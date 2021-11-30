@@ -50,7 +50,6 @@ func offensive_three(a, b, d):
 	if 12 in perks_a:
 		if combo%4 == 0:
 			a.heal(0, 0.8)
-	print(perks_a)
 	if 14 in perks_a:
 		if combo%4 == 0:
 			var e = effect_handler.new_effect("weakness", 1, 1)

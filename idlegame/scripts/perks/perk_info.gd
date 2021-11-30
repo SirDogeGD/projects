@@ -54,9 +54,9 @@ func make_choice():
 	var myst1 = [9, 10, 11, 12]
 	var myst2 = [13, 14, 15, 16]
 #	add perks to pool
-#	array_pool += default_perks
-#	if 1 in stats.pUpgrades:
-#		array_pool += myst1
+	array_pool += default_perks
+	if 1 in stats.pUpgrades:
+		array_pool += myst1
 	if 6 in stats.pUpgrades:
 		array_pool += myst2
 #	get perks player doesnt already have

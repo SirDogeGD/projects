@@ -20,8 +20,8 @@ func death():
 func kill():
 	you.streak += 1
 	update_megas()
-	var xp = calc_xp()
-	var gold = calc_gold()
+	var xp = calc_xp(10)
+	var gold = calc_gold(10)
 	stats.add_stats("xp", xp)
 	stats.add_stats("g", gold)
 	stats.add_stats("k", 1)
@@ -50,8 +50,7 @@ func get_on_kill_heal():
 		effect_handler.add_effect(e, self)
 	add_to_inv(heal_perks.get_healing(heal_perk))
 
-func calc_xp():
-	var base = 10
+func calc_xp(base):
 #	elgato
 	if(streak < 6):
 		base += int(upgrades["elgato"])
@@ -67,11 +66,10 @@ func calc_xp():
 	var xpboost = 1 + float(upgrades["xpboost"])/10
 	base = base * xpboost
 #	megastreak xp boost
-	base = base * (mxpb + 1) 
+	base = base * (mxpb + 1)
 	return base
 
-func calc_gold():
-	var base = 10
+func calc_gold(base):
 #	elgato
 	if(streak < 6):
 		base += int(upgrades["elgato"])
