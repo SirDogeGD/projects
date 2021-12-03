@@ -40,6 +40,10 @@ func _on_BBuy_pressed():
 				match buy[0]:
 					"mega":
 						shop_handler.add_purchase(buy[1])
+					"runshop":
+						you.perks.append(buy[1])
+						contract_handler.buy(buy[1])
+						scene_handler.next_scene()
 				state = 2
 				stats.add_stats("g", -self.price)
 

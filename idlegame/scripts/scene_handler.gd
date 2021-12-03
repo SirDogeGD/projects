@@ -19,12 +19,15 @@ func next_scene():
 
 func is_perk():
 	var extra_perks = 0
-	if 1 in stats.pUpgrades:
-		extra_perks += 1
+	var extra_perks_id = [1, 6]
+	for id in extra_perks_id:
+		if id in stats.pUpgrades:
+			extra_perks += 1
 	if(perks < extra_perks):
 		perks += 1
 		return true
-	return false
+	else:
+		return false
 
 func reset():
 	count = 0

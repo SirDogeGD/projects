@@ -15,11 +15,11 @@ func make_bow(n, dmg):
 	return bow
 
 func empty_slot():
-	var swordFile = load("res://scripts/items/sword.gd")
-	var sword = swordFile.new()
-	sword.set_name("empty")
-	sword.set_damage(1)
-	return sword
+	var itemFile = load("res://scripts/items/item.gd")
+	var item = itemFile.new()
+	item.set_name("empty")
+	item.set_damage(1)
+	return item
 
 func default_sword():
 	var swordFile = load("res://scripts/items/sword.gd")

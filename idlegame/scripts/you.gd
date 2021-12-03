@@ -67,6 +67,7 @@ func calc_xp(base):
 	base = base * xpboost
 #	megastreak xp boost
 	base = base * (mxpb + 1)
+	base = round(base)
 	return base
 
 func calc_gold(base):
@@ -83,4 +84,5 @@ func calc_gold(base):
 	for id in gold_boost_ids:
 		if id in stats.pUpgrades:
 			base = base * 1.025
+	base = round(base)
 	return base

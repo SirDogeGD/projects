@@ -20,99 +20,38 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 750.0
-margin_bottom = 184.0
+size_flags_vertical = 1
 
 [node name="CTitle" type="CenterContainer" parent="VBox"]
+margin_top = 4.0
 margin_right = 750.0
-margin_bottom = 373.0
+margin_bottom = 250.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Title" type="Sprite" parent="VBox/CTitle"]
 texture = ExtResource( 2 )
-offset = Vector2( 375, 150 )
+offset = Vector2( 375, 100 )
 
 [node name="ShopItems" type="GridContainer" parent="VBox"]
-margin_top = 377.0
+margin_top = 254.0
 margin_right = 750.0
-margin_bottom = 561.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
-[node name="C1" type="VBoxContainer" parent="VBox/ShopItems"]
-margin_right = 148.0
-margin_bottom = 184.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="L" type="Label" parent="VBox/ShopItems/C1"]
-margin_right = 148.0
-margin_bottom = 14.0
-text = "Diamond Sword"
-align = 1
-valign = 1
-
-[node name="B" type="Button" parent="VBox/ShopItems/C1"]
-margin_top = 18.0
-margin_right = 148.0
-margin_bottom = 38.0
-text = "200g"
-
-[node name="C2" type="VBoxContainer" parent="VBox/ShopItems"]
-margin_left = 152.0
-margin_right = 300.0
-margin_bottom = 184.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="L" type="Label" parent="VBox/ShopItems/C2"]
-margin_right = 148.0
-margin_bottom = 14.0
-text = "Diamond Boots"
-align = 1
-valign = 1
-
-[node name="B" type="Button" parent="VBox/ShopItems/C2"]
-margin_top = 18.0
-margin_right = 148.0
-margin_bottom = 38.0
-text = "300g"
-
-[node name="C3" type="VBoxContainer" parent="VBox/ShopItems"]
-margin_left = 304.0
-margin_right = 452.0
-margin_bottom = 184.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="L" type="Label" parent="VBox/ShopItems/C3"]
-margin_right = 148.0
-margin_bottom = 14.0
-text = "Diamond Chestplate"
-align = 1
-valign = 1
-
-[node name="B" type="Button" parent="VBox/ShopItems/C3"]
-margin_top = 18.0
-margin_right = 148.0
-margin_bottom = 38.0
-text = "500g"
-
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
-margin_top = 565.0
+margin_top = 504.0
 margin_right = 750.0
 margin_bottom = 750.0
 size_flags_vertical = 3
 
 [node name="ContinueB" type="Button" parent="VBox/CenterContainer"]
 margin_left = 340.0
-margin_top = 82.0
+margin_top = 113.0
 margin_right = 409.0
-margin_bottom = 102.0
+margin_bottom = 133.0
 text = "Continue"
 
-[connection signal="pressed" from="VBox/ShopItems/C1/B" to="." method="_on_B1_pressed"]
-[connection signal="pressed" from="VBox/ShopItems/C2/B" to="." method="_on_B2_pressed"]
-[connection signal="pressed" from="VBox/ShopItems/C3/B" to="." method="_on_B3_pressed"]
 [connection signal="pressed" from="VBox/CenterContainer/ContinueB" to="." method="_on_ContinueB_pressed"]
