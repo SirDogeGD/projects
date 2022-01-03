@@ -15,27 +15,25 @@ _global_script_class_icons={
 [application]
 
 config/name="Idlegame"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://code/places/main.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-you="*res://scripts/you.gd"
-stats="*res://scripts/stats.gd"
-item_creator="*res://scripts/items/item_creator.gd"
-guy="res://scripts/guy.gd"
-heal_perks="*res://scripts/heal_perks.gd"
-perk_info="*res://scripts/perks/perk_info.gd"
-scene_handler="*res://scripts/scene_handler.gd"
-effect_handler="*res://scripts/effects/effect_handler.gd"
-megastreak_handler="*res://scripts/megastreak_handler.gd"
-inventory="*res://scripts/inventory.gd"
-chat="*res://scripts/ui/chat.gd"
-contract_handler="*res://scripts/events/contract/contract_handler.gd"
-shop_handler="*res://scripts/shop/shop_handler.gd"
-prestige_handler="*res://scripts/prestige/prestige_handler.gd"
-perk_handler="*res://scripts/perks/perk_handler.gd"
-StatShower="res://scenes/UI/statShower.tscn"
+stats="*res://code/player/stats.gd"
+you="*res://code/player/you.gd"
+guy="res://code/player/guy.gd"
+chat="*res://code/UI/chat.gd"
+item_creator="*res://code/items/item_creator.gd"
+shop_handler="*res://code/shop/shop_handler.gd"
+megastreak_handler="*res://code/fight/megastreak_handler.gd"
+scene_handler="*res://code/fight/scene_handler.gd"
+contract_handler="*res://code/events/contract/contract_handler.gd"
+effect_handler="*res://code/effects/effect_handler.gd"
+perk_info="*res://code/perks/perk_info.gd"
+perk_handler="*res://code/perks/perk_handler.gd"
+prestige_handler="*res://code/prestige/prestige_handler.gd"
 
 [display]
 
