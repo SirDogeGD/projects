@@ -25,12 +25,14 @@ size_flags_stretch_ratio = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 373.0
+type = "xp"
 
 [node name="GStatShower" parent="C1/TB" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 377.0
 margin_right = 750.0
+type = "g"
 
 [node name="VC" type="VBoxContainer" parent="C1"]
 margin_top = 4.0

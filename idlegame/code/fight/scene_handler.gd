@@ -5,7 +5,6 @@ var perks = 0
 var rng = RandomNumberGenerator.new()
 
 func next_scene():
-	effect_handler.turn(you)
 	if(count == 0):
 		count += 1
 		get_tree().change_scene("res://code/perks/perk_choose.tscn")

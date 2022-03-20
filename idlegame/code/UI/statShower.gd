@@ -1,6 +1,6 @@
 extends Control
 
-var type
+export(String, "g", "xp", "r") var type
 
 func type(t):
 	self.type = t

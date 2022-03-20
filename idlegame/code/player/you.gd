@@ -27,6 +27,7 @@ func kill():
 	stats.add_stats("k", 1)
 	get_on_kill_heal()
 	contract_handler.perk_and_kills(self.perks)
+	perk_handler.on_kill()
 	return[xp, gold]
 
 func set_selected(s):
@@ -48,7 +49,7 @@ func get_on_kill_heal():
 	if 13 in get_perks(): #cjan
 		var e = effect_handler.new_effect("res", 1, 2)
 		effect_handler.add_effect(e, self)
-	var heal_perks = load("res://code/fight/heal_perks.gd")
+	var heal_perks = load("res://code/fight/heal_perks.gd").new()
 	add_to_inv(heal_perks.get_healing(heal_perk))
 
 func calc_xp(base):

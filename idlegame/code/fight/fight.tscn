@@ -4,7 +4,7 @@
 [ext_resource path="res://code/UI/inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://code/UI/statShower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://code/UI/chat_scene.tscn" type="PackedScene" id=4]
-[ext_resource path="res://code/effects/effect_show.tscn" type="PackedScene" id=5]
+[ext_resource path="res://code/effects/effect_show_container.tscn" type="PackedScene" id=5]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,6 +30,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 247.0
 margin_bottom = 14.0
+type = "xp"
 
 [node name="GStatShower" parent="C1/TB" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -37,6 +38,7 @@ anchor_bottom = 0.0
 margin_left = 251.0
 margin_right = 498.0
 margin_bottom = 14.0
+type = "g"
 
 [node name="LS" type="Label" parent="C1/TB"]
 margin_left = 502.0
@@ -82,8 +84,15 @@ text = "enemy HP Label
 align = 1
 valign = 1
 
-[node name="CEnemy" type="CenterContainer" parent="C1/CEnemy"]
+[node name="EffSContainer" parent="C1/CEnemy" instance=ExtResource( 5 )]
+margin_left = 0.0
 margin_top = 49.0
+margin_right = 750.0
+margin_bottom = 69.0
+assigned = "enemy"
+
+[node name="CEnemy" type="CenterContainer" parent="C1/CEnemy"]
+margin_top = 73.0
 margin_right = 750.0
 margin_bottom = 517.0
 size_flags_horizontal = 3
@@ -102,29 +111,15 @@ size_flags_vertical = 3
 [node name="Chat" parent="C1/CChF" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 373.0
+margin_right = 657.0
 margin_bottom = 103.0
 
-[node name="GridContainer" type="GridContainer" parent="C1/CChF"]
-margin_left = 377.0
+[node name="EffSContainer" parent="C1/CChF" instance=ExtResource( 5 )]
+margin_left = 661.0
+margin_top = 0.0
 margin_right = 750.0
 margin_bottom = 103.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 8
-
-[node name="Node2D2" parent="C1/CChF/GridContainer" instance=ExtResource( 5 )]
-margin_right = 46.0
-margin_bottom = 103.0
-rect_scale = Vector2( 1, 1 )
-
-[node name="Node2D" parent="C1/CChF/GridContainer" instance=ExtResource( 5 )]
-margin_left = 50.0
-margin_right = 96.0
-margin_bottom = 103.0
-rect_scale = Vector2( 1, 1 )
+assigned = "you"
 
 [node name="CInv" type="VBoxContainer" parent="C1"]
 margin_top = 646.0

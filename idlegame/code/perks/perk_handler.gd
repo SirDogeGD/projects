@@ -76,3 +76,9 @@ func defensive_three(a, b, d):
 	var perks_a = a.get_perks()
 	var perks_b = b.get_perks()
 	return d
+
+func on_kill():
+	var perks = you.get_perks()
+	if 13 in perks:
+		var e = effect_handler.new_effect("res", 1, 2)
+		effect_handler.add_effect(e, you)

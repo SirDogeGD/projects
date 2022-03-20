@@ -32,6 +32,7 @@ anchor_bottom = 0.0
 margin_left = 46.0
 margin_right = 750.0
 margin_bottom = 20.0
+type = "g"
 
 [node name="CTitle" type="CenterContainer" parent="C1"]
 margin_top = 24.0

@@ -5,9 +5,9 @@ var p
 var enemyFile = load("res://code/player/enemy.gd")
 var enemy
 
+var can_attack = true
+
 func _ready():
-	$C1/TB/XPStatShower.type("xp")
-	$C1/TB/GStatShower.type("g")
 	new_enemy()
 	update_stats()
 	var perks = you.get_perks()
@@ -52,10 +52,11 @@ func new_enemy():
 	update_hp()
 
 func _process(delta):
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and can_attack:
 		_on_BAtk_pressed()
 
 func _on_BAtk_pressed():
+	can_attack = false
 	#check if weapon is insta use or not
 	var your_turn = true
 	if(you.get_inv_slot(you.get_selected()).takes_turn):
@@ -63,18 +64,30 @@ func _on_BAtk_pressed():
 	#you attack enemy
 	perk_handler.combo += 1
 	atk(you, enemy, you.get_inv_slot(you.get_selected()))
+	effect_handler.update_effects(you)
+	effect_handler.update_effects(enemy)
+	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 0.5, 0.5)
+
 	if(isDead(enemy)):
 		chat.kill_msg(you.kill())
 		enemy.death()
 		new_enemy()
+
+	#enemy attacks you
 	else:
 		if(!your_turn):
-			#enemy attacks you
 			atk(enemy, you, enemy.get_inv_slot(0))
+
+#	tick potion effects
+	effect_handler.turn(enemy)
+	effect_handler.turn(you)
+
 	if(isDead(you)):
 		you.death()
-#	use potion effects
-	effect_handler.turn(you)
+	
+	yield(get_tree().create_timer(0.1), "timeout")
+	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 1, 1)
+	can_attack = true
 	update_stats()
 
 #atk(attacker, defender, weapon)
@@ -82,17 +95,18 @@ func atk(a, b, w):
 	var heal = load("res://code/items/heal.gd")
 	#shield takes dmg before hp
 	if(b.current_shield > 0):
-		b.current_shield -= outputdmgcalc(a, b, inputdmgcalc(a, b, w))
+		b.current_shield -= dmg_calc(a, b, w)
 		if(b.current_shield < 0):
 			b.current_shield = 0
 	else:
-		b.current_hp -= outputdmgcalc(a, b, inputdmgcalc(a ,b ,w))
+#		b.current_hp -= outputdmgcalc(a, b, inputdmgcalc(a ,b ,w))
+		b.current_hp -= dmg_calc(a, b, w)
 	#if "weapon" is a healing item, use it
 	if(w.get_script() == heal):
 		w.use_on(a)
 
-#calculate dmg based on weapon dmg and persons multipliers
-func inputdmgcalc(a, b, w):
+#calculate dmg (attacker, defender, weapon)
+func dmg_calc(a, b, w):
 	p = perk_handler
 	var dmg = w.get_damage()
 #	weakness potions effect
@@ -103,7 +117,7 @@ func inputdmgcalc(a, b, w):
 	dmg += b.md
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
-	
+
 #	weapon multi perks
 	dmg = p.offensive_two(a, b, dmg)
 #	dmg boost shop upgrade
@@ -112,14 +126,9 @@ func inputdmgcalc(a, b, w):
 	dmg = dmg * boost
 #	megastreak dmg boost
 	dmg = dmg * (a.mdb + 1)
-	
 #	weapon true perks (healing/true dmg)
 	dmg = p.offensive_three(a, b, dmg)
-	return dmg
 
-#calculate dmg based on input dmg and persons armor
-func outputdmgcalc(a, b, d):
-	p = perk_handler
 	var armor = b.get_armor()
 #	armor base def
 	armor = p.defensive_one(a, b, armor)
@@ -132,13 +141,13 @@ func outputdmgcalc(a, b, d):
 			armor += (e.get_level() * 10)
 #	calculate dmg taken
 	for n in range(armor):
-		d = d * 0.99
+		dmg = dmg * 0.99
 	
 #	armor true def
-	d = p.defensive_three(a, b, d)
+	dmg = p.defensive_three(a, b, dmg)
 #	megastreak true dmg
-	d = d + b.mtd
-	return d
+	dmg = dmg + b.mtd
+	return dmg
 
 #check if guy is dead
 func isDead(who):

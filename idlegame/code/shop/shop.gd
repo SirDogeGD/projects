@@ -8,7 +8,6 @@ var elgatocost = 0
 var maxupgrade = 5
 
 func _ready():
-	$C1/HBoxContainer/GStatShower.type("g")
 	update_labels()
 	if not 2 in stats.pUpgrades:
 		$C1/CMega/BMegastreak.hide()
