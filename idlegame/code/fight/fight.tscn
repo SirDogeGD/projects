@@ -6,7 +6,7 @@
 [ext_resource path="res://code/UI/chat_scene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/effects/effect_show_container.tscn" type="PackedScene" id=5]
 
-[node name="main" type="Node2D"]
+[node name="fight" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="C1" type="VBoxContainer" parent="."]
@@ -170,3 +170,5 @@ margin_left = 375.0
 margin_top = 36.0
 margin_right = 375.0
 margin_bottom = 36.0
+
+[connection signal="gui_input" from="C1/CEnemy/CEnemy" to="." method="_on_CEnemy_gui_input"]

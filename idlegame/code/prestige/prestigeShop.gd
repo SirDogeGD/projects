@@ -1,7 +1,6 @@
 extends Node2D
 
 func _ready():
-	$VBoxContainer/HBoxContainer/RStatShower.type("r")
 	stock()
 
 func _on_BBack_pressed():

@@ -110,3 +110,31 @@ func make_rewards(contract):
 			return rng.randi_range(400, 500)
 		"e":
 			return rng.randi_range(500, 700)
+
+#singe line progress text for contract_show
+func make_text_progress_small(contract):
+	var text = ""
+	match contract.get_type():
+		"p":
+			text += perk_info.perkinfo(contract.get_point()).get_name()
+			text += " kills: ("
+			text += str(contract.get_count())
+			text += "/"
+			text += str(contract.get_maxcount())
+			text += ")"
+			return text
+		"k":
+			text += "Kills: ("
+			text += str(contract.get_count())
+			text += "/"
+			text += str(contract.get_maxcount())
+			text += ")"
+			return text
+		"b":
+			text += "Buy "
+			text += perk_info.perkinfo(contract.get_point()).get_name()
+			return text
+		"e":
+			text += "Win "
+			text += contract.get_point()
+			return text

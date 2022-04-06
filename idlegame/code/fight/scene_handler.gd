@@ -4,16 +4,56 @@ var count = 0
 var perks = 0
 var rng = RandomNumberGenerator.new()
 
+#fight scenes
+var fight = "res://code/fight/fight.tscn"
+var pc = "res://code/perks/perk_choose.tscn"
+var qm = "res://code/events/quickmath/quickmath.tscn"
+var rs = "res://code/shop/runshop.tscn"
+var cc = "res://code/events/contract/contract.tscn"
+
+#various scenes
+var main_menu = "res://code/places/main.tscn"
+var camp = "res://code/places/camp.tscn"
+var shop = "res://code/shop/shop.tscn"
+var megashop = "res://code/shop/mega shop.tscn"
+var prestige = "res://code/prestige/prestige.tscn"
+var prestigeshop = "res://code/prestige/prestigeShop.tscn"
+
+#pause menu stuff
+var pauseMenu = "res://code/UI/pauseMenu/PauseMenu.tscn"
+var pauseMenuFile = preload("res://code/UI/pauseMenu/PauseMenu.tscn")
+var pm
+
+func _ready():
+	self.set_pause_mode(PAUSE_MODE_PROCESS)
+
+#switch to scene s
+func scene(s):
+	match s:
+		pauseMenu:
+			if not get_tree().paused:
+#				pause fight scenes
+				get_tree().paused = true
+				pm = pauseMenuFile.instance()
+				get_tree().root.add_child(pm)
+				pm.z_index = 1000
+			else:
+#				unpause fight scenes
+				get_tree().paused = false
+				get_tree().root.remove_child(pm)
+		_:
+			get_tree().change_scene(s)
+
 func next_scene():
 	if(count == 0):
 		count += 1
-		get_tree().change_scene("res://code/perks/perk_choose.tscn")
+		scene(pc)
 	elif(is_minor()):
 		count += 1
 		what_minor()
 	else:
 		count += 1
-		get_tree().change_scene("res://code/fight/fight.tscn")
+		scene(fight)
 		you.first_strike = true
 
 func is_perk():
@@ -45,12 +85,27 @@ func what_minor():
 	match which:
 		0:
 			if is_perk():
-				get_tree().change_scene("res://code/perks/perk_choose.tscn")
+				scene(pc)
 			else:
 				what_minor()
 		1:
-			get_tree().change_scene("res://code/shop/runshop.tscn")
+			scene("res://code/shop/runshop.tscn")
 		2:
-			get_tree().change_scene("res://code/events/quickmath/quickmath.tscn")
+			scene("res://code/events/quickmath/quickmath.tscn")
 		3:
-			get_tree().change_scene("res://code/events/contract/contract.tscn")
+			scene("res://code/events/contract/contract.tscn")
+
+func _process(delta):
+#	handle pressing escape
+	if Input.is_action_just_pressed("ui_cancel"):
+		match get_tree().current_scene.filename:
+			fight, pc, qm, rs, cc:
+				scene(pauseMenu)
+			shop:
+				scene(camp)
+			megashop:
+				scene(shop)
+			prestige:
+				scene(camp)
+			prestigeshop:
+				scene(prestige)

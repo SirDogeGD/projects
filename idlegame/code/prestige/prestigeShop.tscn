@@ -30,6 +30,7 @@ anchor_bottom = 0.0
 margin_left = 377.0
 margin_right = 750.0
 margin_bottom = 20.0
+type = "r"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 margin_top = 24.0

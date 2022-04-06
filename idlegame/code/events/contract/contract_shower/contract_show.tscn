@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://code/events/contract/contract_shower/contract_show.gd" type="Script" id=1]
+
+[node name="Contractshow" type="CenterContainer"]
+margin_right = 500.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( -517, -23 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG_Dimmer" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContracts" type="VBoxContainer" parent="HSplitContainer"]
+margin_right = 244.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LabelTitle" type="Label" parent="HSplitContainer/VBoxContracts"]
+margin_right = 244.0
+margin_bottom = 14.0
+mouse_filter = 1
+text = "Contracts:"
+
+[node name="VBoxContractInfo" type="VBoxContainer" parent="HSplitContainer"]
+margin_left = 256.0
+margin_right = 500.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelContractInfo" type="Label" parent="HSplitContainer/VBoxContractInfo"]
+margin_right = 244.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+autowrap = true

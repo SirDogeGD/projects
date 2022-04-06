@@ -36,7 +36,7 @@ func save_Stats():
 func load_Stats():
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
-		return # Error! We don't have a save to load.
+		save_Stats()
 	save_game.open("user://savegame.save", File.READ)
 	var json = JSON.parse(save_game.get_as_text())
 	dict = json.result

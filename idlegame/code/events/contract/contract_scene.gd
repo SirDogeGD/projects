@@ -39,9 +39,9 @@ func make_text(num):
 	match contract.get_type():
 		"p":
 			var perk = perk_info.perkinfo(contract.get_point()).get_name()
-			return(str("Get ", contract.get_count(), " kills with ", perk))
+			return(str("Get ", contract.get_maxcount(), " kills with ", perk))
 		"k":
-			return(str("Get ", contract.get_count(), " kills"))
+			return(str("Get ", contract.get_maxcount(), " kills"))
 		"b":
 			var shopitem = perk_info.perkinfo(contract.get_point()).get_name()
 			return(str("Buy ", shopitem))

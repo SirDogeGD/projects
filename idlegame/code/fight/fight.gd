@@ -11,8 +11,6 @@ func _ready():
 	new_enemy()
 	update_stats()
 	var perks = you.get_perks()
-	
-	perk_info.make_choice()
 
 func update_stats():
 	$C1/TB/LS.set_text("Streak: " + String(you.streak))
@@ -20,7 +18,7 @@ func update_stats():
 	$C1/CInv/CCInv/Inv.fill()
 
 func update_hp():
-	$C1/CInv/CHP/PBHP.max_value = you.hp
+	$C1/CInv/CHP/PBHP.max_value = you.hp             #PB = Progress Bar
 	$C1/CInv/CHP/PBHP.value = you.current_hp
 	var healthText = String(round(you.get_hp())) + "/" + String(you.hp)
 	if(you.current_shield > 0):
@@ -51,8 +49,9 @@ func new_enemy():
 	
 	update_hp()
 
-func _process(delta):
-	if Input.is_action_just_pressed("attack") and can_attack:
+#check for attack input
+func _on_CEnemy_gui_input(event):
+	if event.is_action_pressed("attack") and can_attack:
 		_on_BAtk_pressed()
 
 func _on_BAtk_pressed():
