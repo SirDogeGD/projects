@@ -1,6 +1,6 @@
 extends Control
 
-export(String, "g", "xp", "r") var type
+export(String, "g", "xp", "r", "st") var type
 
 func type(t):
 	self.type = t
@@ -17,6 +17,8 @@ func update():
 		"r":
 			$Label.set_text("Renown: " + str(stats.renown))
 			$Label.add_color_override("font_color", Color( 0.56, 0.93, 0.56, 1 ))
+		"st":
+			$Label.set_text("Streak: " + str(you.streak))
 		_:
 			pass
 

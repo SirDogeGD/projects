@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://code/events/contract/contract_shower/contract_show.gd" type="Script" id=1]
+[ext_resource path="res://code/UI/runstats/run_stats.gd" type="Script" id=1]
 
-[node name="Contractshow" type="CenterContainer"]
+[node name="runstats" type="CenterContainer"]
 margin_right = 500.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( -517, -23 )
@@ -28,19 +28,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContracts" type="VBoxContainer" parent="HSplitContainer"]
+[node name="VBox" type="VBoxContainer" parent="HSplitContainer"]
 margin_right = 244.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LabelTitle" type="Label" parent="HSplitContainer/VBoxContracts"]
+[node name="LabelTitle" type="Label" parent="HSplitContainer/VBox"]
 margin_right = 244.0
 margin_bottom = 14.0
 mouse_filter = 1
-text = "Contracts:"
+text = "Run Stats:"
 
-[node name="VBoxContractsComp" type="VBoxContainer" parent="HSplitContainer"]
+[node name="LXP" type="Label" parent="HSplitContainer/VBox"]
+margin_top = 18.0
+margin_right = 244.0
+margin_bottom = 32.0
+text = "XP: "
+
+[node name="LG" type="Label" parent="HSplitContainer/VBox"]
+margin_top = 36.0
+margin_right = 244.0
+margin_bottom = 50.0
+text = "Gold: "
+
+[node name="LDMG" type="Label" parent="HSplitContainer/VBox"]
+margin_top = 54.0
+margin_right = 244.0
+margin_bottom = 68.0
+text = "Dmg: "
+
+[node name="VBoxMega" type="VBoxContainer" parent="HSplitContainer"]
 margin_left = 256.0
 margin_right = 500.0
 margin_bottom = 100.0
@@ -49,11 +67,3 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="LabelContractComp" type="Label" parent="HSplitContainer/VBoxContractsComp"]
-margin_right = 244.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Completed Contracts:"
-autowrap = true

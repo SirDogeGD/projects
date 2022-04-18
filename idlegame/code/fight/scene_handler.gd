@@ -2,6 +2,10 @@ extends Node
 
 var count = 0
 var perks = 0
+var run_g = 0
+var run_xp = 0
+var run_dmg = 0
+
 var rng = RandomNumberGenerator.new()
 
 #fight scenes
@@ -18,6 +22,7 @@ var shop = "res://code/shop/shop.tscn"
 var megashop = "res://code/shop/mega shop.tscn"
 var prestige = "res://code/prestige/prestige.tscn"
 var prestigeshop = "res://code/prestige/prestigeShop.tscn"
+var deathscreen = "res://code/UI/deathscreen/deathscreen.tscn"
 
 #pause menu stuff
 var pauseMenu = "res://code/UI/pauseMenu/PauseMenu.tscn"
@@ -71,6 +76,9 @@ func is_perk():
 func reset():
 	count = 0
 	perks = 0
+	run_g = 0
+	run_xp = 0
+	run_dmg = 0
 
 func is_minor():
 	rng.randomize()
@@ -109,3 +117,16 @@ func _process(delta):
 				scene(camp)
 			prestigeshop:
 				scene(prestige)
+			deathscreen:
+				scene(camp)
+
+#die and go back to spawn
+func deathscreen():
+	scene(deathscreen)
+	
+func death():
+	you.death()
+	if get_tree().paused:
+		get_tree().paused = false
+		get_tree().root.remove_child(pm)
+	scene_handler.reset()

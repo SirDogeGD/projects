@@ -1,10 +1,15 @@
 extends Node
 
+var o = "overdrive"
+var b = "beastmode"
+var dmg : float = 0
+
 func get_all(who, s):
 	var mega = who.get_mega()
 	
 	if(check_activated(mega, s)):
-		chat.mega(mega)
+		if not who.mactive:
+			chat.mega(mega)
 		who.mactive = true
 	
 	var arr = []
@@ -15,65 +20,107 @@ func get_all(who, s):
 	arr.append(get_dmgboost(mega, s))
 	return(arr)
 
+#true dmg taken
 func get_true(name, s):
+	dmg = 0
 	match name:
-		"overdrive":
+		o:
 			if s >= 10:
 				var dmg : float = ((float(s) - 10) / 5) / 10
-				return dmg
-		_:
-			return 0
-	return 0
+	return dmg
 
+#extra dmg taken
 func get_dmg(name, s):
+	dmg = 0
 	match name:
-		"b":
+		b:
 			if s >= 20:
-				var dmg : float = ((float(s) - 10) / 5) / 10
-				return dmg
-		_:
-			return 0
-	return 0
+				dmg = ((float(s) - 10) / 5) / 10
+	return dmg
 
 func get_gboost(name, s):
 	match name:
-		"overdrive":
+		o:
 			if s >= 10:
 				return 0.5
-		"beastmode":
+		b:
 			if s>= 20:
 				return 0.75
 	return 0
 
 func get_xpboost(name, s):
 	match name:
-		"overdrive":
+		o:
 			if s >= 10:
 				return 1
-		"beastmode":
+		b:
 			if s>= 20:
 				return 0.5
 	return 0
 
 func get_dmgboost(name, s):
 	match name:
-		"beastmode":
+		b:
 			return 0.25
-		_:
-			return 0
+	return 0
 
 func check_activated(name, s):
-	match name:
-		"overdrive":
-			if s == 10:
-				return true
-		"beastmode":
-			if s == 20:
-				return true
+	if s >= get_activation(name):
+		return true
 
 func on_death(who, s):
+	who.mactive = false
 	if who.mactive:
 		var mega = who.get_mega()
 		match mega:
-			"overdrive":
+			o:
 				stats.add_stats("xp", 4000)
+
+#get what streak the mega activates
+func get_activation(name):
+	match name:
+		o:
+			return 10
+		b:
+			return 20
+
+#make strings for labels in runstats
+func make_stats(who):
+	var text = []
+	var m = who.get_mega()
+	var s = who.streak
+	
+#	string megastreak name
+	var m1 = m
+	m1 = m1.capitalize()
+	if not megastreak_handler.check_activated(m, s):
+		m1 += " - not active ("
+		m1 += str(s) + "/"
+		m1 += str(megastreak_handler.get_activation(m)) + ")"
+	text.append(m1)
+	
+#	strings mega buffs/debuffs
+	if megastreak_handler.check_activated(m, s):
+		var stats = get_all(who, s)
+		var count = 0
+		for e in stats:
+			if e > 0:
+				var t #text
+				match count:
+					0:
+						t = "Extra true dmg taken: "
+					1:
+						t = "Extra dmg taken: "
+					2:
+						t = "Gold Boost: "
+						e = str(100*e) + "%"
+					3:
+						t = "XP Boost: "
+						e = str(100*e) + "%"
+					4:
+						t = "Extra Dmg: "
+						e = str(100*e) + "%"
+				t += str(e)
+				text.append(t)
+			count += 1
+	return text

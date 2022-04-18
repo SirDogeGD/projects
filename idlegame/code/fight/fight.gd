@@ -13,7 +13,6 @@ func _ready():
 	var perks = you.get_perks()
 
 func update_stats():
-	$C1/TB/LS.set_text("Streak: " + String(you.streak))
 	update_hp()
 	$C1/CInv/CCInv/Inv.fill()
 
@@ -82,7 +81,7 @@ func _on_BAtk_pressed():
 	effect_handler.turn(you)
 
 	if(isDead(you)):
-		you.death()
+		scene_handler.deathscreen()
 	
 	yield(get_tree().create_timer(0.1), "timeout")
 	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 1, 1)
@@ -98,7 +97,6 @@ func atk(a, b, w):
 		if(b.current_shield < 0):
 			b.current_shield = 0
 	else:
-#		b.current_hp -= outputdmgcalc(a, b, inputdmgcalc(a ,b ,w))
 		b.current_hp -= dmg_calc(a, b, w)
 	#if "weapon" is a healing item, use it
 	if(w.get_script() == heal):
@@ -146,6 +144,11 @@ func dmg_calc(a, b, w):
 	dmg = p.defensive_three(a, b, dmg)
 #	megastreak true dmg
 	dmg = dmg + b.mtd
+	
+#	add dmg done to run stats
+	if a == you:
+		scene_handler.run_dmg += round(dmg)
+	
 	return dmg
 
 #check if guy is dead

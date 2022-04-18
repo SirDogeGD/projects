@@ -9,22 +9,24 @@ func _ready():
 func death():
 	megastreak_handler.on_death(self, streak)
 	streak = 0
-	mactive = false
-	get_tree().change_scene("res://code/places/camp.tscn")
 	current_hp = hp
 	remove_on_death()
 	perks.clear()
-	scene_handler.reset()
 	clear_effects()
 
 func kill():
 	you.streak += 1
 	update_megas()
+	
+#	gold and xp
 	var xp = calc_xp(10)
 	var gold = calc_gold(10)
+	scene_handler.run_g += gold
+	scene_handler.run_xp += xp
 	stats.add_stats("xp", xp)
 	stats.add_stats("g", gold)
 	stats.add_stats("k", 1)
+	
 	get_on_kill_heal()
 	contract_handler.perk_and_kills(self.perks)
 	perk_handler.on_kill()

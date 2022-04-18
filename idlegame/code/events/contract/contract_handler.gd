@@ -5,6 +5,7 @@ var contractFile = load("res://code/events/contract/contract.gd")
 var rng = RandomNumberGenerator.new()
 
 var active = []
+var completed = []
 var choices = ["this", "shouldn't", "appear"]
 
 #func _ready():
@@ -98,6 +99,7 @@ func complete(contract):
 	var gold = make_rewards(contract)
 	stats.add_stats("g", gold)
 	chat.contract_comp(gold)
+	completed.append(contract)
 	active.erase(contract)
 
 func make_rewards(contract):

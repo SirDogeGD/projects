@@ -1,4 +1,4 @@
 extends Node2D
 
-func _ready():
-	pass
+func _on_ButtonSpawn_pressed():
+	scene_handler.deathscreen()
