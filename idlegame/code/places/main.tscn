@@ -37,9 +37,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 2 )
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="C1" type="CenterContainer" parent="C"]
 margin_right = 750.0
