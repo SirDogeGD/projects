@@ -1,19 +1,16 @@
 extends Node
 
-var pname
-var desc
-
-func _ready():
-	pass # Replace with function body.
+var pname setget set_name, get_name
+var desc setget set_desc, get_desc
 
 func set_name(n):
-	self.pname = n
+	pname = n
 
 func get_name():
-	return self.pname
+	return pname
 
 func set_desc(d):
-	self.desc = d
+	desc = d
 
 func get_desc():
-	return self.desc
+	return desc
