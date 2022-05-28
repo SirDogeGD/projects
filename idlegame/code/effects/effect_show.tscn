@@ -7,13 +7,10 @@
 rect_min_size = Vector2( 20, 20 )
 rect_scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Icon" type="TextureRect" parent="."]
 margin_right = 15.0
-margin_bottom = 20.0
+margin_bottom = 15.0
 texture = ExtResource( 1 )
 stretch_mode = 6
 __meta__ = {

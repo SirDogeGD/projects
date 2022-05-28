@@ -1,7 +1,7 @@
 extends "res://code/player/guy.gd"
 
 func _ready():
-	pass
+	is_player = false
 
 func death():
 	scene_handler.next_scene()

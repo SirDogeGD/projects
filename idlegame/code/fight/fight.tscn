@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://code/fight/fight.gd" type="Script" id=1]
 [ext_resource path="res://code/UI/inventory.tscn" type="PackedScene" id=2]
 [ext_resource path="res://code/UI/statShower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://code/UI/chat_scene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/effects/effect_show_container.tscn" type="PackedScene" id=5]
+[ext_resource path="res://code/UI/hp/HeartBar.tscn" type="PackedScene" id=6]
 
 [node name="fight" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,9 +15,6 @@ margin_right = 750.0
 margin_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TB" type="HBoxContainer" parent="C1"]
 margin_right = 750.0
@@ -57,33 +55,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="CeHP" type="PanelContainer" parent="C1/CEnemy"]
-margin_right = 750.0
+[node name="HeartBar" parent="C1/CEnemy" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 92.0
+margin_right = 658.0
 margin_bottom = 45.0
-rect_min_size = Vector2( 0, 10 )
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="PBeHP" type="ProgressBar" parent="C1/CEnemy/CeHP"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 743.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-percent_visible = false
-
-[node name="LeHP" type="Label" parent="C1/CEnemy/CeHP"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 743.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "enemy HP Label
-"
-align = 1
-valign = 1
+who = "enemy"
 
 [node name="EffSContainer" parent="C1/CEnemy" instance=ExtResource( 5 )]
 margin_left = 0.0
@@ -129,36 +107,15 @@ margin_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CHP" type="PanelContainer" parent="C1/CInv"]
-margin_right = 750.0
-margin_bottom = 28.0
-size_flags_horizontal = 3
-
-[node name="PBHP" type="ProgressBar" parent="C1/CInv/CHP"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 743.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-percent_visible = false
-
-[node name="LHP" type="Label" parent="C1/CInv/CHP"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 743.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "HP Label"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HeartBar" parent="C1/CInv" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 92.0
+margin_right = 658.0
+margin_bottom = 45.0
 
 [node name="CCInv" type="CenterContainer" parent="C1/CInv"]
-margin_top = 32.0
+margin_top = 49.0
 margin_right = 750.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
@@ -168,8 +125,8 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 375.0
-margin_top = 35.0
+margin_top = 27.0
 margin_right = 375.0
-margin_bottom = 35.0
+margin_bottom = 27.0
 
 [connection signal="gui_input" from="C1/CEnemy/CEnemy" to="." method="_on_CEnemy_gui_input"]

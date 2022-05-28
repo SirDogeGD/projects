@@ -4,36 +4,38 @@ var perkFile = load("res://code/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://code/player/enemy.gd")
 var enemy
-
 var can_attack = true
 
 func _ready():
 	new_enemy()
 	update_stats()
-	var perks = you.get_perks()
+	
+	you.connect("health_changed", $C1/CInv/HeartBar ,"update_health")
 
 func update_stats():
-	update_hp()
+#	update_hp()
 	$C1/CInv/CCInv/Inv.fill()
 
-func update_hp():
-	$C1/CInv/CHP/PBHP.max_value = you.hp             #PB = Progress Bar
-	$C1/CInv/CHP/PBHP.value = you.current_hp
-	var healthText = String(round(you.get_hp())) + "/" + String(you.hp)
-	if(you.current_shield > 0):
-		healthText += " + "
-		healthText += String(round(you.get_shield()))
-	$C1/CInv/CHP/LHP.set_text(healthText)
-	
-	$C1/CEnemy/CeHP/PBeHP.max_value = enemy.hp
-	$C1/CEnemy/CeHP/PBeHP.value = enemy.current_hp
-	$C1/CEnemy/CeHP/LeHP.set_text(String(round(enemy.get_hp())) + "/" + String(enemy.hp))
+#func update_hp():
+#	$C1/CInv/CHP/PBHP.max_value = you.hp             #PB = Progress Bar
+#	print(you.current_hp)
+#	$C1/CInv/CHP/PBHP.value = you.current_hp
+#	var healthText = String(round(you.get_hp())) + "/" + String(you.hp)
+#	if(you.current_shield > 0):
+#		healthText += " + "
+#		healthText += String(round(you.get_shield()))
+#	$C1/CInv/CHP/LHP.set_text(healthText)
+#
+#	$C1/CEnemy/CeHP/PBeHP.max_value = enemy.hp
+#	$C1/CEnemy/CeHP/PBeHP.value = enemy.current_hp
+#	$C1/CEnemy/CeHP/LeHP.set_text(String(round(enemy.get_hp())) + "/" + String(enemy.hp))
 
 func new_enemy():
 	enemy = enemyFile.new()
 	enemy.create_empty_inv()
 	enemy.add_to_inv(item_creator.default_sword())
 	enemy.random_hp()
+	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
 	
 #	random image
 	var e1 = preload("res://icons/enemy/enemy1.png")
@@ -46,7 +48,7 @@ func new_enemy():
 	var sprite = $C1/CEnemy/CEnemy/Enemy
 	sprite.texture = eimg
 	
-	update_hp()
+#	update_hp()
 
 #check for attack input
 func _on_CEnemy_gui_input(event):

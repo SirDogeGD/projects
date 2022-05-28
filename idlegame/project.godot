@@ -23,7 +23,6 @@ config/icon="res://icon.png"
 
 stats="*res://code/player/stats.gd"
 you="*res://code/player/you.gd"
-guy="res://code/player/guy.gd"
 chat="*res://code/UI/chat.gd"
 item_creator="*res://code/items/item_creator.gd"
 shop_handler="*res://code/shop/shop_handler.gd"

@@ -67,8 +67,5 @@ func make_choice():
 #	get random perks from pool
 	randomize()
 	perks.shuffle()
-	choice.clear()
-	choice.append(perks[0])
-	choice.append(perks[1])
-	choice.append(perks[2])
+	choice = perks.slice(0,2)
 	return choice

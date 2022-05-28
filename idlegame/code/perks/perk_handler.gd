@@ -50,23 +50,27 @@ func offensive_two(a, b, d):
 #weapon true perks
 func offensive_three(a, b, d):
 	get_perks(a, b)
-	if 12 in perks_a:
-		if combo%4 == 0:
-			a.heal(0, 0.8)
-	if 14 in perks_a:
-		if combo%4 == 0:
-			var e = effect_handler.new_effect("weakness", 1, 1)
-			effect_handler.add_effect(e, b)
-	if 15 in perks_a:
-		a.heal(d * 0.04, 0)
+	for p in perks_a:
+		match p:
+			"C_SHIELD":
+				if combo%4 == 0:
+					a.heal(0, 0.8)
+			"C_CRUSH":
+				if combo%4 == 0:
+					var e = effect_handler.new_effect("weakness", 1, 1)
+					effect_handler.add_effect(e, b)
+			"LS":
+				a.heal(d * 0.04, 0)
 	return d
 #armor base perks
 func defensive_one(a, b, armor):
 	get_perks(a, b)
-	if 6 in perks_b:
-		armor += 5
-	if 7 in perks_b:
-		armor += 6
+	for p in perks_a:
+		match p:
+			"DIA_BOOT":
+				armor += 5
+			"DIA_CHEST":
+				armor += 6
 	return armor
 #armor multi perks
 func defensive_two(a, b, armor):
@@ -79,9 +83,11 @@ func defensive_three(a, b, d):
 
 func on_kill():
 	var perks = you.get_perks()
-	if "C_JAN" in perks:
-		var e = effect_handler.new_effect("res", 1, 2)
-		effect_handler.add_effect(e, you)
+	for p in perks:
+		match p:
+			"C_JAN":
+				var e = effect_handler.new_effect("res", 1, 2)
+				effect_handler.add_effect(e, you)
 
 func get_perks(a, b):
 	perks_a = a.get_perks()

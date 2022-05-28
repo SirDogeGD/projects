@@ -15,7 +15,7 @@ func update_effects(who, effects):
 		for i in effects:
 			var e = effshow.instance()
 			e.set(i.get_name(), i.get_level())
-			$".".add_child(e)
+			add_child(e)
 
 func clear():
 	for i in range(0, get_child_count()):

@@ -1,11 +1,14 @@
 extends Node
 
+signal health_changed(hp, max_hp, shield)
+
 var hp = 20
-var current_hp = 20
+var current_hp = 20 setget set_hp, get_hp
 var current_shield = 0
 var armor = 10
 var streak = 0
 var first_strike = true
+var is_player = true
 
 var invsize = 6
 var inv = {}
@@ -33,6 +36,10 @@ var mdb : float = 0
 
 func _ready():
 	pass
+
+func set_hp(new_hp):
+	current_hp = new_hp
+	emit_signal("health_changed", current_hp, hp, current_shield)
 
 func get_hp():
 	return current_hp
@@ -106,10 +113,8 @@ func add_to_inv(item):
 						is_added = true
 
 func heal(h, s):
-	self.current_hp += h
-	if (self.current_hp > self.hp):
-		self.current_hp = self.hp
-	self.current_shield += s
+	set_hp(current_hp + h)
+	current_shield += s
 
 func consume_item():
 	var item = you.get_inv_slot(you.get_selected())
