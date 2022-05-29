@@ -11,24 +11,11 @@ func _ready():
 	update_stats()
 	
 	you.connect("health_changed", $C1/CInv/HeartBar ,"update_health")
+	for e in [you, enemy]:
+		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
 
 func update_stats():
-#	update_hp()
 	$C1/CInv/CCInv/Inv.fill()
-
-#func update_hp():
-#	$C1/CInv/CHP/PBHP.max_value = you.hp             #PB = Progress Bar
-#	print(you.current_hp)
-#	$C1/CInv/CHP/PBHP.value = you.current_hp
-#	var healthText = String(round(you.get_hp())) + "/" + String(you.hp)
-#	if(you.current_shield > 0):
-#		healthText += " + "
-#		healthText += String(round(you.get_shield()))
-#	$C1/CInv/CHP/LHP.set_text(healthText)
-#
-#	$C1/CEnemy/CeHP/PBeHP.max_value = enemy.hp
-#	$C1/CEnemy/CeHP/PBeHP.value = enemy.current_hp
-#	$C1/CEnemy/CeHP/LeHP.set_text(String(round(enemy.get_hp())) + "/" + String(enemy.hp))
 
 func new_enemy():
 	enemy = enemyFile.new()
@@ -85,7 +72,7 @@ func _on_BAtk_pressed():
 	if(isDead(you)):
 		scene_handler.deathscreen()
 	
-	yield(get_tree().create_timer(0.1), "timeout")
+	yield(get_tree().create_timer(0.2), "timeout")
 	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 1, 1)
 	can_attack = true
 	update_stats()

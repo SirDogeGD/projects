@@ -13,12 +13,12 @@ func c2():
 func c3():
 	contract_handler.choose(2)
 
-func _process(delta):
-	if Input.is_action_just_pressed("inv_1"):
+func _input(event):
+	if event.is_action_just_pressed("inv_1"):
 		c1()
-	if Input.is_action_just_pressed("inv_2"):
+	if event.is_action_just_pressed("inv_2"):
 		c2()
-	if Input.is_action_just_pressed("inv_3"):
+	if event.is_action_just_pressed("inv_3"):
 		c3()
 
 func update_labels():
