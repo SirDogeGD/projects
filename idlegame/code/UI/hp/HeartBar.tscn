@@ -4,14 +4,20 @@
 [ext_resource path="res://code/UI/hp/HeartBar.gd" type="Script" id=2]
 
 [node name="HeartBar" type="VBoxContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 566.0
+margin_bottom = 100.0
 size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="1" type="GridContainer" parent="."]
-margin_right = 750.0
+margin_right = 566.0
 margin_bottom = 45.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 10
 
 [node name="1" type="TextureRect" parent="1"]
@@ -77,6 +83,83 @@ texture = ExtResource( 1 )
 stretch_mode = 3
 
 [node name="10" type="TextureRect" parent="1"]
+margin_left = 513.0
+margin_right = 566.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="2" type="GridContainer" parent="."]
+margin_top = 49.0
+margin_right = 566.0
+margin_bottom = 94.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 10
+
+[node name="1" type="TextureRect" parent="2"]
+margin_right = 53.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="2" type="TextureRect" parent="2"]
+margin_left = 57.0
+margin_right = 110.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="3" type="TextureRect" parent="2"]
+margin_left = 114.0
+margin_right = 167.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="4" type="TextureRect" parent="2"]
+margin_left = 171.0
+margin_right = 224.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="5" type="TextureRect" parent="2"]
+margin_left = 228.0
+margin_right = 281.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="6" type="TextureRect" parent="2"]
+margin_left = 285.0
+margin_right = 338.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="7" type="TextureRect" parent="2"]
+margin_left = 342.0
+margin_right = 395.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="8" type="TextureRect" parent="2"]
+margin_left = 399.0
+margin_right = 452.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="9" type="TextureRect" parent="2"]
+margin_left = 456.0
+margin_right = 509.0
+margin_bottom = 45.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="10" type="TextureRect" parent="2"]
 margin_left = 513.0
 margin_right = 566.0
 margin_bottom = 45.0

@@ -50,30 +50,28 @@ type = "g"
 [node name="CEnemy" type="VBoxContainer" parent="C1"]
 margin_top = 24.0
 margin_right = 750.0
-margin_bottom = 536.0
+margin_bottom = 499.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
 [node name="HeartBar" parent="C1/CEnemy" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 92.0
 margin_right = 658.0
-margin_bottom = 45.0
+margin_bottom = 94.0
 who = "enemy"
 
 [node name="EffSContainer" parent="C1/CEnemy" instance=ExtResource( 5 )]
 margin_left = 0.0
-margin_top = 49.0
+margin_top = 98.0
 margin_right = 750.0
-margin_bottom = 69.0
+margin_bottom = 118.0
 assigned = "enemy"
 
 [node name="CEnemy" type="CenterContainer" parent="C1/CEnemy"]
-margin_top = 73.0
+margin_top = 122.0
 margin_right = 750.0
-margin_bottom = 512.0
+margin_bottom = 475.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -81,9 +79,9 @@ size_flags_vertical = 3
 position = Vector2( 375, 200 )
 
 [node name="CChF" type="HBoxContainer" parent="C1"]
-margin_top = 540.0
+margin_top = 503.0
 margin_right = 750.0
-margin_bottom = 643.0
+margin_bottom = 598.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -91,33 +89,32 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 657.0
-margin_bottom = 103.0
+margin_bottom = 95.0
 
 [node name="EffSContainer" parent="C1/CChF" instance=ExtResource( 5 )]
 margin_left = 661.0
 margin_top = 0.0
 margin_right = 750.0
-margin_bottom = 103.0
+margin_bottom = 95.0
 assigned = "you"
 
 [node name="CInv" type="VBoxContainer" parent="C1"]
-margin_top = 647.0
+margin_top = 602.0
 margin_right = 750.0
 margin_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HeartBar" parent="C1/CInv" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 92.0
 margin_right = 658.0
-margin_bottom = 45.0
+margin_bottom = 94.0
 
 [node name="CCInv" type="CenterContainer" parent="C1/CInv"]
-margin_top = 49.0
+margin_top = 98.0
 margin_right = 750.0
-margin_bottom = 103.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -125,8 +122,8 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 375.0
-margin_top = 27.0
+margin_top = 25.0
 margin_right = 375.0
-margin_bottom = 27.0
+margin_bottom = 25.0
 
 [connection signal="gui_input" from="C1/CEnemy/CEnemy" to="." method="_on_CEnemy_gui_input"]
