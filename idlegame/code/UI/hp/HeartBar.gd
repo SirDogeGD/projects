@@ -34,7 +34,8 @@ func update_health(value, max_hp, shield):
 func add_heart(t):
 	var tr = TextureRect.new()
 	tr.texture = t
-	tr.rect_scale = Vector2(0,0)
+	tr.size_flags_horizontal = SIZE_SHRINK_CENTER
+	tr.size_flags_vertical = SIZE_SHRINK_CENTER
 	var placed = false
 	var grid : GridContainer
 	
