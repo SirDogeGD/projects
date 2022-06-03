@@ -4,7 +4,7 @@ var itemFile = preload("res://code/prestige/pshopItem.tscn")
 
 #Should always be changed to:
 #(amount of shop items) + 1
-var amount = 7
+var amount = 8
 
 func _ready():
 	pass
@@ -54,3 +54,5 @@ func item_list(id):
 			return([5, 5, "Gold boost I", "get +2.5% gold on kill"])
 		6:
 			return([6, 10, "Mysticism II", "new perks\n+1 perk slot"])
+		7:
+			return([7, 15, "Damage Numbers", "Show Damage"])

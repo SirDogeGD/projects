@@ -14,11 +14,11 @@ func c3():
 	contract_handler.choose(2)
 
 func _input(event):
-	if event.is_action_just_pressed("inv_1"):
+	if event.is_action_pressed("inv_1"):
 		c1()
-	if event.is_action_just_pressed("inv_2"):
+	if event.is_action_pressed("inv_2"):
 		c2()
-	if event.is_action_just_pressed("inv_3"):
+	if event.is_action_pressed("inv_3"):
 		c3()
 
 func update_labels():

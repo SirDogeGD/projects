@@ -1,6 +1,7 @@
 extends Node
 
 signal health_changed(hp, max_hp, shield)
+signal effects_changed(effects)
 
 var hp = 20
 var current_hp = 20 setget set_hp, get_hp
@@ -14,7 +15,7 @@ var invsize = 6
 var inv = {}
 var heal_perk = "gap"
 var perks = []
-var effects = []
+var effects = [] setget add_effect, get_effects
 var upgrades = {
 	"xpboost":0,
 	"gboost":0,
@@ -38,7 +39,7 @@ func _ready():
 	pass
 
 func set_hp(new_hp):
-	current_hp = new_hp
+	current_hp = min(new_hp, hp)
 	emit_signal("health_changed", current_hp, hp, current_shield)
 
 func get_hp():
@@ -129,12 +130,14 @@ func random_hp():
 
 func add_effect(e):
 	effects.append(e)
+	emit_signal("effects_changed", effects)
 	
 func clear_effects():
 	effects.clear()
+	emit_signal("effects_changed", effects)
 
 func get_effects():
-	return self.effects
+	return effects
 
 func set_mega(name):
 	mega = name

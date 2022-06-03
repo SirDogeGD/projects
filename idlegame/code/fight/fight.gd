@@ -9,10 +9,7 @@ var can_attack = true
 func _ready():
 	new_enemy()
 	update_stats()
-	
-	you.connect("health_changed", $C1/CInv/HeartBar ,"update_health")
-	for e in [you, enemy]:
-		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
+	in_signals()
 
 func update_stats():
 	$C1/CInv/CCInv/Inv.fill()
@@ -22,7 +19,6 @@ func new_enemy():
 	enemy.create_empty_inv()
 	enemy.add_to_inv(item_creator.default_sword())
 	enemy.random_hp()
-	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
 	
 #	random image
 	var e1 = preload("res://icons/enemy/enemy1.png")
@@ -79,14 +75,16 @@ func _on_BAtk_pressed():
 
 #atk(attacker, defender, weapon)
 func atk(a, b, w):
+	var d = dmg_calc(a, b, w)
 	var heal = load("res://code/items/heal.gd")
 	#shield takes dmg before hp
 	if(b.current_shield > 0):
-		b.current_shield -= dmg_calc(a, b, w)
+		b.current_shield -= d
 		if(b.current_shield < 0):
 			b.current_shield = 0
 	else:
-		b.current_hp -= dmg_calc(a, b, w)
+		b.current_hp -= d
+	
 	#if "weapon" is a healing item, use it
 	if(w.get_script() == heal):
 		w.use_on(a)
@@ -137,6 +135,8 @@ func dmg_calc(a, b, w):
 #	add dmg done to run stats
 	if a == you:
 		scene_handler.run_dmg += round(dmg)
+		if 7 in stats.pUpgrades: #dmg numbers
+			$C1/CEnemy/CEnemy/FCTManager.show_value(dmg)
 	
 	return dmg
 
@@ -146,3 +146,12 @@ func isDead(who):
 		return true
 	else:
 		return false
+
+func in_signals():
+	you.connect("health_changed", $C1/CInv/HeartBar ,"update_health")
+	you.connect("effects_changed", $C1/CChF/EffSContainer, "update_effects")
+	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
+	enemy.connect("effects_changed", $C1/CEnemy/EffSContainer, "update_effects")
+	for e in [you, enemy]:
+		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
+		e.emit_signal("effects_changed", e.effects)

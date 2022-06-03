@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://code/fight/fight.gd" type="Script" id=1]
 [ext_resource path="res://code/UI/inventory.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://code/UI/chat_scene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/effects/effect_show_container.tscn" type="PackedScene" id=5]
 [ext_resource path="res://code/UI/hp/HeartBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://code/UI/fct/FCTManager.tscn" type="PackedScene" id=7]
 
 [node name="fight" type="Node2D"]
 script = ExtResource( 1 )
@@ -71,7 +72,6 @@ margin_left = 0.0
 margin_top = 54.0
 margin_right = 750.0
 margin_bottom = 74.0
-assigned = "enemy"
 
 [node name="CEnemy" type="CenterContainer" parent="C1/CEnemy"]
 margin_top = 78.0
@@ -82,6 +82,9 @@ size_flags_vertical = 3
 
 [node name="Enemy" type="Sprite" parent="C1/CEnemy/CEnemy"]
 position = Vector2( 375, 200 )
+
+[node name="FCTManager" parent="C1/CEnemy/CEnemy" instance=ExtResource( 7 )]
+position = Vector2( 362, 187 )
 
 [node name="CChF" type="HBoxContainer" parent="C1"]
 margin_top = 501.0
@@ -101,7 +104,6 @@ margin_left = 661.0
 margin_top = 0.0
 margin_right = 750.0
 margin_bottom = 95.0
-assigned = "you"
 
 [node name="CInv" type="VBoxContainer" parent="C1"]
 margin_top = 600.0
