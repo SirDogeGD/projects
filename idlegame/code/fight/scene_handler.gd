@@ -29,6 +29,10 @@ var pauseMenu = "res://code/UI/pauseMenu/PauseMenu.tscn"
 var pauseMenuFile = preload("res://code/UI/pauseMenu/PauseMenu.tscn")
 var pm
 
+#transition
+var transition = preload("res://code/events/transition/transition.tscn")
+var ttext
+
 func _ready():
 	self.set_pause_mode(PAUSE_MODE_PROCESS)
 
@@ -82,7 +86,7 @@ func reset():
 
 func is_minor():
 	rng.randomize()
-	var chance = rng.randi_range(1,70)
+	var chance = rng.randi_range(1,10)
 	if(chance <= 5):
 		return true
 	return false
@@ -94,14 +98,20 @@ func what_minor():
 		0:
 			if is_perk():
 				scene(pc)
+				ttext = "Perk Choice"
 			else:
 				what_minor()
 		1:
 			scene("res://code/shop/runshop.tscn")
+			ttext = "Shop"
 		2:
 			scene("res://code/events/quickmath/quickmath.tscn")
+			ttext = "Quick Maths"
 		3:
 			scene("res://code/events/contract/contract.tscn")
+			ttext = "Contract"
+	
+	transition_scene(ttext)
 
 func _process(delta):
 #	handle pressing escape
@@ -130,3 +140,8 @@ func death():
 		get_tree().paused = false
 		get_tree().root.remove_child(pm)
 	scene_handler.reset()
+
+func transition_scene(tt):
+	var t = transition.instance()
+	t.set_text(tt)
+	get_tree().root.add_child(t)
