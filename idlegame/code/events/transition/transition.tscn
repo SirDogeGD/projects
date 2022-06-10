@@ -29,6 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "fade_away"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -36,13 +37,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.9 ),
+"times": PoolRealArray( 0, 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Transition" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="bg_dimmer" type="Panel" parent="."]
@@ -50,9 +52,7 @@ modulate = Color( 1, 1, 1, 0.490196 )
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 750, 750 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+mouse_filter = 2
 
 [node name="Text" type="Label" parent="."]
 anchor_right = 1.0
@@ -63,9 +63,6 @@ text = "TEST"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )

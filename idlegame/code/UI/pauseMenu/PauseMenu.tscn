@@ -15,9 +15,6 @@ margin_right = 750.0
 margin_bottom = 750.0
 rect_min_size = Vector2( 750, 750 )
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CC" type="CenterContainer" parent="."]
 margin_right = 750.0

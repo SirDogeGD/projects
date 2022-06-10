@@ -142,6 +142,8 @@ func death():
 	scene_handler.reset()
 
 func transition_scene(tt):
+	get_tree().paused = true
 	var t = transition.instance()
 	t.set_text(tt)
 	get_tree().root.add_child(t)
+	t.z_index = 1000
