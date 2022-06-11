@@ -1,6 +1,7 @@
 extends Node
 
 var count = 0
+var last_minor = 0
 var perks = 0
 var run_g = 0
 var run_xp = 0
@@ -86,9 +87,11 @@ func reset():
 
 func is_minor():
 	rng.randomize()
-	var chance = rng.randi_range(1,10)
-	if(chance <= 5):
+	var chance = rng.randi_range(1,70)
+	if(chance <= 5 and last_minor >= 10):
+		last_minor = 0
 		return true
+	last_minor += 1
 	return false
 
 func what_minor():
