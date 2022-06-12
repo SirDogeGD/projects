@@ -84,6 +84,7 @@ func reset():
 	run_g = 0
 	run_xp = 0
 	run_dmg = 0
+	last_minor = 0
 
 func is_minor():
 	rng.randomize()
