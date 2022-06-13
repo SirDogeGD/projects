@@ -3,7 +3,7 @@ class_name perk
 
 var pname : String setget set_name, get_name
 var desc : String setget set_desc, get_desc
-var nums : Dictionary
+var nums : Array
 var unlock : String = "DEFAULT"
 
 func set_name(n:String):
@@ -16,9 +16,13 @@ func set_desc(d:String):
 	desc = d
 
 func get_desc():
-	return desc % nums[0]
+	var string_array : PoolStringArray
+	for n in nums[0]:
+		string_array.append(str(n))
+	var desc_with_nums = desc % string_array
+	return(desc_with_nums)
 
-func set_nums(n:Dictionary):
+func set_nums(n:Array):
 	nums = n
 
 func set_unlock(u:String):
