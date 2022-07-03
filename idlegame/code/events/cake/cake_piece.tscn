@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://code/events/cake/cake_piece.gd" type="Script" id=1]
-[ext_resource path="res://code/UI/fct/FCT.tscn" type="PackedScene" id=2]
+[ext_resource path="res://code/UI/fct/FCTManager.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -11,7 +11,6 @@ anchor_bottom = 1.0
 margin_right = -650.0
 margin_bottom = -650.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 theme = SubResource( 1 )
 script = ExtResource( 1 )
 
@@ -22,8 +21,10 @@ rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="FCT" parent="TextureRect" instance=ExtResource( 2 )]
+[node name="FCTManager" parent="TextureRect" instance=ExtResource( 3 )]
+position = Vector2( 48, 40 )
 
 [connection signal="gui_input" from="." to="." method="_on_Cake_Piece_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_Cake_Piece_mouse_entered"]
 [connection signal="gui_input" from="TextureRect" to="." method="_on_TextureRect_gui_input"]
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_TextureRect_mouse_entered"]
