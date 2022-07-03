@@ -8,6 +8,9 @@ rect_min_size = Vector2( 750, 750 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GridContainer" type="GridContainer" parent="."]
 margin_left = 169.0
@@ -139,5 +142,7 @@ margin_right = 412.0
 margin_bottom = 412.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

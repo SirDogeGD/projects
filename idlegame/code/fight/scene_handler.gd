@@ -88,8 +88,9 @@ func reset():
 
 func is_minor():
 	rng.randomize()
-	var chance = rng.randi_range(1,70)
+	var chance = rng.randi_range(1,10)
 	if(chance <= 5 and last_minor >= 10):
+#	if(chance <= 5):
 		last_minor = 0
 		return true
 	last_minor += 1
