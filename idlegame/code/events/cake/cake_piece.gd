@@ -4,6 +4,9 @@ signal eated
 var yummy := false setget set_yummy
 var reward = 2
 
+var img_normal = preload("res://code/events/cake/imgs/cake_piece_normal.bmp")
+var img_yummy = preload("res://code/events/cake/imgs/cake_piece_yummy.bmp")
+
 func _ready():
 	$TextureRect/FCTManager.z_index = 1000
 
@@ -22,6 +25,8 @@ func set_yummy(s:bool):
 	
 	match s:
 		true:
-			$TextureRect.modulate = Color(1,0,1)
+			$TextureRect.texture = img_yummy
+#			$TextureRect.self_modulate = Color(1,0,1)
 		false:
-			$TextureRect.modulate = Color(1,1,1)
+			$TextureRect.texture = img_normal
+#			$TextureRect.self_modulate = Color(1,1,1)

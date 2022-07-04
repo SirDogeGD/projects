@@ -7,8 +7,8 @@ export var duration = 2
 export var spread = PI/2
 
 func show_value(value, crit=false):
-	if value > 0:
+	if typeof(value) == TYPE_INT and value > 0:
 		value = stepify(value,0.01)
-		var fct = FCT.instance()
-		add_child(fct)
-		fct.show_value(str(value), travel, duration, spread, crit)
+	var fct = FCT.instance()
+	add_child(fct)
+	fct.show_value(str(value), travel, duration, spread, crit)
