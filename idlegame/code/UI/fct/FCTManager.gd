@@ -7,7 +7,7 @@ export var duration = 2
 export var spread = PI/2
 
 func show_value(value, crit=false):
-	if typeof(value) == TYPE_INT and value > 0:
+	if typeof(value) == TYPE_REAL and value > 0:
 		value = stepify(value,0.01)
 	var fct = FCT.instance()
 	add_child(fct)

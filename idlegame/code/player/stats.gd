@@ -56,7 +56,7 @@ func load_Stats():
 	
 	return dict
 
-func add_stats(what, value):
+func add_stats(what: String, value):
 #resources
 	if(what == "xp"):
 		xp += value
@@ -71,3 +71,4 @@ func add_stats(what, value):
 	if what == "r":
 		renown += value
 	save_Stats()
+	get_tree().call_group("stats_shower", "update")

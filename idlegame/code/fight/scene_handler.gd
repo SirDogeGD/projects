@@ -15,6 +15,7 @@ var pc = "res://code/perks/perk_choose.tscn"
 var qm = "res://code/events/quickmath/quickmath.tscn"
 var rs = "res://code/shop/runshop.tscn"
 var cc = "res://code/events/contract/contract.tscn"
+var gk = "res://code/events/cake/cake.tscn"
 
 #various scenes
 var main_menu = "res://code/places/main.tscn"
@@ -58,6 +59,8 @@ func next_scene():
 	if(count == 0):
 		count += 1
 		scene(pc)
+#		ttext = "Perk Choice"
+#		transition_scene(ttext)
 	elif(is_minor()):
 		count += 1
 		what_minor()
@@ -88,9 +91,8 @@ func reset():
 
 func is_minor():
 	rng.randomize()
-	var chance = rng.randi_range(1,10)
+	var chance = rng.randi_range(1,20)
 	if(chance <= 5 and last_minor >= 10):
-#	if(chance <= 5):
 		last_minor = 0
 		return true
 	last_minor += 1
@@ -98,7 +100,7 @@ func is_minor():
 
 func what_minor():
 	rng.randomize()
-	var which = rng.randi_range(0,3)
+	var which = rng.randi_range(0,4)
 	match which:
 		0:
 			if is_perk():
@@ -107,15 +109,17 @@ func what_minor():
 			else:
 				what_minor()
 		1:
-			scene("res://code/shop/runshop.tscn")
+			scene(rs)
 			ttext = "Shop"
 		2:
-			scene("res://code/events/quickmath/quickmath.tscn")
+			scene(qm)
 			ttext = "Quick Maths"
 		3:
-			scene("res://code/events/contract/contract.tscn")
+			scene(cc)
 			ttext = "Contract"
-	
+		4:
+			scene(gk)
+			ttext = "Giant Cake"
 	transition_scene(ttext)
 
 func _process(delta):

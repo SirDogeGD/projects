@@ -2,8 +2,11 @@ extends Control
 
 export(String, "g", "xp", "r", "st") var type
 
+func _ready():
+	update()
+
 func type(t):
-	self.type = t
+	type = t
 	update()
 
 func update():
@@ -21,6 +24,3 @@ func update():
 			$Label.set_text("Streak: " + str(you.streak))
 		_:
 			pass
-
-func _process(delta):
-	update()

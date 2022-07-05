@@ -2,7 +2,7 @@
 
 [ext_resource path="res://code/UI/statShower.gd" type="Script" id=1]
 
-[node name="StatShower" type="Control"]
+[node name="StatShower" type="Control" groups=["stats_shower"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -650.0
@@ -10,9 +10,6 @@ margin_bottom = -730.0
 rect_min_size = Vector2( 100, 20 )
 size_flags_horizontal = 3
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0

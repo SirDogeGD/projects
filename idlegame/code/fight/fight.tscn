@@ -2,7 +2,7 @@
 
 [ext_resource path="res://code/fight/fight.gd" type="Script" id=1]
 [ext_resource path="res://code/UI/inventory.tscn" type="PackedScene" id=2]
-[ext_resource path="res://code/UI/statShower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://code/UI/Top_Bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://code/UI/chat_scene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/effects/effect_show_container.tscn" type="PackedScene" id=5]
 [ext_resource path="res://code/UI/hp/HeartBar.tscn" type="PackedScene" id=6]
@@ -20,36 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TB" type="HBoxContainer" parent="C1"]
-margin_right = 750.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-
-[node name="XPStatShower" parent="C1/TB" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 247.0
-margin_bottom = 20.0
-type = "xp"
-
-[node name="StatShower" parent="C1/TB" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 251.0
-margin_right = 498.0
-margin_bottom = 20.0
-type = "st"
-
-[node name="GStatShower" parent="C1/TB" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 502.0
-margin_right = 750.0
-margin_bottom = 20.0
-type = "g"
+[node name="TB" parent="C1" instance=ExtResource( 3 )]
 
 [node name="CEnemy" type="VBoxContainer" parent="C1"]
 margin_top = 24.0

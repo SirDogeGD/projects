@@ -1,32 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://code/events/cake/cake_piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://code/events/cake/cake.gd" type="Script" id=2]
 [ext_resource path="res://code/UI/hp/HeartBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://code/UI/Top_Bar.tscn" type="PackedScene" id=4]
 
 [node name="cake" type="VBoxContainer"]
 rect_min_size = Vector2( 750, 750 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="TB" parent="." instance=ExtResource( 4 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 100.0
 autostart = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 24.0
 margin_right = 750.0
 margin_bottom = 696.0
 size_flags_vertical = 3
 
 [node name="Cake_tray" type="GridContainer" parent="CenterContainer"]
 margin_left = 169.0
-margin_top = 142.0
+margin_top = 130.0
 margin_right = 581.0
-margin_bottom = 554.0
+margin_bottom = 542.0
 columns = 4
 
 [node name="Control" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]

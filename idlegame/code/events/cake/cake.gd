@@ -26,5 +26,5 @@ func piece_eated():
 	clicks += 1
 	make_piece_yummy()
 
-func make_reward():
-	return(str((clicks + 1) * 1.5) + "g")
+func make_reward() -> Dictionary:
+	return({"type":"g", "amount":(clicks + 1) * 1.5})
