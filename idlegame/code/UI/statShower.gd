@@ -1,4 +1,5 @@
-extends Control
+extends CenterContainer
+class_name Stat_shower
 
 export(String, "g", "xp", "r", "st") var type
 

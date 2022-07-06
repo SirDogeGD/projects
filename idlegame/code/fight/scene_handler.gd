@@ -35,8 +35,11 @@ var pm
 var transition = preload("res://code/events/transition/transition.tscn")
 var ttext
 
+var bg = TextureRect.new()
+
 func _ready():
 	self.set_pause_mode(PAUSE_MODE_PROCESS)
+	add_bg()
 
 #switch to scene s
 func scene(s):
@@ -156,3 +159,17 @@ func transition_scene(tt):
 	t.set_text(tt)
 	get_tree().root.add_child(t)
 	t.z_index = 1000
+
+func add_bg():
+	add_child(bg)
+	bg.set_size(Vector2(750,750))
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	change_bg(main_menu)
+
+func change_bg(scene):
+	
+	var bgs = {
+		main_menu : preload("res://images/BGs/BG_MENU.bmp")
+	}
+	
+	bg.texture = bgs[scene]

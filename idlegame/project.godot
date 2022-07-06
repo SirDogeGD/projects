@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CenterContainer",
+"class": "Stat_shower",
+"language": "GDScript",
+"path": "res://code/UI/statShower.gd"
+}, {
 "base": "Resource",
 "class": "perk",
 "language": "GDScript",
 "path": "res://code/perks/perk.gd"
 } ]
 _global_script_class_icons={
+"Stat_shower": "",
 "perk": ""
 }
 
