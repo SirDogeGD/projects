@@ -13,7 +13,7 @@ func _on_ButtonJD_pressed():
 	scene_handler.next_scene()
 
 func _on_ButtonSh_pressed():
-	get_tree().change_scene("res://code/shop/shop.tscn")
+	scene_handler.scene("res://code/shop/shop.tscn")
 
 func _on_ButtonP_pressed():
-	get_tree().change_scene("res://code/prestige/prestige.tscn")
+	scene_handler.scene("res://code/prestige/prestige.tscn")

@@ -4,7 +4,7 @@ func _ready():
 	update_labels()
 
 func _on_BBack_pressed():
-	get_tree().change_scene("res://code/places/camp.tscn")
+	scene_handler.scene("res://code/places/camp.tscn")
 
 func req_text():
 	return str("Required: ", stats.xp, "/", req_xp(), "xp")
@@ -27,4 +27,4 @@ func update_labels():
 
 func _on_BShop_pressed():
 	if stats.prestige >= 1:
-		get_tree().change_scene("res://code/prestige/prestigeShop.tscn")
+		scene_handler.scene("res://code/prestige/prestigeShop.tscn")

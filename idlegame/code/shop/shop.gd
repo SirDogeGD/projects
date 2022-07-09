@@ -111,4 +111,4 @@ func _on_ElgatoButton_pressed():
 	buy("el")
 
 func _on_BMegastreak_pressed():
-	get_tree().change_scene("res://code/shop/mega shop.tscn")
+	scene_handler.scene("res://code/shop/mega shop.tscn")

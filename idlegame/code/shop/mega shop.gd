@@ -7,7 +7,7 @@ func _ready():
 	$VBoxContainer/HBoxContainer/StatShower.type("g")
 
 func _on_BBack_pressed():
-	get_tree().change_scene("res://code/shop/shop.tscn")
+	scene_handler.scene("res://code/shop/shop.tscn")
 
 func stock():
 	var items = []

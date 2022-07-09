@@ -6,7 +6,7 @@ func _ready():
 
 #go into main game "Lobby"
 func _on_BS_pressed():
-	get_tree().change_scene("res://code/places/camp.tscn")
+	scene_handler.scene("res://code/places/camp.tscn")
 
 #show credits
 func _on_BC_pressed():

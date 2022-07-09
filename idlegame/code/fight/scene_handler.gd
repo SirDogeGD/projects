@@ -43,6 +43,7 @@ func _ready():
 
 #switch to scene s
 func scene(s):
+	change_bg(s)
 	match s:
 		pauseMenu:
 			if not get_tree().paused:
@@ -169,7 +170,23 @@ func add_bg():
 func change_bg(scene):
 	
 	var bgs = {
-		main_menu : preload("res://images/BGs/BG_MENU.bmp")
+#		Fight scenes
+		fight : preload("res://images/BGs/BG_FIGHT.bmp"),
+		pc : preload("res://images/BGs/BG_PERKC.bmp"),
+		qm : preload("res://images/BGs/BG_PRES.bmp"),
+		rs : preload("res://images/BGs/BG_PRES.bmp"),
+		cc : preload("res://images/BGs/BG_PRES.bmp"),
+		gk : preload("res://images/BGs/BG_PRES.bmp"),
+#		Various scenes
+		main_menu : preload("res://images/BGs/BG_MENU.bmp"),
+		camp : preload("res://images/BGs/BG_CAMP.bmp"),
+		shop : preload("res://images/BGs/BG_SHOP.bmp"),
+		megashop : preload("res://images/BGs/BG_SHOP.bmp"),
+		prestige : preload("res://images/BGs/BG_PRES.bmp"),
+		prestigeshop : preload("res://images/BGs/BG_PSHOP.bmp"),
+		deathscreen : preload("res://images/BGs/BG_DEATH.bmp"),
+#		Pause menu doesnt change bg
+		pauseMenu : bg.texture
 	}
 	
 	bg.texture = bgs[scene]

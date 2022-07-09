@@ -18,6 +18,7 @@ __meta__ = {
 
 [node name="TB" type="HBoxContainer" parent="C1"]
 margin_right = 750.0
+margin_bottom = 20.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
@@ -25,6 +26,7 @@ size_flags_stretch_ratio = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 373.0
+margin_bottom = 20.0
 type = "xp"
 
 [node name="GStatShower" parent="C1/TB" instance=ExtResource( 3 )]
@@ -32,10 +34,11 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 377.0
 margin_right = 750.0
+margin_bottom = 20.0
 type = "g"
 
 [node name="VC" type="VBoxContainer" parent="C1"]
-margin_top = 4.0
+margin_top = 24.0
 margin_right = 750.0
 margin_bottom = 750.0
 size_flags_horizontal = 3
@@ -43,13 +46,13 @@ size_flags_vertical = 3
 
 [node name="Margin" type="CenterContainer" parent="C1/VC"]
 margin_right = 750.0
-margin_bottom = 183.0
+margin_bottom = 178.0
 size_flags_vertical = 3
 
 [node name="CCShop" type="VBoxContainer" parent="C1/VC"]
-margin_top = 187.0
+margin_top = 182.0
 margin_right = 750.0
-margin_bottom = 371.0
+margin_bottom = 361.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -69,23 +72,23 @@ size_flags_horizontal = 4
 text = "Prestige"
 
 [node name="CCJumpDown" type="CenterContainer" parent="C1/VC"]
-margin_top = 375.0
+margin_top = 365.0
 margin_right = 750.0
-margin_bottom = 558.0
+margin_bottom = 543.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonJD" type="Button" parent="C1/VC/CCJumpDown"]
 margin_left = 333.0
-margin_top = 81.0
+margin_top = 79.0
 margin_right = 417.0
-margin_bottom = 101.0
+margin_bottom = 99.0
 text = "Jump Down"
 
 [node name="CCInv" type="CenterContainer" parent="C1/VC"]
-margin_top = 562.0
+margin_top = 547.0
 margin_right = 750.0
-margin_bottom = 746.0
+margin_bottom = 726.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -93,9 +96,9 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 375.0
-margin_top = 92.0
+margin_top = 89.0
 margin_right = 375.0
-margin_bottom = 92.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
