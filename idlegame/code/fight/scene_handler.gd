@@ -173,10 +173,10 @@ func change_bg(scene):
 #		Fight scenes
 		fight : preload("res://images/BGs/BG_FIGHT.bmp"),
 		pc : preload("res://images/BGs/BG_PERKC.bmp"),
-		qm : preload("res://images/BGs/BG_PRES.bmp"),
-		rs : preload("res://images/BGs/BG_PRES.bmp"),
-		cc : preload("res://images/BGs/BG_PRES.bmp"),
-		gk : preload("res://images/BGs/BG_PRES.bmp"),
+		qm : preload("res://images/BGs/BG_FIGHT.bmp"),
+		rs : preload("res://images/BGs/BG_FIGHT.bmp"),
+		cc : preload("res://images/BGs/BG_FIGHT.bmp"),
+		gk : preload("res://images/BGs/BG_FIGHT.bmp"),
 #		Various scenes
 		main_menu : preload("res://images/BGs/BG_MENU.bmp"),
 		camp : preload("res://images/BGs/BG_CAMP.bmp"),

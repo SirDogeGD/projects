@@ -3,8 +3,8 @@ extends Node2D
 var perkFile = load("res://code/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://code/player/enemy.gd")
-var enemy
-var can_attack = true
+var enemy : enemy
+var can_attack := true
 
 func _ready():
 	new_enemy()
@@ -38,7 +38,7 @@ func _on_CEnemy_gui_input(event):
 	if event.is_action_pressed("attack") and can_attack:
 		_on_BAtk_pressed()
 
-func _on_BAtk_pressed():
+func _on_BAtk_pressed(crit := false):
 	can_attack = false
 	#check if weapon is insta use or not
 	var your_turn = true
@@ -155,3 +155,7 @@ func in_signals():
 	for e in [you, enemy]:
 		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
 		e.emit_signal("effects_changed", e.effects)
+
+func crit_pressed():
+	if can_attack:
+		_on_BAtk_pressed(true)

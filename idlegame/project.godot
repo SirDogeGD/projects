@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://code/UI/statShower.gd"
 }, {
+"base": "Node",
+"class": "enemy",
+"language": "GDScript",
+"path": "res://code/player/enemy.gd"
+}, {
 "base": "Resource",
 "class": "perk",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Stat_shower": "",
+"enemy": "",
 "perk": ""
 }
 
