@@ -47,7 +47,7 @@ func offensive_two(a, b, d):
 					d = d*1.35
 					a.first_strike = false
 	return d
-#weapon true perks
+#weapon true perks, effects, healing
 func offensive_three(a, b, d):
 	get_perks(a, b)
 	for p in perks_a:

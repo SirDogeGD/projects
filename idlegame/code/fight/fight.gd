@@ -10,6 +10,7 @@ func _ready():
 	new_enemy()
 	update_stats()
 	in_signals()
+	add_crit_mark()
 
 func update_stats():
 	$C1/CInv/CCInv/Inv.fill()
@@ -30,15 +31,13 @@ func new_enemy():
 	var eimg = earray[randi() % earray.size()]
 	var sprite = $C1/CEnemy/CEnemy/Enemy
 	sprite.texture = eimg
-	
-#	update_hp()
 
 #check for attack input
 func _on_CEnemy_gui_input(event):
 	if event.is_action_pressed("attack") and can_attack:
 		_on_BAtk_pressed()
 
-func _on_BAtk_pressed(crit := false):
+func _on_BAtk_pressed():
 	can_attack = false
 	#check if weapon is insta use or not
 	var your_turn = true
@@ -74,7 +73,7 @@ func _on_BAtk_pressed(crit := false):
 	update_stats()
 
 #atk(attacker, defender, weapon)
-func atk(a, b, w):
+func atk(a : guy, b : guy, w):
 	var d = dmg_calc(a, b, w)
 	var heal = load("res://code/items/heal.gd")
 	#shield takes dmg before hp
@@ -90,7 +89,9 @@ func atk(a, b, w):
 		w.use_on(a)
 
 #calculate dmg (attacker, defender, weapon)
-func dmg_calc(a, b, w):
+func dmg_calc(a : guy, b : guy, w):
+
+#BASE
 	p = perk_handler
 	var dmg = w.get_damage()
 #	weakness potions effect
@@ -102,6 +103,7 @@ func dmg_calc(a, b, w):
 #	weapon base dmg perks
 	dmg = p.offensive_one(a, b, dmg)
 
+#MULTIPLIER
 #	weapon multi perks
 	dmg = p.offensive_two(a, b, dmg)
 #	dmg boost shop upgrade
@@ -110,13 +112,14 @@ func dmg_calc(a, b, w):
 	dmg = dmg * boost
 #	megastreak dmg boost
 	dmg = dmg * (a.mdb + 1)
-#	weapon true perks (healing/true dmg)
-	dmg = p.offensive_three(a, b, dmg)
+#	Crit
+	if a.crit == true:
+		dmg = dmg * a.cd / 100
 
+#DEFENCE
 	var armor = b.get_armor()
 #	armor base def
 	armor = p.defensive_one(a, b, armor)
-	
 #	armor def multi
 	armor = p.defensive_two(a, b, armor)
 #	resistance effect
@@ -126,7 +129,10 @@ func dmg_calc(a, b, w):
 #	calculate dmg taken
 	for n in range(armor):
 		dmg = dmg * 0.99
-	
+
+#TRUE
+#	weapon true perks (healing/true dmg)
+	dmg = p.offensive_three(a, b, dmg)
 #	armor true def
 	dmg = p.defensive_three(a, b, dmg)
 #	megastreak true dmg
@@ -158,4 +164,14 @@ func in_signals():
 
 func crit_pressed():
 	if can_attack:
-		_on_BAtk_pressed(true)
+		you.crit = true
+		_on_BAtk_pressed()
+
+func add_crit_mark():
+	var markFile = load("res://code/fight/crit/crit.tscn")
+	var mark : crit_mark = markFile.instance()
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	$C1/CEnemy/CEnemy/Enemy.add_child(mark)
+	mark.random_pos(rng.randi_range(-50, 50),rng.randi_range(-100, 100))
+	mark.connect("pressed", self, "crit_pressed")

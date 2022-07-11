@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://code/UI/statShower.gd"
 }, {
+"base": "TextureRect",
+"class": "crit_mark",
+"language": "GDScript",
+"path": "res://code/fight/crit/crit.gd"
+}, {
 "base": "Node",
 "class": "enemy",
 "language": "GDScript",
 "path": "res://code/player/enemy.gd"
+}, {
+"base": "Node",
+"class": "guy",
+"language": "GDScript",
+"path": "res://code/player/guy.gd"
 }, {
 "base": "Resource",
 "class": "perk",
@@ -26,7 +36,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Stat_shower": "",
+"crit_mark": "",
 "enemy": "",
+"guy": "",
 "perk": ""
 }
 

@@ -1,4 +1,5 @@
 extends Node
+class_name guy
 
 signal health_changed(hp, max_hp, shield)
 signal effects_changed(effects)
@@ -10,6 +11,8 @@ var armor = 10
 var streak = 0
 var first_strike = true
 var is_player = true
+var crit = false
+var cd = 150
 
 var invsize = 6
 var inv = {}

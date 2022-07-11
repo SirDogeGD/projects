@@ -165,6 +165,7 @@ func add_bg():
 	add_child(bg)
 	bg.set_size(Vector2(750,750))
 	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	bg.MOUSE_FILTER_IGNORE
 	change_bg(main_menu)
 
 func change_bg(scene):

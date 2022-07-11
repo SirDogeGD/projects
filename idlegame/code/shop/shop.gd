@@ -30,7 +30,7 @@ func update_labels():
 	$C1/ShopItems/Elgato/Label.set_text("First kills Boost: +" + String(you.upgrades["elgato"]))
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://code/places/camp.tscn")
+	scene_handler.scene("res://code/places/camp.tscn")
 
 #updates costs of upgrades based on what tier the user has currently.
 func set_costs(what):

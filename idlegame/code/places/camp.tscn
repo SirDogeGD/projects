@@ -75,14 +75,16 @@ text = "Prestige"
 margin_top = 365.0
 margin_right = 750.0
 margin_bottom = 543.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ButtonJD" type="Button" parent="C1/VC/CCJumpDown"]
-margin_left = 333.0
-margin_top = 79.0
-margin_right = 417.0
-margin_bottom = 99.0
+[node name="ButtonJD" type="ToolButton" parent="C1/VC/CCJumpDown"]
+margin_left = 275.0
+margin_top = 39.0
+margin_right = 475.0
+margin_bottom = 139.0
+rect_min_size = Vector2( 200, 100 )
 text = "Jump Down"
 
 [node name="CCInv" type="CenterContainer" parent="C1/VC"]
@@ -102,6 +104,8 @@ margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[connection signal="mouse_entered" from="C1/VC/CCShop" to="." method="_on_CCShop_mouse_entered"]
 [connection signal="pressed" from="C1/VC/CCShop/ButtonSh" to="." method="_on_ButtonSh_pressed"]
 [connection signal="pressed" from="C1/VC/CCShop/ButtonP" to="." method="_on_ButtonP_pressed"]
-[connection signal="pressed" from="C1/VC/CCJumpDown/ButtonJD" to="." method="_on_ButtonJD_pressed"]
+[connection signal="gui_input" from="C1/VC/CCJumpDown/ButtonJD" to="." method="_jump_down"]
+[connection signal="pressed" from="C1/VC/CCJumpDown/ButtonJD" to="." method="_on_LabelJD_pressed"]
