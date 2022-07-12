@@ -34,7 +34,7 @@ func perkinfo(id):
 				[[1],[1.1],[1.2],[1.3]],"DEFAULT")
 #			mysticism 1
 		9, "BERS":
-			return make("Berserker", "%s%% chance to crit for 50%% extra damage",
+			return make("Berserker", "%s%% chance to crit",
 				[[12],[20],[28],[36]],"DEFAULT")
 		10, "GUTS":
 			return make("Guts", "Heal %shp on kill",

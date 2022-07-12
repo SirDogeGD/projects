@@ -3,14 +3,15 @@ extends Node2D
 var perkFile = load("res://code/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://code/player/enemy.gd")
-var enemy : enemy
+var enemy : enemy = enemyFile.new()
 var can_attack := true
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	new_enemy()
 	update_stats()
 	in_signals()
-	add_crit_mark()
+	rng.randomize()
 
 func update_stats():
 	$C1/CInv/CCInv/Inv.fill()
@@ -20,6 +21,7 @@ func new_enemy():
 	enemy.create_empty_inv()
 	enemy.add_to_inv(item_creator.default_sword())
 	enemy.random_hp()
+	out_signals()
 	
 #	random image
 	var e1 = preload("res://icons/enemy/enemy1.png")
@@ -52,8 +54,7 @@ func _on_BAtk_pressed():
 
 	if(isDead(enemy)):
 		chat.kill_msg(you.kill())
-		enemy.death()
-		new_enemy()
+		enemy.death() 
 
 	#enemy attacks you
 	else:
@@ -66,6 +67,10 @@ func _on_BAtk_pressed():
 
 	if(isDead(you)):
 		scene_handler.deathscreen()
+	
+	get_tree().call_group("crit_marker", "queue_free")
+	if you.next_crit:
+		add_crit_mark()
 	
 	yield(get_tree().create_timer(0.2), "timeout")
 	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 1, 1)
@@ -116,6 +121,9 @@ func dmg_calc(a : guy, b : guy, w):
 	if a.crit == true:
 		dmg = dmg * a.cd / 100
 
+#CRIT CHANCE
+	p.crit_chance(a, b)
+
 #DEFENCE
 	var armor = b.get_armor()
 #	armor base def
@@ -142,7 +150,12 @@ func dmg_calc(a : guy, b : guy, w):
 	if a == you:
 		scene_handler.run_dmg += round(dmg)
 		if 7 in stats.pUpgrades: #dmg numbers
-			$C1/CEnemy/CEnemy/FCTManager.show_value(dmg)
+			$C1/CEnemy/CEnemy/FCTManager.show_value(dmg, a.crit)
+		if rng.randi_range(1, 100) <= you.cc:
+			you.next_crit = true
+	
+#	reset bools
+	a.reset_crit()
 	
 	return dmg
 
@@ -158,6 +171,9 @@ func in_signals():
 	you.connect("effects_changed", $C1/CChF/EffSContainer, "update_effects")
 	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
 	enemy.connect("effects_changed", $C1/CEnemy/EffSContainer, "update_effects")
+	out_signals()
+
+func out_signals():
 	for e in [you, enemy]:
 		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
 		e.emit_signal("effects_changed", e.effects)
@@ -170,8 +186,7 @@ func crit_pressed():
 func add_crit_mark():
 	var markFile = load("res://code/fight/crit/crit.tscn")
 	var mark : crit_mark = markFile.instance()
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
 	$C1/CEnemy/CEnemy/Enemy.add_child(mark)
 	mark.random_pos(rng.randi_range(-50, 50),rng.randi_range(-100, 100))
 	mark.connect("pressed", self, "crit_pressed")
+	you.next_crit = false

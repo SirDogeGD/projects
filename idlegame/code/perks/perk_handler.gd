@@ -17,7 +17,7 @@ func offensive_one(a, b, d):
 				d += 1
 	return d
 #weapon multi perks
-func offensive_two(a, b, d):
+func offensive_two(a : guy, b : guy, d):
 	rng.randomize()
 	get_perks(a, b)
 	for p in perks_a:
@@ -36,9 +36,6 @@ func offensive_two(a, b, d):
 			"G_A_B":
 				if(a.current_shield > 0):
 					d = d*1.05
-			"BERS":
-				if rng.randi_range(1, 100) <= 12:
-					d = d*1.5
 			"C_DMG":
 				if combo%4 == 0:
 					d = d*1.2
@@ -62,6 +59,14 @@ func offensive_three(a, b, d):
 			"LS":
 				a.heal(d * 0.04, 0)
 	return d
+
+func crit_chance(a, b):
+	get_perks(a, b)
+	for p in perks_a:
+		match p:
+			"BERS":
+				a.cc += 12
+
 #armor base perks
 func defensive_one(a, b, armor):
 	get_perks(a, b)

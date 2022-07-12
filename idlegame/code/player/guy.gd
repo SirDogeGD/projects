@@ -4,15 +4,19 @@ class_name guy
 signal health_changed(hp, max_hp, shield)
 signal effects_changed(effects)
 
-var hp = 20
-var current_hp = 20 setget set_hp, get_hp
-var current_shield = 0
-var armor = 10
-var streak = 0
-var first_strike = true
-var is_player = true
-var crit = false
-var cd = 150
+var hp := 20
+var current_hp := 20 setget set_hp, get_hp
+var current_shield := 0
+var armor := 10
+var streak := 0
+
+#dmg stuff
+var first_strike := true
+var is_player := true
+var next_crit := false #Next turn will spawn a crit marker
+var crit := false      #Crit marker pressed
+var cc := 5
+var cd := 150
 
 var invsize = 6
 var inv = {}
@@ -156,3 +160,9 @@ func update_megas():
 	mgb = arr[2]
 	mxpb = arr[3]
 	mdb = arr[4]
+
+#reset crit chance and crit damage
+func reset_crit():
+	crit = false
+	cc = 5
+	cd = 120

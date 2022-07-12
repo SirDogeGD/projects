@@ -56,6 +56,13 @@ func scene(s):
 #				unpause fight scenes
 				get_tree().paused = false
 				get_tree().root.remove_child(pm)
+		fight:
+			if get_tree().current_scene.filename == fight:
+#				if in fight, new enemy
+				get_tree().current_scene._ready()
+			else:
+#				if not in fight, load fight
+				get_tree().change_scene(s)
 		_:
 			get_tree().change_scene(s)
 
