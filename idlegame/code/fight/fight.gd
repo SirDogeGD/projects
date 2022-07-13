@@ -3,7 +3,7 @@ extends Node2D
 var perkFile = load("res://code/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://code/player/enemy.gd")
-var enemy : enemy = enemyFile.new()
+var enemy
 var can_attack := true
 var rng = RandomNumberGenerator.new()
 
@@ -95,56 +95,64 @@ func atk(a : guy, b : guy, w):
 
 #calculate dmg (attacker, defender, weapon)
 func dmg_calc(a : guy, b : guy, w):
-
+	
+	var dmg
+	
 #BASE
 	p = perk_handler
-	var dmg = w.get_damage()
+	a.base = w.get_damage()
 #	weakness potions effect
-	for e in a.get_effects():
+	for e in a.effects:
 		if e.get_name() == "weakness":
-			dmg -= e.get_level()
+			a.base -= e.get_level()
 #	megastreak other persons extra base dmg taken
-	dmg += b.md
+	a.base += b.md
 #	weapon base dmg perks
-	dmg = p.offensive_one(a, b, dmg)
+	a.base = p.calc_base(a, b, a.base)
+	
+	dmg = a.base
 
 #MULTIPLIER
 #	weapon multi perks
-	dmg = p.offensive_two(a, b, dmg)
+	a.mult = p.calc_mult(a, b, a.mult)
 #	dmg boost shop upgrade
-	var dict = a.get_upgrades()
+	var dict = a.upgrades
 	var boost = 1 + dict["dmgboost"]/100
-	dmg = dmg * boost
+	a.mult = a.mult * boost
 #	megastreak dmg boost
-	dmg = dmg * (a.mdb + 1)
+	a.mult = a.mult * (a.mdb + 1)
 #	Crit
 	if a.crit == true:
-		dmg = dmg * a.cd / 100
+		a.mult = a.mult * a.crit_mult / 100
+	
+	dmg = dmg * a.mult
 
 #CRIT CHANCE
-	p.crit_chance(a, b)
+	p.calc_cc(a, b)
 
 #DEFENCE
-	var armor = b.get_armor()
+	var armor = b.armor
 #	armor base def
-	armor = p.defensive_one(a, b, armor)
+	armor = p.calc_armor(a, b, armor)
 #	armor def multi
 	armor = p.defensive_two(a, b, armor)
 #	resistance effect
-	for e in b.get_effects():
+	for e in b.effects:
 		if e.get_name() == "res":
 			armor += (e.get_level() * 10)
 #	calculate dmg taken
 	for n in range(armor):
-		dmg = dmg * 0.99
+		dmg *= 0.99
 
 #TRUE
 #	weapon true perks (healing/true dmg)
-	dmg = p.offensive_three(a, b, dmg)
+	a.tru = p.calc_tru(a, b, a.tru)
 #	armor true def
-	dmg = p.defensive_three(a, b, dmg)
+	a.tru = p.defensive_three(a, b, a.tru)
 #	megastreak true dmg
-	dmg = dmg + b.mtd
+	a.tru = a.tru + b.mtd
+	
+	dmg += a.tru
 	
 #	add dmg done to run stats
 	if a == you:
@@ -154,8 +162,7 @@ func dmg_calc(a : guy, b : guy, w):
 		if rng.randi_range(1, 100) <= you.cc:
 			you.next_crit = true
 	
-#	reset bools
-	a.reset_crit()
+	a.reset_fight()
 	
 	return dmg
 

@@ -4,8 +4,8 @@ var o = "overdrive"
 var b = "beastmode"
 var dmg : float = 0
 
-func get_all(who, s):
-	var mega = who.get_mega()
+func get_all(who : guy, s):
+	var mega = who.mega
 	
 	if(check_activated(mega, s)):
 		if not who.mactive:

@@ -9,20 +9,25 @@ var current_hp := 20 setget set_hp, get_hp
 var current_shield := 0
 var armor := 10
 var streak := 0
+var is_player := true
 
 #dmg stuff
 var first_strike := true
-var is_player := true
+var dmg = 0
+var base = 0
+var mult = 100
+var crit_mult = 120
+#var trumult
+var tru = 0
 var next_crit := false #Next turn will spawn a crit marker
 var crit := false      #Crit marker pressed
 var cc := 5
-var cd := 150
 
 var invsize = 6
 var inv = {}
 var heal_perk = "gap"
 var perks = []
-var effects = [] setget add_effect, get_effects
+var effects = [] 
 var upgrades = {
 	"xpboost":0,
 	"gboost":0,
@@ -69,14 +74,8 @@ func create_empty_inv():
 		empty[n] = item_creator.empty_slot()
 	inv = empty
 
-func get_inv():
-	return inv
-
 func get_inv_slot(w):
 	return inv[w]
-
-func get_perks():
-	return self.perks
 
 func upgrade(what):
 	var xpboost = upgrades["xpboost"]
@@ -143,15 +142,6 @@ func clear_effects():
 	effects.clear()
 	emit_signal("effects_changed", effects)
 
-func get_effects():
-	return effects
-
-func set_mega(name):
-	mega = name
-
-func get_mega():
-	return mega
-
 #updates the megastreak variables based on the current streak
 func update_megas():
 	var arr = megastreak_handler.get_all(self, streak)
@@ -161,8 +151,12 @@ func update_megas():
 	mxpb = arr[3]
 	mdb = arr[4]
 
-#reset crit chance and crit damage
-func reset_crit():
+#reset stats that get altered during fight calculation
+func reset_fight():
+	dmg = 0
+	base = 0
+	mult = 100
+	crit_mult = 120
+	tru = 0
 	crit = false
 	cc = 5
-	cd = 120

@@ -81,7 +81,7 @@ func make_choice() -> Array:
 #	get perks player doesnt already have
 	var perks = []
 	for x in array_pool.size():
-		if not array_pool[x] in you.get_perks():
+		if not array_pool[x] in you.perks:
 			perks.append(array_pool[x])
 #	get random perks from pool
 	randomize()

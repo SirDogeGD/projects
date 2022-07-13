@@ -46,9 +46,9 @@ func remove_on_death():
 func get_on_kill_heal():
 	if 0 in stats.pUpgrades: #tenacity
 		heal(1, 0)
-	if 10 in get_perks(): #guts
+	if 10 in perks: #guts
 		heal(0.25, 0)
-	if 13 in get_perks(): #cjan
+	if 13 in perks: #cjan
 		var e = effect_handler.new_effect("res", 1, 2)
 		effect_handler.add_effect(e, self)
 	var heal_perks = load("res://code/fight/heal_perks.gd").new()

@@ -12,8 +12,8 @@ func new_effect(n, l, d):
 	e.set_duration(d)
 	return e
 
-func add_effect(new, w):
-	var effects = w.get_effects()
+func add_effect(new, w : guy):
+	var effects = w.effects
 	if effects.empty():
 		w.add_effect(new)
 
@@ -27,8 +27,8 @@ func add_effect(new, w):
 					effects.erase(e)
 					w.add_effect(new)
 
-func turn(who):
-	var effects = who.get_effects()
+func turn(who : guy):
+	var effects = who.effects
 	for e in effects:
 #		print(e.get_name())
 		match e.get_name():
@@ -41,8 +41,8 @@ func turn(who):
 		update_effects(who)
 	
 #	send effect list and person to effect_show_containers
-func update_effects(who):
-	var effects = who.get_effects()
+func update_effects(who : guy):
+	var effects = who.effects
 	var you_script = load("res://code/player/you.gd")
 	var enemy_script = load("res://code/player/enemy.gd")
 	match who.get_script():

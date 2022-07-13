@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 [node name="TB" parent="." instance=ExtResource( 4 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 100.0
+wait_time = 10.0
 autostart = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

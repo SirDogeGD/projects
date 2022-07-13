@@ -7,7 +7,7 @@ var perks_b
 
 #weapon dmg perks/a = attacker/b = attacked person/d = dmg
 #weapon base dmg perks
-func offensive_one(a, b, d):
+func calc_base(a, b, d):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -17,7 +17,7 @@ func offensive_one(a, b, d):
 				d += 1
 	return d
 #weapon multi perks
-func offensive_two(a : guy, b : guy, d):
+func calc_mult(a : guy, b : guy, d):
 	rng.randomize()
 	get_perks(a, b)
 	for p in perks_a:
@@ -45,7 +45,7 @@ func offensive_two(a : guy, b : guy, d):
 					a.first_strike = false
 	return d
 #weapon true perks, effects, healing
-func offensive_three(a, b, d):
+func calc_tru(a, b, d):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -60,7 +60,7 @@ func offensive_three(a, b, d):
 				a.heal(d * 0.04, 0)
 	return d
 
-func crit_chance(a, b):
+func calc_cc(a, b):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -68,7 +68,7 @@ func crit_chance(a, b):
 				a.cc += 12
 
 #armor base perks
-func defensive_one(a, b, armor):
+func calc_armor(a, b, armor):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -87,13 +87,13 @@ func defensive_three(a, b, d):
 	return d
 
 func on_kill():
-	var perks = you.get_perks()
+	var perks = you.perks
 	for p in perks:
 		match p:
 			"C_JAN":
 				var e = effect_handler.new_effect("res", 1, 2)
 				effect_handler.add_effect(e, you)
 
-func get_perks(a, b):
-	perks_a = a.get_perks()
-	perks_b = b.get_perks()
+func get_perks(a : guy, b : guy):
+	perks_a = a.perks
+	perks_b = b.perks

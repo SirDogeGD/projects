@@ -137,7 +137,7 @@ func _process(delta):
 #	handle pressing escape
 	if Input.is_action_just_pressed("ui_cancel"):
 		match get_tree().current_scene.filename:
-			fight, pc, qm, rs, cc:
+			fight, pc, qm, rs, cc, gk:
 				scene(pauseMenu)
 			shop:
 				scene(camp)
