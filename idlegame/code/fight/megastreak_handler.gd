@@ -68,10 +68,10 @@ func check_activated(name, s):
 	if s >= get_activation(name):
 		return true
 
-func on_death(who, s):
+func on_death(who : guy, s):
 	who.mactive = false
 	if who.mactive:
-		var mega = who.get_mega()
+		var mega = who.mega
 		match mega:
 			o:
 				stats.add_stats("xp", 4000)
@@ -85,9 +85,9 @@ func get_activation(name):
 			return 20
 
 #make strings for labels in runstats
-func make_stats(who):
+func make_stats(who : guy):
 	var text = []
-	var m = who.get_mega()
+	var m = who.mega
 	var s = who.streak
 	
 #	string megastreak name

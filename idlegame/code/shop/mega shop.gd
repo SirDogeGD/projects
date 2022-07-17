@@ -19,7 +19,7 @@ func stock():
 
 func make(mega):
 	var item = itemFile.instance()
-	var selected = you.get_mega()
+	var selected = you.mega
 	var state = 1
 	match mega:
 		"overdrive":

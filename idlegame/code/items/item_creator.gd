@@ -25,7 +25,7 @@ func default_sword():
 	var swordFile = load("res://code/items/sword.gd")
 	var sword = swordFile.new()
 	sword.set_name("Iron Sword")
-	sword.set_damage(6)
+	sword.set_damage(5.5)
 	return sword
 
 func default_bow():

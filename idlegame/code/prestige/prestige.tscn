@@ -70,6 +70,7 @@ margin_bottom = 190.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Prestige Shop"
+
 [connection signal="pressed" from="VBoxContainer/BBack" to="." method="_on_BBack_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/VBoxContainer/BPrestige" to="." method="_on_BPrestige_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/BShop" to="." method="_on_BShop_pressed"]

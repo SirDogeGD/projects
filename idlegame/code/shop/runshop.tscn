@@ -20,12 +20,12 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 750.0
-size_flags_vertical = 1
+margin_bottom = 20.0
 
 [node name="CTitle" type="CenterContainer" parent="VBox"]
-margin_top = 4.0
+margin_top = 24.0
 margin_right = 750.0
-margin_bottom = 250.0
+margin_bottom = 263.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -34,24 +34,24 @@ texture = ExtResource( 2 )
 offset = Vector2( 375, 100 )
 
 [node name="ShopItems" type="GridContainer" parent="VBox"]
-margin_top = 254.0
+margin_top = 267.0
 margin_right = 750.0
-margin_bottom = 500.0
+margin_bottom = 506.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
-margin_top = 504.0
+margin_top = 510.0
 margin_right = 750.0
 margin_bottom = 750.0
 size_flags_vertical = 3
 
 [node name="ContinueB" type="Button" parent="VBox/CenterContainer"]
 margin_left = 340.0
-margin_top = 113.0
+margin_top = 110.0
 margin_right = 409.0
-margin_bottom = 133.0
+margin_bottom = 130.0
 text = "Continue"
 
 [connection signal="pressed" from="VBox/CenterContainer/ContinueB" to="." method="_on_ContinueB_pressed"]

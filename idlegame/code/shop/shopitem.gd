@@ -51,7 +51,7 @@ func _on_BBuy_pressed():
 		2:
 			match buy[0]:
 				"mega":
-					you.set_mega(buy[1])
+					you.mega = buy[1]
 	get_tree().call_group("shopitem", "update")
 	stats.save_Stats()
 
@@ -65,10 +65,10 @@ func check_state():
 	if state == 2:
 		match buy[0]:
 			"mega":
-				if you.get_mega() == buy[1]:
+				if you.mega == buy[1]:
 					state = 3
 	if state == 3:
 		match buy[0]:
 			"mega":
-				if you.get_mega() != buy[1]:
+				if you.mega != buy[1]:
 					state = 2

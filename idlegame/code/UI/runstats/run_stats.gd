@@ -6,7 +6,7 @@ func _ready():
 	$HSplitContainer/VBox/LG.text = "Gold: " + str(scene_handler.run_g)
 	$HSplitContainer/VBox/LDMG.text = "Dmg: " + str(scene_handler.run_dmg)
 #	mega stats ------------------
-	mega_side(you.get_mega())
+	mega_side(you.mega)
 
 #mega stats
 func mega_side(m):

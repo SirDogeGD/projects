@@ -16,6 +16,6 @@ func runshop_stock():
 	var all = [6, 7, 8]
 	var unbought = []
 	for x in all.size():
-		if not all[x] in you.get_perks():
+		if not all[x] in you.perks:
 			unbought.append(all[x])
 	return unbought

@@ -8,16 +8,6 @@ var rng = RandomNumberGenerator.new()
 var is_ready
 
 func _ready():
-	is_ready = false
-
-func _process(delta):
-	if is_ready == false:
-		if Input.is_action_just_pressed("attack"):
-			_on_BReady_pressed()
-
-func _on_BReady_pressed():
-	is_ready = true
-	$VBox/CReady/BReady.queue_free()
 	equation()
 	$VBox/CAnswer/Guess.grab_focus()
 	$Timer.start()
@@ -35,16 +25,16 @@ func equation():
 	match m:
 		1:
 			ans = one + two + thr
-			l.set_text(String(one) + " + " + String(two) + " + " + String(thr))
+			l.text = "%s + %s + %s" % [one, two, thr]
 		2:
 			ans = one - two + thr
-			l.set_text(String(one) + " - " + String(two) + " + " + String(thr))
+			l.text = "%s - %s + %s" % [one, two, thr]
 		3:
 			ans = one * two - thr
-			l.set_text(String(one) + " * " + String(two) + " - " + String(thr))
+			l.text = "%s * %s - %s" % [one, two, thr]
 		4:
 			ans = (one - two) * thr
-			l.set_text("(" + String(one) + " - " + String(two) + ") * " + String(thr))
+			l.text = "(%s - %s) * %s" % [one, two, thr]
 
 func _on_Guess_text_entered(new_text):
 	if new_text == String(ans):

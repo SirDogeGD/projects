@@ -160,3 +160,4 @@ func reset_fight():
 	tru = 0
 	crit = false
 	cc = 5
+	armor = 10

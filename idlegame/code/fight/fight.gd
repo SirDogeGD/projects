@@ -125,23 +125,22 @@ func dmg_calc(a : guy, b : guy, w):
 	if a.crit == true:
 		a.mult = a.mult * a.crit_mult / 100
 	
-	dmg = dmg * a.mult
+	dmg *= a.mult / 100
 
 #CRIT CHANCE
 	p.calc_cc(a, b)
 
 #DEFENCE
-	var armor = b.armor
 #	armor base def
-	armor = p.calc_armor(a, b, armor)
+	b.armor = p.calc_armor(a, b, b.armor)
 #	armor def multi
-	armor = p.defensive_two(a, b, armor)
+	b.armor = p.defensive_two(a, b, b.armor)
 #	resistance effect
 	for e in b.effects:
 		if e.get_name() == "res":
-			armor += (e.get_level() * 10)
+			b.armor += (e.get_level() * 10)
 #	calculate dmg taken
-	for n in range(armor):
+	for n in range(b.armor):
 		dmg *= 0.99
 
 #TRUE

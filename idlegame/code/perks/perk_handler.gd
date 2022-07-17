@@ -23,25 +23,25 @@ func calc_mult(a : guy, b : guy, d):
 	for p in perks_a:
 		match p:
 			"SHARP":
-				d = d*1.04
+				d += 4
 			"PUN":
 				if(b.current_hp <= b.hp/2):
-					d = d*1.06
+					d += 6
 			"K_BUST":
 				if(b.current_hp >= b.hp/2):
-					d = d*1.07
+					d += 7
 			"PF":
 				for n in range(a.hp - a.current_hp):
-					d = d*1.01
+					d += 1
 			"G_A_B":
 				if(a.current_shield > 0):
-					d = d*1.05
+					d += 5
 			"C_DMG":
 				if combo%4 == 0:
-					d = d*1.2
+					d += 20
 			"F_STRIKE":
 				if a.first_strike:
-					d = d*1.35
+					d += 35
 					a.first_strike = false
 	return d
 #weapon true perks, effects, healing
