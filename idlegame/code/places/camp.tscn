@@ -104,7 +104,6 @@ margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="mouse_entered" from="C1/VC/CCShop" to="." method="_on_CCShop_mouse_entered"]
 [connection signal="pressed" from="C1/VC/CCShop/ButtonSh" to="." method="_on_ButtonSh_pressed"]
 [connection signal="pressed" from="C1/VC/CCShop/ButtonP" to="." method="_on_ButtonP_pressed"]
 [connection signal="gui_input" from="C1/VC/CCJumpDown/ButtonJD" to="." method="_jump_down"]

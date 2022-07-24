@@ -8,4 +8,4 @@ func _on_BBack_pressed():
 
 func stock():
 	for n in prestige_handler.make_shop_items():
-		$VBoxContainer/GridContainer.add_child(n)
+		$VBoxContainer/CenterContainer/GridContainer.add_child(n)

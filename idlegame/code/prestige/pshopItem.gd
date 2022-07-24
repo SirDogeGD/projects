@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 var tag = "I can feel it"
 var desc = "somethings wrong"
@@ -14,9 +14,9 @@ func setup(i, p, t, d):
 	update()
 
 func update():
-	$VBoxContainer/LName.set_text(tag)
-	$VBoxContainer/LDesc.set_text(desc)
-	$VBoxContainer/BBuy.set_text(str(price, " renown"))
+	$LName.set_text(tag)
+	$LDesc.set_text(desc)
+	$BBuy.set_text(str(price, " renown"))
 
 #Buy Upgrade
 func _on_BBuy_pressed():
