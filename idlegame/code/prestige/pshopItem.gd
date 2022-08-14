@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal bought
+
 var tag = "I can feel it"
 var desc = "somethings wrong"
 var price = 0
@@ -23,4 +25,5 @@ func _on_BBuy_pressed():
 	if stats.renown >= self.price:
 		stats.pUpgrades.append(self.id)
 		stats.add_stats("r", -self.price)
+		emit_signal("bought")
 		queue_free()
