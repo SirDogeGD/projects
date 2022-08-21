@@ -14,7 +14,7 @@ func _ready():
 
 func _on_TextureRect_gui_input(event):
 	if event.is_action_pressed("attack") and yummy:
-		$TextureRect/FCTManager.show_value(make_reward_text())
+		$TextureRect/FCTManager.show_value(make_reward_text(), rewards["type"])
 		stats.add_stats(rewards["type"],rewards["amount"])
 		set_yummy(false)
 		emit_signal("eated")

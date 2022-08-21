@@ -20,7 +20,7 @@ _global_script_classes=[ {
 "path": "res://code/fight/crit/crit.gd"
 }, {
 "base": "Node",
-"class": "enemy",
+"class": "enemy_file",
 "language": "GDScript",
 "path": "res://code/player/enemy.gd"
 }, {
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Stat_shower": "",
 "crit_mark": "",
-"enemy": "",
+"enemy_file": "",
 "guy": "",
 "perk": ""
 }

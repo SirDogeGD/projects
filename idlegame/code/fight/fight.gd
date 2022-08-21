@@ -3,7 +3,7 @@ extends Node2D
 var perkFile = load("res://code/perks/perk_handler.gd")
 var p
 var enemyFile = load("res://code/player/enemy.gd")
-var enemy
+var enemy : enemy_file
 var can_attack := true
 var rng = RandomNumberGenerator.new()
 
@@ -22,6 +22,8 @@ func new_enemy():
 	enemy.add_to_inv(item_creator.default_sword())
 	enemy.random_hp()
 	out_signals()
+	if rng.randi_range(1, 20) == 1 and you.streak > 5:
+		enemy.strong()
 	
 #	random image
 	var e1 = preload("res://icons/enemy/enemy1.png")
@@ -53,7 +55,7 @@ func _on_BAtk_pressed():
 	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 0.5, 0.5)
 
 	if(isDead(enemy)):
-		chat.kill_msg(you.kill())
+		chat.kill_msg(you.kill(enemy.bounty))
 		enemy.death() 
 
 	#enemy attacks you
@@ -157,7 +159,8 @@ func dmg_calc(a : guy, b : guy, w):
 	if a == you:
 		scene_handler.run_dmg += round(dmg)
 		if 7 in stats.pUpgrades: #dmg numbers
-			$C1/CEnemy/CEnemy/FCTManager.show_value(dmg, a.crit)
+			var type = "CRIT" if a.crit else "DMG"
+			$C1/CEnemy/CEnemy/FCTManager.show_value(dmg, type)
 		if rng.randi_range(1, 100) <= you.cc:
 			you.next_crit = true
 	
@@ -179,6 +182,7 @@ func in_signals():
 	enemy.connect("effects_changed", $C1/CEnemy/EffSContainer, "update_effects")
 	out_signals()
 
+#output signals for ui
 func out_signals():
 	for e in [you, enemy]:
 		e.emit_signal("health_changed", e.current_hp, e.hp, e.current_shield)
@@ -196,3 +200,7 @@ func add_crit_mark():
 	mark.random_pos(rng.randi_range(-50, 50),rng.randi_range(-100, 100))
 	mark.connect("pressed", self, "crit_pressed")
 	you.next_crit = false
+
+func _on_bounty_timer_timeout():
+	if enemy.bounty > 0:
+		$C1/CEnemy/CEnemy/FCTManager.show_value(enemy.bounty, "G")

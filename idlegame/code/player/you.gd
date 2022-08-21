@@ -13,14 +13,15 @@ func death():
 	remove_on_death()
 	perks.clear()
 	clear_effects()
+	bounty = 0
 
-func kill():
+func kill(bounty:=0):
 	you.streak += 1
 	update_megas()
 	
 #	gold and xp
 	var xp = calc_xp(10)
-	var gold = calc_gold(10)
+	var gold = calc_gold(10) + bounty
 	scene_handler.run_g += gold
 	scene_handler.run_xp += xp
 	stats.add_stats("xp", xp)

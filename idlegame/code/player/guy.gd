@@ -10,6 +10,7 @@ var current_shield := 0
 var armor := 10
 var streak := 0
 var is_player := true
+var bounty := 0 setget set_bounty
 
 #dmg stuff
 var first_strike := true
@@ -161,3 +162,7 @@ func reset_fight():
 	crit = false
 	cc = 5
 	armor = 10
+
+func set_bounty(b:= 0):
+	bounty = min(5000, bounty + b)
+	print(str(bounty))

@@ -57,6 +57,10 @@ position = Vector2( 375, 200 )
 [node name="FCTManager" parent="C1/CEnemy/CEnemy" instance=ExtResource( 7 )]
 position = Vector2( 362, 187 )
 
+[node name="bounty_timer" type="Timer" parent="C1/CEnemy/CEnemy"]
+wait_time = 0.5
+autostart = true
+
 [node name="CChF" type="HBoxContainer" parent="C1"]
 margin_top = 501.0
 margin_right = 750.0
@@ -109,3 +113,4 @@ margin_right = 375.0
 margin_bottom = 25.0
 
 [connection signal="gui_input" from="C1/CEnemy/CEnemy" to="." method="_on_CEnemy_gui_input"]
+[connection signal="timeout" from="C1/CEnemy/CEnemy/bounty_timer" to="." method="_on_bounty_timer_timeout"]
