@@ -17,6 +17,7 @@ func death():
 
 func kill(bounty:=0):
 	you.streak += 1
+	bounty_up()
 	update_megas()
 	
 #	gold and xp
@@ -91,3 +92,9 @@ func calc_gold(base):
 			base = base * 1.025
 	base = round(base)
 	return base
+
+func bounty_up():
+	if scene_handler.rng.randi_range(1, 20) == 1:
+		var bump = 100
+		chat.bounty_bump(bump)
+		set_bounty(bounty + bump)

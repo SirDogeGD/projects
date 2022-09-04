@@ -1,7 +1,7 @@
 extends Node
 
 var perkfile = load("res://code/perks/perk.gd")
-var choice = [1, 2, 3]
+var choice := [1, 2, 3]
 
 func perkinfo(id):
 	match id:

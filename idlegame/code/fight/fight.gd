@@ -176,7 +176,7 @@ func isDead(who):
 		return false
 
 func in_signals():
-	you.connect("health_changed", $C1/CInv/HeartBar ,"update_health")
+	you.connect("health_changed", $C1/CInv/HeartBar,"update_health")
 	you.connect("effects_changed", $C1/CChF/EffSContainer, "update_effects")
 	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
 	enemy.connect("effects_changed", $C1/CEnemy/EffSContainer, "update_effects")

@@ -1,7 +1,9 @@
 extends Node2D
 
+var choice := [1, 2, 3]
+
 func _ready():
-	perk_info.make_choice()
+	choice = perk_info.make_choice()
 	update_perks()
 	
 func choose(num):
@@ -9,12 +11,12 @@ func choose(num):
 	scene_handler.next_scene()
 
 func update_perks():
-	$CC/HBox/VBox/LabelName.set_text(perk_info.perkinfo(perk_info.choice[0]).get_name())
-	$CC/HBox/VBox/LabelDesc.set_text(perk_info.perkinfo(perk_info.choice[0]).get_desc())
-	$CC/HBox/VBox2/LabelName.set_text(perk_info.perkinfo(perk_info.choice[1]).get_name())
-	$CC/HBox/VBox2/LabelDesc.set_text(perk_info.perkinfo(perk_info.choice[1]).get_desc())
-	$CC/HBox/VBox3/LabelName.set_text(perk_info.perkinfo(perk_info.choice[2]).get_name())
-	$CC/HBox/VBox3/LabelDesc.set_text(perk_info.perkinfo(perk_info.choice[2]).get_desc())
+	$CC/HBox/VBox/LabelName.set_text(perk_info.perkinfo(choice[0]).get_name())
+	$CC/HBox/VBox/LabelDesc.set_text(perk_info.perkinfo(choice[0]).get_desc())
+	$CC/HBox/VBox2/LabelName.set_text(perk_info.perkinfo(choice[1]).get_name())
+	$CC/HBox/VBox2/LabelDesc.set_text(perk_info.perkinfo(choice[1]).get_desc())
+	$CC/HBox/VBox3/LabelName.set_text(perk_info.perkinfo(choice[2]).get_name())
+	$CC/HBox/VBox3/LabelDesc.set_text(perk_info.perkinfo(choice[2]).get_desc())
 
 func _process(delta):
 	if Input.is_action_just_pressed("inv_1"):

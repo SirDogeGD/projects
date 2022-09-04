@@ -36,3 +36,6 @@ func won_event(which):
 	match which:
 		"math":
 			add("Correct! +250xp +500g")
+
+func bounty_bump(amount):
+	add("Bounty Bump! +%sg" % amount)
