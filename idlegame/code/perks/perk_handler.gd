@@ -7,7 +7,7 @@ var perks_b
 
 #weapon dmg perks/a = attacker/b = attacked person/d = dmg
 #weapon base dmg perks
-func calc_base(a, b, d):
+func calc_base(a : guy, b : guy, d):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -43,9 +43,14 @@ func calc_mult(a : guy, b : guy, d):
 				if a.first_strike:
 					d += 35
 					a.first_strike = false
+			"B_HUNT":
+				var buff = b.bounty / 100
+				if "HTH" in b.perks:
+					buff / 2
+				d += buff
 	return d
 #weapon true perks, effects, healing
-func calc_tru(a, b, d):
+func calc_tru(a : guy, b : guy, d):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -60,7 +65,7 @@ func calc_tru(a, b, d):
 				a.heal(d * 0.04, 0)
 	return d
 
-func calc_cc(a, b):
+func calc_cc(a : guy, b : guy, d):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -68,7 +73,7 @@ func calc_cc(a, b):
 				a.cc += 12
 
 #armor base perks
-func calc_armor(a, b, armor):
+func calc_armor(a : guy, b : guy, armor):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
@@ -76,13 +81,18 @@ func calc_armor(a, b, armor):
 				armor += 5
 			"DIA_CHEST":
 				armor += 6
+			"DAG":
+				if b.bounty > 0:
+					armor += 30
+			"BILLY":
+				armor += a.bounty / 1000
 	return armor
 #armor multi perks
-func defensive_two(a, b, armor):
+func defensive_two(a : guy, b : guy, armor):
 	get_perks(a, b)
 	return armor
 #armor true perks
-func defensive_three(a, b, d):
+func defensive_three(a : guy, b : guy, d):
 	get_perks(a, b)
 	return d
 
@@ -93,6 +103,11 @@ func on_kill():
 			"C_JAN":
 				var e = effect_handler.new_effect("res", 1, 2)
 				effect_handler.add_effect(e, you)
+			"SCO":
+				if you.bounty >= you.bounty_max:
+					stats.add_stats("g", you.bounty)
+					you.bounty = 0
+					perks.erase(p)
 
 func get_perks(a : guy, b : guy):
 	perks_a = a.perks

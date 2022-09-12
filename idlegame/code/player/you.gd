@@ -94,7 +94,8 @@ func calc_gold(base):
 	return base
 
 func bounty_up():
-	if scene_handler.rng.randi_range(1, 20) == 1:
-		var bump = 100
-		chat.bounty_bump(bump)
-		set_bounty(bounty + bump)
+	if bounty < bounty_max:
+		if scene_handler.rng.randi_range(1, 20) == 1:
+			var bump = 100
+			chat.bounty_bump(bump)
+			set_bounty(bounty + bump)

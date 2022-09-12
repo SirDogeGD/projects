@@ -149,6 +149,15 @@ func _process(delta):
 				scene(prestige)
 			deathscreen:
 				scene(camp)
+#	Pause Menu on hold Tab
+	if Input.is_action_just_pressed("PM"):
+		match get_tree().current_scene.filename:
+			fight, pc, qm, rs, cc, gk:
+				scene(pauseMenu)
+	if Input.is_action_just_released("PM"):
+		match get_tree().current_scene.filename:
+			fight, pc, qm, rs, cc, gk:
+				scene(pauseMenu)
 
 #die and go back to spawn
 func deathscreen():
