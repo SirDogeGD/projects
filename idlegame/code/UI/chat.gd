@@ -1,6 +1,6 @@
 extends Control
 
-var chat = ["", "", "", ""]
+var chat := ["", "", "", ""]
 
 func make_chat():
 	return(chat[0] + "\n" + chat[1] + "\n" + chat[2] + "\n" + chat[3])

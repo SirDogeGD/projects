@@ -2,6 +2,7 @@ extends Node
 
 var o = "overdrive"
 var b = "beastmode"
+var h = "highlander"
 var dmg : float = 0
 
 func get_all(who : guy, s):
@@ -46,6 +47,9 @@ func get_gboost(name, s):
 		b:
 			if s>= 20:
 				return 0.75
+		h:
+			if s>= 20:
+				return 1.1
 	return 0
 
 func get_xpboost(name, s):
@@ -75,6 +79,8 @@ func on_death(who : guy, s):
 		match mega:
 			o:
 				stats.add_stats("xp", 4000)
+			h:
+				stats.add_stats("g", you.bounty)
 
 #get what streak the mega activates
 func get_activation(name):
@@ -82,6 +88,8 @@ func get_activation(name):
 		o:
 			return 10
 		b:
+			return 20
+		h:
 			return 20
 
 #make strings for labels in runstats

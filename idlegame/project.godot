@@ -63,6 +63,7 @@ effect_handler="*res://code/effects/effect_handler.gd"
 perk_info="*res://code/perks/perk_info.gd"
 perk_handler="*res://code/perks/perk_handler.gd"
 prestige_handler="*res://code/prestige/prestige_handler.gd"
+bounty_handler="*res://code/player/bounty/bounty_handler.gd"
 
 [display]
 

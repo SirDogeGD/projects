@@ -65,7 +65,7 @@ func calc_tru(a : guy, b : guy, d):
 				a.heal(d * 0.04, 0)
 	return d
 
-func calc_cc(a : guy, b : guy, d):
+func calc_cc(a : guy, b : guy):
 	get_perks(a, b)
 	for p in perks_a:
 		match p:
