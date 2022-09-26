@@ -11,7 +11,7 @@ func _ready():
 
 #mega stats
 func mega_side(m):
-	var text = megastreak_handler.make_stats(you)
+	var text = megastreak_handler.make_stats()
 	for e in text:
 		var l = Label.new()
 		l.text = str(e)

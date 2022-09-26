@@ -120,12 +120,13 @@ func dmg_calc(a : guy, b : guy, w):
 #	dmg boost shop upgrade
 	var dict = a.upgrades
 	var boost = 1 + dict["dmgboost"]/100
-	a.mult = a.mult * boost
+	a.mult *= boost
 #	megastreak dmg boost
-	a.mult = a.mult * (a.mdb + 1)
+	a.mult *= (a.mdb + 1)
+	a.mult *= megastreak_handler.get_var_dmg(a, b)
 #	Crit
 	if a.crit == true:
-		a.mult = a.mult * a.crit_mult / 100
+		a.mult *= a.crit_mult / 100
 	
 	dmg *= a.mult / 100
 

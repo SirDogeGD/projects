@@ -4,14 +4,17 @@ var o = "overdrive"
 var b = "beastmode"
 var h = "highlander"
 var dmg : float = 0
+var g : guy
 
+#gets called by guy
 func get_all(who : guy, s):
-	var mega = who.mega
+	g = who
+	var mega = g.mega
 	
 	if(check_activated(mega, s)):
-		if not who.mactive:
+		if not g.mactive:
 			chat.mega(mega)
-		who.mactive = true
+		g.mactive = true
 	
 	var arr = []
 	arr.append(get_true(mega, s))
@@ -73,14 +76,13 @@ func check_activated(name, s):
 		return true
 
 func on_death(who : guy, s):
-	who.mactive = false
 	if who.mactive:
-		var mega = who.mega
-		match mega:
+		match who.mega:
 			o:
 				stats.add_stats("xp", 4000)
 			h:
 				stats.add_stats("g", you.bounty)
+	who.mactive = false
 
 #get what streak the mega activates
 func get_activation(name):
@@ -93,10 +95,10 @@ func get_activation(name):
 			return 20
 
 #make strings for labels in runstats
-func make_stats(who : guy):
+func make_stats():
 	var text = []
-	var m = who.mega
-	var s = who.streak
+	var m = you.mega
+	var s = you.streak
 	
 #	string megastreak name
 	var m1 = m
@@ -109,7 +111,7 @@ func make_stats(who : guy):
 	
 #	strings mega buffs/debuffs
 	if megastreak_handler.check_activated(m, s):
-		var stats = get_all(who, s)
+		var stats = get_all(g, s)
 		var count = 0
 		for e in stats:
 			if e > 0:
@@ -132,3 +134,11 @@ func make_stats(who : guy):
 				text.append(t)
 			count += 1
 	return text
+
+#varying dmg boost (e.g. highlander doing extra dmg to bountied)
+func get_var_dmg(a : guy, b : guy, d):
+	match a.mega:
+		h:
+			if b.bounty > 0:
+				d += 0.33
+	return d
