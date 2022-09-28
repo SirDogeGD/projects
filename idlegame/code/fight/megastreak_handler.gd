@@ -142,3 +142,9 @@ func get_var_dmg(a : guy, b : guy, d):
 			if b.bounty > 0:
 				d += 0.33
 	return d
+
+func get_maxbounty(a : guy):
+	match a.mega:
+		h:
+			return 10000
+	return 5000

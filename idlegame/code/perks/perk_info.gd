@@ -58,6 +58,19 @@ func perkinfo(id):
 		16, "F_STRIKE":
 			return make("First Strike", "First hit against an enemy deals +%s%% dmg",
 				[[35],[40],[45],[50]],"DEFAULT")
+#		Bounties
+		17, "BILLY":
+			return make("Billy", "Gain +%s armor for every 1k bounty you have",
+				[[1],[2],[3],[4]],"DEFAULT")
+		18, "B_HUNT":
+			return make("Bounty Hunter", "Gain +%s%% dmg for every 100 bounty your enemy has",
+				[[1],[1.5],[2],[2.5]],"DEFAULT")
+		19, "HTH":
+			return make("Hunt the Hunter", "Enemies with Bounty Hunter deal %sx bonus dmg to you",
+				[[0.5],[0.25],[0.1],[0]],"DEFAULT")
+		20, "SCO":
+			return make("Self-Checkout", "Reaching your max bounty clears it and you gain %s%% of it. %s uses.",
+				[[50, 2],[75, 2],[100, 3],[125, 4]],"DEFAULT")
 
 func make(n, d, num, u) -> perk:
 	var p : perk = perkfile.new()
@@ -72,6 +85,7 @@ func make_choice() -> Array:
 	var default_perks = ["SHARP", "PUN", "K_BUST", "PF", "G_A_B"]
 	var myst1 = ["BERS", "GUTS", "C_DMG", "C_SHIELD"]
 	var myst2 = ["C_JAN", "C_CRUSH", "LS", "F_STRIKE"]
+	var bount = ["BILLY", "B_HUNT", "HTH", "SCO"]
 #	add perks to pool
 	array_pool += default_perks
 	if 1 in stats.pUpgrades:

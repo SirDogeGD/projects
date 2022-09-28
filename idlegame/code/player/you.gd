@@ -34,7 +34,7 @@ func kill(bounty:=0):
 	perk_handler.on_kill()
 	return[xp, gold]
 
-func set_selected(s):
+func set_selected(s : int):
 	selected = s
 
 func get_selected():

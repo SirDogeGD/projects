@@ -152,6 +152,7 @@ func update_megas():
 	mgb = arr[2]
 	mxpb = arr[3]
 	mdb = arr[4]
+	bounty_max = megastreak_handler.get_maxbounty(self)
 
 #reset stats that get altered during fight calculation
 func reset_fight():

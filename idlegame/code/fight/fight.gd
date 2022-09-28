@@ -123,7 +123,7 @@ func dmg_calc(a : guy, b : guy, w):
 	a.mult *= boost
 #	megastreak dmg boost
 	a.mult *= (a.mdb + 1)
-	a.mult *= megastreak_handler.get_var_dmg(a, b)
+	a.mult *= megastreak_handler.get_var_dmg(a, b, a.base)
 #	Crit
 	if a.crit == true:
 		a.mult *= a.crit_mult / 100

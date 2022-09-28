@@ -46,7 +46,7 @@ func calc_mult(a : guy, b : guy, d):
 			"B_HUNT":
 				var buff = b.bounty / 100
 				if "HTH" in b.perks:
-					buff / 2
+					buff * 0.5
 				d += buff
 	return d
 #weapon true perks, effects, healing
@@ -85,7 +85,7 @@ func calc_armor(a : guy, b : guy, armor):
 				if b.bounty > 0:
 					armor += 30
 			"BILLY":
-				armor += a.bounty / 1000
+				armor += a.bounty / 1000 * 2
 	return armor
 #armor multi perks
 func defensive_two(a : guy, b : guy, armor):
@@ -105,7 +105,7 @@ func on_kill():
 				effect_handler.add_effect(e, you)
 			"SCO":
 				if you.bounty >= you.bounty_max:
-					stats.add_stats("g", you.bounty)
+					stats.add_stats("g", you.bounty * 0.5)
 					you.bounty = 0
 					perks.erase(p)
 
