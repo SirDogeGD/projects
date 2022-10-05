@@ -48,10 +48,10 @@ func get_gboost(name, s):
 			if s >= 10:
 				return 0.5
 		b:
-			if s>= 20:
+			if s >= 20:
 				return 0.75
 		h:
-			if s>= 20:
+			if s >= 20:
 				return 1.1
 	return 0
 
@@ -68,7 +68,8 @@ func get_xpboost(name, s):
 func get_dmgboost(name, s):
 	match name:
 		b:
-			return 0.25
+			if s >= 20:
+				return 0.25
 	return 0
 
 func check_activated(name, s):
@@ -136,12 +137,13 @@ func make_stats():
 	return text
 
 #varying dmg boost (e.g. highlander doing extra dmg to bountied)
-func get_var_dmg(a : guy, b : guy, d):
+func get_var_dmg(a : guy, b : guy):
+	var dboost := 1
 	match a.mega:
 		h:
 			if b.bounty > 0:
-				d += 0.33
-	return d
+				dboost += 0.33
+	return dboost
 
 func get_maxbounty(a : guy):
 	match a.mega:

@@ -15,10 +15,10 @@ var bounty_max := 5000
 
 #dmg stuff
 var first_strike := true
-var dmg = 0
-var base = 0
-var mult = 100
-var crit_mult = 120
+var dmg := 0.0
+var base := 0.0
+var mult := 100.0
+var crit_mult := 120.0
 #var trumult
 var tru = 0
 var next_crit := false #Next turn will spawn a crit marker
