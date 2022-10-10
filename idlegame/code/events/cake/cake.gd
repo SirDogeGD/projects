@@ -4,6 +4,8 @@ var clicks:= 0
 var last_piece = 0
 var next_piece = 0
 onready var tray = $CenterContainer/Cake_tray
+var tot_gold := 0.0
+var tot_xp := 0
 
 func _ready():
 	make_piece_yummy()
@@ -13,6 +15,7 @@ func _ready():
 	you.emit_signal("health_changed", you.current_hp, you.hp, you.current_shield)
 
 func _on_Timer_timeout():
+	chat.cake(tot_gold, tot_xp)
 	scene_handler.next_scene()
 
 func make_piece_yummy():
@@ -22,8 +25,13 @@ func make_piece_yummy():
 	pieces[next_piece].make_yummy(make_reward())
 	last_piece = next_piece
 
-func piece_eated():
+func piece_eated(rewards : Dictionary):
 	clicks += 1
+	match rewards["type"]:
+		"g":
+			tot_gold += rewards["amount"]
+		"xp":
+			tot_xp += rewards["amount"]
 	make_piece_yummy()
 
 func make_reward() -> Dictionary:

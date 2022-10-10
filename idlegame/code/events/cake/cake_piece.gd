@@ -1,6 +1,6 @@
 extends CenterContainer
 
-signal eated
+signal eated(rewards)
 var yummy := false
 var rewards:= {"type":"g",
 			   "amount":0}
@@ -17,7 +17,7 @@ func _on_TextureRect_gui_input(event):
 		$TextureRect/FCTManager.show_value(make_reward_text(), rewards["type"])
 		stats.add_stats(rewards["type"],rewards["amount"])
 		set_yummy(false)
-		emit_signal("eated")
+		emit_signal("eated", rewards)
 
 func make_yummy(r):
 	rewards = r

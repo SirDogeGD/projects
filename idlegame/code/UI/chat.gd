@@ -39,3 +39,6 @@ func won_event(which):
 
 func bounty_bump(amount):
 	add("Bounty Bump! +%sg" % amount)
+
+func cake(gold, xp):
+	add("Cake over! +%sg +%sxp" % [gold, xp])
