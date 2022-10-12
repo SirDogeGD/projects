@@ -1,4 +1,5 @@
 extends Node
+class_name item
 
 var item_name
 var stacksize = 1
