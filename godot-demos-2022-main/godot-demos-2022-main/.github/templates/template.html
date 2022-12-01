@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html $if(lang)$ lang="$lang$" $endif$>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta property="og:type" content="website" />
+    $if(favicon)$
+    <link rel="shortcut icon" type="image/x-icon" href="$favicon$" />
+    $endif$ $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$ $if(date-meta)$
+    <meta name="date" content="$date-meta$" />
+    $endif$ $if(title)$
+    <meta property="og:title" content="$title$" />
+    <meta name="twitter:title" content="$title$" />
+    $endif$ $if(description)$
+    <meta property="og:description" content="$description$" />
+    <meta name="twitter:description" content="$description$" />
+    $endif$ $if(image)$
+    <meta property="og:image" content="$image$" />
+    <meta name="twitter:image" content="$image$" />
+    $endif$ $if(url)$
+    <meta property="og:url" content="$url$" />
+    $endif$ $for(css)$
+    <link
+      rel="stylesheet"
+      href="$css$"
+      $if(html5)$$else$type="text/css"
+      $endif$
+    />
+    $endfor$
+    <title>$pagetitle$</title>
+  </head>
+  <body class="$type$">
+    <header class="banner-container">
+      <img src="$base$david.svg" class="character" />
+      <div id="countdown-banner" class="countdown-banner">
+        <h2 class="title">Welcome to Godot sale!</h2>
+        <p>
+          50% off on all Godot courses with coupon code
+          <strong>WELCOME-TO-GODOT</strong>.
+        </p>
+        <div>
+          <span id="countdown" class="countdown" data-date="2022-07-24T23:59"
+            >0 days left</span
+          >
+        </div>
+        <a
+          href="https://gdquest.mavenseed.com/courses"
+          class="button-link -yellow -shadow -large -tall"
+          >Learn more</a
+        >
+      </div>
+      <img src="$base$lula.svg" class="character" />
+    </header>
+    <header class="page-title container">
+      $if(is_project)$
+      <img src="./icon.png" alt="logo for $title$" />
+      $endif$ $if(title)$
+      <h1 class="doc-title">$title$</h1>
+        $if(repo_url)$
+        <div class="header-links">
+          <div class="github-links">
+          <a class="github-button" href="https://github.com/GDQuest/godot-demos-2022" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star GDQuest/godot-demos-2022 on GitHub">Star</a>
+          <a class="github-button" href="https://github.com/GDQuest/godot-demos-2022/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork GDQuest/godot-demos-2022 on GitHub">Fork</a>
+          <a class="github-button" href="https://github.com/GDQuest" data-size="large" aria-label="Follow @GDQuest on GitHub">Follow @GDQuest</a>
+          $if(is_project)$
+          <a class="github-button" href="$repo_url$" data-size="large" aria-label="Access this Demo on Github">This Demo on Github</a>
+          $endif$
+        </div>
+        $endif$ $endif$ $if(is_project)$
+        <a class="back" href="../">&larr; Go back to project list</a>
+        $endif$
+      </div>
+    </header>
+    $if(toc)$
+    <header id="$idprefix$TOC" class="toc">
+      <div class="well toc">$toc$</div>
+    </header>
+    $endif$
+    <main class="page-body container">
+      $if(filename)$
+      <section class="file-download">
+        <a href="$base$artifacts/$filename$" download
+          ><span>Download the project files</span></a
+        >
+      </section>
+      $endif$ $if(videos)$
+      <section class="videos">
+        $for(videos)$
+        <div class="video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/$videos$"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+        $endfor$
+      </section>
+      $endif$
+      <section class="content">
+        $for(include-before)$ $include-before$ $endfor$ $body$
+        $for(include-after)$ $include-after$ $endfor$
+      </section>
+      $if(filename)$
+      <section class="file-download">
+        <a href="$base$artifacts/$filename$" download>
+          <span>Download the project files</span></a
+        >
+      </section>
+      $endif$
+    </main>
+    <footer>
+      <a href="https://gdquest.github.io/godot-demos-2022/">Demos website</a>
+      <a href="https://github.com/GDQuest/godot-demos-2022/">Demos Github</a>
+      <a href="https://gdquest.itch.io/godot-demos-2022-edition">Itch</a>
+      <a href="https://www.gdquest.com">Main Website</a>
+    </footer>
+    <a class="github-ribbon" href="$repo_url$"
+      ><img
+        loading="lazy"
+        width="149"
+        height="149"
+        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
+        class="attachment-full size-full"
+        alt="Fork me on GitHub"
+        data-recalc-dims="1"
+    /></a>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="$base$script.js"></script>
+  </body>
+</html>

@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name enemy
 
+signal death
+
 enum {
 	IDLE,
 	WANDER,
@@ -28,7 +30,7 @@ func take_damage(amount: int) -> void:
 	health = max(0, health - amount)
 	animation_player.play("hit")
 	if health <= 0:
-		self.queue_free()
+		on_death()
 
 func _physics_process(delta):
 	match state:
@@ -61,6 +63,7 @@ func _on_DetectRadius_body_exited(body : player):
 func knock_back(source_position: Vector2) -> void:
 	hit_particles.rotation = get_angle_to(source_position) + PI
 	pushback_force = -global_position.direction_to(source_position) * 300
+	print(pushback_force)
 
 func update_target_position():
 	var target_vector = Vector2(rand_range(-32, 32), rand_range(-32, 32))
@@ -77,3 +80,9 @@ func accelerate_to_point(point, acceleration_scalar):
 func accelerate(acceleration_vector):
 	velocity += acceleration_vector
 	velocity = velocity.clamped(MAX_SPEED)
+
+func on_death():
+	emit_signal("death")
+	$Sprite.visible = false
+	yield(animation_player, "animation_finished")
+	self.queue_free()

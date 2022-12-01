@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name player
 
+var stats: PlayerSave setget set_stats
+
 export var speed := 400.0
 
 func _physics_process(_delta: float) -> void:
@@ -11,3 +13,7 @@ func _physics_process(_delta: float) -> void:
 
 	var move_direction := input_vector.normalized()
 	move_and_slide(speed * move_direction)
+
+func set_stats(new_stats: PlayerSave) -> void:
+	stats = new_stats
+	set_physics_process(stats != null)
