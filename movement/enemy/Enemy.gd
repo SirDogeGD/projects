@@ -63,7 +63,6 @@ func _on_DetectRadius_body_exited(body : player):
 func knock_back(source_position: Vector2) -> void:
 	hit_particles.rotation = get_angle_to(source_position) + PI
 	pushback_force = -global_position.direction_to(source_position) * 300
-	print(pushback_force)
 
 func update_target_position():
 	var target_vector = Vector2(rand_range(-32, 32), rand_range(-32, 32))
@@ -83,6 +82,8 @@ func accelerate(acceleration_vector):
 
 func on_death():
 	emit_signal("death")
-	$Sprite.visible = false
+#	$Sprite.visible = false
 	yield(animation_player, "animation_finished")
-	self.queue_free()
+#	self.queue_free()
+	global_position = start_position
+	health = health_max

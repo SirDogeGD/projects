@@ -11,7 +11,7 @@
 shader = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 39.25, 20.5 )
+extents = Vector2( 53.125, 20.5 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -102,7 +102,7 @@ script = ExtResource( 4 )
 visible = false
 self_modulate = Color( 0.690196, 0.188235, 0.360784, 1 )
 material = SubResource( 6 )
-position = Vector2( 70, 0 )
+position = Vector2( 56.125, 0 )
 shape = SubResource( 5 )
 disabled = true
 script = ExtResource( 1 )
