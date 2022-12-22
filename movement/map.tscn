@@ -31,4 +31,4 @@ speed = 300.0
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 267.667, 145 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.2, 0.2 )

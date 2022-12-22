@@ -15,7 +15,8 @@ var state = IDLE
 var health := health_max
 var run_speed = 100
 var velocity = Vector2.ZERO
-var player = null
+var target : player = null
+var bodies_in_attack_range := []
 var pushback_force := Vector2.ZERO
 const TOLERANCE = 4.0
 const ACCELERATION = 300
@@ -25,6 +26,10 @@ onready var start_position = global_position
 onready var target_position = global_position
 onready var animation_player := $AnimationPlayer
 onready var hit_particles := $HitParticles
+onready var sword = $WeaponSword
+
+func _ready():
+	sword.connect("animation_finished", self, "attack_players")
 
 func take_damage(amount: int) -> void:
 	health = max(0, health - amount)
@@ -36,8 +41,10 @@ func _physics_process(delta):
 	match state:
 		ATTACK:
 			velocity = Vector2.ZERO
-			if player:
-				velocity = position.direction_to(player.position) * run_speed
+			if target:
+				velocity = position.direction_to(target.position) * run_speed
+				sword.look_at(target.global_position)
+				attack_players()
 			pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
 			move_and_slide(pushback_force * 5)
 		IDLE:
@@ -53,12 +60,12 @@ func _physics_process(delta):
 func _on_DetectRadius_body_entered(body : player):
 	if body != null:
 		state = ATTACK
-		player = body
+		target = body
 
 func _on_DetectRadius_body_exited(body : player):
 	if body != null:
 		state = IDLE
-		player = null
+		target = null
 
 func knock_back(source_position: Vector2) -> void:
 	hit_particles.rotation = get_angle_to(source_position) + PI
@@ -87,3 +94,16 @@ func on_death():
 #	self.queue_free()
 	global_position = start_position
 	health = health_max
+
+func _on_AttackRadius_body_entered(body : player):
+	if body != null:
+		bodies_in_attack_range.append(body)
+
+func _on_AttackRadius_body_exited(body):
+	if body != null:
+		bodies_in_attack_range.erase(body)
+
+func attack_players():
+	sword.attack()
+	for b in bodies_in_attack_range:
+		pass
