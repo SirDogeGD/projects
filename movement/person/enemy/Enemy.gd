@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends person
 class_name enemy
 
 signal death
@@ -9,24 +9,17 @@ enum {
 	ATTACK
 }
 
-export var health_max := 100
-
 var state = IDLE
-var health := health_max
 var run_speed = 100
 var velocity = Vector2.ZERO
-var target : player = null
+var target : person = null
 var bodies_in_attack_range := []
-var pushback_force := Vector2.ZERO
 const TOLERANCE = 4.0
 const ACCELERATION = 300
 const MAX_SPEED = 50
 
 onready var start_position = global_position
 onready var target_position = global_position
-onready var animation_player := $AnimationPlayer
-onready var hit_particles := $HitParticles
-onready var sword = $WeaponSword
 
 func _ready():
 	sword.connect("animation_finished", self, "attack_players")
@@ -57,19 +50,15 @@ func _physics_process(delta):
 				state = IDLE
 	velocity = move_and_slide(velocity)
 
-func _on_DetectRadius_body_entered(body : player):
+func _on_DetectRadius_body_entered(body : person):
 	if body != null:
 		state = ATTACK
 		target = body
 
-func _on_DetectRadius_body_exited(body : player):
+func _on_DetectRadius_body_exited(body : person):
 	if body != null:
 		state = IDLE
 		target = null
-
-func knock_back(source_position: Vector2) -> void:
-	hit_particles.rotation = get_angle_to(source_position) + PI
-	pushback_force = -global_position.direction_to(source_position) * 300
 
 func update_target_position():
 	var target_vector = Vector2(rand_range(-32, 32), rand_range(-32, 32))
@@ -95,7 +84,7 @@ func on_death():
 	global_position = start_position
 	health = health_max
 
-func _on_AttackRadius_body_entered(body : player):
+func _on_AttackRadius_body_entered(body : person):
 	if body != null:
 		bodies_in_attack_range.append(body)
 

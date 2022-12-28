@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://enemy/enemy.png" type="Texture" id=1]
-[ext_resource path="res://enemy/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://person/enemy/enemy.png" type="Texture" id=1]
+[ext_resource path="res://person/enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://nodes/HurtBox.gd" type="Script" id=3]
 [ext_resource path="res://addons/gdquest_visualization_tools/2d/DebugCollisionShape2D.gd" type="Script" id=4]
 [ext_resource path="res://nodes/GDQuestDebugDraggable.gd" type="Script" id=6]
@@ -29,7 +29,7 @@ resource_local_to_scene = true
 shader = SubResource( 10 )
 shader_param/active = false
 
-[sub_resource type="ShaderMaterial" id=19]
+[sub_resource type="ShaderMaterial" id=17]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 34.5, 53 )
@@ -129,9 +129,6 @@ tracks/3/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 34.5, 52.5 )
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 376.001
-
 [sub_resource type="Curve" id=13]
 _data = [ Vector2( 0, 0.310227 ), 0.0, -0.878442, 0, 0, Vector2( 0.179775, 0.955682 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.201136 ), 0.134848, -0.755151, 0, 0 ]
 
@@ -156,10 +153,7 @@ scale_curve = SubResource( 14 )
 flags = 4
 load_path = "res://.import/ice_particle_white.png-2d7ad96d84bfbcac479ab26380b11d15.stex"
 
-[sub_resource type="CircleShape2D" id=18]
-radius = 170.156
-
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Person" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -177,7 +171,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 visible = false
 self_modulate = Color( 0.560784, 0.870588, 0.364706, 1 )
-material = SubResource( 19 )
+material = SubResource( 17 )
 position = Vector2( 1, -55 )
 shape = SubResource( 7 )
 script = ExtResource( 4 )
@@ -195,12 +189,6 @@ anims/hit = SubResource( 4 )
 position = Vector2( 0, -54.5 )
 shape = SubResource( 5 )
 
-[node name="DetectRadius" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius"]
-position = Vector2( 0, -57 )
-shape = SubResource( 9 )
-
 [node name="WeaponSword" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -50 )
 
@@ -216,14 +204,3 @@ randomness = 0.59
 local_coords = false
 process_material = SubResource( 15 )
 texture = SubResource( 16 )
-
-[node name="AttackRadius" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
-position = Vector2( 0, -50 )
-shape = SubResource( 18 )
-
-[connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
-[connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]
-[connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]
-[connection signal="body_exited" from="AttackRadius" to="." method="_on_AttackRadius_body_exited"]

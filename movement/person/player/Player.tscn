@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://person/Person.tscn" type="PackedScene" id=1]
+[ext_resource path="res://person/player/Player.gd" type="Script" id=4]
+
+[sub_resource type="Shader" id=10]
+code = "shader_type canvas_item;
+
+uniform bool active = false;
+
+void fragment() {
+	// Replaces all but alpha to white if active = true
+	vec4 origional_color = texture(TEXTURE, UV);
+	vec4 white_color = vec4(1.0, 1.0, 1.0, origional_color.a); 
+	vec4 new_color = origional_color;
+	if (active == true)
+	{
+		new_color = white_color
+	}
+	COLOR = new_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = SubResource( 10 )
+shader_param/active = false
+
+[sub_resource type="ShaderMaterial" id=12]
+
+[node name="Player" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 11 )
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+material = SubResource( 12 )
