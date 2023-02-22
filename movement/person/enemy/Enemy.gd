@@ -22,7 +22,7 @@ onready var start_position = global_position
 onready var target_position = global_position
 
 func _ready():
-	sword.connect("animation_finished", self, "attack_players")
+	sword.connect("reset", self, "attack_players")
 
 func take_damage(amount: int) -> void:
 	health = max(0, health - amount)
@@ -78,9 +78,7 @@ func accelerate(acceleration_vector):
 
 func on_death():
 	emit_signal("death")
-#	$Sprite.visible = false
 	yield(animation_player, "animation_finished")
-#	self.queue_free()
 	global_position = start_position
 	health = health_max
 
@@ -88,7 +86,7 @@ func _on_AttackRadius_body_entered(body : person):
 	if body != null:
 		bodies_in_attack_range.append(body)
 
-func _on_AttackRadius_body_exited(body):
+func _on_AttackRadius_body_exited(body : person):
 	if body != null:
 		bodies_in_attack_range.erase(body)
 

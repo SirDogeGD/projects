@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://save/player_save.gd"
 }, {
+"base": "Reference",
+"class": "SQLiteWrapper",
+"language": "GDScript",
+"path": "res://addons/godot-sqlite/godot-sqlite-wrapper.gd"
+}, {
 "base": "Resource",
 "class": "SaveGame",
 "language": "GDScript",
@@ -102,6 +107,7 @@ _global_script_class_icons={
 "HitBox": "res://nodes/HitBox.svg",
 "HurtBox": "res://nodes/HurtBox.svg",
 "PlayerSave": "",
+"SQLiteWrapper": "",
 "SaveGame": "",
 "enemy": "",
 "person": "",
@@ -113,6 +119,10 @@ _global_script_class_icons={
 config/name="movement test"
 run/main_scene="res://map.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
 [gui]
 

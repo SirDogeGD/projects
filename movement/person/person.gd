@@ -20,3 +20,12 @@ func set_stats(new_stats: PlayerSave) -> void:
 func knock_back(source_position: Vector2) -> void:
 	hit_particles.rotation = get_angle_to(source_position) + PI
 	pushback_force = -global_position.direction_to(source_position) * 300
+
+func take_damage(amount: int) -> void:
+	health = max(0, health - amount)
+	animation_player.play("hit")
+	if health <= 0:
+		on_death()
+
+func on_death():
+	pass

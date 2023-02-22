@@ -113,3 +113,10 @@ theme_sample = 24
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/slash = SubResource( 3 )
+
+[node name="UseTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+__meta__ = {
+"_editor_description_": "How fast can item be used"
+}

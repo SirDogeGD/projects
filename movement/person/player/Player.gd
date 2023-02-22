@@ -10,6 +10,9 @@ func _physics_process(_delta: float) -> void:
 
 	var move_direction := input_vector.normalized()
 	move_and_slide(speed * move_direction)
+	
+	pushback_force = lerp(pushback_force, Vector2.ZERO, _delta * 10)
+	move_and_slide(pushback_force * 5)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
