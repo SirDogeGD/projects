@@ -16,7 +16,7 @@ func _ready():
 	
 	db = SQLite.new()
 	commitDataToDB()
-	readFromDB()
+	readFromDB(1)
 
 func _create_or_load_save() -> void:
 	if SaveGame.save_exists():
@@ -43,9 +43,14 @@ func commitDataToDB():
 	dict["NAME"] = "test"
 	db.insert_row(tableName, dict)
 
-func readFromDB():
+func readFromDB(id : int):
 	db.open_db()
 	var tableName = "Perks"
-	db.query("select * from " + tableName + ";")
-	for i in range(0, db.query_result.size()):
-		print("Query results: ", db.query_result[i]["NAME"])
+	db.query("select * from " + tableName + " where ID = " + String(id) + ";")
+#	for i in range(0, db.query_result.size()):
+#		print("Query results: ", db.query_result[i]["NAME"])
+	print(db.query_result)
+	print(db.query_result[0]["DESC"])
+	print(db.query_result[0]["LEVEL"])
+	print(db.query_result[0]["POOL"])
+	return db.query_result
