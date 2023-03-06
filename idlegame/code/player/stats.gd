@@ -30,7 +30,7 @@ func save():
 func save_Stats():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
-	save_game.store_line(to_json(save()))
+	save_game.store_line(JSON.new().stringify(save()))
 	save_game.close()
 
 func load_Stats():
@@ -38,7 +38,9 @@ func load_Stats():
 	if not save_game.file_exists("user://savegame.save"):
 		save_Stats()
 	save_game.open("user://savegame.save", File.READ)
-	var json = JSON.parse(save_game.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(save_game.get_as_text())
+	var json = test_json_conv.get_data()
 	dict = json.result
 	save_game.close()
 	

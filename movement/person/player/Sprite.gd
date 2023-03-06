@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 const SPRITES_MAP := {
 	Vector2.RIGHT: preload("res://img/right.bmp"),
@@ -23,4 +23,4 @@ func _process(delta : float) -> void:
 		texture = SPRITES_MAP[input_vector]
 		look_direction = input_vector
 	
-	position.y = sin(OS.get_ticks_msec() / 200.0) * 2.0
+	position.y = sin(Time.get_ticks_msec() / 200.0) * 2.0

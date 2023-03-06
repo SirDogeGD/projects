@@ -6,7 +6,7 @@
 [ext_resource path="res://code/UI/Top_Bar.tscn" type="PackedScene" id=4]
 
 [node name="cake" type="VBoxContainer"]
-rect_min_size = Vector2( 750, 750 )
+custom_minimum_size = Vector2( 750, 750 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )
@@ -18,144 +18,144 @@ wait_time = 10.0
 autostart = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-margin_top = 24.0
-margin_right = 750.0
-margin_bottom = 696.0
+offset_top = 24.0
+offset_right = 750.0
+offset_bottom = 696.0
 size_flags_vertical = 3
 
 [node name="Cake_tray" type="GridContainer" parent="CenterContainer"]
-margin_left = 169.0
-margin_top = 130.0
-margin_right = 581.0
-margin_bottom = 542.0
+offset_left = 169.0
+offset_top = 130.0
+offset_right = 581.0
+offset_bottom = 542.0
 columns = 4
 
 [node name="Control" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
 
 [node name="Control2" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
+offset_left = 104.0
+offset_right = 204.0
+offset_bottom = 100.0
 
 [node name="Control3" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
+offset_left = 208.0
+offset_right = 308.0
+offset_bottom = 100.0
 
 [node name="Control4" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_right = 412.0
-margin_bottom = 100.0
+offset_left = 312.0
+offset_right = 412.0
+offset_bottom = 100.0
 
 [node name="Control5" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 104.0
-margin_right = 100.0
-margin_bottom = 204.0
+offset_top = 104.0
+offset_right = 100.0
+offset_bottom = 204.0
 
 [node name="Control6" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
-margin_top = 104.0
-margin_right = 204.0
-margin_bottom = 204.0
+offset_left = 104.0
+offset_top = 104.0
+offset_right = 204.0
+offset_bottom = 204.0
 
 [node name="Control7" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 208.0
-margin_top = 104.0
-margin_right = 308.0
-margin_bottom = 204.0
+offset_left = 208.0
+offset_top = 104.0
+offset_right = 308.0
+offset_bottom = 204.0
 
 [node name="Control8" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_top = 104.0
-margin_right = 412.0
-margin_bottom = 204.0
+offset_left = 312.0
+offset_top = 104.0
+offset_right = 412.0
+offset_bottom = 204.0
 
 [node name="Control9" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 208.0
-margin_right = 100.0
-margin_bottom = 308.0
+offset_top = 208.0
+offset_right = 100.0
+offset_bottom = 308.0
 
 [node name="Control10" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
-margin_top = 208.0
-margin_right = 204.0
-margin_bottom = 308.0
+offset_left = 104.0
+offset_top = 208.0
+offset_right = 204.0
+offset_bottom = 308.0
 
 [node name="Control11" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 208.0
-margin_top = 208.0
-margin_right = 308.0
-margin_bottom = 308.0
+offset_left = 208.0
+offset_top = 208.0
+offset_right = 308.0
+offset_bottom = 308.0
 
 [node name="Control12" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_top = 208.0
-margin_right = 412.0
-margin_bottom = 308.0
+offset_left = 312.0
+offset_top = 208.0
+offset_right = 412.0
+offset_bottom = 308.0
 
 [node name="Control13" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 312.0
-margin_right = 100.0
-margin_bottom = 412.0
+offset_top = 312.0
+offset_right = 100.0
+offset_bottom = 412.0
 
 [node name="Control14" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
-margin_top = 312.0
-margin_right = 204.0
-margin_bottom = 412.0
+offset_left = 104.0
+offset_top = 312.0
+offset_right = 204.0
+offset_bottom = 412.0
 
 [node name="Control15" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 208.0
-margin_top = 312.0
-margin_right = 308.0
-margin_bottom = 412.0
+offset_left = 208.0
+offset_top = 312.0
+offset_right = 308.0
+offset_bottom = 412.0
 
 [node name="Control16" parent="CenterContainer/Cake_tray" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 312.0
-margin_top = 312.0
-margin_right = 412.0
-margin_bottom = 412.0
+offset_left = 312.0
+offset_top = 312.0
+offset_right = 412.0
+offset_bottom = 412.0
 
 [node name="HeartBar" parent="." instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 222.0
-margin_top = 700.0
-margin_right = 528.0
-margin_bottom = 750.0
+offset_left = 222.0
+offset_top = 700.0
+offset_right = 528.0
+offset_bottom = 750.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,8 +1,8 @@
 extends Resource
 class_name perk
 
-var pname : String setget set_name, get_name
-var desc : String setget set_desc, get_desc
+var pname : String : get = get_name, set = set_name
+var desc : String : get = get_desc, set = set_desc
 var nums : Array
 var unlock : String = "DEFAULT"
 
@@ -16,7 +16,7 @@ func set_desc(d:String):
 	desc = d
 
 func get_desc():
-	var string_array : PoolStringArray
+	var string_array : PackedStringArray
 	for n in nums[0]:
 		string_array.append(str(n))
 	var desc_with_nums = desc % string_array

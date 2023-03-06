@@ -8,7 +8,7 @@ func _ready():
 func display_perks():
 	for e in you.perks:
 		var l = perkshowerperkFile.new()
-		l.connect("hovered_on", self, "dsp_perk_info")
+		l.connect("hovered_on",Callable(self,"dsp_perk_info"))
 		l.pid = e
 		$HSplitContainer/VBoxPerks.add_child(l)
 

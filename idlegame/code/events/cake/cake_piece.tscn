@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://code/events/cake/cake_piece.gd" type="Script" id=1]
-[ext_resource path="res://code/events/cake/imgs/cake_piece_normal.bmp" type="Texture" id=2]
+[ext_resource path="res://code/events/cake/imgs/cake_piece_normal.bmp" type="Texture2D" id=2]
 [ext_resource path="res://code/UI/fct/FCTManager.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Theme" id=1]
@@ -9,8 +9,8 @@
 [node name="Cake_Piece" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -650.0
-margin_bottom = -650.0
+offset_right = -650.0
+offset_bottom = -650.0
 theme = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -18,9 +18,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+offset_right = 100.0
+offset_bottom = 100.0
+custom_minimum_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )

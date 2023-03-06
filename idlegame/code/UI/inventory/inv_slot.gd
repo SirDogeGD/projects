@@ -1,6 +1,6 @@
 extends TextureRect
 
-export(int, 6) var slot
+@export var slot # (int, 6)
 
 func _ready():
 	update_img()

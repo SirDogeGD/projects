@@ -10,7 +10,7 @@ func update_effects(effects):
 	clear()
 	
 	for i in effects:
-		var e = effshow.instance()
+		var e = effshow.instantiate()
 		e.set(i.get_name(), i.get_level())
 		add_child(e)
 

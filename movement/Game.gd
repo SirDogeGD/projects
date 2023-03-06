@@ -6,11 +6,11 @@ var db_name = "res://DataStore/database"
 
 var _save: SaveGame
 
-onready var _player := $Player
-onready var _enemy := $Enemy
+@onready var _player := $Player
+@onready var _enemy := $Enemy
 
 func _ready():
-	_enemy.connect("death", self, "_save_game")
+	_enemy.connect("death",Callable(self,"_save_game"))
 	
 	_create_or_load_save()
 	

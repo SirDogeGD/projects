@@ -1,8 +1,8 @@
 class_name SaveGame
 extends Resource
 
-export var player: Resource = PlayerSave.new()
-export var global_position := Vector2.ZERO
+@export var player: Resource = PlayerSave.new()
+@export var global_position := Vector2.ZERO
 
 const SAVE_GAME_PATH := "user://savegame.tres"
 

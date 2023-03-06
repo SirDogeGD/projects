@@ -38,7 +38,7 @@ var ttext
 var bg = TextureRect.new()
 
 func _ready():
-	self.set_pause_mode(PAUSE_MODE_PROCESS)
+	self.set_process_mode(PROCESS_MODE_ALWAYS)
 	add_bg()
 
 #switch to scene s
@@ -49,7 +49,7 @@ func scene(s):
 			if not get_tree().paused:
 #				pause fight scenes
 				get_tree().paused = true
-				pm = pauseMenuFile.instance()
+				pm = pauseMenuFile.instantiate()
 				get_tree().root.add_child(pm)
 				pm.z_index = 1000
 			else:
@@ -62,9 +62,9 @@ func scene(s):
 				get_tree().current_scene._ready()
 			else:
 #				if not in fight, load fight
-				get_tree().change_scene(s)
+				get_tree().change_scene_to_file(s)
 		_:
-			get_tree().change_scene(s)
+			get_tree().change_scene_to_file(s)
 
 func next_scene():
 	if(count == 0):
@@ -172,7 +172,7 @@ func death():
 
 func transition_scene(tt):
 	get_tree().paused = true
-	var t = transition.instance()
+	var t = transition.instantiate()
 	t.set_text(tt)
 	get_tree().root.add_child(t)
 	t.z_index = 1000

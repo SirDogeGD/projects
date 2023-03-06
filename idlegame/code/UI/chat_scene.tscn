@@ -12,10 +12,10 @@ __meta__ = {
 }
 
 [node name="LChat" type="Label" parent="." groups=["chat"]]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 323.0
-margin_bottom = 147.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 323.0
+offset_bottom = 147.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "test"

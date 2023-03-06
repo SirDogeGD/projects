@@ -4,34 +4,34 @@
 [ext_resource path="res://code/perks/perk_shower/perk_shower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://code/events/contract/contract_shower/contract_show.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/UI/runstats/run_stats.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icons/titles/youdied.png" type="Texture" id=6]
+[ext_resource path="res://icons/titles/youdied.png" type="Texture2D" id=6]
 
 [node name="death" type="CenterContainer"]
-margin_right = 750.0
-margin_bottom = 750.0
+offset_right = 750.0
+offset_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
-margin_left = 125.0
-margin_top = 171.0
-margin_right = 625.0
-margin_bottom = 579.0
+offset_left = 125.0
+offset_top = 171.0
+offset_right = 625.0
+offset_bottom = 579.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="runstats" parent="VBox" instance=ExtResource( 5 )]
 
 [node name="perk_shower" parent="VBox" instance=ExtResource( 3 )]
-margin_top = 104.0
-margin_bottom = 304.0
+offset_top = 104.0
+offset_bottom = 304.0
 
 [node name="Contractshow" parent="VBox" instance=ExtResource( 4 )]
-margin_top = 308.0
-margin_bottom = 408.0
+offset_top = 308.0
+offset_bottom = 408.0
 
-[node name="Sprite" type="Sprite" parent="VBox"]
+[node name="Sprite2D" type="Sprite2D" parent="VBox"]
 position = Vector2( 50, -100 )
 texture = ExtResource( 6 )
 centered = false

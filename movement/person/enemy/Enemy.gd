@@ -18,11 +18,11 @@ const TOLERANCE = 4.0
 const ACCELERATION = 300
 const MAX_SPEED = 50
 
-onready var start_position = global_position
-onready var target_position = global_position
+@onready var start_position = global_position
+@onready var target_position = global_position
 
 func _ready():
-	sword.connect("reset", self, "attack_players")
+	sword.connect("reset",Callable(self,"attack_players"))
 
 func take_damage(amount: int) -> void:
 	health = max(0, health - amount)
@@ -39,7 +39,8 @@ func _physics_process(delta):
 				sword.look_at(target.global_position)
 				attack_players()
 			pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
-			move_and_slide(pushback_force * 5)
+			set_velocity(pushback_force * 5)
+			move_and_slide()
 		IDLE:
 			state = WANDER
 			update_target_position()
@@ -48,7 +49,9 @@ func _physics_process(delta):
 
 			if is_at_target_position():
 				state = IDLE
-	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity
 
 func _on_DetectRadius_body_entered(body : person):
 	if body != null:
@@ -61,7 +64,7 @@ func _on_DetectRadius_body_exited(body : person):
 		target = null
 
 func update_target_position():
-	var target_vector = Vector2(rand_range(-32, 32), rand_range(-32, 32))
+	var target_vector = Vector2(randf_range(-32, 32), randf_range(-32, 32))
 	target_position = start_position + target_vector
 
 func is_at_target_position(): 
@@ -74,11 +77,11 @@ func accelerate_to_point(point, acceleration_scalar):
 
 func accelerate(acceleration_vector):
 	velocity += acceleration_vector
-	velocity = velocity.clamped(MAX_SPEED)
+	velocity = velocity.limit_length(MAX_SPEED)
 
 func on_death():
 	emit_signal("death")
-	yield(animation_player, "animation_finished")
+	await animation_player.animation_finished
 	global_position = start_position
 	health = health_max
 

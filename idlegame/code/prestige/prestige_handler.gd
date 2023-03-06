@@ -29,7 +29,7 @@ func make_shop_items():
 		items_shown = items_left
 #turn upgrades into shopItems
 	for n in items_shown:
-		var item = itemFile.instance()
+		var item = itemFile.instantiate()
 		var info = item_list(pool[n])
 		item.setup(info[0], info[1], info[2], info[3])
 		items.append(item)

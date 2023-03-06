@@ -14,7 +14,7 @@ func new_effect(n, l, d):
 
 func add_effect(new, w : guy):
 	var effects = w.effects
-	if effects.empty():
+	if effects.is_empty():
 		w.add_effect(new)
 
 	for e in effects:

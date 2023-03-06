@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icons/effect/regen.png" type="Texture" id=1]
+[ext_resource path="res://icons/effect/regen.png" type="Texture2D" id=1]
 [ext_resource path="res://code/effects/effect_show.gd" type="Script" id=2]
 
 [node name="EffectShow" type="HBoxContainer"]
-rect_min_size = Vector2( 20, 20 )
-rect_scale = Vector2( 0.5, 0.5 )
+custom_minimum_size = Vector2( 20, 20 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="Icon" type="TextureRect" parent="."]
-margin_right = 15.0
-margin_bottom = 15.0
+offset_right = 15.0
+offset_bottom = 15.0
 texture = ExtResource( 1 )
 stretch_mode = 6
 __meta__ = {
@@ -18,9 +18,9 @@ __meta__ = {
 }
 
 [node name="LLevel" type="Label" parent="."]
-margin_left = 19.0
-margin_right = 27.0
-margin_bottom = 20.0
+offset_left = 19.0
+offset_right = 27.0
+offset_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "1"

@@ -34,7 +34,7 @@ func heal_text(i):
 			text += " and "
 		text += str(i.get_shield()) + " shield"
 #Effects
-	if !i.get_effects().empty():
+	if !i.get_effects().is_empty():
 		text += "\n"
 		for e in i.get_effects():
 			match e.get_name():

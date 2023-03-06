@@ -8,8 +8,8 @@
 script = ExtResource( 1 )
 
 [node name="C1" type="VBoxContainer" parent="."]
-margin_right = 750.0
-margin_bottom = 750.0
+offset_right = 750.0
+offset_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -17,90 +17,90 @@ __meta__ = {
 }
 
 [node name="TB" type="HBoxContainer" parent="C1"]
-margin_right = 750.0
-margin_bottom = 20.0
+offset_right = 750.0
+offset_bottom = 20.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
 [node name="XPStatShower" parent="C1/TB" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 373.0
-margin_bottom = 20.0
+offset_right = 373.0
+offset_bottom = 20.0
 type = "xp"
 
 [node name="GStatShower" parent="C1/TB" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 377.0
-margin_right = 750.0
-margin_bottom = 20.0
+offset_left = 377.0
+offset_right = 750.0
+offset_bottom = 20.0
 type = "g"
 
 [node name="VC" type="VBoxContainer" parent="C1"]
-margin_top = 24.0
-margin_right = 750.0
-margin_bottom = 750.0
+offset_top = 24.0
+offset_right = 750.0
+offset_bottom = 750.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Margin" type="CenterContainer" parent="C1/VC"]
-margin_right = 750.0
-margin_bottom = 178.0
+offset_right = 750.0
+offset_bottom = 178.0
 size_flags_vertical = 3
 
 [node name="CCShop" type="VBoxContainer" parent="C1/VC"]
-margin_top = 182.0
-margin_right = 750.0
-margin_bottom = 361.0
+offset_top = 182.0
+offset_right = 750.0
+offset_bottom = 361.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonSh" type="Button" parent="C1/VC/CCShop"]
-margin_left = 353.0
-margin_right = 396.0
-margin_bottom = 20.0
+offset_left = 353.0
+offset_right = 396.0
+offset_bottom = 20.0
 size_flags_horizontal = 4
 text = "Shop"
 
 [node name="ButtonP" type="Button" parent="C1/VC/CCShop"]
-margin_left = 343.0
-margin_top = 24.0
-margin_right = 407.0
-margin_bottom = 44.0
+offset_left = 343.0
+offset_top = 24.0
+offset_right = 407.0
+offset_bottom = 44.0
 size_flags_horizontal = 4
 text = "Prestige"
 
 [node name="CCJumpDown" type="CenterContainer" parent="C1/VC"]
-margin_top = 365.0
-margin_right = 750.0
-margin_bottom = 543.0
+offset_top = 365.0
+offset_right = 750.0
+offset_bottom = 543.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ButtonJD" type="ToolButton" parent="C1/VC/CCJumpDown"]
-margin_left = 275.0
-margin_top = 39.0
-margin_right = 475.0
-margin_bottom = 139.0
-rect_min_size = Vector2( 200, 100 )
+[node name="ButtonJD" type="Button" parent="C1/VC/CCJumpDown"]
+offset_left = 275.0
+offset_top = 39.0
+offset_right = 475.0
+offset_bottom = 139.0
+custom_minimum_size = Vector2( 200, 100 )
 text = "Jump Down"
 
 [node name="CCInv" type="CenterContainer" parent="C1/VC"]
-margin_top = 547.0
-margin_right = 750.0
-margin_bottom = 726.0
+offset_top = 547.0
+offset_right = 750.0
+offset_bottom = 726.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" parent="C1/VC/CCInv" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 375.0
-margin_top = 89.0
-margin_right = 375.0
-margin_bottom = 89.0
+offset_left = 375.0
+offset_top = 89.0
+offset_right = 375.0
+offset_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

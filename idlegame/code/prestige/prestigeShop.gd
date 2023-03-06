@@ -12,4 +12,4 @@ func stock():
 		c.queue_free()
 	for n in prestige_handler.make_shop_items():
 		grid.add_child(n)
-		n.connect("bought", self, "stock")
+		n.connect("bought",Callable(self,"stock"))

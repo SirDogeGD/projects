@@ -3,9 +3,9 @@
 [ext_resource path="res://code/perks/perk_shower/perk_shower.gd" type="Script" id=1]
 
 [node name="perk_shower" type="CenterContainer"]
-margin_right = 500.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 500, 100 )
+offset_right = 500.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 500, 100 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -13,37 +13,37 @@ __meta__ = {
 
 [node name="BG_Dimmer" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0.392157 )
-margin_right = 500.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 500, 200 )
+offset_right = 500.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 500, 200 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
-margin_right = 500.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 500, 200 )
+offset_right = 500.0
+offset_bottom = 200.0
+custom_minimum_size = Vector2( 500, 200 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxPerks" type="VBoxContainer" parent="HSplitContainer"]
-margin_right = 244.0
-margin_bottom = 200.0
+offset_right = 244.0
+offset_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="LabelTitle" type="Label" parent="HSplitContainer/VBoxPerks"]
-margin_right = 244.0
-margin_bottom = 14.0
+offset_right = 244.0
+offset_bottom = 14.0
 mouse_filter = 1
 text = "Perks:"
 
 [node name="VBoxPerkInfo" type="VBoxContainer" parent="HSplitContainer"]
-margin_left = 256.0
-margin_right = 500.0
-margin_bottom = 200.0
+offset_left = 256.0
+offset_right = 500.0
+offset_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -51,8 +51,8 @@ __meta__ = {
 }
 
 [node name="LabelPerkInfo" type="Label" parent="HSplitContainer/VBoxPerkInfo"]
-margin_right = 244.0
-margin_bottom = 200.0
+offset_right = 244.0
+offset_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 autowrap = true

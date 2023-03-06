@@ -25,7 +25,7 @@ func stock():
 		$VBox/ShopItems.add_child(n)
 
 func make(what):
-	var item = itemFile.instance()
+	var item = itemFile.instantiate()
 	var state = 1
 	var perk = perk_info.perkinfo(what)
 	var price = set_price(what)

@@ -22,8 +22,8 @@ func _init():
 # NAME: path
 # DEFAULT: ""
 # DESCRIPTION:
-# Path to the database, should be set before opening the database with `open_db()`.
-var path : String setget set_path, get_path
+# Path3D to the database, should be set before opening the database with `open_db()`.
+var path : String : get = get_path, set = set_path
 func set_path(value : String) -> void:
 	if db: db.path = value
 
@@ -35,7 +35,7 @@ func get_path() -> String:
 # DEFAULT: ""
 # DESCRIPTION:
 # Contains the zErrMsg returned by the SQLite query in human-readable form.
-var error_message : String setget set_error_message, get_error_message
+var error_message : String : get = get_error_message, set = set_error_message
 func set_error_message(message: String) -> void:
 	if db: db.error_message = message
 
@@ -48,7 +48,7 @@ func get_error_message() -> String:
 # DESCRIPTION:
 # Default extension that is automatically appended to the `path`-variable whenever
 # **no** extension is detected or given.
-var default_extension :String setget set_default_extension, get_default_extension
+var default_extension :String : get = get_default_extension, set = set_default_extension
 func set_default_extension(value : String) -> void:
 	if db: db.default_extension = value
 
@@ -60,7 +60,7 @@ func get_default_extension() -> String:
 # DEFAULT: false
 # DESCRIPTION:
 # Enables or disables the availability of foreign keys in the SQLite database.
-var foreign_keys : bool setget set_foreign_keys, get_foreign_keys
+var foreign_keys : bool : get = get_foreign_keys, set = set_foreign_keys
 func set_foreign_keys(value : bool) -> void:
 	if db: db.foreign_keys = value
 
@@ -73,7 +73,7 @@ func get_foreign_keys() -> bool:
 # DESCRIPTION:
 # Enabling this property opens the database in read-only mode & allows databases
 # to be packaged inside of the PCK.
-var read_only : bool setget set_read_only, get_read_only
+var read_only : bool : get = get_read_only, set = set_read_only
 func set_read_only(value : bool) -> void:
 	if db: db.read_only = value
 
@@ -86,7 +86,7 @@ func get_read_only() -> bool:
 # DESCRIPTION:
 # Contains the results from the latest query by value; meaning that this property
 # is safe to use when looping successive queries as it does not get overwritten by any future queries.
-var query_result : Array setget set_query_result, get_query_result
+var query_result : Array : get = get_query_result, set = set_query_result
 func set_query_result(value : Array) -> void:
 	if db: db.query_result = value
 
@@ -99,7 +99,7 @@ func get_query_result() -> Array:
 # DESCRIPTION:
 # Contains the results from the latest query **by reference** and is, as a direct result,
 # cleared and repopulated after every new query.
-var query_result_by_reference : Array setget set_query_result_by_reference, get_query_result_by_reference
+var query_result_by_reference : Array : get = get_query_result_by_reference, set = set_query_result_by_reference
 func set_query_result_by_reference(value : Array) -> void:
 	if db: db.query_result_by_reference = value
 
@@ -111,7 +111,7 @@ func get_query_result_by_reference() -> Array:
 # DEFAULT: -1
 # DESCRIPTION:
 # Exposes both the `sqlite3_last_insert_rowid()`- and `sqlite3_set_last_insert_rowid()`-methods to Godot as described [here](https://www.sqlite.org/c3ref/last_insert_rowid.html) and [here](https://www.sqlite.org/c3ref/set_last_insert_rowid.html) respectively.
-var last_insert_rowid : int setget set_last_insert_rowid, get_last_insert_rowid
+var last_insert_rowid : int : get = get_last_insert_rowid, set = set_last_insert_rowid
 func set_last_insert_rowid(value : int) -> void:
 	if db: db.last_insert_rowid = value
 
@@ -129,8 +129,8 @@ func get_last_insert_rowid() -> int:
 # VERBOSE (2)     : Print additional information to the console
 # VERY_VERBOSE (3): Same as VERBOSE
 # **NOTE:** VERBOSE and higher levels might considerably slow down your queries due to excessive logging.
-var verbosity_level : int setget set_verbosity_level, get_verbosity_level
-func set_verbosity_level(var value) -> void:
+var verbosity_level : int : get = get_verbosity_level, set = set_verbosity_level
+func set_verbosity_level(value) -> void:
 	if db: db.verbosity_level = value
 
 func get_verbosity_level() -> int:

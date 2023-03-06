@@ -74,7 +74,7 @@ func _on_BAtk_pressed():
 	if you.next_crit:
 		add_crit_mark()
 	
-	yield(get_tree().create_timer(0.2), "timeout")
+	await get_tree().create_timer(0.2).timeout
 	$C1/CEnemy/CEnemy/Enemy.modulate = Color(1, 1, 1)
 	can_attack = true
 	update_stats()
@@ -176,10 +176,10 @@ func isDead(who):
 		return false
 
 func in_signals():
-	you.connect("health_changed", $C1/CInv/HeartBar,"update_health")
-	you.connect("effects_changed", $C1/CChF/EffSContainer, "update_effects")
-	enemy.connect("health_changed", $C1/CEnemy/HeartBar ,"update_health")
-	enemy.connect("effects_changed", $C1/CEnemy/EffSContainer, "update_effects")
+	you.connect("health_changed",Callable($C1/CInv/HeartBar,"update_health"))
+	you.connect("effects_changed",Callable($C1/CChF/EffSContainer,"update_effects"))
+	enemy.connect("health_changed",Callable($C1/CEnemy/HeartBar,"update_health"))
+	enemy.connect("effects_changed",Callable($C1/CEnemy/EffSContainer,"update_effects"))
 	out_signals()
 
 #output signals for ui
@@ -195,10 +195,10 @@ func crit_pressed():
 
 func add_crit_mark():
 	var markFile = load("res://code/fight/crit/crit.tscn")
-	var mark : crit_mark = markFile.instance()
+	var mark : crit_mark = markFile.instantiate()
 	$C1/CEnemy/CEnemy/Enemy.add_child(mark)
 	mark.random_pos(rng.randi_range(-50, 50),rng.randi_range(-100, 100))
-	mark.connect("pressed", self, "crit_pressed")
+	mark.connect("pressed",Callable(self,"crit_pressed"))
 	you.next_crit = false
 
 func _on_bounty_timer_timeout():

@@ -9,10 +9,12 @@ func _physics_process(_delta: float) -> void:
 	sword.look_at(get_global_mouse_position())
 
 	var move_direction := input_vector.normalized()
-	move_and_slide(speed * move_direction)
+	set_velocity(speed * move_direction)
+	move_and_slide()
 	
 	pushback_force = lerp(pushback_force, Vector2.ZERO, _delta * 10)
-	move_and_slide(pushback_force * 5)
+	set_velocity(pushback_force * 5)
+	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):

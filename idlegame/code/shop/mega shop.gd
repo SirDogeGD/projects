@@ -20,7 +20,7 @@ func stock():
 		$VBoxContainer/GridContainer.add_child(n)
 
 func make(mega):
-	var item = itemFile.instance()
+	var item = itemFile.instantiate()
 	var selected = you.mega
 	var state = 1
 	match mega:

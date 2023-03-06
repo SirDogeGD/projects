@@ -5,12 +5,12 @@ signal health_changed(hp, max_hp, shield)
 signal effects_changed(effects)
 
 var hp := 20
-var current_hp := 20 setget set_hp, get_hp
+var current_hp := 20 : get = get_hp, set = set_hp
 var current_shield := 0
 var armor := 10
 var streak := 0
 var is_player := true
-var bounty := 0 setget set_bounty
+var bounty := 0 : set = set_bounty
 var bounty_max := 5000
 
 #dmg stuff
@@ -41,7 +41,7 @@ var upgrades = {
 }
 
 #megastreak variables (dmg taken, resource rewards)
-onready var mega = stats.load_Stats()["Upgrades"]["selected_mega"]
+@onready var mega = stats.load_Stats()["Upgrades"]["selected_mega"]
 var mactive = false
 var mtd : float = 0
 var md : float = 0

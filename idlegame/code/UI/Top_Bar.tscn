@@ -3,9 +3,9 @@
 [ext_resource path="res://code/UI/statShower.tscn" type="PackedScene" id=2]
 
 [node name="TB" type="HBoxContainer"]
-margin_right = 750.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 0, 20 )
+offset_right = 750.0
+offset_bottom = 20.0
+custom_minimum_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
@@ -13,22 +13,22 @@ size_flags_stretch_ratio = 0.0
 [node name="XPStatShower" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 247.0
-margin_bottom = 20.0
+offset_right = 247.0
+offset_bottom = 20.0
 type = "xp"
 
 [node name="StatShower" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 251.0
-margin_right = 498.0
-margin_bottom = 20.0
+offset_left = 251.0
+offset_right = 498.0
+offset_bottom = 20.0
 type = "st"
 
 [node name="GStatShower" parent="." instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 502.0
-margin_right = 750.0
-margin_bottom = 20.0
+offset_left = 502.0
+offset_right = 750.0
+offset_bottom = 20.0
 type = "g"

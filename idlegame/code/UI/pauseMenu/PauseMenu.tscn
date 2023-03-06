@@ -6,72 +6,72 @@
 [ext_resource path="res://code/UI/runstats/run_stats.tscn" type="PackedScene" id=4]
 
 [node name="pause" type="Node2D"]
-pause_mode = 2
+process_mode = 2
 script = ExtResource( 2 )
 
 [node name="bg_dimmer" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.490196 )
-margin_right = 750.0
-margin_bottom = 750.0
-rect_min_size = Vector2( 750, 750 )
+offset_right = 750.0
+offset_bottom = 750.0
+custom_minimum_size = Vector2( 750, 750 )
 mouse_filter = 2
 
 [node name="CC" type="CenterContainer" parent="."]
-margin_right = 750.0
-margin_bottom = 750.0
+offset_right = 750.0
+offset_bottom = 750.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBox" type="VBoxContainer" parent="CC"]
-margin_left = 125.0
-margin_top = 127.0
-margin_right = 625.0
-margin_bottom = 623.0
+offset_left = 125.0
+offset_top = 127.0
+offset_right = 625.0
+offset_bottom = 623.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="runstats" parent="CC/VBox" instance=ExtResource( 4 )]
 
 [node name="AwesomeMarginLabel" type="Label" parent="CC/VBox"]
-margin_top = 104.0
-margin_right = 500.0
-margin_bottom = 118.0
+offset_top = 104.0
+offset_right = 500.0
+offset_bottom = 118.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="perks" parent="CC/VBox" instance=ExtResource( 1 )]
-margin_top = 122.0
-margin_bottom = 322.0
+offset_top = 122.0
+offset_bottom = 322.0
 
 [node name="AwesomeMarginLabel2" type="Label" parent="CC/VBox"]
-margin_top = 326.0
-margin_right = 500.0
-margin_bottom = 340.0
+offset_top = 326.0
+offset_right = 500.0
+offset_bottom = 340.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="contracts" parent="CC/VBox" instance=ExtResource( 3 )]
-margin_top = 344.0
-margin_bottom = 444.0
+offset_top = 344.0
+offset_bottom = 444.0
 
 [node name="AwesomeMarginLabel3" type="Label" parent="CC/VBox"]
-margin_top = 448.0
-margin_right = 500.0
-margin_bottom = 462.0
+offset_top = 448.0
+offset_right = 500.0
+offset_bottom = 462.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSpawn" type="Button" parent="CC/VBox"]
-margin_left = 200.0
-margin_top = 466.0
-margin_right = 300.0
-margin_bottom = 496.0
-rect_min_size = Vector2( 100, 30 )
+offset_left = 200.0
+offset_top = 466.0
+offset_right = 300.0
+offset_bottom = 496.0
+custom_minimum_size = Vector2( 100, 30 )
 size_flags_horizontal = 4
 text = "/spawn"
 

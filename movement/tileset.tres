@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://img/tiles_topdown.png" type="Texture" id=1]
+[ext_resource path="res://img/tiles_topdown.png" type="Texture2D" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 26, 60, 26, 51, 41, 51, 41, 60 )
+points = PackedVector2Array( 26, 60, 26, 51, 41, 51, 41, 60 )
 
 [resource]
 0/name = "tree"

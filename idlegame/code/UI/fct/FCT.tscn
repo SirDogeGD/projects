@@ -2,10 +2,10 @@
 
 [ext_resource path="res://code/UI/fct/FCT.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="FontFile" id=1]
 font_path = "res://font/prstartk.ttf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 20
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )

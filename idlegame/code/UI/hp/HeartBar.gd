@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-export(String, "you", "enemy") var who = "you"
+@export var who = "you" # (String, "you", "enemy")
 
 var heart_full = preload("res://icons/ui/hp/hud_heartFull.png")
 var heart_empty = preload("res://icons/ui/hp/hud_heartEmpty.png")

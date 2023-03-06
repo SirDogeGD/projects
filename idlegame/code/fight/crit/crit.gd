@@ -9,4 +9,4 @@ func _on_Crit_gui_input(event):
 		queue_free()
 
 func random_pos(x, y):
-	self.rect_position += Vector2(x, y)
+	self.position += Vector2(x, y)
