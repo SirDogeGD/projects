@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://lu5o0hl18e4n"]
+
+[ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
+[ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7mr"]
+radius = 65.0
+height = 226.0
+
+[node name="person" type="CharacterBody2D"]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_mowpo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_58ron")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4p7mr")
