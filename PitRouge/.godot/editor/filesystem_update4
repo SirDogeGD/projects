@@ -1,7 +1,4 @@
-res://code/person/person.tscn
-res://code/scenes/fight/fight.tscn
-res://game/person/person.tscn
 res://game/scenes/fight/fight.tscn
+res://game/person/person.tscn
 res://game/person/player/player.tscn
 res://game/person/person.gd
-res://game/person/player/player.gd

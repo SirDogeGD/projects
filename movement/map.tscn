@@ -26,11 +26,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 0.2, 0.2 )
-speed = null
-health_max = null
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 241, 70.3333 )
 scale = Vector2( 0.2, 0.2 )
-speed = null
-health_max = null

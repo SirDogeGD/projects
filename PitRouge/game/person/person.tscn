@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lu5o0hl18e4n"]
+[gd_scene load_steps=5 format=3 uid="uid://lu5o0hl18e4n"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
@@ -6,6 +6,21 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7mr"]
 radius = 65.0
 height = 226.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2f4q"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 60.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 20, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 6.0
+color = Color(0, 0, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+attractor_interaction_enabled = false
 
 [node name="person" type="CharacterBody2D"]
 motion_mode = 1
@@ -19,3 +34,19 @@ texture = ExtResource("1_58ron")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4p7mr")
+
+[node name="IFrames" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="DashTime" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 112)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_y2f4q")
