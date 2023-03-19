@@ -29,11 +29,10 @@ shader_param/active = false
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
-speed = null
-health_max = null
 
 [node name="Sprite" parent="." index="0"]
 material = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
+visible = true
 material = SubResource( 12 )

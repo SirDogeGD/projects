@@ -1,6 +1,11 @@
-GPUParticles2D
+AnimationTree
+Skeleton2D
+Bone2D
 Timer
-CollisionShape2D
 AnimationPlayer
+CollisionShape2D
+HitBox
 Sprite2D
+HurtBox
+GPUParticles2D
 CharacterBody2D
