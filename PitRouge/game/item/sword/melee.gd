@@ -14,9 +14,8 @@ func attack() -> void:
 	#cant attack while blocking
 	if not animation_player.current_animation == "block": 
 		animation_player.play("RESET")
-		animation_player.play("stab")
 		await animation_player.animation_finished
-		animation_player.play("RESET")
+		animation_player.play("stab")
 
 func block():
 	#set persons item_slow true
@@ -24,6 +23,7 @@ func block():
 		owner.item_slow = true
 	#play block "animation"
 	animation_player.play("RESET")
+	await animation_player.animation_finished
 	animation_player.play("block")
 
 func unblock():

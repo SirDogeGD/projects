@@ -1,8 +1,5 @@
-res://game/person/person.tscn
-res://game/person/person.gd
-res://game/person/player/player.gd
-res://game/item/sword/sword.tscn
 res://game/scenes/fight/fight.tscn
+res://game/person/person.tscn
 res://game/person/player/player.tscn
-res://game/item/sword/sword.gd
+res://game/item/sword/sword.tscn
 res://game/item/sword/melee.gd
