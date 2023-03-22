@@ -7,8 +7,16 @@ var item_slow : bool #sword block, bow pull etc
 var inventory := []
 var perks := []
 var effects := []
+var health_max := 100
+var health := health_max
+var pushback_force := Vector2.ZERO
 
 @onready var item := $sword
+@onready var animation_player := $AnimationPlayer
+
+func _init():
+	scale.x = 0.5
+	scale.y = 0.5
 
 func _physics_process(delta):
 	calc_speed()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lu5o0hl18e4n"]
+[gd_scene load_steps=9 format=3 uid="uid://lu5o0hl18e4n"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
@@ -8,6 +8,14 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7mr"]
 radius = 65.0
 height = 226.0
+
+[sub_resource type="Animation" id="Animation_xsvn4"]
+resource_name = "hit"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68bk2"]
+_data = {
+"hit": SubResource("Animation_xsvn4")
+}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2f4q"]
 lifetime_randomness = 0.5
@@ -39,6 +47,9 @@ script = ExtResource("3_vy38s")
 shape = SubResource("CapsuleShape2D_4p7mr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_68bk2")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
