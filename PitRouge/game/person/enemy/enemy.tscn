@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr348ygnkrpq1"]
+[gd_scene load_steps=7 format=3 uid="uid://cr348ygnkrpq1"]
 
 [ext_resource type="PackedScene" uid="uid://lu5o0hl18e4n" path="res://game/person/person.tscn" id="1_p0t72"]
 [ext_resource type="Script" path="res://game/person/enemy/enemy.gd" id="2_3awlk"]
+[ext_resource type="Shader" path="res://game/person/person.gdshader" id="3_xooji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58osx"]
+resource_local_to_scene = true
+shader = ExtResource("3_xooji")
+shader_parameter/active = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6hv7"]
+radius = 736.174
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjn65"]
+radius = 353.452
 
 [node name="enemy" instance=ExtResource("1_p0t72")]
 script = ExtResource("2_3awlk")
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_58osx")
+
+[node name="HurtBox" parent="." index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
+
+[node name="DetectRadius" type="Area2D" parent="Radii" index="0"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radii/DetectRadius" index="0"]
+shape = SubResource("CircleShape2D_d6hv7")
+debug_color = Color(0.85098, 0.72549, 0.254902, 0.0313726)
+
+[node name="AttackRadius" type="Area2D" parent="Radii" index="1"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radii/AttackRadius" index="0"]
+shape = SubResource("CircleShape2D_hjn65")
+debug_color = Color(0.678431, 0.0627451, 0.227451, 0)
+
+[node name="AttackTimer" type="Timer" parent="Timers" index="2"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="Radii/DetectRadius" to="." method="_on_DetectRadius_body_entered"]
+[connection signal="body_exited" from="Radii/DetectRadius" to="." method="_on_DetectRadius_body_exited"]
+[connection signal="body_entered" from="Radii/AttackRadius" to="." method="_on_AttackRadius_body_entered"]
+[connection signal="body_exited" from="Radii/AttackRadius" to="." method="_on_AttackRadius_body_exited"]

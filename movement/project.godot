@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "CollisionShape2D",
-"class": "DebugCollisionShape2D",
-"language": "GDScript",
-"path": "res://addons/gdquest_visualization_tools/2d/DebugCollisionShape2D.gd"
-}, {
 "base": "Area2D",
 "class": "GDQuestDebugDraggable",
 "language": "GDScript",
@@ -49,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://person/enemy/Enemy.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "CharacterBody2D",
 "class": "person",
 "language": "GDScript",
 "path": "res://person/person.gd"
@@ -60,7 +55,6 @@ _global_script_classes=[ {
 "path": "res://person/player/Player.gd"
 } ]
 _global_script_class_icons={
-"DebugCollisionShape2D": "",
 "GDQuestDebugDraggable": "res://nodes/GDQuestDebugDraggable.svg",
 "HitBox": "res://nodes/HitBox.svg",
 "HurtBox": "res://nodes/HurtBox.svg",

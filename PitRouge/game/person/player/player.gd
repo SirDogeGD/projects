@@ -8,6 +8,10 @@ func _physics_process(delta):
 	super._physics_process(delta)
 	
 	item.look_at(get_global_mouse_position())
+	
+	pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
+	set_velocity(pushback_force * 5)
+	move_and_slide()
 
 func handle_inputs():
 	
@@ -25,10 +29,13 @@ func handle_inputs():
 		is_sneaking = false
 	
 	if Input.is_action_just_pressed("left_click"):
-		left_click()
+		click("left", true)
+	
+	if Input.is_action_just_released("left_click"):
+		click("left", false)
 	
 	if Input.is_action_just_pressed("right_click"):
-		right_click(true)
+		click("right", true)
 	
 	if Input.is_action_just_released("right_click"):
-		right_click(false)
+		click("right", false)

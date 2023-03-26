@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://game/item/sword/melee.gd" id="1_eq0py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nle8"]
-size = Vector2(80, 20)
+size = Vector2(216, 20)
 
 [sub_resource type="Animation" id="Animation_4scw4"]
 resource_name = "RESET"
@@ -75,6 +75,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1x1gw"]
 resource_name = "stab"
+step = 0.01
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -104,10 +105,10 @@ tracks/2/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g0h8y"]
@@ -128,7 +129,7 @@ texture = ExtResource("1_ddpdm")
 script = ExtResource("1_4kjho")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(24, 0)
+position = Vector2(-44, 0)
 shape = SubResource("RectangleShape2D_2nle8")
 disabled = true
 

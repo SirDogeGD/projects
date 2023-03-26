@@ -6,7 +6,12 @@
 [node name="fight" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_r6dw8")]
-position = Vector2(317, 266)
-scale = Vector2(0.5, 0.5)
+position = Vector2(461, 538)
 
 [node name="enemy" parent="." instance=ExtResource("2_abcnf")]
+position = Vector2(96, 78)
+collision_mask = 2
+
+[node name="enemy2" parent="." instance=ExtResource("2_abcnf")]
+position = Vector2(1096, 562)
+collision_mask = 2

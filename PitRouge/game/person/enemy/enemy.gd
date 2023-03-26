@@ -22,13 +22,7 @@ const MAX_SPEED = 50
 @onready var target_position = global_position
 
 func _ready():
-	item.connect("reset",Callable(self,"attack_players"))
-
-func take_damage(amount: int) -> void:
-	health = max(0, health - amount)
-	animation_player.play("hit") 
-	if health <= 0:
-		on_death()
+	item.connect("RESET",Callable(self,"attack_players"))
 
 func _physics_process(delta):
 	match state:
@@ -38,23 +32,25 @@ func _physics_process(delta):
 				velocity = position.direction_to(target.position) * run_speed
 				item.look_at(target.global_position)
 				attack_players()
-			pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
-			set_velocity(pushback_force * 5)
 			move_and_slide()
 		IDLE:
 			state = WANDER
 			update_target_position()
 		WANDER:
 			accelerate_to_point(target_position, ACCELERATION * delta)
-
 			if is_at_target_position():
 				state = IDLE
+	
 	set_velocity(velocity)
+	
+	super._physics_process(delta)
+	
+	pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
+	set_velocity(pushback_force * 5)
 	move_and_slide()
-	velocity = velocity
 
 func _on_DetectRadius_body_entered(body : person):
-	if body != null:
+	if body != null and body != self:
 		state = ATTACK
 		target = body
 
@@ -86,7 +82,7 @@ func on_death():
 	health = health_max
 
 func _on_AttackRadius_body_entered(body : person):
-	if body != null:
+	if body != null and body != self:
 		bodies_in_attack_range.append(body)
 
 func _on_AttackRadius_body_exited(body : person):
@@ -94,6 +90,8 @@ func _on_AttackRadius_body_exited(body : person):
 		bodies_in_attack_range.erase(body)
 
 func attack_players():
-	item.attack()
-	for b in bodies_in_attack_range:
-		pass
+	if $Timers/AttackTimer.is_stopped():
+		$Timers/AttackTimer.start()
+		item.attack()
+		for b in bodies_in_attack_range:
+			pass

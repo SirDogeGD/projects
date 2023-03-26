@@ -4,4 +4,7 @@ res://game/person/player/player.tscn
 res://game/item/sword/sword.tscn
 res://game/person/enemy/enemy.tscn
 res://game/person/person.gd
+res://game/box/HurtBox.gd
 res://game/person/enemy/enemy.gd
+res://game/person/person.gdshader
+res://game/item/sword/melee.gd

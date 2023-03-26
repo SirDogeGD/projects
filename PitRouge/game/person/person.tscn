@@ -1,19 +1,103 @@
-[gd_scene load_steps=9 format=3 uid="uid://lu5o0hl18e4n"]
+[gd_scene load_steps=16 format=3 uid="uid://lu5o0hl18e4n"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
+[ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
 [ext_resource type="PackedScene" uid="uid://dt6ooe7u5xfou" path="res://game/item/sword/sword.tscn" id="4_ah5o7"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
+resource_local_to_scene = true
+shader = ExtResource("2_caokj")
+shader_parameter/active = false
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7mr"]
-radius = 65.0
-height = 226.0
+radius = 64.0
+height = 224.0
 
 [sub_resource type="Animation" id="Animation_xsvn4"]
 resource_name = "hit"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.174533, 0.20944, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Particles/HitParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pufwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Particles/HitParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68bk2"]
 _data = {
+"RESET": SubResource("Animation_pufwf"),
 "hit": SubResource("Animation_xsvn4")
 }
 
@@ -32,15 +116,45 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 attractor_interaction_enabled = false
 
+[sub_resource type="Curve" id="Curve_fmrwd"]
+_data = [Vector2(0, 0.318182), 0.0, 0.0, 0, 0, Vector2(0.252669, 0.990909), 0.0, 0.0, 0, 0, Vector2(1, 0.0727272), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2nhc"]
+width = 2048
+curve = SubResource("Curve_fmrwd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6tcva"]
+emission_shape = 1
+emission_sphere_radius = 16.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -850.0
+linear_accel_max = 0.58
+damping_min = 150.0
+damping_max = 150.0
+scale_curve = SubResource("CurveTexture_w2nhc")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4m0ww"]
+load_path = "res://.godot/imported/ice_particle_white.png-6c47a72108173632f5902d27f963487c.ctex"
+
 [node name="person" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_mowpo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_moo6k")
 texture = ExtResource("1_58ron")
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("3_vy38s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -52,24 +166,44 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_4p7mr")
 
-[node name="DashParticles" type="GPUParticles2D" parent="."]
+[node name="sword" parent="." instance=ExtResource("4_ah5o7")]
+scale = Vector2(1.2, 1.2)
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="DashParticles" type="GPUParticles2D" parent="Particles"]
 position = Vector2(0, 112)
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_y2f4q")
 
-[node name="IFrames" type="Timer" parent="."]
+[node name="HitParticles" type="GPUParticles2D" parent="Particles"]
+position = Vector2(0, -39)
+scale = Vector2(2, 2)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_6tcva")
+texture = SubResource("CompressedTexture2D_4m0ww")
+lifetime = 0.3
+one_shot = true
+preprocess = 0.03
+explosiveness = 0.8
+randomness = 0.59
+fixed_fps = 0
+draw_order = 0
+
+[node name="Radii" type="Node2D" parent="."]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="DashTime" type="Timer" parent="Timers"]
 process_callback = 0
 wait_time = 0.2
 one_shot = true
 
-[node name="DashTime" type="Timer" parent="."]
+[node name="IFrames" type="Timer" parent="Timers"]
 process_callback = 0
 wait_time = 0.2
 one_shot = true
-
-[node name="sword" parent="." instance=ExtResource("4_ah5o7")]
-scale = Vector2(1.2, 1.2)
