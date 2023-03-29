@@ -7,11 +7,20 @@
 
 [node name="player" parent="." instance=ExtResource("1_r6dw8")]
 position = Vector2(461, 538)
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+platform_on_leave = 2
 
 [node name="enemy" parent="." instance=ExtResource("2_abcnf")]
 position = Vector2(96, 78)
+scale = Vector2(0.5, 0.5)
 collision_mask = 2
+motion_mode = 1
+platform_on_leave = 2
 
 [node name="enemy2" parent="." instance=ExtResource("2_abcnf")]
 position = Vector2(1096, 562)
+scale = Vector2(0.5, 0.5)
 collision_mask = 2
+motion_mode = 1
+platform_on_leave = 2

@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt6ooe7u5xfou"]
+[gd_scene load_steps=9 format=3 uid="uid://bwtaq4v2c3qa6"]
 
-[ext_resource type="Script" path="res://game/box/HitBox.gd" id="1_4kjho"]
-[ext_resource type="Texture2D" uid="uid://b44agv248o76u" path="res://game/item/sword/sword.png" id="1_ddpdm"]
-[ext_resource type="Script" path="res://game/item/sword/melee.gd" id="1_eq0py"]
+[ext_resource type="Script" path="res://game/item/weapon/melee/sword/sword.gd" id="1_d1gk5"]
+[ext_resource type="Texture2D" uid="uid://b44agv248o76u" path="res://game/item/weapon/melee/sword/sword.png" id="2_1o0jk"]
+[ext_resource type="Script" path="res://game/box/HitBox.gd" id="3_uybcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nle8"]
 size = Vector2(216, 20)
@@ -119,14 +119,14 @@ _data = {
 }
 
 [node name="sword" type="Node2D"]
-script = ExtResource("1_eq0py")
+script = ExtResource("1_d1gk5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(128, 0)
-texture = ExtResource("1_ddpdm")
+texture = ExtResource("2_1o0jk")
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]
-script = ExtResource("1_4kjho")
+script = ExtResource("3_uybcc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
 position = Vector2(-44, 0)

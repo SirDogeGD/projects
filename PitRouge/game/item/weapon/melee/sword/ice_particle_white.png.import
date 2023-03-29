@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b44agv248o76u"
-path="res://.godot/imported/sword.png-3e9562a8ddce0a53673e2301972505a0.ctex"
+uid="uid://bwv7wlos6dayl"
+path="res://.godot/imported/ice_particle_white.png-e156cfa2da2ebbe1408d704c6e5aff19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/item/sword/sword.png"
-dest_files=["res://.godot/imported/sword.png-3e9562a8ddce0a53673e2301972505a0.ctex"]
+source_file="res://game/item/weapon/melee/sword/ice_particle_white.png"
+dest_files=["res://.godot/imported/ice_particle_white.png-e156cfa2da2ebbe1408d704c6e5aff19.ctex"]
 
 [params]
 
