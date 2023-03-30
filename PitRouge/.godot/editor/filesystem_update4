@@ -1,10 +1,11 @@
-res://game/person/enemy/enemy.tscn
-res://game/item/item.gd
-res://game/person/person.tscn
-res://game/item/weapon/sword/sword.tscn
-res://game/item/weapon/weapon.gd
-res://game/item/weapon/sword/melee.gd
 res://game/scenes/fight/fight.tscn
 res://game/item/weapon/melee/sword/sword.tscn
 res://game/person/player/player.tscn
+res://game/person/enemy/enemy.tscn
+res://game/person/inventory/inventory.gd
+res://game/person/person.gd
+res://game/item/item.gd
 res://game/item/weapon/melee/sword/sword.gd
+res://game/person/inventory/inv_slot.tscn
+res://game/person/inventory/inventory.tscn
+res://game/person/inventory/inv_slot.gd

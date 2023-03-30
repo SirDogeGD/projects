@@ -4,7 +4,7 @@ class_name person
 var SPEED := 300.0
 var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
-var inventory := []
+var inv := inventory
 var perks := []
 var effects := []
 var health_max := 100

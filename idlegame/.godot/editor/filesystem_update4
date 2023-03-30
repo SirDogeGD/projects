@@ -1,2 +1,4 @@
 res://default_env.tres
 res://code/places/main.tscn
+res://code/UI/inventory/inventory.tscn
+res://code/UI/inventory/inv_slot.tscn
