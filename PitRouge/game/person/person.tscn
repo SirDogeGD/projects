@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
-[ext_resource type="PackedScene" uid="uid://bwtaq4v2c3qa6" path="res://game/item/weapon/melee/sword/sword.tscn" id="4_ah5o7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -168,9 +167,6 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4p7mr")
 
-[node name="sword" parent="." instance=ExtResource("4_ah5o7")]
-scale = Vector2(1.2, 1.2)
-
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="DashParticles" type="GPUParticles2D" parent="Particles"]
@@ -205,5 +201,5 @@ one_shot = true
 
 [node name="IFrames" type="Timer" parent="Timers"]
 process_callback = 0
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh5typ5uy3fg4"]
+
+[ext_resource type="Script" path="res://game/person/inventory/inventory_ui.gd" id="1_rmcm4"]
+[ext_resource type="PackedScene" uid="uid://bjt3ykh2vtd8v" path="res://game/person/inventory/inv_slot.tscn" id="2_5achi"]
+
+[node name="inventory" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -100.0
+offset_right = 466.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+script = ExtResource("1_rmcm4")
+
+[node name="slot1" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot2" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot3" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot4" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot5" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot6" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot7" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot8" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
+[node name="slot9" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2

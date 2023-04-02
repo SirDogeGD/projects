@@ -1,6 +1,6 @@
 2a60927148abd1d33b818b535e306557
-::res://::1680208472
-default_env.tres::Environment::6683768718084156804::1678315958::0::1::::<><>::
+::res://::1680459840
+default_env.tres::Environment::6683768718084156804::1680209634::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1658352033::0::1::::<><>::
 icon.png::CompressedTexture2D::2414795514003989709::1651420914::1678315958::1::::<><>::
 README.md::TextFile::-1::1651420914::0::1::::<><>::
@@ -63,10 +63,10 @@ perk_info.gd::GDScript::-1::1678138066::0::1::::<>Node<>::
 perk_shower.gd::GDScript::-1::1678315958::0::1::::<>CenterContainer<>::
 perk_shower.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://code/perks/perk_shower/perk_shower.gd
 perk_shower_perk.gd::GDScript::-1::1678315958::0::1::::<>Label<>::
-::res://code/places/::1678315958
+::res://code/places/::1680209633
 camp.gd::GDScript::-1::1678138066::0::1::::<>Node2D<>::
 camp.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://code/places/camp.gd<>res://code/UI/inventory/inventory.tscn<>res://code/UI/statShower.tscn
-main.tscn::PackedScene::1862076262631920741::1678315958::0::1::::<><>::res://code/places/menu.gd<>uid://dcknl71s2i76i
+main.tscn::PackedScene::1862076262631920741::1680209633::0::1::::<><>::res://code/places/menu.gd<>uid://dcknl71s2i76i
 menu.gd::GDScript::-1::1678138066::0::1::::<>Node2D<>::
 ::res://code/player/::1678315958
 enemy.gd::GDScript::-1::1678138066::0::1::::enemy_file<>Node<>::
@@ -111,11 +111,11 @@ FCTManager.tscn::PackedScene::-1::1678138066::0::1::::<><>::res://code/UI/fct/FC
 ::res://code/UI/hp/::1678315958
 HeartBar.gd::GDScript::-1::1678315958::0::1::::<>VBoxContainer<>::
 HeartBar.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://icons/ui/hp/hud_heartFull.png<>res://code/UI/hp/HeartBar.gd
-::res://code/UI/inventory/::1678315958
+::res://code/UI/inventory/::1680209634
 inventory.gd::GDScript::-1::1678315958::0::1::::<>Control<>::
-inventory.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://code/UI/inventory/inventory.gd
+inventory.tscn::PackedScene::167243056418656468::1680209633::0::1::::<><>::res://code/UI/inventory/inventory.gd
 inv_slot.gd::GDScript::-1::1678315958::0::1::::<>TextureRect<>::
-inv_slot.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://code/UI/inventory/inv_slot.gd<>res://icons/gapple.png
+inv_slot.tscn::PackedScene::6945915318459566081::1680209634::0::1::::<><>::res://code/UI/inventory/inv_slot.gd<>uid://c7of0xkdh6ffr
 ::res://code/UI/pauseMenu/::1678315958
 PauseMenu.gd::GDScript::-1::1678138066::0::1::::<>Node2D<>::
 PauseMenu.tscn::PackedScene::-1::1678315958::0::1::::<><>::res://code/perks/perk_shower/perk_shower.tscn<>res://code/UI/pauseMenu/PauseMenu.gd<>res://code/events/contract/contract_shower/contract_show.tscn<>res://code/UI/runstats/run_stats.tscn

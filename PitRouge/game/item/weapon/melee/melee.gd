@@ -6,20 +6,19 @@ const RUN_SPEED := 600.0
 
 var _velocity := Vector2.ZERO
 
-@onready var animation_player := $AnimationPlayer
-
 func _ready():
 	pass
 
-func attack() -> void:
+func left_click() -> void:
 	#cant attack while blocking
 	if not animation_player.current_animation == "block": 
 		animation_player.play("RESET")
 		await animation_player.animation_finished
 		animation_player.play("stab")
 
-func block():
+func right_click():
 	#set persons item_slow true
+	print(owner)
 	if owner.get("item_slow") != null:
 		owner.item_slow = true
 	#play block "animation"
@@ -27,7 +26,7 @@ func block():
 	await animation_player.animation_finished
 	animation_player.play("block")
 
-func unblock():
+func stop_right_click():
 	#set persons item_slow false
 	if owner.get("item_slow") != null:
 		owner.item_slow = false

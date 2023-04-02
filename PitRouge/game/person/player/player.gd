@@ -7,7 +7,7 @@ func _physics_process(delta):
 	
 	super._physics_process(delta)
 	
-	item.look_at(get_global_mouse_position())
+	selected_item.look_at(get_global_mouse_position())
 	
 	pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
 	set_velocity(pushback_force * 5)
@@ -39,3 +39,36 @@ func handle_inputs():
 	
 	if Input.is_action_just_released("right_click"):
 		click("right", false)
+	
+	if Input.is_action_just_pressed("key_1"):
+		switch_item(0)
+	
+	if Input.is_action_just_pressed("key_2"):
+		switch_item(1)
+	
+	if Input.is_action_just_pressed("key_3"):
+		switch_item(2)
+	
+	if Input.is_action_just_pressed("key_4"):
+		switch_item(3)
+	
+	if Input.is_action_just_pressed("key_5"):
+		switch_item(4)
+	
+	if Input.is_action_just_pressed("key_6"):
+		switch_item(5)
+	
+	if Input.is_action_just_pressed("key_7"):
+		switch_item(6)
+	
+	if Input.is_action_just_pressed("key_8"):
+		switch_item(7)
+	
+	if Input.is_action_just_pressed("key_9"):
+		switch_item(8)
+	
+	if Input.is_action_just_pressed("scroll_up"):
+		switch_item(9)
+	
+	if Input.is_action_just_pressed("scroll_down"):
+		switch_item(10)

@@ -22,7 +22,8 @@ const MAX_SPEED = 50
 @onready var target_position = global_position
 
 func _ready():
-	item.connect("RESET",Callable(self,"attack_players"))
+	super._ready()
+	selected_item.connect("RESET",Callable(self,"attack_players"))
 
 func _physics_process(delta):
 	match state:
@@ -30,7 +31,7 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 			if target:
 				velocity = position.direction_to(target.position) * run_speed
-				item.look_at(target.global_position)
+				selected_item.look_at(target.global_position)
 				attack_players()
 			move_and_slide()
 		IDLE:
@@ -92,6 +93,6 @@ func _on_AttackRadius_body_exited(body : person):
 func attack_players():
 	if $Timers/AttackTimer.is_stopped():
 		$Timers/AttackTimer.start()
-		item.attack()
+		selected_item.left_click()
 		for b in bodies_in_attack_range:
 			pass
