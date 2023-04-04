@@ -1,8 +1,9 @@
-Node2D
+Timer
+CanvasLayer
 Sprite2D
+Node2D
 CenterContainer
 HBoxContainer
-Timer
 CollisionShape2D
 Area2D
 RayCast2D

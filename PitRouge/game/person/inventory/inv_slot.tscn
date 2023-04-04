@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bjt3ykh2vtd8v"]
+[gd_scene load_steps=2 format=3 uid="uid://bjt3ykh2vtd8v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yvh3"]
+load_path = "res://.godot/imported/sword.png-3e9562a8ddce0a53673e2301972505a0.ctex"
 
 [node name="inv_slot" type="CenterContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -14,3 +17,8 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 54)
+texture = SubResource("CompressedTexture2D_2yvh3")

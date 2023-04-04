@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 3
+alignment = 2
 script = ExtResource("1_rmcm4")
 
 [node name="slot1" parent="." instance=ExtResource("2_5achi")]

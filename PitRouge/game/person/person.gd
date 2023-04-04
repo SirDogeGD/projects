@@ -1,6 +1,11 @@
 extends CharacterBody2D
 class_name person
 
+signal health_changed
+signal effects_changed
+signal perks_changed
+signal inv_changed(inv)
+
 var SPEED := 300.0
 var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc

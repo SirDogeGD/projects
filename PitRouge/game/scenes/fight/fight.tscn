@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://mb1u6xqfleir"]
+[gd_scene load_steps=4 format=3 uid="uid://b4ddy6llry5xy"]
 
-[ext_resource type="PackedScene" uid="uid://3uxskkmndqds" path="res://game/person/player/player.tscn" id="1_r6dw8"]
+[ext_resource type="Script" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
+[ext_resource type="PackedScene" path="res://game/person/player/playerchar.tscn" id="1_r6dw8"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
 
 [node name="fight" type="Node2D"]
+script = ExtResource("1_6fb1s")
 
 [node name="player" parent="." instance=ExtResource("1_r6dw8")]
 position = Vector2(461, 538)

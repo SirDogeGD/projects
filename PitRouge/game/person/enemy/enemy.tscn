@@ -27,9 +27,6 @@ visible = false
 [node name="CollisionShape2D" parent="." index="3"]
 visible = false
 
-[node name="item_in_hand" parent="." index="4"]
-visible = false
-
 [node name="DetectRadius" type="Area2D" parent="Radii" index="0"]
 collision_layer = 0
 monitorable = false
