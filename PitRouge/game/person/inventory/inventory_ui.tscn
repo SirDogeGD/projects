@@ -19,29 +19,37 @@ size_flags_vertical = 3
 alignment = 2
 script = ExtResource("1_rmcm4")
 
+[node name="slot0" parent="." instance=ExtResource("2_5achi")]
+layout_mode = 2
+
 [node name="slot1" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 1
 
 [node name="slot2" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 2
 
 [node name="slot3" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 3
 
 [node name="slot4" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 4
 
 [node name="slot5" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 5
 
 [node name="slot6" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 6
 
 [node name="slot7" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
+which_slot_am_i = 7
 
 [node name="slot8" parent="." instance=ExtResource("2_5achi")]
 layout_mode = 2
-
-[node name="slot9" parent="." instance=ExtResource("2_5achi")]
-layout_mode = 2
+which_slot_am_i = 8

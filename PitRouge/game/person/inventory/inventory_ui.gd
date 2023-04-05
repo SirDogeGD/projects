@@ -4,5 +4,6 @@ class_name inventory_ui
 func _ready():
 	pass
 
-func update_items(i : inventory):
-	print("Ddddddd")
+func update_slots(i : inventory):
+	for n in get_child_count():
+		get_child(n).update_slot(i)

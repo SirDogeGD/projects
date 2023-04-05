@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjt3ykh2vtd8v"]
+[gd_scene load_steps=3 format=3 uid="uid://bjt3ykh2vtd8v"]
+
+[ext_resource type="Script" path="res://game/person/inventory/inv_slot.gd" id="1_2et5f"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yvh3"]
 load_path = "res://.godot/imported/sword.png-3e9562a8ddce0a53673e2301972505a0.ctex"
@@ -18,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_2et5f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(50, 54)

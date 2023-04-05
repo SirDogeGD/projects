@@ -91,3 +91,4 @@ func switch_item(num : int):
 	add_child(new_item)
 	selected_item = new_item
 	selected_item.owner = self
+	emit_signal("inv_changed", inv)

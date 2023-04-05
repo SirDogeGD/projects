@@ -1,10 +1,6 @@
-res://game/person/inventory/inv_slot.tscn
-res://game/person/inventory/inv_slot.gd
-res://game/person/inventory/inventory.gd
 res://game/scenes/fight/fight.tscn
 res://game/person/inventory/inventory_ui.tscn
-res://game/scenes/fight/fight.gd
-res://game/person/person.gd
+res://game/person/inventory/inv_slot.tscn
 res://game/UI/UI.tscn
-res://game/UI/UI.gd
-res://game/person/inventory/inventory_ui.gd
+res://game/person/player/playerchar.tscn
+res://game/item/item.tscn

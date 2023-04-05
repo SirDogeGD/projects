@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwtaq4v2c3qa6"]
+[gd_scene load_steps=8 format=3 uid="uid://bwtaq4v2c3qa6"]
 
 [ext_resource type="Script" path="res://game/item/item.gd" id="1_mxwd8"]
 [ext_resource type="Script" path="res://game/box/HitBox.gd" id="3_84h7u"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u3ot2"]
-load_path = "res://.godot/imported/no_texture.png-16447b9d4e9fa2374ce9b3a98470ec6d.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nle8"]
 size = Vector2(216, 20)
@@ -125,7 +122,6 @@ script = ExtResource("1_mxwd8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(128, 0)
-texture = SubResource("CompressedTexture2D_u3ot2")
 region_enabled = true
 
 [node name="HitBox" type="Area2D" parent="Sprite2D"]

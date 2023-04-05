@@ -16,3 +16,6 @@ func right_click():
 
 func stop_right_click():
 	pass
+
+func get_pic() -> CompressedTexture2D:
+	return $Sprite2D.texture
