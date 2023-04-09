@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjt3ykh2vtd8v"]
+[gd_scene load_steps=5 format=3 uid="uid://bjt3ykh2vtd8v"]
 
 [ext_resource type="Script" path="res://game/person/inventory/inv_slot.gd" id="1_2et5f"]
+[ext_resource type="Script" path="res://game/person/inventory/SelectedFrame.gd" id="2_5mt5m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yvh3"]
-load_path = "res://.godot/imported/sword.png-3e9562a8ddce0a53673e2301972505a0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0e4yj"]
 
 [node name="inv_slot" type="CenterContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -23,5 +25,12 @@ size_flags_vertical = 4
 script = ExtResource("1_2et5f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(50, 54)
+position = Vector2(50, 50)
+scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_2yvh3")
+
+[node name="SelectedFrame" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+scale = Vector2(0.248, 0.248)
+texture = SubResource("CompressedTexture2D_0e4yj")
+script = ExtResource("2_5mt5m")

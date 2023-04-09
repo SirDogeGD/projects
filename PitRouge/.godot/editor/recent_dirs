@@ -1,8 +1,9 @@
 res://.godot/imported
+res://game/item/weapon
+res://game/person/inventory
 res://game/UI
 res://game/item/weapon/melee/sword
 res://game/item/weapon/melee
-res://game/item/weapon
 res://game/item
 res://img/particles
 res://game/person/enemy

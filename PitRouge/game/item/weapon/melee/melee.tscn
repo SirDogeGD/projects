@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bafx3ecjtewjw"]
+[gd_scene load_steps=4 format=3 uid="uid://viwjcwy36tm5"]
 
 [ext_resource type="PackedScene" uid="uid://d2ntrywkp8lv7" path="res://game/item/weapon/weapon.tscn" id="1_u6hq2"]
 [ext_resource type="Script" path="res://game/item/weapon/melee/melee.gd" id="2_2xumg"]
-[ext_resource type="Texture2D" uid="uid://b44agv248o76u" path="res://game/item/weapon/melee/sword/sword.png" id="2_s2ubd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8e3nu"]
+load_path = "res://.godot/imported/sword.png-4044c3e08767e517dcab6f705005da76.ctex"
 
 [node name="melee" instance=ExtResource("1_u6hq2")]
 script = ExtResource("2_2xumg")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_s2ubd")
+texture = SubResource("CompressedTexture2D_8e3nu")
 region_enabled = false
