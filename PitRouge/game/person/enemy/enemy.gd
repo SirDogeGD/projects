@@ -16,7 +16,7 @@ var target : person = null
 var bodies_in_attack_range := []
 const TOLERANCE = 4.0
 const ACCELERATION = 300
-const MAX_SPEED = 50
+const MAX_SPEED = 200
 
 @onready var start_position = global_position
 @onready var target_position = global_position

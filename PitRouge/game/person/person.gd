@@ -5,6 +5,7 @@ signal health_changed
 signal effects_changed
 signal perks_changed
 signal inv_changed(inv)
+signal dash_changed(dash_max, dash_left)
 
 var SPEED := 300.0
 var is_sneaking : bool
@@ -15,10 +16,18 @@ var effects := []
 var health_max := 100
 var health := health_max
 var pushback_force := Vector2.ZERO
+#Dashes
+var dash_max := 2
+var dash_left := 2: 
+	set(d):
+		dash_left = d
+		emit_signal("dash_changed", dash_max, dash_left)
+var DASH_REGEN_TIME := 5.0
 
 @onready var selected_item : item
 @onready var animation_player := $AnimationPlayer
 @onready var dash_timer = $Timers/DashTime
+@onready var dash_regen = $Timers/DashRegenTime
 
 func _init():
 	scale.x = 0.5
@@ -27,6 +36,7 @@ func _init():
 
 func _ready():
 	switch_item(0)
+	dash_regen.wait_time = DASH_REGEN_TIME
 
 func _physics_process(delta):
 	calc_speed()
@@ -36,8 +46,14 @@ func dash(direction : Vector2):
 	
 	var particles = $Particles/DashParticles
 	
-	if dash_timer.is_stopped() and abs(velocity.x) + abs(velocity.y) != 0:
+	if dash_timer.is_stopped() and abs(velocity.x) + abs(velocity.y) != 0 and dash_left > 0:
 		dash_timer.start()
+		
+		#Dash Regen
+		dash_left -= 1
+		print(dash_left)
+		dash_regen.start()
+		
 		particles.emitting = true
 		velocity = direction * SPEED
 		await dash_timer.timeout
@@ -92,3 +108,8 @@ func switch_item(num : int):
 	selected_item = new_item
 	selected_item.owner = self
 	emit_signal("inv_changed", inv)
+
+func _on_dash_regen_time_timeout():
+	dash_left = min(dash_max, dash_left + 1)
+	if dash_left < dash_max:
+		dash_regen.start()

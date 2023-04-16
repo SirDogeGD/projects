@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://xnv7tr1vwytb"]
+
+[ext_resource type="Script" path="res://game/UI/dash_ui/dash_ui_slot.gd" id="1_n2o0h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_65p2b"]
+load_path = "res://.godot/imported/dash_full.png-6edddbc5c2111416cc6b122962018733.ctex"
+
+[node name="dash_ui_slot" type="CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_n2o0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_65p2b")

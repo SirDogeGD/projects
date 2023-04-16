@@ -203,3 +203,9 @@ one_shot = true
 process_callback = 0
 wait_time = 0.3
 one_shot = true
+
+[node name="DashRegenTime" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 5.0
+
+[connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]
