@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=18 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
@@ -52,6 +52,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Particles/CritParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xsvn4"]
 resource_name = "hit"
@@ -88,6 +100,18 @@ tracks/2/path = NodePath("Particles/HitParticles:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Particles/CritParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -141,6 +165,32 @@ scale_curve = SubResource("CurveTexture_w2nhc")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4m0ww"]
 load_path = "res://.godot/imported/ice_particle_white.png-6c47a72108173632f5902d27f963487c.ctex"
 
+[sub_resource type="Curve" id="Curve_6n1j6"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7l046"]
+curve = SubResource("Curve_6n1j6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_joou4"]
+emission_shape = 1
+emission_sphere_radius = 16.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -850.0
+linear_accel_max = 0.58
+damping_min = 150.0
+damping_max = 150.0
+scale_curve = SubResource("CurveTexture_w2nhc")
+color = Color(0.898904, 0, 0.198132, 1)
+hue_variation_max = 0.2
+hue_variation_curve = SubResource("CurveTexture_7l046")
+
 [node name="person" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
@@ -176,11 +226,24 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_y2f4q")
 
 [node name="HitParticles" type="GPUParticles2D" parent="Particles"]
-position = Vector2(0, -39)
 scale = Vector2(2, 2)
 emitting = false
 amount = 6
 process_material = SubResource("ParticleProcessMaterial_6tcva")
+texture = SubResource("CompressedTexture2D_4m0ww")
+lifetime = 0.3
+one_shot = true
+preprocess = 0.03
+explosiveness = 0.8
+randomness = 0.59
+fixed_fps = 0
+draw_order = 0
+
+[node name="CritParticles" type="GPUParticles2D" parent="Particles"]
+scale = Vector2(3, 3)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_joou4")
 texture = SubResource("CompressedTexture2D_4m0ww")
 lifetime = 0.3
 one_shot = true

@@ -6,9 +6,6 @@ class_name melee
 
 var _velocity := Vector2.ZERO
 
-func _ready():
-	pass
-
 func left_click() -> void:
 	#cant attack while blocking
 	if not animation_player.current_animation == "block": 

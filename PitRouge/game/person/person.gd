@@ -81,16 +81,26 @@ func click(key : String, pressed : bool):
 			else:
 				selected_item.stop_right_click()
 				
-func take_damage(amount: int) -> void:
-	health = max(0, health - amount)
-	animation_player.play("hit") 
+func get_hit(attacker : person) -> void:
 	if health <= 0:
 #		on_death()
 		pass
+	knock_back(attacker.global_position, false)
+	animation_player.play("hit") 
 
-func knock_back(source_position: Vector2) -> void:
+func knock_back(source_position: Vector2, crit : bool) -> void:
 	
-	var particles := $Particles/HitParticles
+	var hit_particles := $Particles/HitParticles
+	var crit_particles := $Particles/CritParticles
+	var particles := hit_particles
+	
+	hit_particles.visible = false
+	crit_particles.visible = false
+	
+	if crit:
+		particles = crit_particles
+	
+	particles.visible = true
 	particles.rotation = get_angle_to(source_position) + PI
 	pushback_force = -global_position.direction_to(source_position) * 300
 

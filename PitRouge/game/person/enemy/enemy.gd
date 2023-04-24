@@ -57,8 +57,10 @@ func _on_DetectRadius_body_entered(body : person):
 
 func _on_DetectRadius_body_exited(body : person):
 	if body != null:
-		state = IDLE
-		target = null
+		if body == target:
+			state = IDLE
+			target = null
+			change_target()
 
 func update_target_position():
 	var target_vector = Vector2(randf_range(-32, 32), randf_range(-32, 32))
@@ -94,5 +96,9 @@ func attack_players():
 	if $Timers/AttackTimer.is_stopped():
 		$Timers/AttackTimer.start()
 		selected_item.left_click()
-		for b in bodies_in_attack_range:
-			pass
+
+func change_target():
+	if not bodies_in_attack_range.is_empty():
+		randomize()
+		bodies_in_attack_range.shuffle()
+		target = bodies_in_attack_range[1]
