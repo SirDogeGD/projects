@@ -11,7 +11,5 @@ func _ready():
 
 func _on_area_entered(hitbox: HitBox) -> void:
 	var attacker : person = hitbox.owner.owner
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
-	if owner.has_method("get_hit"):
-		owner.get_hit(attacker)
+	var defender : person = owner
+	DMG.calc(attacker, defender)

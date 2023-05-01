@@ -51,7 +51,6 @@ func dash(direction : Vector2):
 		
 		#Dash Regen
 		dash_left -= 1
-		print(dash_left)
 		dash_regen.start()
 		
 		particles.emitting = true
@@ -81,7 +80,7 @@ func click(key : String, pressed : bool):
 			else:
 				selected_item.stop_right_click()
 				
-func get_hit(attacker : person) -> void:
+func get_hit(attacker : person, dmg : float) -> void:
 	if health <= 0:
 #		on_death()
 		pass
