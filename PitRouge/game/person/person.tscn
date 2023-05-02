@@ -271,4 +271,6 @@ one_shot = true
 process_callback = 0
 wait_time = 5.0
 
+[node name="Effects" type="Node2D" parent="."]
+
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]

@@ -37,7 +37,12 @@ func _init():
 func _ready():
 	switch_item(0)
 	dash_regen.wait_time = DASH_REGEN_TIME
-
+	
+#	var test2 = preload("res://game/person/effects/effect.tscn")
+#	$Effects.add_child(test2.instantiate())
+#	for e in $Effects.get_children():
+#		print(e.TYPE)
+	
 func _physics_process(delta):
 	calc_speed()
 	move_and_slide()
