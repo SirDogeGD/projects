@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=19 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
+[ext_resource type="Script" path="res://game/person/Effects_node.gd" id="5_7neol"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -272,5 +273,6 @@ process_callback = 0
 wait_time = 5.0
 
 [node name="Effects" type="Node2D" parent="."]
+script = ExtResource("5_7neol")
 
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]

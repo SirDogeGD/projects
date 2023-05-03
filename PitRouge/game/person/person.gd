@@ -38,11 +38,6 @@ func _ready():
 	switch_item(0)
 	dash_regen.wait_time = DASH_REGEN_TIME
 	
-#	var test2 = preload("res://game/person/effects/effect.tscn")
-#	$Effects.add_child(test2.instantiate())
-#	for e in $Effects.get_children():
-#		print(e.TYPE)
-	
 func _physics_process(delta):
 	calc_speed()
 	move_and_slide()
@@ -65,6 +60,9 @@ func dash(direction : Vector2):
 
 func calc_speed():
 	SPEED = 300
+	#1% speed per effect
+	SPEED += $Effects.active["SPEED"] * 3
+	#multiplier
 	if not dash_timer.is_stopped():
 		SPEED *= 6
 	if is_sneaking:
