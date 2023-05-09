@@ -12,7 +12,6 @@ var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
 var perks := []
-var effects := []
 var health_max := 100
 var health := health_max
 var pushback_force := Vector2.ZERO
@@ -28,6 +27,7 @@ var DASH_REGEN_TIME := 5.0
 @onready var animation_player := $AnimationPlayer
 @onready var dash_timer = $Timers/DashTime
 @onready var dash_regen = $Timers/DashRegenTime
+@onready var effect_node : effects = $Effects
 
 func _init():
 	scale.x = 0.5
@@ -61,7 +61,7 @@ func dash(direction : Vector2):
 func calc_speed():
 	SPEED = 300
 	#1% speed per effect
-	SPEED += $Effects.active["SPEED"] * 3
+	SPEED += effect_node.get_boost("SPEED")
 	#multiplier
 	if not dash_timer.is_stopped():
 		SPEED *= 6

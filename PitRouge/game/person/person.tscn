@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
-[ext_resource type="Script" path="res://game/person/Effects_node.gd" id="5_7neol"]
+[ext_resource type="PackedScene" uid="uid://b0ftgay881vrp" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -272,7 +272,6 @@ one_shot = true
 process_callback = 0
 wait_time = 5.0
 
-[node name="Effects" type="Node2D" parent="."]
-script = ExtResource("5_7neol")
+[node name="Effects" parent="." instance=ExtResource("5_msr54")]
 
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]

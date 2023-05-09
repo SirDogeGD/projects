@@ -9,7 +9,6 @@ var active = {
 	}
 
 func _ready():
-	
 	add_effect("SPEED", "test", 5)
 
 func add_effect(type, from, dura):
@@ -28,3 +27,10 @@ func add_effect(type, from, dura):
 #remove from active
 func remove_effect(type):
 	active[type] -= 1
+
+func get_boost(type : String) -> int:
+	match type:
+		"SPEED":
+			return active[type] * 3
+		_:
+			return active[type]
