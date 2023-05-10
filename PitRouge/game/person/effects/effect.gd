@@ -12,7 +12,6 @@ func _ready():
 	TIME.start()
 
 func end():
-	print("eepy")
 	queue_free()
 
 func add_time(t : float):

@@ -13,19 +13,21 @@ func calc(a : person, b : person):
 	#weakness
 	#megastreak b extra base dmg
 	#base dmg perks
-	base += PERKS.calc("base", a, b)
+	base += PERKS.calc("base_dmg", a, b)
 	
 	#MULTIPLIER
 	var mult = 1
 	#strength
 	mult += ae.get_boost("STRENGTH")
 	#multi perks
-	mult += PERKS.calc("mult", a, b)
+	mult += PERKS.calc("mult_dmg", a, b)
 	#megastreak dmg boost
 	#crit
 	
 	#DEFENCE
+	var def = 0.8 #20% def by default
 	#base def
+	def *= 1 - PERKS.calc("base_def", a, b)
 	#perk def
 	#resistance
 	
@@ -37,6 +39,6 @@ func calc(a : person, b : person):
 	#effect true def
 	#perk true def
 	
-	dmg = base * mult
-	
+	dmg = base * mult * def
+	print(dmg)
 	b.get_hit(a, dmg)

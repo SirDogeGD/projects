@@ -37,6 +37,8 @@ func _init():
 func _ready():
 	switch_item(0)
 	dash_regen.wait_time = DASH_REGEN_TIME
+	perks.append("DIA_BOOT")
+	perks.append("DIA_BOOT")
 	
 func _physics_process(delta):
 	calc_speed()
