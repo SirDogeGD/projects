@@ -2,13 +2,18 @@ extends Node
 
 var num : float
 var lvl : int
+var a : person
+var b : person
 
 #which = base, mult, true, etc
 #a = attacker
 #b = defender
-func calc(which : String, a : person, b : person) -> float:
+func calc(which : String, attacker : person, defender : person) -> float:
 	
 	var u_perks := []
+	
+	a = attacker
+	b = defender
 	
 	#get unique perks
 	for p in a.perks:
@@ -40,11 +45,20 @@ func calc_base_dmg(id : String):
 func calc_mult_dmg(id : String):
 	match id:
 		"SHARP":
-			num += 0.04 + (lvl * 0.02)
+			num += get_num1(id)
+		"PUN":
+			if b.health <= b.health_max/2:
+				num += get_num1(id)
+		"K_BUST":
+			if b.health >= b.health_max/2:
+				num += get_num1(id)
 
 func calc_base_def(id : String):
-	var d := 0.0
+	var def := 0.0
 	match id:
 		"DIA_BOOT":
-			d = 0.1 + (lvl * 0.05)
-	num = d * (100 - num * 100) / 100
+			def = get_num1(id)
+	num = def * (100 - num * 100) / 100
+
+func get_num1(id : String):
+	return PINFO.get_key(id, "Nums")[lvl][0]
