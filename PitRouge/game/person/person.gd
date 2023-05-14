@@ -12,9 +12,16 @@ var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
 var perks := []
-var health_max := 100
-var health := health_max
 var pushback_force := Vector2.ZERO
+#HP
+var health_max := 100.0
+var health := health_max
+#Shield
+var shield_max := 100.0
+var shield := shield_max
+#Bounty
+var bounty_max := 5000
+var bounty := 0
 #Dashes
 var dash_max := 2
 var dash_left := 2: 

@@ -33,32 +33,71 @@ func calc(which : String, attacker : person, defender : person) -> float:
 				calc_mult_dmg(p)
 			"base_def":
 				calc_base_def(p)
+			"cc":
+				calc_cc(p)
+			"cd":
+				calc_cd(p)
 	return num
 
+#get the first number of the current level (most perks just have one number)
+func get_num1(id : String) -> float:
+	return PINFO.get_key(id, "Nums")[lvl][0]
+
+func get_num(id : String) -> float:
+	return PINFO.get_key(id, "Nums")[lvl][1]
+
 func calc_base_dmg(id : String):
+	var add := get_num1(id)
 	match id:
 		"BARB":
-			num += 0.8 + (lvl * 0.2)
+			num += add
 		"DIA_SWORD":
-			num += 0.8 + (lvl * 0.2)
+			num += add
 
 func calc_mult_dmg(id : String):
+	var add := get_num1(id) / 100
 	match id:
 		"SHARP":
-			num += get_num1(id)
+			num += add
 		"PUN":
 			if b.health <= b.health_max/2:
-				num += get_num1(id)
+				num += add
 		"K_BUST":
 			if b.health >= b.health_max/2:
-				num += get_num1(id)
+				num += add
+		"PF":
+			for n in range(a.health_max - a.health):
+				num += add
+		"GAB":
+			if a.shield > 0:
+				num += add
+		#"C_DMG":
+		#"FSTRIKE":
+		"BHUNT":
+			var buff = b.bounty / 100 * add
+			if "HTH" in b.perks:
+				buff *= PINFO.get_key("HTH", "Nums")[b.perks.count("HTH")][0]
+			num += buff
 
 func calc_base_def(id : String):
+	var add := 1 - get_num1(id) / 100 #eg 1 - 0.2 = 0.8 = 20% dmg reduction
 	var def := 0.0
 	match id:
 		"DIA_BOOT":
-			def = get_num1(id)
-	num = def * (100 - num * 100) / 100
+			def = add
+		"DIA_CHEST":
+			def = add
+		"DAG":
+			if b.bounty > 0:
+				def = add
+		"BILLY":
+			def = a.bounty / 1000 * add
+	num *= def
 
-func get_num1(id : String):
-	return PINFO.get_key(id, "Nums")[lvl][0]
+func calc_cc(id : String):
+	var add := get_num1(id)
+	num = add
+
+func calc_cd(id : String):
+	var add := get_num1(id)
+	num = add

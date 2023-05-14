@@ -24,14 +24,14 @@ func perkinfo(id) -> Dictionary:
 		4, "PF":
 			return make("Pain Focus", "Deal +%s%% damage per hp❤ you're missing",
 				[[2],[3],[4],[5]],"DEFAULT")
-		5, "G_A_B":
+		5, "GAB":
 			return make("Gold and Boosted", "Deal +%s%% damage when you have shield hp",
 				[[5],[10],[15],[20]],"DEFAULT")
 		6, "DIA_BOOT":
-			return make("Diamond boots", "Gain +%s armor",
+			return make("Diamond boots", "Take %s less dmg",
 				[[5],[6],[7],[8]],"DEFAULT")
 		7, "DIA_CHEST":
-			return make("Diamond Chestplate", "Gain +%s armor",
+			return make("Diamond Chestplate", "Take %s less dmg",
 				[[6],[7],[8],[9]],"DEFAULT")
 		8, "DIA_SWORD":
 			return make("Diamond Sword", "Your weapon deals +%s dmg",
@@ -59,14 +59,14 @@ func perkinfo(id) -> Dictionary:
 		15, "LS":
 			return make("Lifesteal", "Heal for %s%% of damage dealt",
 				[[4],[8],[12],[16]],"DEFAULT")
-		16, "F_STRIKE":
-			return make("First Strike", "First hit against an enemy deals +%s%% dmg",
+		16, "FSTRIKE":
+			return make("First Strike", "Deal +%s%% dmg against enemies above 90% health",
 				[[35],[40],[45],[50]],"DEFAULT")
 #		Bounties
 		17, "BILLY":
-			return make("Billy", "Gain +%s armor for every 1k bounty you have",
+			return make("Billy", "Take %s less dmg for every 1k bounty you have",
 				[[1],[2],[3],[4]],"DEFAULT")
-		18, "B_HUNT":
+		18, "BHUNT":
 			return make("Bounty Hunter", "Gain +%s%% dmg for every 100 bounty your enemy has",
 				[[1],[1.5],[2],[2.5]],"DEFAULT")
 		19, "HTH":
