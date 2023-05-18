@@ -6,6 +6,7 @@ signal effects_changed
 signal perks_changed
 signal inv_changed(inv)
 signal dash_changed(dash_max, dash_left)
+signal death
 
 var SPEED := 300.0
 var is_sneaking : bool
@@ -15,10 +16,18 @@ var perks := []
 var pushback_force := Vector2.ZERO
 #HP
 var health_max := 100.0
-var health := health_max
+var health := health_max:
+	set(hp):
+		health = clamp(hp, 0, health_max)
+		if health == 0:
+			emit_signal("death")
+		emit_signal("health_changed")
 #Shield
 var shield_max := 100.0
-var shield := shield_max
+var shield := shield_max:
+	set(hp):
+		shield = clamp(hp, 0, shield_max)
+		emit_signal("health_changed")
 #Bounty
 var bounty_max := 5000
 var bounty := 0
@@ -92,12 +101,13 @@ func click(key : String, pressed : bool):
 			else:
 				selected_item.stop_right_click()
 				
-func get_hit(attacker : person, dmg : float) -> void:
-	if health <= 0:
-#		on_death()
-		pass
+func get_hit(attacker : person, damage : Damage) -> void:
+	animation_player.play("hit")
+	take_dmg(damage)
 	knock_back(attacker.global_position, false)
-	animation_player.play("hit") 
+
+func take_dmg(d : Damage):
+	pass
 
 func knock_back(source_position: Vector2, crit : bool) -> void:
 	

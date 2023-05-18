@@ -1,6 +1,6 @@
 extends Node
 
-func calc(a : person, b : person):
+func calc(a : person, b : person) -> Damage:
 	
 	var dmg := a.selected_item.damage
 	var ap := a.perks
@@ -32,6 +32,9 @@ func calc(a : person, b : person):
 	#CRIT DAMAGE
 	var cd := 1.5
 	
+	if crit:
+		dmg *= cd
+	
 	#DEFENCE
 	var def := 0.8 #20% def by default
 	#base def
@@ -49,9 +52,9 @@ func calc(a : person, b : person):
 	#perk true def
 	
 	#Calculate
-	dmg = base * mult * def
-	if crit:
-		dmg *= cd
-	dmg += tru
-	print(dmg)
-	b.get_hit(a, dmg)
+	var d = Damage.new()
+	d.amount = base * mult * def
+	d.trudmg = tru
+	d.crit = crit
+	b.get_hit(a, d)
+	return d
