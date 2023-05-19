@@ -36,7 +36,7 @@ func calc(a : person, b : person) -> Damage:
 		dmg *= cd
 	
 	#DEFENCE
-	var def := 0.8 #20% def by default
+	var def := 0.7 #30% def by default
 	#base def
 	def *= 1 - PERKS.calc("base_def", a, b)
 	#perk def
@@ -56,5 +56,4 @@ func calc(a : person, b : person) -> Damage:
 	d.amount = base * mult * def
 	d.trudmg = tru
 	d.crit = crit
-	b.get_hit(a, d)
 	return d

@@ -72,7 +72,9 @@ func calc_mult_dmg(id : String):
 			if a.shield > 0:
 				num += add
 		#"C_DMG":
-		#"FSTRIKE":
+		"FSTRIKE":
+			if b.health >= b.health_max * 0.95:
+				num += add
 		"BHUNT":
 			var buff = b.bounty / 100 * add
 			if "HTH" in b.perks:

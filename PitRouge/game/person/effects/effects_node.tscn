@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0ftgay881vrp"]
+[gd_scene load_steps=2 format=3 uid="uid://doydj0kk6whkf"]
 
-[ext_resource type="Script" path="res://game/person/Effects_node.gd" id="1_h2i1x"]
+[ext_resource type="Script" path="res://game/person/effects/EffectsNode.gd" id="1_hgm0f"]
 
 [node name="Effects" type="Node2D"]
-script = ExtResource("1_h2i1x")
+script = ExtResource("1_hgm0f")

@@ -104,12 +104,18 @@ func click(key : String, pressed : bool):
 func get_hit(attacker : person, damage : Damage) -> void:
 	animation_player.play("hit")
 	take_dmg(damage)
-	knock_back(attacker.global_position, false)
+	knock_back(attacker.global_position, damage)
 
 func take_dmg(d : Damage):
-	pass
+	if d.amount <= shield: #hit does less damage than the amount of shield left
+		shield -= d.amount
+	else:
+		d.amount -= shield #normal case
+		shield = 0
+		health -= d.amount
+	health -= d.trudmg
 
-func knock_back(source_position: Vector2, crit : bool) -> void:
+func knock_back(source_position: Vector2, damage : Damage) -> void:
 	
 	var hit_particles := $Particles/HitParticles
 	var crit_particles := $Particles/CritParticles
@@ -118,7 +124,7 @@ func knock_back(source_position: Vector2, crit : bool) -> void:
 	hit_particles.visible = false
 	crit_particles.visible = false
 	
-	if crit:
+	if damage.crit:
 		particles = crit_particles
 	
 	particles.visible = true

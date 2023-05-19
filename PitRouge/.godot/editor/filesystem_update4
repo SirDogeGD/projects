@@ -1,6 +1,7 @@
 res://game/item/item.tscn
+res://game/person/perks/perks.gd
+res://game/dmg/dmg.gd
 res://game/box/HurtBox.gd
 res://game/person/person.gd
-res://game/scenes/fight/fight.tscn
-res://game/person/player/playerchar.tscn
 res://game/person/person.tscn
+res://game/person/effects/effects_node.tscn
