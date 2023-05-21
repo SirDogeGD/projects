@@ -1,5 +1,5 @@
 extends Node
-class_name Damage
+class_name dmg_data
 
 var amount : float
 var trudmg : float

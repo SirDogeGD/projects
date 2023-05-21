@@ -1,8 +1,6 @@
 extends person
 class_name enemy
 
-signal death
-
 enum {
 	IDLE,
 	WANDER,

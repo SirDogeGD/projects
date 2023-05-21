@@ -1,209 +1,164 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ba4kmbsqk3roc"]
 
-[ext_resource path="res://icons/ui/hp/hud_heartFull.png" type="Texture2D" id=1]
-[ext_resource path="res://code/UI/hp/HeartBar.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://cxdansgaqpf66" path="res://icons/ui/hp/hud_heartFull.png" id="1"]
+[ext_resource type="Script" path="res://code/UI/hp/HeartBar.gd" id="2"]
 
 [node name="HeartBar" type="VBoxContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2")
 
 [node name="1" type="GridContainer" parent="."]
-offset_left = 222.0
-offset_right = 528.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 10
 
 [node name="1" type="TextureRect" parent="1"]
-offset_right = 27.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="2" type="TextureRect" parent="1"]
-offset_left = 31.0
-offset_right = 58.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="3" type="TextureRect" parent="1"]
-offset_left = 62.0
-offset_right = 89.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="4" type="TextureRect" parent="1"]
-offset_left = 93.0
-offset_right = 120.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="5" type="TextureRect" parent="1"]
-offset_left = 124.0
-offset_right = 151.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="6" type="TextureRect" parent="1"]
-offset_left = 155.0
-offset_right = 182.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="7" type="TextureRect" parent="1"]
-offset_left = 186.0
-offset_right = 213.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="8" type="TextureRect" parent="1"]
-offset_left = 217.0
-offset_right = 244.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="9" type="TextureRect" parent="1"]
-offset_left = 248.0
-offset_right = 275.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="10" type="TextureRect" parent="1"]
-offset_left = 279.0
-offset_right = 306.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="2" type="GridContainer" parent="."]
-offset_left = 222.0
-offset_top = 27.0
-offset_right = 528.0
-offset_bottom = 50.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 10
 
 [node name="1" type="TextureRect" parent="2"]
-offset_right = 27.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="2" type="TextureRect" parent="2"]
-offset_left = 31.0
-offset_right = 58.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="3" type="TextureRect" parent="2"]
-offset_left = 62.0
-offset_right = 89.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="4" type="TextureRect" parent="2"]
-offset_left = 93.0
-offset_right = 120.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="5" type="TextureRect" parent="2"]
-offset_left = 124.0
-offset_right = 151.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="6" type="TextureRect" parent="2"]
-offset_left = 155.0
-offset_right = 182.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="7" type="TextureRect" parent="2"]
-offset_left = 186.0
-offset_right = 213.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="8" type="TextureRect" parent="2"]
-offset_left = 217.0
-offset_right = 244.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="9" type="TextureRect" parent="2"]
-offset_left = 248.0
-offset_right = 275.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3
 
 [node name="10" type="TextureRect" parent="2"]
-offset_left = 279.0
-offset_right = 306.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 stretch_mode = 3

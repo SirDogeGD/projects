@@ -1,6 +1,6 @@
 extends Node
 
-func calc(a : person, b : person) -> Damage:
+func calc(a : person, b : person) -> dmg_data:
 	
 	var dmg := a.selected_item.damage
 	var ap := a.perks
@@ -52,7 +52,7 @@ func calc(a : person, b : person) -> Damage:
 	#perk true def
 	
 	#Calculate
-	var d = Damage.new()
+	var d = dmg_data.new()
 	d.amount = base * mult * def
 	d.trudmg = tru
 	d.crit = crit

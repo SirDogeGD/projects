@@ -1,11 +1,11 @@
 extends CharacterBody2D
 class_name person
 
-signal health_changed
+signal health_changed(hp : hp_data)
 signal effects_changed
 signal perks_changed
-signal inv_changed(inv)
-signal dash_changed(dash_max, dash_left)
+signal inv_changed(inv : inventory)
+signal dash_changed(dash_max : int, dash_left : int)
 signal death
 
 var SPEED := 300.0
@@ -15,19 +15,19 @@ var inv := inventory.new()
 var perks := []
 var pushback_force := Vector2.ZERO
 #HP
-var health_max := 100.0
+var health_max := 25.0
 var health := health_max:
 	set(hp):
 		health = clamp(hp, 0, health_max)
 		if health == 0:
 			emit_signal("death")
-		emit_signal("health_changed")
+		hp_signal()
 #Shield
-var shield_max := 100.0
-var shield := shield_max:
+var shield_max := 20.0
+var shield := 0:
 	set(hp):
 		shield = clamp(hp, 0, shield_max)
-		emit_signal("health_changed")
+		hp_signal()
 #Bounty
 var bounty_max := 5000
 var bounty := 0
@@ -101,12 +101,12 @@ func click(key : String, pressed : bool):
 			else:
 				selected_item.stop_right_click()
 				
-func get_hit(attacker : person, damage : Damage) -> void:
+func get_hit(attacker : person, damage : dmg_data) -> void:
 	animation_player.play("hit")
 	take_dmg(damage)
 	knock_back(attacker.global_position, damage)
 
-func take_dmg(d : Damage):
+func take_dmg(d : dmg_data):
 	if d.amount <= shield: #hit does less damage than the amount of shield left
 		shield -= d.amount
 	else:
@@ -115,7 +115,7 @@ func take_dmg(d : Damage):
 		health -= d.amount
 	health -= d.trudmg
 
-func knock_back(source_position: Vector2, damage : Damage) -> void:
+func knock_back(source_position: Vector2, damage : dmg_data) -> void:
 	
 	var hit_particles := $Particles/HitParticles
 	var crit_particles := $Particles/CritParticles
@@ -150,3 +150,11 @@ func _on_dash_regen_time_timeout():
 	dash_left = min(dash_max, dash_left + 1)
 	if dash_left < dash_max:
 		dash_regen.start()
+
+func hp_signal():
+	var hp = hp_data.new()
+	hp.curHP = health
+	hp.maxHP = health_max
+	hp.curSH = shield
+	print(hp.curHP, ' ', hp.maxHP)
+	emit_signal("health_changed", hp)
