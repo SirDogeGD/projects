@@ -18,6 +18,6 @@ offset_bottom = -118.0
 
 [node name="HeartBar" parent="." instance=ExtResource("4_caaul")]
 offset_left = -274.0
-offset_top = -170.0
+offset_top = -143.0
 offset_right = 32.0
 offset_bottom = -120.0

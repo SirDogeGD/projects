@@ -21,9 +21,9 @@ func update_health(hp : hp_data):
 #	add hearts
 	var amount_hearts := snappedi(round(max_hp), 2) / 2
 	for i in amount_hearts:
-		if health >= i * 2:
+		if health >= (i + 1) * 2:
 			add_heart(heart_full)
-		elif health >= i * 2 - 1:
+		elif health >= (i + 1) * 2 - 1:
 			add_heart(heart_half)
 		else:
 			add_heart(heart_empty)
@@ -31,7 +31,7 @@ func update_health(hp : hp_data):
 #	add shield hearts
 	var amount_shield_hearts := snappedi(round(shield), 2) / 2
 	for i in amount_shield_hearts:
-		if shield >= i * 2:
+		if shield >= (i + 1) * 2:
 			add_heart(shield_full)
 		else:
 			add_heart(shield_half)
