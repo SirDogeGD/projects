@@ -1,6 +1,6 @@
 extends Node
 class_name hp_data
 
-var maxHP : float
+var maxHP : int
 var curHP : float
 var curSH : float

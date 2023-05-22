@@ -12,10 +12,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -153.0
-offset_top = -50.0
+offset_top = -23.0
 offset_right = 153.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_vertical = 0
 script = ExtResource("1_v4yd1")
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -44,5 +45,21 @@ layout_mode = 2
 texture = SubResource("CompressedTexture2D_p46s4")
 
 [node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_p46s4")
+
+[node name="TextureRect7" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_p46s4")
+
+[node name="TextureRect8" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_p46s4")
+
+[node name="TextureRect9" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_p46s4")
+
+[node name="TextureRect10" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
 texture = SubResource("CompressedTexture2D_p46s4")

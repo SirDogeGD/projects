@@ -41,6 +41,7 @@ func calc(a : person, b : person) -> dmg_data:
 	def *= 1 - PERKS.calc("base_def", a, b)
 	#perk def
 	#resistance
+	def *= ae.get_boost("RES")
 	
 	#TRUE
 	var tru := 0.0

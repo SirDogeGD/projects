@@ -1,6 +1,8 @@
 extends Node2D
 class_name effects
+#adds effect children with timer
 
+#counter for current effects
 var active = {
 	"SPEED" : 0,
 	"STRENGTH" : 0,
@@ -33,5 +35,7 @@ func get_boost(type : String) -> int:
 	match type:
 		"SPEED":
 			return active[type] * 3
+		"RES":
+			return 1 - active[type] / 50 #1 resistance = 2% dmg reduction
 		_:
 			return active[type]

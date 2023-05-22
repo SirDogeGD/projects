@@ -15,16 +15,16 @@ var inv := inventory.new()
 var perks := []
 var pushback_force := Vector2.ZERO
 #HP
-var health_max := 25.0
-var health := health_max:
+var health_max := 20
+var health : float = health_max:
 	set(hp):
 		health = clamp(hp, 0, health_max)
 		if health == 0:
 			emit_signal("death")
 		hp_signal()
 #Shield
-var shield_max := 20.0
-var shield := 0:
+var shield_max := 20
+var shield := 0.0:
 	set(hp):
 		shield = clamp(hp, 0, shield_max)
 		hp_signal()
