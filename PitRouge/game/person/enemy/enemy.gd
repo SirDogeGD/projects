@@ -77,7 +77,7 @@ func accelerate(acceleration_vector):
 	velocity = velocity.limit_length(MAX_SPEED)
 
 func on_death():
-	emit_signal("death")
+	super.on_death()
 	await animation_player.animation_finished
 	global_position = start_position
 	health = health_max

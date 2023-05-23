@@ -28,8 +28,7 @@ func add_effect(type, from, dura):
 
 #remove from active
 func remove_effect(type):
-	if active[type] >= 1:
-		active[type] -= 1
+	active[type] = max(0, active[type] - 1)
 
 func get_boost(type : String) -> int:
 	match type:

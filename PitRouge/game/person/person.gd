@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name person
 
 signal health_changed(hp : hp_data)
-signal effects_changed
-signal perks_changed
+signal effects_changed(effect_node : effects)
+signal perks_changed(perks : Array)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death
@@ -20,7 +20,7 @@ var health : float = health_max:
 	set(hp):
 		health = clamp(hp, 0, health_max)
 		if health == 0:
-			emit_signal("death")
+			on_death()
 		hp_signal()
 #Shield
 var shield_max := 20
@@ -156,5 +156,8 @@ func hp_signal():
 	hp.curHP = health
 	hp.maxHP = health_max
 	hp.curSH = shield
-	print(hp.curHP, ' ', hp.maxHP)
+#	print(hp.curHP, ' ', hp.maxHP)
 	emit_signal("health_changed", hp)
+
+func on_death():
+	emit_signal("death")
