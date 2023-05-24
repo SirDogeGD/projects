@@ -8,12 +8,20 @@ signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death
 
-var SPEED := 300.0
+var SPEED : float
 var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
 var perks := []
 var pushback_force := Vector2.ZERO
+var stats := save_data.new()
+#Runstats
+var run_stats = {
+	"streak" : 0.0,
+	"gold" : 0.0,
+	"xp" : 0.0,
+	"kills" : 0
+}
 #HP
 var health_max := 20
 var health : float = health_max:
@@ -161,3 +169,9 @@ func hp_signal():
 
 func on_death():
 	emit_signal("death")
+	perks.clear()
+	health = health_max
+	shield = 0
+	bounty = 0
+	for key in run_stats.keys():
+		run_stats[key] = 0

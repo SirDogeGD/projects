@@ -1,5 +1,5 @@
 res://game/UI/UI.tscn
-res://game/person/effects/EffectsNode.gd
-res://game/scenes/fight/fight.gd
 res://game/person/person.gd
 res://game/person/enemy/enemy.gd
+res://game/person/player/save/save_data.gd
+res://game/person/person.tscn
