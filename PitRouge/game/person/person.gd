@@ -60,9 +60,6 @@ func _init():
 
 func _ready():
 	switch_item(0)
-	dash_regen.wait_time = DASH_REGEN_TIME
-	perks.append("DIA_BOOT")
-	perks.append("DIA_BOOT")
 	
 func _physics_process(delta):
 	calc_speed()
@@ -169,6 +166,18 @@ func hp_signal():
 
 func on_death():
 	emit_signal("death")
+	
+	#Save to stats
+	stats.gold[stats.prestige]   += run_stats["gold"]
+	stats.xp[stats.prestige]     += run_stats["xp"]
+	stats.kills[stats.prestige]  += run_stats["kills"]
+	stats.deaths[stats.prestige] += 1
+	print(get_class())
+	if is_class("player"):
+		var result = ResourceSaver.save(stats, "user://save.res")
+		assert(result == OK)
+	
+	#Reset stuff
 	perks.clear()
 	health = health_max
 	shield = 0

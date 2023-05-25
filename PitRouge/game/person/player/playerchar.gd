@@ -1,6 +1,10 @@
 extends person
 class_name player
 
+func _ready():
+	super._ready()
+	load_data()
+
 func _physics_process(delta):
 	
 	handle_inputs()
@@ -72,3 +76,10 @@ func handle_inputs():
 	
 	if Input.is_action_just_pressed("scroll_down"):
 		switch_item(10)
+
+func load_data():
+	if ResourceLoader.exists("user://save.res"):
+		var test = ResourceLoader.load("user://save.res")
+		if test is save_data:
+			print(test.deaths)
+			stats = test
