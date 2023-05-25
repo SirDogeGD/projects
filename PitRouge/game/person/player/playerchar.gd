@@ -79,7 +79,7 @@ func handle_inputs():
 
 func load_data():
 	if ResourceLoader.exists("user://save.res"):
-		var test = ResourceLoader.load("user://save.res")
-		if test is save_data:
-			print(test.deaths)
-			stats = test
+		var saved = ResourceLoader.load("user://save.res")
+		if saved is save_data:
+			stats = saved
+			print(stats.deaths)

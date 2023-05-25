@@ -161,19 +161,18 @@ func hp_signal():
 	hp.curHP = health
 	hp.maxHP = health_max
 	hp.curSH = shield
-#	print(hp.curHP, ' ', hp.maxHP)
 	emit_signal("health_changed", hp)
 
 func on_death():
 	emit_signal("death")
 	
 	#Save to stats
-	stats.gold[stats.prestige]   += run_stats["gold"]
-	stats.xp[stats.prestige]     += run_stats["xp"]
-	stats.kills[stats.prestige]  += run_stats["kills"]
-	stats.deaths[stats.prestige] += 1
-	print(get_class())
-	if is_class("player"):
+	stats.gold   += run_stats["gold"]
+	stats.xp     += run_stats["xp"]
+	stats.kills  += run_stats["kills"]
+	stats.deaths += 1
+	if is_instance_of(self, player):
+		print("SAVED")
 		var result = ResourceSaver.save(stats, "user://save.res")
 		assert(result == OK)
 	

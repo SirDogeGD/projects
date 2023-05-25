@@ -99,4 +99,4 @@ func change_target():
 	if not bodies_in_attack_range.is_empty():
 		randomize()
 		bodies_in_attack_range.shuffle()
-		target = bodies_in_attack_range[1]
+		target = bodies_in_attack_range[0]
