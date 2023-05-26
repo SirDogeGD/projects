@@ -82,4 +82,3 @@ func load_data():
 		var saved = ResourceLoader.load("user://save.res")
 		if saved is save_data:
 			stats = saved
-			print(stats.deaths)

@@ -22,6 +22,7 @@ const MAX_SPEED = 200
 func _ready():
 	super._ready()
 	selected_item.connect("RESET",Callable(self,"attack_players"))
+	stats = save_data.new()
 	stats.random()
 
 func _physics_process(delta):

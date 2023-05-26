@@ -22,6 +22,7 @@ var run_stats = {
 	"xp" : 0.0,
 	"kills" : 0
 }
+var dmg_taken : Array[dmg_data] = []
 #HP
 var health_max := 20
 var health : float = health_max:
@@ -32,7 +33,7 @@ var health : float = health_max:
 		hp_signal()
 #Shield
 var shield_max := 20
-var shield := 0.0:
+var shield := 6.0:
 	set(hp):
 		shield = clamp(hp, 0, shield_max)
 		hp_signal()
@@ -108,6 +109,7 @@ func click(key : String, pressed : bool):
 				
 func get_hit(attacker : person, damage : dmg_data) -> void:
 	animation_player.play("hit")
+	add_to_dmg_taken(damage)
 	take_dmg(damage)
 	knock_back(attacker.global_position, damage)
 
@@ -115,9 +117,9 @@ func take_dmg(d : dmg_data):
 	if d.amount <= shield: #hit does less damage than the amount of shield left
 		shield -= d.amount
 	else:
-		d.amount -= shield #normal case
+		var new_amount = d.amount - shield #normal case, new_amount because of dmg_taken
 		shield = 0
-		health -= d.amount
+		health -= new_amount
 	health -= d.trudmg
 
 func knock_back(source_position: Vector2, damage : dmg_data) -> void:
@@ -172,14 +174,35 @@ func on_death():
 	stats.kills  += run_stats["kills"]
 	stats.deaths += 1
 	if is_instance_of(self, player):
-		print("SAVED")
 		var result = ResourceSaver.save(stats, "user://save.res")
 		assert(result == OK)
+	
+	#Determine killer / assists
+	var killer := dmg_taken[-1].attacker
+	var all_dmg = {} # Dictionary to store [attacker, damage] pairs
+
+	for e in dmg_taken:
+		if e.attacker not in all_dmg:
+			all_dmg[e.attacker] = 0.0
+		all_dmg[e.attacker] += e.amount + e.trudmg
 	
 	#Reset stuff
 	perks.clear()
 	health = health_max
 	shield = 0
 	bounty = 0
+	dmg_taken.clear()
 	for key in run_stats.keys():
 		run_stats[key] = 0
+
+func load_data():
+	pass #gets overriden in playerchar
+
+func add_to_dmg_taken(d : dmg_data):
+	dmg_taken.append(d)
+	#remove dmg above max health
+	var totaldmg := 0.0
+	for e in dmg_taken:
+		totaldmg += e.amount + e.trudmg
+	if totaldmg > health_max:
+		dmg_taken.remove_at(0)

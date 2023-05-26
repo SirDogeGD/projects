@@ -1,13 +1,12 @@
 extends Resource
 class_name save_data
 
-#will store stats per prestige
-var prestige := 0
-var gold := 0.0
-var xp := 0.0
-var kills := 0
-var deaths := 0
-var renown := 0
+@export var prestige := 0
+@export var gold := 0.0
+@export var xp := 0.0
+@export var kills := 0
+@export var deaths := 0
+@export var renown := 0
 
 func reset():
 	prestige = 0
