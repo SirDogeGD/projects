@@ -11,7 +11,7 @@ var state = IDLE
 var run_speed = 100
 #var velocity = Vector2.ZERO
 var target : person = null
-var bodies_in_attack_range := []
+var bodies_in_attack_range : Array[person]
 const TOLERANCE = 4.0
 const ACCELERATION = 300
 const MAX_SPEED = 200
@@ -80,8 +80,7 @@ func accelerate(acceleration_vector):
 
 func on_death():
 	super.on_death()
-	await animation_player.animation_finished
-	global_position = start_position
+	respawn()
 
 func _on_AttackRadius_body_entered(body : person):
 	if body != null and body != self:
@@ -101,3 +100,14 @@ func change_target():
 		randomize()
 		bodies_in_attack_range.shuffle()
 		target = bodies_in_attack_range[0]
+		state = ATTACK
+
+func respawn():
+	await animation_player.animation_finished
+	global_position = start_position
+	state = IDLE
+	#get all persons in range
+	for body in $Radii/DetectRadius.get_overlapping_bodies():
+		if body != self and body is person:
+			bodies_in_attack_range.append(body)
+	change_target()

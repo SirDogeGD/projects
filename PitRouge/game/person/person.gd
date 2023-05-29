@@ -33,7 +33,7 @@ var health : float = health_max:
 		hp_signal()
 #Shield
 var shield_max := 20
-var shield := 6.0:
+var shield := 0.0:
 	set(hp):
 		shield = clamp(hp, 0, shield_max)
 		hp_signal()
@@ -174,10 +174,11 @@ func on_death():
 	stats.kills  += run_stats["kills"]
 	stats.deaths += 1
 	if is_instance_of(self, player):
+		print("saved")
 		var result = ResourceSaver.save(stats, "user://save.res")
 		assert(result == OK)
 	
-	#Determine killer / assists
+	#Determine killer / assistsd
 	var killer := dmg_taken[-1].attacker
 	var all_dmg = {} # Dictionary to store [attacker, damage] pairs
 
@@ -185,6 +186,12 @@ func on_death():
 		if e.attacker not in all_dmg:
 			all_dmg[e.attacker] = 0.0
 		all_dmg[e.attacker] += e.amount + e.trudmg
+	
+	#Activate kill/assists
+	killer.on_kill(self)
+	for pers in all_dmg.keys():
+		if not pers == killer:
+			pers.on_assist(self, all_dmg[pers] / self.health_max * 100)
 	
 	#Reset stuff
 	perks.clear()
@@ -196,7 +203,7 @@ func on_death():
 		run_stats[key] = 0
 
 func load_data():
-	pass #gets overriden in playerchar
+	pass #gets overridden in playerchar
 
 func add_to_dmg_taken(d : dmg_data):
 	dmg_taken.append(d)
@@ -206,3 +213,14 @@ func add_to_dmg_taken(d : dmg_data):
 		totaldmg += e.amount + e.trudmg
 	if totaldmg > health_max:
 		dmg_taken.remove_at(0)
+
+func on_assist(b : person, p : float):
+	var r := rewards.new()
+	run_stats["gold"] += 5 * p/100
+	run_stats["xp"] += 5 * p/100
+
+func on_kill(b : person):
+	var r := rewards.new()
+	run_stats["gold"] += r.kill(self, b)["G"]
+	run_stats["xp"] += r.kill(self, b)["X"]
+	run_stats["kills"] += 1

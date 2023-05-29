@@ -36,7 +36,6 @@ func perkinfo(id) -> Dictionary:
 		8, "DIA_SWORD":
 			return make("Diamond Sword", "Your weapon deals +%s base dmg",
 				[[0.4],[0.8],[1.2],[1.6]],"DEFAULT")
-#			mysticism 1
 		9, "BERS":
 			return make("Berserker", "%s%% crit chance",
 				[[12],[20],[28],[36]],"DEFAULT")
@@ -49,7 +48,6 @@ func perkinfo(id) -> Dictionary:
 		12, "C_SHIELD":
 			return make("Combo: Shield", "Every fourth strike gives %s shield hp",
 				[[1],[1.5],[2],[3]],"DEFAULT")
-#		mysticism 2
 		13, "C_JAN":
 			return make("Counter-Janitor", "Gain %s Resistance (%s sec) on kill",
 				[[4, 4],[5, 4.5],[6, 5],[7, 5]],"DEFAULT")
@@ -75,6 +73,22 @@ func perkinfo(id) -> Dictionary:
 		20, "SCO":
 			return make("Self-Checkout", "Reaching your max bounty clears it and you gain %s%% of it. %s uses.",
 				[[50, 2],[75, 2],[100, 3],[125, 4]],"DEFAULT")
+#		Rewards
+		21, "MOCT":
+			return make("Moctezuma", "+%s base gold",
+				[[6],[12],[18],[24]],"DEFAULT")
+		22, "GBUMP":
+			return make("Gold Bump", "+%s base gold",
+				[[4],[8],[12],[16]],"DEFAULT")
+		23, "GBOOST":
+			return make("Gold Boost", "+%s% gold",
+				[[15],[30],[45],[60]],"DEFAULT")
+		24, "XPBUMP":
+			return make("XP Bump", "+%s base xp",
+				[[4],[8],[12],[16]],"DEFAULT")
+		25, "XPBOOST":
+			return make("XP Boost", "+%s% xp",
+				[[10],[20],[30],[40]],"DEFAULT")
 	return pdict
 
 func make(name: String, desc: String, nums: Array, perkType: String) -> Dictionary:

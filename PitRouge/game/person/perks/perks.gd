@@ -37,6 +37,14 @@ func calc(which : String, attacker : person, defender : person) -> float:
 				calc_cc(p)
 			"cd":
 				calc_cd(p)
+			"base_gold":
+				calc_base_gold(p)
+			"mult_gold":
+				calc_mult_gold(p)
+			"base_xp":
+				calc_base_xp(p)
+			"mult_xp":
+				calc_mult_xp(p)
 	return num
 
 #get the first number of the current level (most perks just have one number)
@@ -49,9 +57,7 @@ func get_num(id : String) -> float:
 func calc_base_dmg(id : String):
 	var add := get_num1(id)
 	match id:
-		"BARB":
-			num += add
-		"DIA_SWORD":
+		"BARB", "DIA_SWORD":
 			num += add
 
 func calc_mult_dmg(id : String):
@@ -85,9 +91,7 @@ func calc_base_def(id : String):
 	var add := 1 - get_num1(id) / 100 #eg 1 - 0.2 = 0.8 = 20% dmg reduction
 	var def := 0.0
 	match id:
-		"DIA_BOOT":
-			def = add
-		"DIA_CHEST":
+		"DIA_BOOT", "DIA_CHEST":
 			def = add
 		"DAG":
 			if b.bounty > 0:
@@ -102,4 +106,32 @@ func calc_cc(id : String):
 
 func calc_cd(id : String):
 	var add := get_num1(id)
+	num = add
+
+func calc_base_gold(id : String):
+	var add := get_num1(id)
+	match id:
+		"MOCT", "GBUMP":
+			num += add
+	num = add
+
+func calc_mult_gold(id : String):
+	var add := 1 + get_num1(id) / 100
+	match id:
+		"GBOOST":
+			num *= add
+	num = add
+
+func calc_base_xp(id : String):
+	var add := get_num1(id)
+	match id:
+		"XPBUMP":
+			num += add
+	num = add
+
+func calc_mult_xp(id : String):
+	var add := 1 + get_num1(id) / 100
+	match id:
+		"XPBOOST":
+			num *= add
 	num = add

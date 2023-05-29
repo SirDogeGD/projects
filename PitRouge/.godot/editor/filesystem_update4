@@ -1,7 +1,7 @@
-res://game/UI/UI.tscn
-res://game/person/person.gd
 res://game/scenes/fight/fight.tscn
 res://game/person/person.tscn
 res://game/person/effects/effects_node.tscn
 res://game/UI/HP/playerHP_ui/HeartBar.tscn
-res://game/dmg/dmg.gd
+res://game/UI/UI.tscn
+res://game/person/enemy/enemy.tscn
+res://game/person/enemy/enemy.gd
