@@ -48,20 +48,17 @@ func calc(which : String, attacker : person, defender : person) -> float:
 	return num
 
 #get the first number of the current level (most perks just have one number)
-func get_num1(id : String) -> float:
-	return PINFO.get_key(id, "Nums")[lvl][0]
-
-func get_num(id : String) -> float:
-	return PINFO.get_key(id, "Nums")[lvl][1]
+func get_num(id : String, num := 0) -> float:
+	return PINFO.get_key(id, "Nums")[lvl][num]
 
 func calc_base_dmg(id : String):
-	var add := get_num1(id)
+	var add := get_num(id)
 	match id:
 		"BARB", "DIA_SWORD":
 			num += add
 
 func calc_mult_dmg(id : String):
-	var add := get_num1(id) / 100
+	var add := get_num(id) / 100
 	match id:
 		"SHARP":
 			num += add
@@ -88,7 +85,7 @@ func calc_mult_dmg(id : String):
 			num += buff
 
 func calc_base_def(id : String):
-	var add := 1 - get_num1(id) / 100 #eg 1 - 0.2 = 0.8 = 20% dmg reduction
+	var add := 1 - get_num(id) / 100 #eg 1 - 0.2 = 0.8 = 20% dmg reduction
 	var def := 0.0
 	match id:
 		"DIA_BOOT", "DIA_CHEST":
@@ -101,37 +98,44 @@ func calc_base_def(id : String):
 	num *= def
 
 func calc_cc(id : String):
-	var add := get_num1(id)
+	var add := get_num(id)
 	num = add
 
 func calc_cd(id : String):
-	var add := get_num1(id)
+	var add := get_num(id)
 	num = add
 
 func calc_base_gold(id : String):
-	var add := get_num1(id)
+	var add := get_num(id)
 	match id:
 		"MOCT", "GBUMP":
 			num += add
 	num = add
 
 func calc_mult_gold(id : String):
-	var add := 1 + get_num1(id) / 100
+	var add := 1 + get_num(id) / 100
 	match id:
 		"GBOOST":
 			num *= add
 	num = add
 
 func calc_base_xp(id : String):
-	var add := get_num1(id)
+	var add := get_num(id)
 	match id:
 		"XPBUMP":
 			num += add
 	num = add
 
 func calc_mult_xp(id : String):
-	var add := 1 + get_num1(id) / 100
+	var add := 1 + get_num(id) / 100
 	match id:
 		"XPBOOST":
 			num *= add
 	num = add
+
+#Get values of edge cases (like Sweaty)
+func get_value(a : person, id : String, num := 1) -> float:
+	lvl = a.perks.count(id)
+	if lvl >= 1:
+		return get_num(id, num)
+	return 0

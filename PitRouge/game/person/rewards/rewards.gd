@@ -32,6 +32,16 @@ func xp():
 	#BASE
 	var base : float = BASE_XP
 	base += PERKS.calc("BASE_XP", a, b)
+	#Streak
+	var streak = a.run_stats["streak"]
+	var streakBoost := 0.0
+	if streak in range(3,4):
+		streakBoost = 3
+	elif streak in range(5,19):
+		streakBoost = 5
+	elif streak >= 20:
+		streakBoost = min(3 * int(streak/10), 30)
+	base += streakBoost * 1 + PERKS.get_value(a, "SWEATY") / 100
 	#MULT
 	var mult := 1.0
 	mult *= PERKS.calc("MULT_XP", a, b)

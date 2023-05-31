@@ -89,6 +89,9 @@ func perkinfo(id) -> Dictionary:
 		25, "XPBOOST":
 			return make("XP Boost", "+%s% xp",
 				[[10],[20],[30],[40]],"DEFAULT")
+		26, "SWEATY":
+			return make("Sweaty", "+%s% streak bonus xp",
+				[[50],[100],[200],[300]],"DEFAULT")
 	return pdict
 
 func make(name: String, desc: String, nums: Array, perkType: String) -> Dictionary:
