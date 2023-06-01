@@ -1,4 +1,3 @@
 res://game/person/enemy/enemy.tscn
-res://game/person/rewards/rewards.gd
 res://game/person/perks/perks.gd
-res://game/person/perks/perk_info.gd
+res://game/person/perks/perk_data.gd

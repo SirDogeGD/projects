@@ -1,13 +1,6 @@
 extends Node
-	
-var pdict := {
-	"Name" : "",
-	"Desc" : "",
-	"Nums" : [],
-	"Type" : ""
-}
 
-func perkinfo(id) -> Dictionary:
+func perkinfo(id) -> perk_data:
 	match id:
 		0, "BARB":
 			return make("Barbarian", "Your weapon deals +%s base dmg. Lose the ability to block",
@@ -92,16 +85,21 @@ func perkinfo(id) -> Dictionary:
 		26, "SWEATY":
 			return make("Sweaty", "+%s% streak bonus xp",
 				[[50],[100],[200],[300]],"DEFAULT")
-	return pdict
+	return perk_data.new()
 
-func make(name: String, desc: String, nums: Array, perkType: String) -> Dictionary:
-	var perkDict := pdict.duplicate()
-	perkDict["Name"] = name
-	perkDict["Desc"] = desc
-	perkDict["Nums"] = nums
-	perkDict["Type"] = perkType
-	return perkDict
+func make(nam: String, desc: String, nums: Array, type: String) -> perk_data:
+	var data := perk_data.new()
+	data.pname = nam
+	data.desc = desc
+	data.nums = nums
+	data.type = type
+	return data
 
 func get_key(id, key: String) -> Variant:
-	var perkDict := perkinfo(id)
-	return perkDict.get(key, null)
+	var data := perkinfo(id)
+	match key:
+		"Name":
+			return data.pname
+		"Desc":
+			return data.desc
+	return null
