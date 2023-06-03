@@ -1,9 +1,13 @@
+RichTextLabel
+CenterContainer
+PanelContainer
+Container
 VBoxContainer
+Panel
 GridContainer
 TextureRect
 Node2D
 Sprite2D
-CenterContainer
 HBoxContainer
 Timer
 CanvasLayer

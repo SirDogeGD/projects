@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6l7gd7dy2mlq"]
+[gd_scene load_steps=6 format=3 uid="uid://b6l7gd7dy2mlq"]
 
 [ext_resource type="Script" path="res://game/UI/UI.gd" id="1_8mdmi"]
 [ext_resource type="PackedScene" uid="uid://dh5typ5uy3fg4" path="res://game/person/inventory/inventory_ui.tscn" id="1_bhrq0"]
 [ext_resource type="PackedScene" uid="uid://ch721dw770qm0" path="res://game/UI/dash_ui/dash_ui.tscn" id="3_p1ws0"]
 [ext_resource type="PackedScene" uid="uid://jqobfiy31ltk" path="res://game/UI/HP/playerHP_ui/HeartBar.tscn" id="4_caaul"]
+[ext_resource type="PackedScene" uid="uid://d3oiamsxkfb57" path="res://game/UI/sideboard/sideboard_ui.tscn" id="5_qt03h"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_8mdmi")
@@ -21,3 +22,5 @@ offset_left = -274.0
 offset_top = -143.0
 offset_right = 32.0
 offset_bottom = -120.0
+
+[node name="sideboard_ui" parent="." instance=ExtResource("5_qt03h")]

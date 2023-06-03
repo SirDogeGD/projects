@@ -111,28 +111,24 @@ func calc_base_gold(id : String):
 	match id:
 		"MOCT", "GBUMP":
 			num += add
-	num = add
 
 func calc_mult_gold(id : String):
 	var add := 1 + get_num(id) / 100
 	match id:
 		"GBOOST":
 			num *= add
-	num = add
 
 func calc_base_xp(id : String):
 	var add := get_num(id)
 	match id:
 		"XPBUMP":
 			num += add
-	num = add
 
 func calc_mult_xp(id : String):
 	var add := 1 + get_num(id) / 100
 	match id:
 		"XPBOOST":
 			num *= add
-	num = add
 
 #Get values of edge cases (like Sweaty)
 func get_value(a : person, id : String, num := 1) -> float:

@@ -21,17 +21,17 @@ func kill(killer : person, died : person):
 func gold():
 	#BASE
 	var base : float = BASE_GOLD
-	base += PERKS.calc("BASE_GOLD", a, b)
+	base += PERKS.calc("base_gold", a, b)
 	#MULT
 	var mult := 1.0
-	mult *= PERKS.calc("MULT_GOLD", a, b)
+	mult *= 1 + PERKS.calc("mult_gold", a, b)
 	
 	return base * mult
 
 func xp():
 	#BASE
 	var base : float = BASE_XP
-	base += PERKS.calc("BASE_XP", a, b)
+	base += PERKS.calc("base_xp", a, b)
 	#Streak
 	var streak = a.run_stats["streak"]
 	var streakBoost := 0.0
@@ -44,6 +44,6 @@ func xp():
 	base += streakBoost * 1 + PERKS.get_value(a, "SWEATY") / 100
 	#MULT
 	var mult := 1.0
-	mult *= PERKS.calc("MULT_XP", a, b)
+	mult *= 1 + PERKS.calc("mult_xp", a, b)
 	
 	return base * mult

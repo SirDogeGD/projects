@@ -205,6 +205,9 @@ func on_death():
 func load_data():
 	pass #gets overridden in playerchar
 
+func call_stats_label():
+	pass
+
 func add_to_dmg_taken(d : dmg_data):
 	dmg_taken.append(d)
 	#remove dmg above max health
@@ -218,9 +221,11 @@ func on_assist(b : person, p : float):
 	var r := rewards.new()
 	run_stats["gold"] += 5 * p/100
 	run_stats["xp"] += 5 * p/100
+	call_stats_label()
 
 func on_kill(b : person):
 	var r := rewards.new()
 	run_stats["gold"] += r.kill(self, b)["G"]
 	run_stats["xp"] += r.kill(self, b)["X"]
 	run_stats["kills"] += 1
+	call_stats_label()

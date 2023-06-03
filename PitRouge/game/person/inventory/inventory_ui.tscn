@@ -19,37 +19,123 @@ size_flags_vertical = 3
 alignment = 2
 script = ExtResource("1_rmcm4")
 
-[node name="slot0" parent="." instance=ExtResource("2_5achi")]
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="slot1" parent="." instance=ExtResource("2_5achi")]
+[node name="slot0" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_top = 0.0
+offset_right = 104.0
+offset_bottom = 100.0
+
+[node name="slot1" parent="Panel" instance=ExtResource("2_5achi")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 108.0
+offset_top = 0.0
+offset_right = 208.0
+offset_bottom = 100.0
 which_slot_am_i = 1
 
-[node name="slot2" parent="." instance=ExtResource("2_5achi")]
+[node name="slot2" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 212.0
+offset_top = 0.0
+offset_right = 312.0
+offset_bottom = 100.0
 which_slot_am_i = 2
 
-[node name="slot3" parent="." instance=ExtResource("2_5achi")]
+[node name="slot3" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 316.0
+offset_top = 0.0
+offset_right = 416.0
+offset_bottom = 100.0
 which_slot_am_i = 3
 
-[node name="slot4" parent="." instance=ExtResource("2_5achi")]
+[node name="slot4" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 420.0
+offset_top = 0.0
+offset_right = 520.0
+offset_bottom = 100.0
 which_slot_am_i = 4
 
-[node name="slot5" parent="." instance=ExtResource("2_5achi")]
+[node name="slot5" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 524.0
+offset_top = 0.0
+offset_right = 624.0
+offset_bottom = 100.0
 which_slot_am_i = 5
 
-[node name="slot6" parent="." instance=ExtResource("2_5achi")]
+[node name="slot6" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 628.0
+offset_top = 0.0
+offset_right = 728.0
+offset_bottom = 100.0
 which_slot_am_i = 6
 
-[node name="slot7" parent="." instance=ExtResource("2_5achi")]
+[node name="slot7" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 732.0
+offset_top = 0.0
+offset_right = 832.0
+offset_bottom = 100.0
 which_slot_am_i = 7
 
-[node name="slot8" parent="." instance=ExtResource("2_5achi")]
+[node name="slot8" parent="Panel" instance=ExtResource("2_5achi")]
 layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 836.0
+offset_top = 0.0
+offset_right = 936.0
+offset_bottom = 100.0
 which_slot_am_i = 8

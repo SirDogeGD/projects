@@ -1,0 +1,16 @@
+extends RichTextLabel
+class_name Labels
+
+var COLOR_DARK_RED = "#AA0000"
+var COLOR_RED = "#FF5555"
+var COLOR_GOLD = "#FFAA00"
+var COLOR_YELLOW = "#FFFF55"
+var COLOR_DARK_GREEN = "#00AA00"
+var COLOR_GREEN = "#55FF55"
+var COLOR_AQUA = "#55FFFF"
+var COLOR_BLUE = "#5555FF"
+var COLOR_PINK = "#FF55FF"
+var COLOR_PURPLE = "#AA00AA"
+var COLOR_WHITE = "#FFFFFF"
+var COLOR_GREY = "#AAAAAA"
+var COLOR_DARK_GREY = "#555555"

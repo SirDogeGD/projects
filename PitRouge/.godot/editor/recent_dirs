@@ -1,10 +1,10 @@
+res://game/UI
 res://.godot/imported
 res://game/person/perks
 res://game/person/effects
 res://game/dmg
 res://game/item/weapon
 res://game/person/inventory
-res://game/UI
 res://game/item/weapon/melee/sword
 res://game/item/weapon/melee
 res://game/item

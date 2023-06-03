@@ -4,6 +4,7 @@ class_name player
 func _ready():
 	super._ready()
 	load_data()
+	call_stats_label()
 
 func _physics_process(delta):
 	
@@ -82,3 +83,6 @@ func load_data():
 		var saved = ResourceLoader.load("user://save.res")
 		if saved is save_data:
 			stats = saved
+
+func call_stats_label():
+	get_tree().call_group("stats_label", "update", self)
