@@ -44,7 +44,7 @@ shape = SubResource("CircleShape2D_hjn65")
 debug_color = Color(0.678431, 0.0627451, 0.227451, 0)
 
 [node name="AttackTimer" type="Timer" parent="Timers" index="2"]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="Radii/DetectRadius" to="." method="_on_DetectRadius_body_entered"]

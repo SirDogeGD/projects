@@ -22,6 +22,8 @@ func calc(which : String, attacker : person, defender : person) -> float:
 	
 	#reset num
 	num = 0
+	if which.left(4) == "mult":
+		num = 1
 	
 	#calc for each unique perk
 	for p in u_perks:

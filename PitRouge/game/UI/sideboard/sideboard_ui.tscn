@@ -8,19 +8,20 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -300.0
+offset_left = -200.0
 offset_top = -250.0
-offset_bottom = 250.0
+offset_bottom = 50.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 300)
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 500)
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 
 [node name="StatsLabel" parent="VBox" instance=ExtResource("1_7768r")]
@@ -30,14 +31,10 @@ type = "G"
 
 [node name="StatsLabel2" parent="VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
-text = "xp_label
-
-"
+text = "xp_label"
 type = "XP"
 
 [node name="StatsLabel3" parent="VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
-text = "streak_label
-
-"
+text = "streak_label"
 type = "Str"

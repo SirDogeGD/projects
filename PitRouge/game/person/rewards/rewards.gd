@@ -15,6 +15,7 @@ func kill(killer : person, died : person):
 	b = died
 	
 	kill_rewards["G"] = gold()
+	kill_rewards["X"] = xp()
 	
 	return kill_rewards
 
@@ -35,7 +36,7 @@ func xp():
 	#Streak
 	var streak = a.run_stats["streak"]
 	var streakBoost := 0.0
-	if streak in range(3,4):
+	if streak in range(3,4): #streak boost based on streak
 		streakBoost = 3
 	elif streak in range(5,19):
 		streakBoost = 5
@@ -44,6 +45,6 @@ func xp():
 	base += streakBoost * 1 + PERKS.get_value(a, "SWEATY") / 100
 	#MULT
 	var mult := 1.0
-	mult *= 1 + PERKS.calc("mult_xp", a, b)
+	mult *= PERKS.calc("mult_xp", a, b)
 	
 	return base * mult

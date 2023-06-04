@@ -147,7 +147,7 @@ func switch_item(num : int):
 		10: 
 			inv.scroll(false)
 	remove_child(selected_item)
-	var new_item = inv.items[num].instantiate()
+	var new_item = inv.items[num]
 	add_child(new_item)
 	selected_item = new_item
 	selected_item.owner = self
@@ -174,12 +174,11 @@ func on_death():
 	stats.kills  += run_stats["kills"]
 	stats.deaths += 1
 	if is_instance_of(self, player):
-		print("saved")
 		var result = ResourceSaver.save(stats, "user://save.res")
 		assert(result == OK)
 	
 	#Determine killer / assistsd
-	var killer := dmg_taken[-1].attacker
+	var killer := dmg_taken[-1].attacker #last person to do dmg
 	var all_dmg = {} # Dictionary to store [attacker, damage] pairs
 
 	for e in dmg_taken:

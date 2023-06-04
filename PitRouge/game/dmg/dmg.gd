@@ -42,6 +42,9 @@ func calc(a : person, b : person) -> dmg_data:
 	#perk def
 	#resistance
 	def *= ae.get_boost("RES")
+	#blocking
+	if b.item_slow and b.inv.get_selected() is sword:
+		def *= 0.5
 	
 	#TRUE
 	var tru := 0.0

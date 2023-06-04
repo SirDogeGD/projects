@@ -9,7 +9,7 @@ class_name inv_slot
 var selected := false
 
 func update_slot(i : inventory):
-	var Sitem = i.items[which_slot_am_i].instantiate()
+	var Sitem = i.items[which_slot_am_i]
 	pic.texture = Sitem.get_pic()
 	selected = (i.selected == which_slot_am_i)
 	sel_frame.update_img(selected)
