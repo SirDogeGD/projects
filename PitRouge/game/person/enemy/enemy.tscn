@@ -44,6 +44,7 @@ shape = SubResource("CircleShape2D_hjn65")
 debug_color = Color(0.678431, 0.0627451, 0.227451, 0)
 
 [node name="AttackTimer" type="Timer" parent="Timers" index="2"]
+unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 

@@ -259,16 +259,19 @@ draw_order = 0
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="DashTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
 process_callback = 0
 wait_time = 0.2
 one_shot = true
 
 [node name="IFrames" type="Timer" parent="Timers"]
+unique_name_in_owner = true
 process_callback = 0
 wait_time = 0.3
 one_shot = true
 
 [node name="DashRegenTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
 process_callback = 0
 wait_time = 5.0
 

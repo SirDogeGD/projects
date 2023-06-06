@@ -91,8 +91,8 @@ func _on_AttackRadius_body_exited(body : person):
 		bodies_in_attack_range.erase(body)
 
 func attack_players():
-	if $Timers/AttackTimer.is_stopped():
-		$Timers/AttackTimer.start()
+	if %AttackTimer.is_stopped():
+		%AttackTimer.start()
 		selected_item.left_click()
 
 func change_target():

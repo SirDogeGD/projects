@@ -1,9 +1,9 @@
+Panel
 RichTextLabel
 CenterContainer
 PanelContainer
 Container
 VBoxContainer
-Panel
 GridContainer
 TextureRect
 Node2D
