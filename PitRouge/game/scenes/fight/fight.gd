@@ -6,6 +6,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func _enter_tree():
+	UI.show()
+
 func in_signals():
 	$player.connect("inv_changed",Callable(UI,"update_inv"))
 	$player.connect("dash_changed",Callable(UI,"update_dash"))

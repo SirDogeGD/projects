@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://dwr2ll7m00yec"]
+[gd_scene load_steps=2 format=3 uid="uid://dwr2ll7m00yec"]
 
-[node name="perk_choose" type="Panel"]
+[ext_resource type="PackedScene" uid="uid://126f02hq1c75" path="res://game/UI/Labels/stats_label.tscn" id="1_qq545"]
+
+[node name="perk_choose" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0.392157)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StatsLabel" parent="." instance=ExtResource("1_qq545")]
+layout_mode = 2
