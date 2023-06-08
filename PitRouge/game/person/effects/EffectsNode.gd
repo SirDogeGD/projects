@@ -33,7 +33,7 @@ func remove_effect(type):
 func get_boost(type : String) -> int:
 	match type:
 		"SPEED":
-			return active[type] * 2
+			return active[type] * 3
 		"RES":
 			return 1 - active[type] / 50 #1 resistance = 2% dmg reduction
 		_:

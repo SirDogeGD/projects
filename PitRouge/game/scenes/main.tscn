@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://game/scenes/main.gd" id="1_ngsya"]
 
 [node name="main" type="Node"]
+process_mode = 3
 script = ExtResource("1_ngsya")

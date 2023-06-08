@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3oiamsxkfb57" path="res://game/UI/sideboard/sideboard_ui.tscn" id="5_qt03h"]
 
 [node name="UI" type="CanvasLayer"]
+layer = 5
 script = ExtResource("1_8mdmi")
 
 [node name="inventory" parent="." instance=ExtResource("1_bhrq0")]

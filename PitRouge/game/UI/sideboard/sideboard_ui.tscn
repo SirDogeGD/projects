@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://126f02hq1c75" path="res://game/UI/Labels/stats_label.tscn" id="1_7768r"]
 
-[node name="sideboard_ui" type="CenterContainer"]
+[node name="sideboard_ui" type="MarginContainer"]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -15,26 +15,37 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(220, 300)
 layout_mode = 2
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 
-[node name="StatsLabel" parent="VBox" instance=ExtResource("1_7768r")]
+[node name="StatsLabel" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
 text = "gold_label"
 type = "G"
 
-[node name="StatsLabel2" parent="VBox" instance=ExtResource("1_7768r")]
+[node name="StatsLabel2" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
 text = "xp_label"
 type = "XP"
 
-[node name="StatsLabel3" parent="VBox" instance=ExtResource("1_7768r")]
+[node name="StatsLabel3" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
 text = "streak_label"
 type = "Str"
