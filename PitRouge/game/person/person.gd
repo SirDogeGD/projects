@@ -14,7 +14,7 @@ var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
 var perks := []
 var pushback_force := Vector2.ZERO
-var stats := save_data.new()
+var stats : save_data
 #Runstats
 var run_stats = {
 	"streak" : 0.0,
@@ -47,6 +47,9 @@ var dash_left := 2:
 		dash_left = d
 		emit_signal("dash_changed", dash_max, dash_left)
 var DASH_REGEN_TIME := 5.0
+
+var mystic_shards := 1
+var chunk_vile := 0
 
 @onready var selected_item : item
 @onready var animation_player := $AnimationPlayer
@@ -174,10 +177,9 @@ func on_death():
 	stats.kills  += run_stats["kills"]
 	stats.deaths += 1
 	if is_instance_of(self, player):
-		var result = ResourceSaver.save(stats, "user://save.res")
-		assert(result == OK)
+		SAVE.save_data()
 	
-	#Determine killer / assistsd
+	#Determine killer / assists
 	var killer := dmg_taken[-1].attacker #last person to do dmg
 	var all_dmg = {} # Dictionary to store [attacker, damage] pairs
 
@@ -200,9 +202,7 @@ func on_death():
 	dmg_taken.clear()
 	for key in run_stats.keys():
 		run_stats[key] = 0
-
-func load_data():
-	pass #gets overridden in playerchar
+	call_stats_label()
 
 func call_stats_label():
 	pass
@@ -227,4 +227,5 @@ func on_kill(b : person):
 	run_stats["gold"] += r.kill(self, b)["G"]
 	run_stats["xp"] += r.kill(self, b)["X"]
 	run_stats["kills"] += 1
+	run_stats["streak"] += 1
 	call_stats_label()

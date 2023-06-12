@@ -21,6 +21,7 @@ UI="*res://game/UI/UI.tscn"
 DMG="*res://game/dmg/dmg.gd"
 PERKS="*res://game/person/perks/perks.gd"
 PINFO="*res://game/person/perks/perk_info.gd"
+SAVE="*res://game/person/player/save/main_save.gd"
 
 [display]
 

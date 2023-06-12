@@ -3,6 +3,7 @@ extends Node2D
 func _ready():
 	in_signals()
 	%Camera.following = %player
+#	get_node("/root/main").playerchar = %player
 
 func _enter_tree():
 	UI.show()

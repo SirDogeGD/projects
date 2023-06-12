@@ -87,7 +87,7 @@ func perkinfo(id) -> perk_data:
 				[[50],[100],[200],[300]],"DEFAULT")
 	return perk_data.new()
 
-func make(nam: String, desc: String, nums: Array, type: String) -> perk_data:
+func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_data:
 	var data := perk_data.new()
 	data.pname = nam
 	data.desc = desc

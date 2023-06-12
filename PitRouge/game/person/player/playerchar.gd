@@ -3,7 +3,7 @@ class_name player
 
 func _ready():
 	super._ready()
-	load_data()
+	stats = SAVE.playersave
 	call_stats_label()
 
 func _physics_process(delta):
@@ -77,12 +77,6 @@ func handle_inputs():
 	
 	if Input.is_action_just_pressed("scroll_down"):
 		switch_item(10)
-
-func load_data():
-	if ResourceLoader.exists("user://save.res"):
-		var saved = ResourceLoader.load("user://save.res")
-		if saved is save_data:
-			stats = saved
 
 func call_stats_label():
 	get_tree().call_group("stats_label", "update", self)

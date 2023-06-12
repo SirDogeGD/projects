@@ -9,7 +9,7 @@ resource_local_to_scene = true
 shader = ExtResource("3_gw1v0")
 shader_parameter/active = false
 
-[node name="player" instance=ExtResource("1_xewhp")]
+[node name="player" groups=["player"] instance=ExtResource("1_xewhp")]
 script = ExtResource("2_xmjjb")
 
 [node name="Sprite" parent="." index="0"]
