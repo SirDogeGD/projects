@@ -1,6 +1,21 @@
 extends Node
 
-func perkinfo(id) -> perk_data:
+var pers : person
+var perkid : String
+var C := Constants.new()
+
+func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_data:
+	var data := perk_data.new()
+	data.pname = nam
+	data.desc = repl_desc(desc) % nums[pers.perks.count(perkid)]
+	data.nums = nums
+	data.type = type
+	return data
+
+func perkinfo(id : String, a : person) -> perk_data:
+	pers = a
+	perkid = id
+	
 	match id:
 		0, "BARB":
 			return make("Barbarian", "Your weapon deals +%s base dmg. Lose the ability to block",
@@ -21,10 +36,10 @@ func perkinfo(id) -> perk_data:
 			return make("Gold and Boosted", "Deal +%s%% damage per shield heart you have",
 				[[3],[4],[5],[6]],"DEFAULT")
 		6, "DIA_BOOT":
-			return make("Diamond boots", "Take %s less dmg",
+			return make("Diamond boots", "Take %s%% less dmg",
 				[[8],[16],[24],[32]],"DEFAULT")
 		7, "DIA_CHEST":
-			return make("Diamond Chestplate", "Take %s less dmg",
+			return make("Diamond Chestplate", "Take %s%% less dmg",
 				[[9],[18],[27],[36]],"DEFAULT")
 		8, "DIA_SWORD":
 			return make("Diamond Sword", "Your weapon deals +%s base dmg",
@@ -33,7 +48,7 @@ func perkinfo(id) -> perk_data:
 			return make("Berserker", "%s%% crit chance",
 				[[12],[20],[28],[36]],"DEFAULT")
 		10, "GUTS":
-			return make("Guts", "Heal %shp on kill",
+			return make("Guts", "Heal %s hp on kill",
 				[[1.5],[2.5],[3.5],[5]],"DEFAULT")
 		11, "C_DMG":
 			return make("Combo: Damage", "Every fourth strike deals +%s%% damage",
@@ -51,7 +66,7 @@ func perkinfo(id) -> perk_data:
 			return make("Lifesteal", "Heal for %s%% of damage dealt",
 				[[4],[8],[12],[16]],"DEFAULT")
 		16, "FSTRIKE":
-			return make("First Strike", "Deal +%s%% dmg against enemies above 95% health",
+			return make("First Strike", "Deal +%s%% dmg against enemies above 95% hp",
 				[[75],[120],[160],[200]],"DEFAULT")
 #		Bounties
 		17, "BILLY":
@@ -74,32 +89,40 @@ func perkinfo(id) -> perk_data:
 			return make("Gold Bump", "+%s base gold",
 				[[4],[8],[12],[16]],"DEFAULT")
 		23, "GBOOST":
-			return make("Gold Boost", "+%s% gold",
+			return make("Gold Boost", "+%s%% gold",
 				[[15],[30],[45],[60]],"DEFAULT")
 		24, "XPBUMP":
 			return make("XP Bump", "+%s base xp",
 				[[4],[8],[12],[16]],"DEFAULT")
 		25, "XPBOOST":
-			return make("XP Boost", "+%s% xp",
+			return make("XP Boost", "+%s%% xp",
 				[[10],[20],[30],[40]],"DEFAULT")
 		26, "SWEATY":
-			return make("Sweaty", "+%s% streak bonus xp",
+			return make("Sweaty", "+%s%% streak bonus xp",
 				[[50],[100],[200],[300]],"DEFAULT")
-	return perk_data.new()
+		_:
+			return perk_data.new()
 
-func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_data:
-	var data := perk_data.new()
-	data.pname = nam
-	data.desc = desc
-	data.nums = nums
-	data.type = type
-	return data
+#Add color bbcode to certain words
+func repl_desc(d : String) -> String:
+	d.replace("dmg", "[color=" + C.COLOR_RED + "]dmg[/color]")
+	d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
+	d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
+	d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
+	d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
+	
+	#make inserted number green
+	d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
+	d.replace(" +%s ", "[color=" + C.COLOR_GREEN + "] +%s [/color]")
+	d.replace(" %s%% ", "[color=" + C.COLOR_GREEN + "] %s%% [/color]")
+	d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
+	return d
 
-func get_key(id, key: String) -> Variant:
-	var data := perkinfo(id)
-	match key:
-		"Name":
-			return data.pname
-		"Desc":
-			return data.desc
-	return null
+#func get_key(id : String, a : person, key: String) -> Variant:
+#	var data := perkinfo(id, a)
+#	match key:
+#		"Name":
+#			return data.pname
+#		"Desc":
+#			return data.desc
+#	return null

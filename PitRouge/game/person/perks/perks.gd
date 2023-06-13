@@ -51,8 +51,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 
 #get the first number of the current level (most perks just have one number)
 func get_num(id : String, num := 0) -> float:
-#	return PINFO.get_key(id, "Nums")[lvl][num]
-	return PINFO.perkinfo(id).nums[lvl][num]
+	return PINFO.perkinfo(id, a).nums[lvl][num]
 
 func calc_base_dmg(id : String):
 	var add := get_num(id)
@@ -84,7 +83,7 @@ func calc_mult_dmg(id : String):
 		"BHUNT":
 			var buff = b.bounty / 100 * add
 			if "HTH" in b.perks:
-				buff *= PINFO.perkinfo("HTH").nums[b.perks.count("HTH")][0]
+				buff *= PINFO.perkinfo("HTH", a).nums[b.perks.count("HTH")][0]
 			num += buff
 
 func calc_base_def(id : String):

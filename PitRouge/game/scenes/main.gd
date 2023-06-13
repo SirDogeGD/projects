@@ -9,7 +9,6 @@ var curScene : Node
 func _ready():
 	curScene = fightScene
 	add_child(curScene)
-#	get_tree().change_scene_to_packed(fightScene)
 
 func _physics_process(delta):
 	if curScene == fightScene:

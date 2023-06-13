@@ -3,8 +3,9 @@ class_name player
 
 func _ready():
 	super._ready()
-	stats = SAVE.playersave
-	call_stats_label()
+	stats = SAVE.save
+	SAVE.pers = self
+	call_info()
 
 func _physics_process(delta):
 	
@@ -78,5 +79,5 @@ func handle_inputs():
 	if Input.is_action_just_pressed("scroll_down"):
 		switch_item(10)
 
-func call_stats_label():
-	get_tree().call_group("stats_label", "update", self)
+func call_info():
+	get_tree().call_group("info", "update", self)

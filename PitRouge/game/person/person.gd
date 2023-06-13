@@ -202,9 +202,9 @@ func on_death():
 	dmg_taken.clear()
 	for key in run_stats.keys():
 		run_stats[key] = 0
-	call_stats_label()
+	call_info()
 
-func call_stats_label():
+func call_info():
 	pass
 
 func add_to_dmg_taken(d : dmg_data):
@@ -220,7 +220,7 @@ func on_assist(b : person, p : float):
 	var r := rewards.new()
 	run_stats["gold"] += 5 * p/100
 	run_stats["xp"] += 5 * p/100
-	call_stats_label()
+	call_info()
 
 func on_kill(b : person):
 	var r := rewards.new()
@@ -228,4 +228,4 @@ func on_kill(b : person):
 	run_stats["xp"] += r.kill(self, b)["X"]
 	run_stats["kills"] += 1
 	run_stats["streak"] += 1
-	call_stats_label()
+	call_info()
