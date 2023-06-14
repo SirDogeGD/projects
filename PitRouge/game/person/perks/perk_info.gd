@@ -105,17 +105,17 @@ func perkinfo(id : String, a : person) -> perk_data:
 
 #Add color bbcode to certain words
 func repl_desc(d : String) -> String:
-	d.replace("dmg", "[color=" + C.COLOR_RED + "]dmg[/color]")
-	d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
-	d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
-	d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
-	d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
+	d = d.replace("dmg", "[color=" + C.COLOR_RED + "]dmg[/color]")
+	d = d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
+	d = d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
+	d = d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
+	d = d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
 	
 	#make inserted number green
-	d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
-	d.replace(" +%s ", "[color=" + C.COLOR_GREEN + "] +%s [/color]")
-	d.replace(" %s%% ", "[color=" + C.COLOR_GREEN + "] %s%% [/color]")
-	d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
+	d = d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
+	d = d.replace(" +%s ", "[color=" + C.COLOR_GREEN + "] +%s [/color]")
+	d = d.replace(" %s%% ", "[color=" + C.COLOR_GREEN + "] %s%% [/color]")
+	d = d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
 	return d
 
 #func get_key(id : String, a : person, key: String) -> Variant:

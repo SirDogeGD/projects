@@ -17,4 +17,4 @@ func update(a : person):
 		"Str":
 			text = "Streak: [color=" + C.COLOR_GREEN + "]" + str(a.run_stats["streak"]) + "[/color]" 
 		"MS":
-			text = "Mystic Shards: [color=" + C.COLOR_YELLOW + "]" + str(a.mystic_shards) + "[/color]" 
+			text = "Mystic Shards: [color=" + C.COLOR_YELLOW + "]" + str(a.mystic_shards) + "[/color]"

@@ -19,9 +19,9 @@ func update(a : person):
 #CHOOSE A PERK
 func _on_click(event):
 	if Input.is_action_just_pressed("left_click"):
-		if SAVE.playerpers.mystic_shards > 0:
-			SAVE.playerpers.perks.append(id)
-			SAVE.playerpers.mystic_shards -= 1
+		if SAVE.pers.mystic_shards > 0:
+			SAVE.pers.perks.append(id)
+			SAVE.pers.mystic_shards -= 1
 			emit_signal("chosen")
 		else:
 			print("IDOT")
