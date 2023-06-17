@@ -8,3 +8,6 @@ func update_dash(max : int, left : int):
 
 func update_health(hp : hp_data):
 	$HeartBar.update_health(hp)
+
+func update_effects(e : Dictionary):
+	%effects_ui.update(e)

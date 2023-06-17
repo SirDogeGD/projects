@@ -81,3 +81,9 @@ func handle_inputs():
 
 func call_info():
 	get_tree().call_group("info", "update", self)
+
+func all_signals():
+	emit_signal("inv_changed", inv)
+	emit_signal("dash_changed", dash_max, dash_left)
+	hp_signal()
+	effect_node.emit_signal("effects_changed", effect_node.active)

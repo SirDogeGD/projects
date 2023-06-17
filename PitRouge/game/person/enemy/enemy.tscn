@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr348ygnkrpq1"]
+[gd_scene load_steps=8 format=3 uid="uid://cr348ygnkrpq1"]
 
 [ext_resource type="PackedScene" uid="uid://xa1m0jd8rand" path="res://game/person/person.tscn" id="1_p0t72"]
 [ext_resource type="Script" path="res://game/person/enemy/enemy.gd" id="2_3awlk"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="3_xooji"]
+[ext_resource type="PackedScene" uid="uid://byoulpu18jban" path="res://game/UI/effects_ui/effects_ui.tscn" id="4_8qxne"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_58osx"]
 resource_local_to_scene = true
@@ -47,6 +48,19 @@ debug_color = Color(0.678431, 0.0627451, 0.227451, 0)
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
+
+[node name="effects_ui" parent="Effects" index="0" instance=ExtResource("4_8qxne")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -72.0
+offset_top = -192.0
+offset_right = -47.0
+offset_bottom = -160.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Radii/DetectRadius" to="." method="_on_DetectRadius_body_entered"]
 [connection signal="body_exited" from="Radii/DetectRadius" to="." method="_on_DetectRadius_body_exited"]

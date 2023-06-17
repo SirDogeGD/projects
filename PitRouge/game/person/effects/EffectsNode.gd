@@ -2,6 +2,8 @@ extends Node2D
 class_name effects
 #adds effect children with timer
 
+signal effects_changed(e : Dictionary)
+
 #counter for current effects
 var active = {
 	"SPEED" : 0,
@@ -25,10 +27,12 @@ func add_effect(type, from, dura):
 	
 	#add to active
 	active[type] += 1
+	emit_signal("effects_changed", active)
 
 #remove from active
 func remove_effect(type):
 	active[type] = max(0, active[type] - 1)
+	emit_signal("effects_changed", active)
 
 func get_boost(type : String) -> int:
 	match type:

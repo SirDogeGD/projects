@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://byoulpu18jban"]
+
+[ext_resource type="Script" path="res://game/UI/effects_ui/effects_ui.gd" id="1_nm3yy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u3kb"]
+load_path = "res://.godot/imported/perk_BARB.png-e847d5585e58b8f7c64e2603538299b0.ctex"
+
+[node name="effects_ui" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nm3yy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="effectsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="effectsContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_1u3kb")
+expand_mode = 1

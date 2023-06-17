@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 func _on_perk_chosen():
-	print("chosen")
 	new_choice()
 	get_tree().call_group("player", "call_info")
 

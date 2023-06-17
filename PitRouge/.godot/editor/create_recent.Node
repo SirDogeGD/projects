@@ -1,10 +1,10 @@
+TextureRect
+HBoxContainer
 Panel
 MarginContainer
 VBoxContainer
-TextureRect
 RichTextLabel
 Sprite2D
-HBoxContainer
 CanvasLayer
 Camera2D
 PanelContainer
