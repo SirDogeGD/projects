@@ -30,7 +30,7 @@ func _physics_process(delta):
 		ATTACK:
 			velocity = Vector2.ZERO
 			if target:
-				velocity = position.direction_to(target.position) * run_speed
+				velocity = position.direction_to(target.position) * SPEED/3
 				selected_item.look_at(target.global_position)
 				attack_players()
 			move_and_slide()

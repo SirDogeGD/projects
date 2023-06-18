@@ -16,9 +16,11 @@ grow_vertical = 2
 script = ExtResource("1_nm3yy")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="effectsContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="effectsContainer"]

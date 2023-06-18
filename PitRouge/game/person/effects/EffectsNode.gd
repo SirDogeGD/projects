@@ -5,7 +5,7 @@ class_name effects
 signal effects_changed(e : Dictionary)
 
 #counter for current effects
-var active = {
+var active := {
 	"SPEED" : 0,
 	"STRENGTH" : 0,
 	"RES" : 0,
