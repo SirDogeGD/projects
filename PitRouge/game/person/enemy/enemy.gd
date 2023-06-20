@@ -44,10 +44,9 @@ func _physics_process(delta):
 	
 	set_velocity(velocity)
 	
-	super._physics_process(delta)
-	
 	pushback_force = lerp(pushback_force, Vector2.ZERO, delta * 10)
 	set_velocity(pushback_force * 5)
+	super._physics_process(delta)
 	move_and_slide()
 
 func _on_DetectRadius_body_entered(body : person):

@@ -109,7 +109,7 @@ func click(key : String, pressed : bool):
 				selected_item.right_click()
 			else:
 				selected_item.stop_right_click()
-				
+
 func get_hit(attacker : person, damage : dmg_data) -> void:
 	animation_player.play("hit")
 	add_to_dmg_taken(damage)

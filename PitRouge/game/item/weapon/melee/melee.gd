@@ -1,9 +1,6 @@
 extends weapon
 class_name melee
 
-#const DRAG_FACTOR := 15.0
-#const RUN_SPEED := 600.0 
-
 var _velocity := Vector2.ZERO
 
 func left_click() -> void:

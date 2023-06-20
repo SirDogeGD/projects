@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/UI/effects_ui/effects_ui.gd" id="1_nm3yy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u3kb"]
-load_path = "res://.godot/imported/perk_BARB.png-e847d5585e58b8f7c64e2603538299b0.ctex"
+load_path = "res://.godot/imported/effect_SPEED.png-a8d65b1fdb4b4184c0631a0d29a26a79.ctex"
 
 [node name="effects_ui" type="MarginContainer"]
 anchors_preset = 8
