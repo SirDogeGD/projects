@@ -13,9 +13,10 @@ var active := {
 	}
 
 func _ready():
-	add_effect("SPEED", "test", 5)
+	add_effect("SPEED", "test", 50)
+	add_effect("SPEED", "test", 50)
 
-func add_effect(type, from, dura):
+func add_effect(type : String, from, dura : float):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")
 	var new_effect = effect_scene.instantiate()
 	new_effect.TYPE = type

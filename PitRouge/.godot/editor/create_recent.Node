@@ -1,15 +1,15 @@
+CenterContainer
+RichTextLabel
 Label
 TextureRect
 HBoxContainer
 Panel
 MarginContainer
 VBoxContainer
-RichTextLabel
 Sprite2D
 CanvasLayer
 Camera2D
 PanelContainer
-CenterContainer
 Container
 GridContainer
 Node2D
