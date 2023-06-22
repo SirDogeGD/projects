@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwj13mx0xuuic"]
+
+[ext_resource type="Script" path="res://game/UI/effects_ui/effects_ui_one.gd" id="1_2peln"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u3kb"]
+load_path = "res://.godot/imported/effect_SPEED.png-a8d65b1fdb4b4184c0631a0d29a26a79.ctex"
+
+[node name="effect_one" type="CenterContainer"]
+script = ExtResource("1_2peln")
+
+[node name="icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_1u3kb")
+expand_mode = 1
+
+[node name="numLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=30][outline_size=5][outline_color=black]5[/outline_color][/outline_size]
+[/font_size][/center]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2

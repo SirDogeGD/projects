@@ -13,6 +13,13 @@ var active := {
 	}
 
 func _ready():
+	add_effect("RES", "test", 50)
+	add_effect("RES", "test", 50)
+	add_effect("REG", "test", 50)
+	add_effect("REG", "test", 50)
+	add_effect("REG", "test", 50)
+	add_effect("STRENGTH", "test", 50)
+	add_effect("STRENGTH", "test", 50)
 	add_effect("SPEED", "test", 50)
 	add_effect("SPEED", "test", 50)
 
