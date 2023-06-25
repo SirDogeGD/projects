@@ -11,13 +11,14 @@ func left_click() -> void:
 		animation_player.play("stab")
 
 func right_click():
-	#set persons item_slow true
-	if owner.get("item_slow") != null:
-		owner.item_slow = true
-	#play block "animation"
-	animation_player.play("RESET")
-	await animation_player.animation_finished
-	animation_player.play("block")
+	if PERKS.can_block(owner):
+		#set persons item_slow true
+		if owner.get("item_slow") != null:
+			owner.item_slow = true
+		#play block "animation"
+		animation_player.play("RESET")
+		await animation_player.animation_finished
+		animation_player.play("block")
 
 func stop_right_click():
 	#set persons item_slow false

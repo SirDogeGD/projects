@@ -137,3 +137,8 @@ func get_value(a : person, id : String, num := 1) -> float:
 	if lvl >= 1:
 		return get_num(id, num)
 	return 0
+
+func can_block(a : person) -> bool:
+	if a.perks.has("BARB"):
+		return false
+	return true
