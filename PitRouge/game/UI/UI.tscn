@@ -34,8 +34,11 @@ unique_name_in_owner = true
 [node name="effects_ui" parent="." groups=["info"] instance=ExtResource("6_g2nrv")]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.548958
-anchor_top = 0.862963
-anchor_right = 0.56302
-anchor_bottom = 0.893519
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.533854
+anchor_top = 0.835185
+anchor_right = 0.683333
+anchor_bottom = 0.925926
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

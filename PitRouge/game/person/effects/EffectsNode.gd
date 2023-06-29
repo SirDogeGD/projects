@@ -15,13 +15,13 @@ var active := {
 func _ready():
 	add_effect("RES", "test", 50)
 	add_effect("RES", "test", 50)
-	add_effect("REG", "test", 50)
-	add_effect("REG", "test", 50)
-	add_effect("REG", "test", 50)
-	add_effect("STRENGTH", "test", 50)
-	add_effect("STRENGTH", "test", 50)
-	add_effect("SPEED", "test", 50)
-	add_effect("SPEED", "test", 50)
+	add_effect("REG", "test", 15)
+	add_effect("REG", "test", 10)
+	add_effect("REG", "test", 10)
+	add_effect("STRENGTH", "test", 7)
+	add_effect("STRENGTH", "test", 7)
+	add_effect("SPEED", "test", 5)
+	add_effect("SPEED", "test", 5)
 
 func add_effect(type : String, from, dura : float):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")

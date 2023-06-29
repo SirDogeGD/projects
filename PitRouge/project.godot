@@ -140,3 +140,7 @@ tab={
 
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.234965, 0.324909, 0.271841, 1)

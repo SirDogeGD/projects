@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=21 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
 [ext_resource type="PackedScene" uid="uid://doydj0kk6whkf" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
+[ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="6_sxh38"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -192,6 +193,11 @@ color = Color(0.898904, 0, 0.198132, 1)
 hue_variation_max = 0.2
 hue_variation_curve = SubResource("CurveTexture_7l046")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hklv2"]
+shader = ExtResource("6_sxh38")
+shader_parameter/outline_width = 0.05
+shader_parameter/outline_color = Quaternion(1, 1, 1, 1)
+
 [node name="person" type="CharacterBody2D"]
 motion_mode = 1
 platform_on_leave = 2
@@ -276,5 +282,10 @@ wait_time = 5.0
 
 [node name="Effects" parent="." instance=ExtResource("5_msr54")]
 unique_name_in_owner = true
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hklv2")
+position = Vector2(360, 0)
+texture = ExtResource("1_58ron")
 
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]

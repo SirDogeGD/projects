@@ -4,37 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://bwj13mx0xuuic" path="res://game/UI/effects_ui/effects_ui_one.tscn" id="2_o0aba"]
 
 [node name="effects_ui" type="MarginContainer"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.5
-offset_right = 216.0
-offset_bottom = 32.5
-grow_vertical = 2
+offset_left = -130.0
+offset_top = -30.0
+offset_right = 130.0
+offset_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_nm3yy")
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="effectsContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
 
 [node name="effects_ui_one" parent="effectsContainer" instance=ExtResource("2_o0aba")]
 layout_mode = 2
 
 [node name="effects_ui_one4" parent="effectsContainer" instance=ExtResource("2_o0aba")]
-layout_mode = 2
-
-[node name="effects_ui_one5" parent="effectsContainer" instance=ExtResource("2_o0aba")]
-layout_mode = 2
-
-[node name="effects_ui_one6" parent="effectsContainer" instance=ExtResource("2_o0aba")]
-layout_mode = 2
-
-[node name="effects_ui_one7" parent="effectsContainer" instance=ExtResource("2_o0aba")]
-layout_mode = 2
-
-[node name="effects_ui_one8" parent="effectsContainer" instance=ExtResource("2_o0aba")]
 layout_mode = 2

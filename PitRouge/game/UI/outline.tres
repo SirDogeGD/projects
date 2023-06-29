@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://4vmxsumakf0e"]
+
+[ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="1_uq7oq"]
+
+[sub_resource type="GDScript" id="GDScript_6bbvo"]
+
+[resource]
+shader = ExtResource("1_uq7oq")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+script = SubResource("GDScript_6bbvo")
