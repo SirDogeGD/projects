@@ -11,7 +11,7 @@ shader = ExtResource("3_xooji")
 shader_parameter/active = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6hv7"]
-radius = 896.143
+radius = 900.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjn65"]
 radius = 353.452

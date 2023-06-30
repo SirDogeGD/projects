@@ -229,3 +229,24 @@ func on_kill(b : person):
 	run_stats["kills"] += 1
 	run_stats["streak"] += 1
 	call_info()
+
+#get_persons_in_range r
+func gpir(r : int) -> Array[person]:
+	r *= 100 #1 block = 100 pixels
+	
+	var area := Area2D.new() #create area2d
+	%Radii.add_child(area)
+	
+	var col := CollisionShape2D.new() #create shape
+	var shape = CircleShape2D.new()
+	shape.radius = r
+	col.shape = shape
+	area.add_child(col)
+	
+	var persons_in_range : Array[person]
+	for body in area.get_overlapping_bodies(): #get persons in range
+		if body != self and body is person:
+			persons_in_range.append(body)
+	
+	area.queue_free() #delete area2d
+	return persons_in_range

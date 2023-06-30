@@ -195,8 +195,11 @@ hue_variation_curve = SubResource("CurveTexture_7l046")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hklv2"]
 shader = ExtResource("6_sxh38")
-shader_parameter/outline_width = 0.05
-shader_parameter/outline_color = Quaternion(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [node name="person" type="CharacterBody2D"]
 motion_mode = 1
@@ -260,8 +263,10 @@ fixed_fps = 0
 draw_order = 0
 
 [node name="Radii" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Timers" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="DashTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true
