@@ -16,7 +16,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 	b = defender
 	
 	#get unique perks
-	for p in a.perks:
+	for p in a.perks.store:
 		if not u_perks.has(p):
 			u_perks.append(p)
 	

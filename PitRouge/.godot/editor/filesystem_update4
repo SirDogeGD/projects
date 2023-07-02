@@ -1,6 +1,6 @@
 res://game/person/perks/perk_menu/perk_menu.tscn
 res://game/person/person.gdshader
 res://game/UI/outline.tres
-res://game/person/person.gd
-res://game/person/enemy/enemy.tscn
-res://game/person/person.tscn
+res://game/person/perks/perk_info.gd
+res://game/person/perks/perks_array.gd
+res://game/scenes/constants.gd

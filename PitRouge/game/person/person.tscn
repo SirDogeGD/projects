@@ -289,6 +289,7 @@ wait_time = 5.0
 unique_name_in_owner = true
 
 [node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_hklv2")
 position = Vector2(360, 0)
 texture = ExtResource("1_58ron")

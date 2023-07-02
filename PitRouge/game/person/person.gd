@@ -12,7 +12,7 @@ var SPEED : float
 var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
-var perks := []
+var perks := perks_array.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 #Runstats
@@ -63,6 +63,7 @@ func _init():
 	inv.clear_inv()
 
 func _ready():
+	perks.guy = self #connect perks_array funcs to self
 	switch_item(0)
 	
 func _physics_process(delta):
@@ -231,10 +232,11 @@ func on_kill(b : person):
 	call_info()
 
 #get_persons_in_range r
-func gpir(r : int) -> Array[person]:
+func add_radius(id : String, r := 10) -> Array[person]:
 	r *= 100 #1 block = 100 pixels
 	
 	var area := Area2D.new() #create area2d
+	area.name = "perk_" + id
 	%Radii.add_child(area)
 	
 	var col := CollisionShape2D.new() #create shape

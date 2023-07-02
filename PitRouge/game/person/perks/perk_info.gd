@@ -47,7 +47,7 @@ func perkinfo(id : String, a : person) -> perk_data:
 		9, "BERS":
 			return make("Berserker", "%s%% crit chance",
 				[[12],[20],[28],[36]],"DEFAULT")
-		10, "GUTS":
+		10, "GUTS": 
 			return make("Guts", "Heal %s hp on kill",
 				[[1.5],[2.5],[3.5],[5]],"DEFAULT")
 		11, "C_DMG":
@@ -118,11 +118,18 @@ func repl_desc(d : String) -> String:
 	d = d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
 	return d
 
-#func get_key(id : String, a : person, key: String) -> Variant:
-#	var data := perkinfo(id, a)
-#	match key:
-#		"Name":
-#			return data.pname
-#		"Desc":
-#			return data.desc
-#	return null
+#perks that use a radius
+func area_perks(id : String) -> int:
+	match id:
+		"SHARK":
+			return 12
+		"SOLI":
+			return 7
+		"SAP":
+			return 8
+		"PMBA":
+			return 15
+		"GLAD":
+			return 10
+		_:
+			return 0
