@@ -9,6 +9,7 @@ var curScene : Node
 func _ready():
 	curScene = fightScene
 	add_child(curScene)
+	perkmenuScene.new_choice()
 
 func _physics_process(delta):
 	if curScene == fightScene:

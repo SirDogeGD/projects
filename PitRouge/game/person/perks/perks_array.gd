@@ -24,3 +24,9 @@ func count(id : String) -> int:
 
 func clear():
 	store.clear()
+
+func has_radius(id : String) -> bool:
+	var radius = PINFO.area_perks(id)
+	if radius > 0:
+		return true
+	return false
