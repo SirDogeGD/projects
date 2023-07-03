@@ -232,7 +232,7 @@ func on_kill(b : person):
 	call_info()
 
 #get_persons_in_range r
-func add_radius(id : String, r := 10) -> Array[person]:
+func add_radius(id : String, r := 10):
 	r *= 100 #1 block = 100 pixels
 	
 	var area := Area2D.new() #create area2d
@@ -244,11 +244,19 @@ func add_radius(id : String, r := 10) -> Array[person]:
 	shape.radius = r
 	col.shape = shape
 	area.add_child(col)
-	
+
+func remove_radius(id : String):
+	var radius_to_remove := get_node_or_null("Radii/perk_" + id)
+	if radius_to_remove != null:
+		remove_child(radius_to_remove)
+		radius_to_remove.queue_free()
+
+#get persons in range
+func gpir(id : String) -> Array[person]:
 	var persons_in_range : Array[person]
-	for body in area.get_overlapping_bodies(): #get persons in range
-		if body != self and body is person:
-			persons_in_range.append(body)
-	
-	area.queue_free() #delete area2d
+	var area := get_node_or_null("Radii/perk_" + id)
+	if area != null:
+		for body in area.get_overlapping_bodies(): #get persons in range
+			if body != self and body is person:
+				persons_in_range.append(body)	
 	return persons_in_range

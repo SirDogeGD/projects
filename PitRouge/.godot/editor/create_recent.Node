@@ -1,7 +1,9 @@
+TextureRect
+CollisionShape2D
+Area2D
 Label
 CenterContainer
 RichTextLabel
-TextureRect
 HBoxContainer
 Panel
 MarginContainer
@@ -14,8 +16,6 @@ Container
 GridContainer
 Node2D
 Timer
-CollisionShape2D
-Area2D
 RayCast2D
 GPUParticles2D
 CharacterBody2D

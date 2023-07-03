@@ -25,3 +25,10 @@ func _on_click(event):
 			emit_signal("chosen")
 		else:
 			print("IDOT")
+
+func _on_mouse_entered():
+	var m := load("res://game/UI/outline.tres")
+	%Panel.material = m
+
+func _on_mouse_exited():
+	%Panel.material = null
