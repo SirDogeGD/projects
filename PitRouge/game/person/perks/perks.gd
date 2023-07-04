@@ -10,15 +10,8 @@ var b : person
 #b = defender
 func calc(which : String, attacker : person, defender : person) -> float:
 	
-	var u_perks := []
-	
 	a = attacker
 	b = defender
-	
-	#get unique perks
-	for p in a.perks.store:
-		if not u_perks.has(p):
-			u_perks.append(p)
 	
 	#reset num
 	num = 0
@@ -26,7 +19,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 		num = 1
 	
 	#calc for each unique perk
-	for p in u_perks:
+	for p in a.perks.get_uniques():
 		lvl = a.perks.count(p)
 		match which:
 			"base_dmg":

@@ -28,7 +28,7 @@ func _on_click(event):
 
 func _on_mouse_entered():
 	var m := load("res://game/UI/outline.tres")
-	%Panel.material = m
+	%Panel.material = m #add outline
 
 func _on_mouse_exited():
-	%Panel.material = null
+	%Panel.material = null #remove outline

@@ -10,7 +10,7 @@ var kill_rewards := {
 	"X" : 0.0
 }
 
-func kill(killer : person, died : person):
+func kill(killer : person, died : person) -> Dictionary:
 	a = killer
 	b = died
 	

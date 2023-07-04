@@ -48,7 +48,7 @@ var dash_left := 2:
 		emit_signal("dash_changed", dash_max, dash_left)
 var DASH_REGEN_TIME := 5.0
 
-var mystic_shards := 1
+var mystic_shards := 10
 var chunk_vile := 0
 
 @onready var selected_item : item
@@ -218,15 +218,15 @@ func add_to_dmg_taken(d : dmg_data):
 		dmg_taken.remove_at(0)
 
 func on_assist(b : person, p : float):
-	var r := rewards.new()
 	run_stats["gold"] += 5 * p/100
 	run_stats["xp"] += 5 * p/100
 	call_info()
 
 func on_kill(b : person):
 	var r := rewards.new()
-	run_stats["gold"] += r.kill(self, b)["G"]
-	run_stats["xp"] += r.kill(self, b)["X"]
+	var kr = r.kill(self, b)
+	run_stats["gold"] += kr["G"]
+	run_stats["xp"] += kr["X"]
 	run_stats["kills"] += 1
 	run_stats["streak"] += 1
 	call_info()
