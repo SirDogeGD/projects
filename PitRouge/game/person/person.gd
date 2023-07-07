@@ -3,7 +3,7 @@ class_name person
 
 signal health_changed(hp : hp_data)
 #signal effects_changed(effect_node : effects)
-signal perks_changed(perks : Array)
+#signal perks_changed(perks : perks_array)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death

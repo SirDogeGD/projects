@@ -1,7 +1,9 @@
 extends Node
 class_name perks_array
 
-var store := []
+signal perks_changed(store : Array[String])
+
+var store : Array[String]
 var guy : person
 
 func add(id : String):
@@ -10,12 +12,16 @@ func add(id : String):
 	#Check if perk requires a new radius
 	if PINFO.area_perks(id) > 0 and store.count(id) == 1:
 		guy.add_radius(id, PINFO.area_perks(id))
+	
+	emit_signal("perks_changed", store)
 
+#remove one of one perk
 func erase(id : String):
 	if store.count(id) == 1:
 		remove_all(id)
 	else:
 		store.erase(id)
+		emit_signal("perks_changed", store)
 
 #remove all of one perk
 func remove_all(id : String):
@@ -24,6 +30,7 @@ func remove_all(id : String):
 		if elem != id:
 			newArray.append(id)
 	store = newArray.duplicate()
+	emit_signal("perks_changed", store)
 	
 		#Check if perk requires a radius
 	if PINFO.area_perks(id) > 0:

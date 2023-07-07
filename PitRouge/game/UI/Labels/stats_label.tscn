@@ -4,7 +4,7 @@
 
 [node name="StatsLabel" type="RichTextLabel" groups=["info"]]
 bbcode_enabled = true
-text = "[b]bold[i]bold italic[/i][/b][i]italic[/i]
+text = "Stats_Label
 "
 fit_content = true
 script = ExtResource("1_mo1gf")
