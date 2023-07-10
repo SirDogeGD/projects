@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=23 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game/person/person_Radii.gd" id="5_iihim"]
 [ext_resource type="PackedScene" uid="uid://doydj0kk6whkf" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
 [ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="6_sxh38"]
+[ext_resource type="Script" path="res://game/person/person_timers.gd" id="6_vu6c8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -269,6 +270,7 @@ script = ExtResource("5_iihim")
 
 [node name="Timers" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("6_vu6c8")
 
 [node name="DashTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true

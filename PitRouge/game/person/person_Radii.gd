@@ -1,4 +1,5 @@
 extends Node2D
+class_name person_radii
 
 #get persons in range
 func gpir(id : String) -> Array[person]:

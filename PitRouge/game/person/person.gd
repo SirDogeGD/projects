@@ -53,6 +53,8 @@ var chunk_vile := 0
 
 @onready var selected_item : item
 @onready var animation_player := $AnimationPlayer
+@onready var radii : person_radii = %Radii
+@onready var timers : person_timers = %Timers
 @onready var dash_timer = $Timers/DashTime
 @onready var dash_regen = $Timers/DashRegenTime
 @onready var effect_node : effects = $Effects

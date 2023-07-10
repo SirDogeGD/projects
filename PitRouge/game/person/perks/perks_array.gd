@@ -11,10 +11,10 @@ func add(id : String):
 	
 	#Check if perk requires a new radius
 	if PINFO.area_perks(id) > 0 and store.count(id) == 1:
-		guy.add_radius(id, PINFO.area_perks(id))
+		guy.radii.add_radius(id, PINFO.area_perks(id))
 	#Check if perk requires a new timer
 	if PINFO.timer_perks(id) > 0 and store.count(id) == 1:
-		guy.add_timer(id, PINFO.timer_perks(id))
+		guy.timers.add_timer(id, PINFO.timer_perks(id))
 	
 	emit_signal("perks_changed", store)
 
@@ -37,10 +37,10 @@ func remove_all(id : String):
 	
 	#Check if perk requires a radius
 	if PINFO.area_perks(id) > 0:
-		guy.remove_radius(id)
+		guy.radii.remove_radius(id)
 	#Check if perk requires a timer
 	if PINFO.timer_perks(id) > 0:
-		guy.remove_timer(id)
+		guy.timers.remove_timer(id)
 
 func count(id : String) -> int:
 	return store.count(id)
@@ -50,14 +50,14 @@ func clear():
 		remove_all(id)
 
 func get_uniques() -> Array[String]:
-	var u_perks : Array
+	var u_perks : Array[String]
 	for id in store:
 		if not u_perks.has(id):
 			u_perks.append(id)
 	return u_perks
 
 func get_maxed() -> Array[String]:
-	var maxed : Array
+	var maxed : Array[String]
 	for p in get_uniques():
 		if store.count(p) == 3:
 			maxed.append(p)
