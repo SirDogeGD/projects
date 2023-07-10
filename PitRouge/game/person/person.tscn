@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=22 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
+[ext_resource type="Script" path="res://game/person/person_Radii.gd" id="5_iihim"]
 [ext_resource type="PackedScene" uid="uid://doydj0kk6whkf" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
 [ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="6_sxh38"]
 
@@ -264,6 +265,7 @@ draw_order = 0
 
 [node name="Radii" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("5_iihim")
 
 [node name="Timers" type="Node2D" parent="."]
 unique_name_in_owner = true

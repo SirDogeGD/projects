@@ -231,7 +231,7 @@ func on_kill(b : person):
 	run_stats["streak"] += 1
 	call_info()
 
-#get_persons_in_range r
+#PERK RADII
 func add_radius(id : String, r := 10):
 	r *= 100 #1 block = 100 pixels
 	
@@ -260,3 +260,20 @@ func gpir(id : String) -> Array[person]:
 			if body != self and body is person:
 				persons_in_range.append(body)	
 	return persons_in_range
+
+#PERK TIMERS
+func add_timer(id : String, t := 1):
+	var timer := Timer.new()
+	timer.name = "timer_" + id
+	timer.wait_time = t
+	%Timers.add_child(timer)
+
+func get_timer(id : String) -> Timer:
+	var timer := %Timers.get_node_or_null("timer_" + id)
+	return timer
+
+func remove_timer(id : String):
+	var timer_to_remove := get_node_or_null("Timers/perk_" + id)
+	if timer_to_remove != null:
+		remove_child(timer_to_remove)
+		timer_to_remove.queue_free()

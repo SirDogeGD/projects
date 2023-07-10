@@ -7,6 +7,9 @@ func _on_perk_chosen():
 func new_choice():
 	var default := ["SHARP", "PUN", "K_BUST", "PF", "GAB", "BERS", "GUTS", "C_DMG", "C_SHIELD", "C_JAN", "C_CRUSH", "LS", "FSTRIKE"]
 	var pool := default
+	#remove perks player already has maxed
+	for id in SAVE.pers.perks.get_maxed():
+		pool.erase(id)
 	pool.shuffle()
 	for n in %ChoiceContainer.get_child_count():
 		var pc : perkchoose = %ChoiceContainer.get_child(n)

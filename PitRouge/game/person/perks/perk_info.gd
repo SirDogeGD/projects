@@ -133,3 +133,7 @@ func area_perks(id : String) -> int:
 			return 10
 		_:
 			return 0
+
+#perks that use a timer
+func timer_perks(id : String) -> int:
+	return 0
