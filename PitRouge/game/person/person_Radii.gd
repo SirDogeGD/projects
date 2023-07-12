@@ -11,16 +11,14 @@ func gpir(id : String) -> Array[person]:
 				persons_in_range.append(body)	
 	return persons_in_range
 
-func add_radius(id : String, r := 10):
-	r *= 100 #1 block = 100 pixels
-	
+func add_radius(id : String):
 	var area := Area2D.new() #create area2d
 	area.name = "perk_" + id
 	add_child(area)
 	
 	var col := CollisionShape2D.new() #create shape
 	var shape = CircleShape2D.new()
-	shape.radius = r
+	shape.radius = PINFO.area_perks(id) * 100 #1 block = 100 pixels
 	col.shape = shape
 	area.add_child(col)
 

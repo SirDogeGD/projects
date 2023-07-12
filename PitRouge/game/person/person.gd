@@ -3,7 +3,7 @@ class_name person
 
 signal health_changed(hp : hp_data)
 #signal effects_changed(effect_node : effects)
-#signal perks_changed(perks : perks_array)
+#signal perks_changed(perks : perks_slots)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death
@@ -12,7 +12,7 @@ var SPEED : float
 var is_sneaking : bool
 var item_slow : bool #sword block, bow pull etc
 var inv := inventory.new()
-var perks := perks_array.new()
+var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 #Runstats
@@ -65,7 +65,7 @@ func _init():
 	inv.clear_inv()
 
 func _ready():
-	perks.guy = self #connect perks_array funcs to self
+	perks.guy = self #connect perks_slots funcs to self
 	switch_item(0)
 	
 func _physics_process(delta):

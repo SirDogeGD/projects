@@ -1,10 +1,10 @@
 extends Node2D
 class_name person_timers
 
-func add_timer(id : String, t := 1):
+func add_timer(id : String):
 	var timer := Timer.new()
 	timer.name = "timer_" + id
-	timer.wait_time = t
+	timer.wait_time = PINFO.timer_perks(id)
 	%Timers.add_child(timer)
 
 func get_timer(id : String) -> Timer:
