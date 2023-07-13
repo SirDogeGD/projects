@@ -92,7 +92,11 @@ func get_maxed() -> Array[String]:
 	return maxed
 
 func count(id : String) -> int:
-	return slots[get_type(id)][id]
+	for type in slots.keys():
+		for p in slots[type].keys():
+			if p == id:
+				return slots[type][id]
+	return 0
 
 func slot_not_full(id) -> bool:
 	if slots[get_type(id)].has(id):

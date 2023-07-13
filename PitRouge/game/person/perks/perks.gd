@@ -132,6 +132,6 @@ func get_value(a : person, id : String, num := 1) -> float:
 	return 0
 
 func can_block(a : person) -> bool:
-	if a.perks.has("BARB"):
-		return false
+#	if a.perks.has("BARB"):
+#		return false
 	return true
