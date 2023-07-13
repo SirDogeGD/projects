@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func _on_perk_chosen():
+func _on_perk_chosen(id : String):
 	new_choice()
 	get_tree().call_group("player", "call_info")
 
@@ -10,7 +10,14 @@ func new_choice():
 	#remove perks player already has maxed
 	for id in SAVE.pers.perks.get_maxed():
 		pool.erase(id)
+	var can_fit_slots : Array[String]
+	for id in pool:
+		if SAVE.pers.perks.can_add(id):
+			can_fit_slots.append(id)
+	pool = can_fit_slots.duplicate()
 	pool.shuffle()
 	for n in %ChoiceContainer.get_child_count():
 		var pc : perkchoose = %ChoiceContainer.get_child(n)
+		if n == pool.size():
+			break
 		pc.id = pool[n]

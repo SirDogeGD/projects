@@ -1,4 +1,3 @@
-res://game/person/person.gd
 res://game/scenes/fight/fight.tscn
 res://game/person/person.gdshader
 res://game/UI/UI.tscn
@@ -8,7 +7,5 @@ res://game/person/person.tscn
 res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn
 res://game/person/perks/perk_menu/perk_menu.tscn
 res://game/UI/Labels/stats_label.tscn
+res://game/person/perks/perk_menu/perk_menu.gd
 res://game/person/perks/perks_storage/perk_slots.gd
-res://game/person/perks/perks.gd
-res://game/person/perks/perk_info.gd
-res://game/person/perks/perk_menu/perk_choose/perk_choose.gd

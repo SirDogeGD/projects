@@ -66,7 +66,7 @@ func get_type(id : String) -> String:
 
 func can_add(id : String) -> bool:
 	var type = get_type(id)
-	if slots[type] == get_max(type):
+	if slots[type].size() == get_max(type):
 		return false
 	return true
 
