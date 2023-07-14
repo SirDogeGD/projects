@@ -7,5 +7,7 @@ res://game/person/person.tscn
 res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn
 res://game/person/perks/perk_menu/perk_menu.tscn
 res://game/UI/Labels/stats_label.tscn
+res://game/UI/effects_ui/effects_ui.gd
 res://game/person/perks/perk_menu/perk_menu.gd
 res://game/person/perks/perks_storage/perk_slots.gd
+res://game/person/perks/perk_menu/perk_choose/perk_choose.gd

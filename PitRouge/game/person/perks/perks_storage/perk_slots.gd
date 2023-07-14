@@ -64,12 +64,6 @@ func get_max(type : String) -> int:
 func get_type(id : String) -> String:
 	return PINFO.perkinfo(id, guy).type
 
-func can_add(id : String) -> bool:
-	var type = get_type(id)
-	if slots[type].size() == get_max(type):
-		return false
-	return true
-
 func clear():
 	for type in slots.keys():
 		for id in slots[type].keys():
@@ -98,7 +92,7 @@ func count(id : String) -> int:
 				return slots[type][id]
 	return 0
 
-func slot_not_full(id) -> bool:
+func slot_not_full(id : String) -> bool:
 	if slots[get_type(id)].has(id):
 		return true
 	if slots[get_type(id)].size() == get_max(get_type(id)):
