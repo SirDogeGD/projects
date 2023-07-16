@@ -10,9 +10,9 @@ func _enter_tree():
 	UI.show()
 
 func in_signals():
-	p.connect("inv_changed",Callable(UI,"update_inv"))
-	p.connect("dash_changed",Callable(UI,"update_dash"))
-	p.connect("health_changed",Callable(UI,"update_health"))
+	p.inv_changed.connect(Callable(UI,"update_inv"))
+	p.dash_changed.connect(Callable(UI,"update_dash"))
+	p.health_changed.connect(Callable(UI,"update_health"))
 	p.effect_node.connect("effects_changed",Callable(UI,"update_effects"))
 	out_signals()
 

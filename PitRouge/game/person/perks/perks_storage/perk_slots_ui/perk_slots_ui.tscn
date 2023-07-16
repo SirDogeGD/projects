@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://47pquwdo00w5"]
+
+[ext_resource type="PackedScene" uid="uid://drnbshdojymo2" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.tscn" id="1_bcpos"]
+
+[node name="perk_slots_ui" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AllSlotsVbox" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Helmet" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Chest" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Sword" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Bow" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Legs" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Boots" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
+unique_name_in_owner = true
+layout_mode = 2
