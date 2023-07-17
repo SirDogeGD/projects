@@ -29,6 +29,5 @@ func new_choice():
 		var cc : perkchoose = choice_container.instantiate()
 		cc.id = pool[n]
 		cc.chosen.connect(_on_perk_chosen)
-#		cc.connect("chosen", Callable(self, "_on_perk_chosen"))
 		%ChoiceContainer.add_child(cc)
-		cc.update()
+#		cc.update()

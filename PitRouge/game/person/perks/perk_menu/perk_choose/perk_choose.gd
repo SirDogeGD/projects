@@ -9,10 +9,11 @@ var id := "BARB"
 var data : perk_data
 
 func _ready():
-	get_tree().call_group("player", "call_info")
+	pass
+#	get_tree().call_group("player", "call_info")
 
-func update():
-	var a := SAVE.pers
+func update(a : person):
+#	var a := SAVE.pers
 	data = PINFO.perkinfo(id, a)
 	var lvl := str(a.perks.count(id) + 1) 
 #	%PerkIcon.texture = load("res://img/perks/perk_" + id + ".png")

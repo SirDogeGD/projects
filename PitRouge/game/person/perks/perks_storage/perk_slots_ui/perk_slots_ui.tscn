@@ -17,23 +17,29 @@ alignment = 1
 [node name="Helmet" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "GXP"
 
 [node name="Chest" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "HEAL"
 
 [node name="Sword" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "SWORD"
 
 [node name="Bow" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "BOW"
 
 [node name="Legs" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "DEF"
 
 [node name="Boots" parent="AllSlotsVbox" instance=ExtResource("1_bcpos")]
 unique_name_in_owner = true
 layout_mode = 2
+type = "MOVE"
