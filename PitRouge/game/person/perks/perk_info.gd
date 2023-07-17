@@ -137,3 +137,6 @@ func area_perks(id : String) -> int:
 #perks that use a timer
 func timer_perks(id : String) -> int:
 	return 0
+
+func get_pic(id : String) -> Texture:
+	return load("res://img/perks/perk_" + id + ".png")

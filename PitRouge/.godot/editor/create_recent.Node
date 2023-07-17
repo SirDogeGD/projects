@@ -1,3 +1,4 @@
+Label
 CenterContainer
 HBoxContainer
 Panel
@@ -7,7 +8,6 @@ VBoxContainer
 MarginContainer
 CollisionShape2D
 Area2D
-Label
 RichTextLabel
 Sprite2D
 CanvasLayer
