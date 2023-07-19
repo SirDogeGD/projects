@@ -3,8 +3,6 @@ res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui.tscn
 res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.tscn
 res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.tscn
 res://game/person/perks/perk_menu/perk_menu.tscn
-res://game/UI/Labels/stats_label.gd
-res://game/person/perks/perk_menu/perk_menu.gd
-res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.gd
-res://game/person/perks/perk_menu/perk_choose/perk_choose.gd
-res://game/person/player/playerchar.gd
+res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.gd
+res://game/person/perks/perks_storage/perks_array.gd
+res://game/person/perks/perks_storage/perk_slots.gd

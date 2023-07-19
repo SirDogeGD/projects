@@ -70,8 +70,8 @@ func clear():
 			slots[type].erase(id)
 	emit_signal("perks_changed", slots)
 
-func get_uniques(want := "ALL") -> Array[String]:
-	var uniques : Array[String]
+func get_uniques(want := "ALL") -> Array:
+	var uniques : Array
 	for type in slots.keys():
 		if want in ["ALL", type]: #get all or only get of one type
 			uniques = slots[type].keys()
@@ -79,8 +79,8 @@ func get_uniques(want := "ALL") -> Array[String]:
 #				uniques.append(id)
 	return uniques
 
-func get_maxed() -> Array[String]:
-	var maxed : Array[String]
+func get_maxed() -> Array:
+	var maxed : Array
 	for type in slots.keys():
 		for id in slots[type].keys():
 			if slots[type][id] == 3:

@@ -15,10 +15,12 @@ func add(id : String):
 	
 	#Check if perk requires a new radius
 	if PINFO.area_perks(id) > 0 and all.count(id) == 1:
-		guy.radii.add_radius(id, PINFO.area_perks(id))
+#		guy.radii.add_radius(id, PINFO.area_perks(id))
+		pass
 	#Check if perk requires a new timer
 	if PINFO.timer_perks(id) > 0 and all.count(id) == 1:
-		guy.timers.add_timer(id, PINFO.timer_perks(id))
+		pass
+#		guy.timers.add_timer(id, PINFO.timer_perks(id))
 	
 	slots.add(id)
 	emit_signal("perks_changed", all)

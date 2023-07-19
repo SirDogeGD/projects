@@ -6,5 +6,5 @@ var lvl : int
 
 func update():
 	if id != "EMPTY":
-		%Pic.texture = PINFO.get_pic(id)
 		%Level.text = str(lvl)
+	%Pic.texture = PINFO.get_pic(id)
