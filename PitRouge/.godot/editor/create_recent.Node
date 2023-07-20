@@ -1,3 +1,4 @@
+RichTextLabel
 MarginContainer
 Panel
 VBoxContainer
@@ -8,7 +9,6 @@ TextureRect
 GridContainer
 CollisionShape2D
 Area2D
-RichTextLabel
 Sprite2D
 CanvasLayer
 Camera2D

@@ -3,18 +3,24 @@ extends Node
 var pers : person
 var perkid : String
 var C := Constants.new()
+var n := false #use next nums (for perk choice)
 
 func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_data:
 	var data := perk_data.new()
 	data.pname = nam
-	data.desc = repl_desc(desc) % nums[pers.perks.count(perkid)]
+	var lvl = pers.perks.count(perkid)
+	if n:
+		lvl += 1
+	lvl = max(1, lvl) #at least 0
+	data.desc = repl_desc(desc) % nums[lvl - 1]
 	data.nums = nums
 	data.type = type
 	return data
 
-func perkinfo(id : String, a : person) -> perk_data:
-	pers = a
+func perkinfo(id : String, a : person, next := false) -> perk_data:
 	perkid = id
+	pers = a
+	n = next
 	
 	match id:
 		0, "BARB":

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwr2ll7m00yec"]
+[gd_scene load_steps=6 format=3 uid="uid://dwr2ll7m00yec"]
 
 [ext_resource type="PackedScene" uid="uid://ckgr5pj0t4r5e" path="res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn" id="1_cc8hi"]
 [ext_resource type="Script" path="res://game/person/perks/perk_menu/perk_menu.gd" id="1_urva6"]
 [ext_resource type="PackedScene" uid="uid://126f02hq1c75" path="res://game/UI/Labels/stats_label.tscn" id="2_esu86"]
 [ext_resource type="PackedScene" uid="uid://47pquwdo00w5" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui.tscn" id="4_lu4cj"]
+[ext_resource type="PackedScene" uid="uid://sjhhbqknbbp" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn" id="5_hnt8k"]
 
 [node name="perk_menu" type="CanvasLayer"]
 process_mode = 3
@@ -61,6 +62,10 @@ layout_mode = 2
 [node name="perk_slots_ui" parent="MarginContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_lu4cj")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="tooltip" parent="." instance=ExtResource("5_hnt8k")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="chosen" from="MarginContainer/MarginContainer/HBoxContainer/CenterContainer/ChoiceContainer/PC1" to="." method="_on_perk_chosen"]
 [connection signal="chosen" from="MarginContainer/MarginContainer/HBoxContainer/CenterContainer/ChoiceContainer/PC2" to="." method="_on_perk_chosen"]

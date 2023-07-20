@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name perk_menu
 
 var choice_container = preload("res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn")
 
@@ -31,4 +32,8 @@ func new_choice():
 		cc.id = pool[n]
 		cc.chosen.connect(_on_perk_chosen)
 		%ChoiceContainer.add_child(cc)
-#		cc.update()
+		cc.update(SAVE.pers)
+
+func update_tooltip(id : String, lvl : int, vis := false):
+	%tooltip.visible = vis
+	%tooltip.update(id, lvl)

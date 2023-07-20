@@ -1,4 +1,5 @@
 extends MarginContainer
+class_name perk_tooltip
 
 var data : perk_data
 
@@ -22,10 +23,7 @@ func _process(delta):
 		# Set the tooltip's position
 		position = tooltip_position
 
-func update(id : String, a : person, vis := true):
-	data = PINFO.perkinfo(id, a)
-	var lvl := str(a.perks.count(id) + 1) 
-	visible = vis
-#	%PerkIcon.texture = PINFO.get_pic(id)
-#	%PerkName.text = "[center][b]" + data.pname + " " + lvl + "[/b][/center]"
-#	%PerkDesc.text = "[center]" + data.desc + "[/center]"
+func update(id : String, lvl : int):
+	data = PINFO.perkinfo(id, SAVE.pers)
+	%PerkName.text = "[center][b]" + data.pname + " " + str(lvl) + "[/b][/center]"
+	%PerkDesc.text = "[center]" + data.desc + "[/center]"

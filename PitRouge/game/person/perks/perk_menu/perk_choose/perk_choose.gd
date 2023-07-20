@@ -13,7 +13,7 @@ func _ready():
 #	get_tree().call_group("player", "call_info")
 
 func update(a : person):
-	data = PINFO.perkinfo(id, a)
+	data = PINFO.perkinfo(id, a, true)
 	var lvl := str(a.perks.count(id) + 1) 
 	%PerkIcon.texture = PINFO.get_pic(id)
 	%PerkName.text = "[center][b]" + data.pname + " " + lvl + "[/b][/center]"

@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 var perk_one = preload("res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.tscn")
+#var tooltip_scene = preload("res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn")
 
 @export_enum("GXP", "HEAL", "SWORD", "BOW", "DEF", "MOVE") \
 var type : String
@@ -13,6 +14,9 @@ func update(a : person):
 	for c in get_children():
 		c.queue_free()
 	
+#	var tooltip : perk_tooltip = tooltip_scene.instantiate()
+#	add_child(tooltip)
+	
 	var amount_of_slots := SAVE.pers.perks.get_max(type)
 	var perks : Array = SAVE.pers.perks.slots[type].keys()
 	for n in range(amount_of_slots):
@@ -23,6 +27,6 @@ func update(a : person):
 			po.lvl = SAVE.pers.perks.slots[type][perks[n]]
 		
 		add_child(po)
-		po.mouse_entered.connect(%tooltip.update.bind(po.id, SAVE.pers))
-		po.mouse_exited.connect(%tooltip.update.bind(po.id, SAVE.pers, false))
+#		po.mouse_entered.connect(tooltip.update.bind(po.id, SAVE.pers))
+#		po.mouse_exited.connect(tooltip.update.bind(po.id, SAVE.pers, false))
 		po.update()

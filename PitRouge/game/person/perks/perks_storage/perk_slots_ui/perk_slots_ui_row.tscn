@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://drnbshdojymo2"]
+[gd_scene load_steps=3 format=3 uid="uid://drnbshdojymo2"]
 
 [ext_resource type="PackedScene" uid="uid://sit8rxg5nrko" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.tscn" id="1_0i3b6"]
 [ext_resource type="Script" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.gd" id="1_qxmjs"]
-[ext_resource type="PackedScene" uid="uid://sjhhbqknbbp" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn" id="3_bjkff"]
 
 [node name="SlotsGrid" type="HBoxContainer" groups=["info"]]
 anchors_preset = 15
@@ -18,9 +17,3 @@ layout_mode = 2
 
 [node name="perk_slots_ui_one2" parent="." instance=ExtResource("1_0i3b6")]
 layout_mode = 2
-
-[node name="tooltip" parent="." instance=ExtResource("3_bjkff")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[connection signal="mouse_entered" from="perk_slots_ui_one" to="tooltip" method="_on_perk_slots_ui_one_mouse_entered"]
