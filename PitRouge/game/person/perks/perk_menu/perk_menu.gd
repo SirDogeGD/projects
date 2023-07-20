@@ -13,6 +13,7 @@ func new_choice():
 	var maxed = SAVE.pers.perks.get_maxed()
 	for id in SAVE.pers.perks.get_maxed():
 		pool.erase(id)
+	#remove perks that wont fit into slots
 	var can_fit_slots : Array[String]
 	for id in pool:
 		if SAVE.pers.perks.slot_not_full(id):

@@ -23,4 +23,6 @@ func update(a : person):
 			po.lvl = SAVE.pers.perks.slots[type][perks[n]]
 		
 		add_child(po)
+		po.mouse_entered.connect(%tooltip.update.bind(po.id, SAVE.pers))
+		po.mouse_exited.connect(%tooltip.update.bind(po.id, SAVE.pers, false))
 		po.update()

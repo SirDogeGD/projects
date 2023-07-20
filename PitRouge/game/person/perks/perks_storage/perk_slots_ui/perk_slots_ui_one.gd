@@ -8,3 +8,9 @@ func update():
 	if id != "EMPTY":
 		%Level.text = str(lvl)
 	%Pic.texture = PINFO.get_pic(id)
+
+func _on_mouse_entered():
+	pass
+
+func _on_mouse_exited():
+	pass

@@ -1,11 +1,11 @@
-Label
-CenterContainer
-HBoxContainer
+MarginContainer
 Panel
+VBoxContainer
+CenterContainer
+Label
+HBoxContainer
 TextureRect
 GridContainer
-VBoxContainer
-MarginContainer
 CollisionShape2D
 Area2D
 RichTextLabel

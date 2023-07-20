@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://sjhhbqknbbp"]
+
+[ext_resource type="Script" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.gd" id="1_kin48"]
+
+[node name="perk_slots_ui_tooltip" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kin48")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
