@@ -31,10 +31,11 @@ func add(id : String):
 	emit_signal("perks_changed", slots)
 
 func remove(id : String):
-	slots[get_type(id)][id] -= 1
+	var t = get_type(id)
+	slots[t][id] -= 1
 	#remove if empty
-	if slots[get_type(id)][id] == 0: 
-		slots[get_type(id)].erase(id)
+	if slots[t][id] == 0: 
+		slots[t].erase(id)
 		
 		#Check if perk required a radius
 		if PINFO.area_perks(id) > 0:
@@ -95,8 +96,9 @@ func count(id : String) -> int:
 	return 0
 
 func slot_not_full(id : String) -> bool:
-	if slots[get_type(id)].has(id):
+	var t = get_type(id)
+	if slots[t].has(id):
 		return true
-	if slots[get_type(id)].size() == get_max(get_type(id)):
+	if slots[t].size() == get_max(t):
 		return false
 	return true

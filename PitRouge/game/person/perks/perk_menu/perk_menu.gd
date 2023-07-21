@@ -35,5 +35,6 @@ func new_choice():
 		cc.update(SAVE.pers)
 
 func update_tooltip(id : String, lvl : int, vis := false):
-	%tooltip.visible = vis
-	%tooltip.update(id, lvl)
+	if id != "EMPTY":
+		%tooltip.visible = vis
+		%tooltip.update(id, lvl)

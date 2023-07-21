@@ -51,7 +51,7 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 			return make("Diamond Sword", "Your weapon deals +%s base dmg",
 				[[0.4],[0.8],[1.2],[1.6]],"SWORD")
 		9, "BERS":
-			return make("Berserker", "%s%% crit chance",
+			return make("Berserker", " +%s%% crit chance",
 				[[12],[20],[28],[36]],"SWORD")
 		10, "GUTS": 
 			return make("Guts", "Heal %s hp on kill",
@@ -72,7 +72,7 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 			return make("Lifesteal", "Heal for %s%% of damage dealt",
 				[[4],[8],[12],[16]],"SWORD")
 		16, "FSTRIKE":
-			return make("First Strike", "Deal +%s%% dmg against enemies above 95% hp",
+			return make("First Strike", "Deal +%s%% dmg against enemies above 95%% hp",
 				[[75],[120],[160],[200]],"SWORD")
 #		Bounties
 		17, "BILLY":

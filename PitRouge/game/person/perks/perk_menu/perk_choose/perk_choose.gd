@@ -38,3 +38,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	%Panel.material = null #remove outline
+
+func _on_visibility_changed():
+	if not visible:
+		%Panel.material = null
