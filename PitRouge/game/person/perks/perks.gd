@@ -16,7 +16,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 	#reset num
 	num = 0
 	if which.left(4) == "mult":
-		num = 1
+		num = 1.0
 	
 	#calc for each unique perk
 	for p in a.perks.get_uniques():
@@ -44,7 +44,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 
 #get the first number of the current level (most perks just have one number)
 func get_num(id : String, num := 0) -> float:
-	return PINFO.perkinfo(id, a).nums[lvl][num]
+	return float(PINFO.perkinfo(id, a).nums[lvl][num])
 
 func calc_base_dmg(id : String):
 	var add := get_num(id)

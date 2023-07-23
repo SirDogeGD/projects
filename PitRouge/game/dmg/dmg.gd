@@ -20,7 +20,7 @@ func calc(a : person, b : person) -> dmg_data:
 	#strength
 	mult += ae.get_boost("STRENGTH")
 	#multi perks
-	mult += PERKS.calc("mult_dmg", a, b)
+	mult += 1 - PERKS.calc("mult_dmg", a, b)
 	#megastreak dmg boost
 	
 	#CRIT CHANCE

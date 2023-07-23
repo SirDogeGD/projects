@@ -42,11 +42,13 @@ func remove_effect(type):
 	active[type] = max(0, active[type] - 1)
 	emit_signal("effects_changed", active)
 
-func get_boost(type : String) -> int:
+func get_boost(type : String) -> float:
 	match type:
 		"SPEED":
 			return active[type] * 3
 		"RES":
-			return 1 - active[type] / 50 #1 resistance = 2% dmg reduction
+			return 1.0 - float(active[type]) / 50 #1 resistance = 2% dmg reduction
+		"STRENGTH":
+			return float(active[type]) / 20 #1 strength = 5% more dmg
 		_:
 			return active[type]

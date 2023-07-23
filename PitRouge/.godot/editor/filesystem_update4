@@ -1,4 +1,3 @@
-res://game/person/perks/perk_menu/perk_choose/perk_choose.gd
 res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn
 res://game/person/person.gdshader
 res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui.tscn
@@ -7,6 +6,6 @@ res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.tscn
 res://game/person/perks/perk_menu/perk_menu.tscn
 res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn
 res://game/person/perks/perk_info.gd
-res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.gd
-res://game/person/perks/perk_menu/perk_menu.gd
-res://game/person/perks/perks_storage/perk_slots.gd
+res://game/dmg/dmg.gd
+res://game/person/effects/EffectsNode.gd
+res://game/person/perks/perks.gd

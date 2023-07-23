@@ -116,6 +116,7 @@ func repl_desc(d : String) -> String:
 	d = d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
 	d = d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
 	d = d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
+	d = d.replace("Weakness", "[color=" + C.COLOR_PURPLE + "]Weakness[/color]")
 	
 	#make inserted number green
 	d = d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
