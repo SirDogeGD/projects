@@ -19,3 +19,6 @@ func _physics_process(delta):
 		if Input.is_action_just_released("tab"):
 			get_tree().paused = false
 			PUI.visible = false
+
+func start():
+	pass
