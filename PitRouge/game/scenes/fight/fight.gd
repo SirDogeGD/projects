@@ -1,10 +1,12 @@
 extends Node2D
 
-@onready var p : player = %player
+@onready var p : player = SAVE.pers
 
 func _ready():
-	in_signals()
+	add_child(p)
 	%Camera.following = p
+	in_signals()
+	PUI.new_choice()
 
 func _enter_tree():
 	UI.show()

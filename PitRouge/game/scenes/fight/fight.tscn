@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ddy6llry5xy"]
+[gd_scene load_steps=4 format=3 uid="uid://b4ddy6llry5xy"]
 
 [ext_resource type="Script" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
-[ext_resource type="PackedScene" uid="uid://dgwh7rcuftx80" path="res://game/person/player/playerchar.tscn" id="1_r6dw8"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
 [ext_resource type="Script" path="res://game/scenes/fight/CameraController.gd" id="4_ib2jg"]
 
@@ -15,12 +14,8 @@ position = Vector2(464, 540)
 offset = Vector2(100, 0)
 script = ExtResource("4_ib2jg")
 
-[node name="player" parent="." instance=ExtResource("1_r6dw8")]
-unique_name_in_owner = true
-position = Vector2(461, 538)
-
 [node name="enemy" parent="." instance=ExtResource("2_abcnf")]
-position = Vector2(96, 78)
+position = Vector2(515, 930)
 collision_mask = 2
 
 [node name="enemy2" parent="." instance=ExtResource("2_abcnf")]

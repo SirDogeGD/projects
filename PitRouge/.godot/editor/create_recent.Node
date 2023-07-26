@@ -1,13 +1,14 @@
+CollisionShape2D
+Button
+Label
 RichTextLabel
 MarginContainer
 Panel
 VBoxContainer
 CenterContainer
-Label
 HBoxContainer
 TextureRect
 GridContainer
-CollisionShape2D
 Area2D
 Sprite2D
 CanvasLayer

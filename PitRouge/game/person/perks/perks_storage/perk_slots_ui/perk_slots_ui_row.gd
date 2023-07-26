@@ -17,7 +17,7 @@ func update(a : person):
 #	var tooltip : perk_tooltip = tooltip_scene.instantiate()
 #	add_child(tooltip)
 	
-	var amount_of_slots := SAVE.pers.perks.get_max(type)
+	var amount_of_slots : int = SAVE.pers.perks.get_max(type)
 	var perks : Array = SAVE.pers.perks.slots[type].keys()
 	for n in range(amount_of_slots):
 		var po : perk_slot_one = perk_one.instantiate()

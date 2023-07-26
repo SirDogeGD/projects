@@ -1,9 +1,10 @@
 extends Node
 
 var save : save_data
-var pers : person
+var pers : player
 
 func _enter_tree():
+	pers = preload("res://game/person/player/playerchar.tscn").instantiate()
 	load_data()
 
 func load_data():
@@ -11,6 +12,7 @@ func load_data():
 		var saved = ResourceLoader.load("user://save.res")
 		if saved is save_data:
 			save = saved
+			pers.stats = save
 
 func save_data():
 	var result = ResourceSaver.save(save, "user://save.res")

@@ -9,6 +9,7 @@
 [node name="perk_menu" type="CanvasLayer"]
 process_mode = 3
 layer = 10
+visible = false
 script = ExtResource("1_urva6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
