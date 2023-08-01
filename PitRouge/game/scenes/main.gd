@@ -5,6 +5,7 @@ var curScene : Node
 
 @onready var fightScene := preload("res://game/scenes/fight/fight.tscn").instantiate()
 @onready var mainMenuScene := preload("res://game/scenes/main_menu/main_menu.tscn").instantiate()
+@onready var lobbyScene := preload("res://game/scenes/Lobby/Lobby.tscn").instantiate()
 
 func _ready():
 	curScene = mainMenuScene
@@ -26,4 +27,4 @@ func switchscene(scene : Node):
 	add_child(curScene)
 
 func start():
-	switchscene(fightScene)
+	switchscene(lobbyScene)

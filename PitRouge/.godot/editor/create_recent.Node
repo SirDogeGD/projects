@@ -1,13 +1,13 @@
+VBoxContainer
+TextureRect
 CollisionShape2D
 Button
 Label
 RichTextLabel
 MarginContainer
 Panel
-VBoxContainer
 CenterContainer
 HBoxContainer
-TextureRect
 GridContainer
 Area2D
 Sprite2D
