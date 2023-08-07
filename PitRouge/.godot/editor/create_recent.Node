@@ -1,6 +1,8 @@
-VBoxContainer
-TextureRect
+Area2D
 CollisionShape2D
+TextureRect
+Node2D
+VBoxContainer
 Button
 Label
 RichTextLabel
@@ -9,13 +11,11 @@ Panel
 CenterContainer
 HBoxContainer
 GridContainer
-Area2D
 Sprite2D
 CanvasLayer
 Camera2D
 PanelContainer
 Container
-Node2D
 Timer
 RayCast2D
 GPUParticles2D

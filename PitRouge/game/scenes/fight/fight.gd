@@ -3,8 +3,10 @@ extends Node2D
 @onready var p : player = SAVE.pers
 
 func _ready():
-	add_child(p)
+	call_deferred("add_child", p)
+#	add_child(p)
 	%Camera.following = p
+	p.position.x = 0
 	in_signals()
 	PUI.new_choice()
 

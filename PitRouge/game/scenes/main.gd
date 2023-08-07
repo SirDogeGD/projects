@@ -22,9 +22,23 @@ func _physics_process(delta):
 			PUI.hide()
 
 func switchscene(scene : Node):
+	var p := SAVE.pers
+	if p.get_parent() == curScene:
+		curScene.remove_child(SAVE.pers)
+	
 	remove_child(curScene)
+	print("old scene: ", curScene.name)
 	curScene = scene
+	print("new scene: ", curScene.name)
 	add_child(curScene)
+	if curScene.has_method("_ready"):
+		curScene._ready()
+	
+	SAVE.pers = p
 
 func start():
 	switchscene(lobbyScene)
+	lobbyScene.jumpdown.connect(jumpdown)
+
+func jumpdown():
+	switchscene(fightScene)
