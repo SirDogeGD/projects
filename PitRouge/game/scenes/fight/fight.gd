@@ -4,9 +4,8 @@ extends Node2D
 
 func _ready():
 	call_deferred("add_child", p)
-#	add_child(p)
+#	add_child(p)d
 	%Camera.following = p
-	p.position.x = 0
 	in_signals()
 	PUI.new_choice()
 

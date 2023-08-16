@@ -13,5 +13,8 @@ func _on_hole_entered(body):
 	print("body that entered: ", body.name)
 	if body == p:
 		print("player touched hole")
+		print(%Hole)
+		print("---------------------")
 		%Hole.set_process(false)
+		%Hole.queue_free()
 		jumpdown.emit()
