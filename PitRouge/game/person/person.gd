@@ -181,6 +181,7 @@ func on_death():
 	stats.deaths += 1
 	if is_instance_of(self, player):
 		SAVE.save_data()
+		
 	
 	#Determine killer / assists
 	var killer := dmg_taken[-1].attacker #last person to do dmg

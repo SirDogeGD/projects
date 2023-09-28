@@ -10,7 +10,8 @@ var curScene : Node
 func _ready():
 	curScene = mainMenuScene
 	add_child(curScene)
-	mainMenuScene.start.connect(start)
+	mainMenuScene.start.connect(to_lobby)
+	SAVE.pers.death.connect(back_to_lobby)
 
 func _physics_process(delta):
 	if curScene == fightScene:
@@ -36,9 +37,13 @@ func switchscene(scene : Node):
 	
 	SAVE.pers = p
 
-func start():
+func to_lobby():
 	switchscene(lobbyScene)
 	lobbyScene.jumpdown.connect(jumpdown)
 
 func jumpdown():
 	switchscene(fightScene)
+
+func back_to_lobby():
+	to_lobby()
+	print("Test")

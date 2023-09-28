@@ -1,7 +1,8 @@
+res://game/scenes/fight/fight.tscn
+res://game/person/person.gd
+res://game/scenes/Lobby/Lobby.gd
+res://game/scenes/main.gd
 res://game/scenes/main.tscn
 res://game/scenes/main_menu/main_menu.tscn
-res://game/scenes/fight/fight.tscn
 res://game/person/player/playerchar.tscn
 res://game/scenes/Lobby/Lobby.tscn
-res://game/scenes/fight/fight.gd
-res://game/scenes/Lobby/Lobby.gd
