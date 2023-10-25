@@ -24,7 +24,7 @@ var run_stats = {
 }
 var dmg_taken : Array[dmg_data] = []
 #HP
-var health_max := 20
+var health_max := 20.0
 var health : float = health_max:
 	set(hp):
 		health = clamp(hp, 0, health_max)
@@ -32,7 +32,7 @@ var health : float = health_max:
 			on_death()
 		hp_signal()
 #Shield
-var shield_max := 20
+var shield_max := 20.0
 var shield := 0.0:
 	set(hp):
 		shield = clamp(hp, 0, shield_max)
@@ -206,7 +206,7 @@ func on_death():
 	dmg_taken.clear()
 	for key in run_stats.keys():
 		run_stats[key] = 0
-	call_info()
+#	call_info()
 
 func call_info():
 	pass

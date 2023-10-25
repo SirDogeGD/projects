@@ -32,8 +32,8 @@ func switchscene(scene : Node):
 	curScene = scene
 	print("new scene: ", curScene.name)
 	add_child(curScene)
-	if curScene.has_method("_ready"):
-		curScene._ready()
+#	if curScene.has_method("_ready"):
+#		curScene._ready()
 	
 	SAVE.pers = p
 
@@ -46,4 +46,3 @@ func jumpdown():
 
 func back_to_lobby():
 	to_lobby()
-	print("Test")

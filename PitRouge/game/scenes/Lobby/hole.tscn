@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://8i0t8qxkbtxs"]
+
+[ext_resource type="Script" path="res://game/scenes/Lobby/hole.gd" id="1_inmqd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fo4yf"]
+radius = 89.0
+height = 436.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bc7j3"]
+load_path = "res://.godot/imported/black.png-4c4c1270c1c2d6c3feef8b257b24f6ce.ctex"
+
+[node name="Hole" type="Area2D"]
+script = ExtResource("1_inmqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(981, 566)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_fo4yf")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 764.0
+offset_top = 476.0
+offset_right = 1196.0
+offset_bottom = 665.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_bc7j3")
+expand_mode = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

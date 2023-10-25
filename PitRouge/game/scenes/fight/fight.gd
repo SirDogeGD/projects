@@ -3,14 +3,17 @@ extends Node2D
 @onready var p : player = SAVE.pers
 
 func _ready():
-	call_deferred("add_child", p)
-#	add_child(p)d
+#	call_deferred("add_child", p)
+	add_child(p)
 	%Camera.following = p
 	in_signals()
 	PUI.new_choice()
 
 func _enter_tree():
 	UI.show()
+
+func _exit_tree():
+	UI.hide()
 
 func in_signals():
 	p.inv_changed.connect(Callable(UI,"update_inv"))

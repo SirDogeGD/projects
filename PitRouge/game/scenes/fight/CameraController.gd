@@ -11,7 +11,8 @@ func _ready():
 
 func _process(delta):
 	if following != null:
-		position = following.position
+#		position = following.position
+		global_position = following.global_position
 		zoom = initialZoom
 #		var zoomOutAmount = int((following.SPEED - 300) / SPEED_THRESHOLD) * ZOOM_OUT_FACTOR
 #		zoom.x = initialZoom.x * (1 - zoomOutAmount / 80)
