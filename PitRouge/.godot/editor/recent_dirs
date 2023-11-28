@@ -1,3 +1,4 @@
+res://game/pickup
 res://game/scenes/Lobby
 res://.godot/imported
 res://game/person/perks/perk_menu
@@ -19,4 +20,3 @@ res://img/particles
 res://game/person/enemy
 res://game/person
 res://game/person/player
-res://img
