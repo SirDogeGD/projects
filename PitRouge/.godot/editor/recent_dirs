@@ -1,13 +1,13 @@
+res://game/scenes
+res://.godot/imported
 res://game/pickup
 res://game/scenes/Lobby
-res://.godot/imported
 res://game/person/perks/perk_menu
 D:/games/projects/PitRouge/game/person/player
 res://game/person/perks/perks_storage/perk_slots_ui
 res://game/UI
 res://game/UI/effects_ui
 res://game/person/player/save
-res://game/scenes
 res://game/person/perks
 res://game/person/effects
 res://game/dmg

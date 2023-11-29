@@ -1,5 +1,7 @@
-Area2D
+AnimationPlayer
 CollisionShape2D
+Area2D
+Sprite2D
 TextureRect
 Node2D
 VBoxContainer
@@ -11,7 +13,6 @@ Panel
 CenterContainer
 HBoxContainer
 GridContainer
-Sprite2D
 CanvasLayer
 Camera2D
 PanelContainer
@@ -23,6 +24,5 @@ CharacterBody2D
 AnimationTree
 Skeleton2D
 Bone2D
-AnimationPlayer
 HitBox
 HurtBox

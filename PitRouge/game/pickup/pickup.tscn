@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://3h12iefausk0"]
+
+[ext_resource type="Script" path="res://game/pickup/pickup.gd" id="1_3xstd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bw3wv"]
+load_path = "res://.godot/imported/GOLD_INGOT.png-c82cff40d4c2c79acd54afe9a59917ef.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dx24p"]
+radius = 99.1262
+
+[node name="pickup" type="Node2D"]
+script = ExtResource("1_3xstd")
+
+[node name="Icon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("CompressedTexture2D_bw3wv")
+
+[node name="pickupRadius" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickupRadius"]
+shape = SubResource("CircleShape2D_dx24p")
+debug_color = Color(0.847059, 0.92549, 0, 0.00784314)
+
+[connection signal="body_entered" from="pickupRadius" to="." method="_on_pickup_radius_body_entered"]

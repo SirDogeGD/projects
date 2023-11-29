@@ -2,5 +2,5 @@ extends Node
 
 class_name pickupHandler
 
-func pickup(what : String, who : person):
+func pickup(what : pickup, who : person):
 	pass
