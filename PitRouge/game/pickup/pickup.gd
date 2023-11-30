@@ -1,14 +1,18 @@
 extends Node2D
 class_name pickup
 
-enum typeEnum {GOLD, XP}
-@export var type : typeEnum
+enum typeEnum {GOLD_INGOT, XP_BLOB}
+@export var type := typeEnum.GOLD_INGOT
 
 @onready var handler = pickupHandler.new() 
 
 var picked := false
 var target_position := Vector2()
 var target_person : person #who picked me up
+
+func _ready():
+	print(typeEnum.keys()[type])
+	$Icon.texture = load("res://img/pickups/" + typeEnum.keys()[type] + ".png")
 
 func _on_pickup_radius_body_entered(body):
 	if body is person:
@@ -24,4 +28,8 @@ func _process(delta):
 #maybe could have final animation/sound or something
 func pickedUp():
 	handler.pickup(self, target_person)
+	queue_free()
+
+#despawn pickups after a while
+func _on_despawn_timer_timeout():
 	queue_free()

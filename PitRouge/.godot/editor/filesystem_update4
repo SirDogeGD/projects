@@ -6,5 +6,6 @@ res://game/scenes/fight/fight.tscn
 res://game/person/player/playerchar.tscn
 res://game/scenes/Lobby/Lobby.tscn
 res://game/scenes/Lobby/hole.tscn
-res://game/scenes/main.gd
-res://game/scenes/test.tscn
+res://game/pickup/pickupHandler.gd
+res://game/person/rewards/rewards.gd
+res://game/person/perks/perks.gd

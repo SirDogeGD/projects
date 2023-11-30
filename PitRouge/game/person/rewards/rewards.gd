@@ -14,12 +14,12 @@ func kill(killer : person, died : person) -> Dictionary:
 	a = killer
 	b = died
 	
-	kill_rewards["G"] = gold()
-	kill_rewards["X"] = xp()
+	kill_rewards["G"] = kill_gold()
+	kill_rewards["X"] = kill_xp()
 	
 	return kill_rewards
 
-func gold():
+func kill_gold():
 	#BASE
 	var base : float = BASE_GOLD
 	base += PERKS.calc("base_gold", a, b)
@@ -29,7 +29,7 @@ func gold():
 	
 	return base * mult
 
-func xp():
+func kill_xp():
 	#BASE
 	var base : float = BASE_XP
 	base += PERKS.calc("base_xp", a, b)
