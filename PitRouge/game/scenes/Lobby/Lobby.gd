@@ -15,9 +15,8 @@ func _ready():
 	h.signal_entered.connect(_on_hole_entered)
 	
 	p.position = %Spawnpos.position
-	print("lobby ready")
+#	print("lobby ready")
 
 func _on_hole_entered():
 	remove_child(p)
-	print("JAMPU")
 	jumpdown.emit()

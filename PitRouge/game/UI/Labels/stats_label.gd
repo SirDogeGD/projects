@@ -11,9 +11,11 @@ func _ready():
 func update(a : person):
 	match type:
 		"G":
-			text = "Gold: [color=" + C.COLOR_GOLD + "]" + str(a.stats.gold) + "g[/color]" 
+			var gold = a.stats.gold + a.run_stats["gold"]
+			text = "Gold: [color=" + C.COLOR_GOLD + "]" + str(gold) + "g[/color]" 
 		"XP":
-			text = "XP: [color=" + C.COLOR_AQUA + "]" + str(a.stats.xp) + "[/color]" 
+			var xp = a.stats.xp + a.run_stats["xp"] 
+			text = "XP: [color=" + C.COLOR_AQUA + "]" + str(xp) + "[/color]" 
 		"Str":
 			text = "Streak: [color=" + C.COLOR_GREEN + "]" + str(a.run_stats["streak"]) + "[/color]" 
 		"MS":

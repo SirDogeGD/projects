@@ -11,7 +11,7 @@ var target_position := Vector2()
 var target_person : person #who picked me up
 
 func _ready():
-	print(typeEnum.keys()[type])
+#	print(typeEnum.keys()[type])
 	$Icon.texture = load("res://img/pickups/" + typeEnum.keys()[type] + ".png")
 
 func _on_pickup_radius_body_entered(body):
@@ -22,7 +22,7 @@ func _on_pickup_radius_body_entered(body):
 func _process(delta):
 	if picked:
 		global_position = global_position.lerp(target_person.global_position, 0.1)
-		if global_position.distance_to(target_person.global_position) < 10:
+		if global_position.distance_to(target_person.global_position) < 20:
 			pickedUp()
 
 #maybe could have final animation/sound or something

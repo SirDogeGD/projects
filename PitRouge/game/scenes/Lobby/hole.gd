@@ -7,6 +7,5 @@ var entered := false
 
 func _on_body_entered(body):
 	if body == SAVE.pers and not entered:
-		print("emit?")
 		entered = true
 		signal_entered.emit()

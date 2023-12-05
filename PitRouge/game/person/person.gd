@@ -226,10 +226,17 @@ func on_assist(b : person, p : float):
 	call_info()
 
 func on_kill(b : person):
-	var r := rewards.new()
-	var kr = r.kill(self, b)
-	run_stats["gold"] += kr["G"]
-	run_stats["xp"] += kr["X"]
+	var kr := kill_rewards.new()
+	var r := kr.kill(self, b)
+	run_stats["gold"] += r.gold
+	run_stats["xp"] += r.xp
 	run_stats["kills"] += 1
 	run_stats["streak"] += 1
+	call_info()
+
+func be_rewarded(r : rewards_data):
+	print("I got ", r.gold, " gold and ", r.xp, " xp")
+	run_stats["gold"] += r.gold
+	run_stats["xp"] += r.xp
+	print(run_stats["gold"])
 	call_info()

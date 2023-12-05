@@ -1,38 +1,45 @@
 extends Node
-class_name rewards
+class_name kill_rewards
+#handles kill rewards
 
 var a : person
 var b : person
 var BASE_GOLD := 10
 var BASE_XP := 5
-var kill_rewards := {
-	"G" : 0.0,
-	"X" : 0.0
-}
 
-func kill(killer : person, died : person) -> Dictionary:
+#get kill perks
+func pkill(what : String):
+	return PERKS.calc(what, a, b)
+
+#get non kill perks
+func perks(what : String):
+	return PERKS.get_value(a, what)
+
+#main function
+func kill(killer : person, died : person) -> rewards_data:
 	a = killer
 	b = died
 	
-	kill_rewards["G"] = kill_gold()
-	kill_rewards["X"] = kill_xp()
+	var r = rewards_data.new()
+	r.gold = kill_gold()
+	r.xp = kill_xp()
 	
-	return kill_rewards
+	return r
 
 func kill_gold():
 	#BASE
 	var base : float = BASE_GOLD
-	base += PERKS.calc("base_gold", a, b)
+	base += pkill("base_gold")
 	#MULT
 	var mult := 1.0
-	mult *= 1 + PERKS.calc("mult_gold", a, b)
+	mult *= 1 + pkill("mult_gold")
 	
 	return base * mult
 
 func kill_xp():
 	#BASE
 	var base : float = BASE_XP
-	base += PERKS.calc("base_xp", a, b)
+	base += pkill("base_xp")
 	#Streak
 	var streak = a.run_stats["streak"]
 	var streakBoost := 0.0
@@ -42,9 +49,10 @@ func kill_xp():
 		streakBoost = 5
 	elif streak >= 20:
 		streakBoost = min(3 * int(streak/10), 30)
-	base += streakBoost * 1 + PERKS.get_value(a, "SWEATY") / 100
+	base += streakBoost * 1 + perks("SWEATY") / 100
 	#MULT
 	var mult := 1.0
-	mult *= PERKS.calc("mult_xp", a, b)
+	mult *= pkill("mult_xp")
 	
 	return base * mult
+

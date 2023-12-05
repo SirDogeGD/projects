@@ -5,6 +5,13 @@ var lvl : int
 var a : person
 var b : person
 
+#Get values of single stuff (like Sweaty)
+func get_value(a : person, id : String, num := 1) -> float:
+	lvl = a.perks.count(id)
+	if lvl >= 1:
+		return get_num(id, num)
+	return 0
+
 #which = base, mult, true, etc
 #a = attacker
 #b = defender
@@ -123,13 +130,6 @@ func calc_mult_xp(id : String):
 	match id:
 		"XPBOOST":
 			num *= add
-
-#Get values of edge cases (like Sweaty)
-func get_value(a : person, id : String, num := 1) -> float:
-	lvl = a.perks.count(id)
-	if lvl >= 1:
-		return get_num(id, num)
-	return 0
 
 func can_block(a : person) -> bool:
 	if a.perks.has("BARB"):

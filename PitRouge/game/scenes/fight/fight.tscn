@@ -26,6 +26,7 @@ collision_mask = 2
 
 [node name="pickup" parent="." instance=ExtResource("4_0noui")]
 position = Vector2(531, -149)
+type = 1
 
 [node name="pickup2" parent="." instance=ExtResource("4_0noui")]
 position = Vector2(678, -381)
@@ -41,3 +42,4 @@ position = Vector2(1128, -358)
 
 [node name="pickup6" parent="." instance=ExtResource("4_0noui")]
 position = Vector2(1342, -97)
+type = 1
