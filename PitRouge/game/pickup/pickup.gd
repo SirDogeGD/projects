@@ -13,6 +13,12 @@ var target_person : person #who picked me up
 func _ready():
 #	print(typeEnum.keys()[type])
 	$Icon.texture = load("res://img/pickups/" + typeEnum.keys()[type] + ".png")
+	
+	#bobbing animation
+	var tween = create_tween().set_loops().set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", global_position + Vector2(0, 8), 1)
+	tween.tween_property(self, "position", global_position + Vector2(0, -8), 1)
+	tween.play()
 
 func _on_pickup_radius_body_entered(body):
 	if body is person:
