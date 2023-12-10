@@ -5,25 +5,26 @@ enum typeEnum {GOLD_INGOT, XP_BLOB}
 @export var type := typeEnum.GOLD_INGOT
 
 @onready var handler = pickupHandler.new() 
+@onready var rng := RandomNumberGenerator.new()
+@onready var bobbing_tween = create_tween().set_loops().set_ease(Tween.EASE_OUT)
 
 var picked := false
 var target_position := Vector2()
 var target_person : person #who picked me up
 
 func _ready():
-#	print(typeEnum.keys()[type])
 	$Icon.texture = load("res://img/pickups/" + typeEnum.keys()[type] + ".png")
 	
 	#bobbing animation
-	var tween = create_tween().set_loops().set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "position", global_position + Vector2(0, 8), 1)
-	tween.tween_property(self, "position", global_position + Vector2(0, -8), 1)
-	tween.play()
+	bobbing_tween.tween_property(self, "position", global_position + Vector2(0, 8), 0.8)
+	bobbing_tween.tween_property(self, "position", global_position + Vector2(0, -8), 0.8)
+	bobbing_tween.play()
 
 func _on_pickup_radius_body_entered(body):
 	if body is person:
 		target_person = body
 		picked = true
+		bobbing_tween.stop()
 
 func _process(delta):
 	if picked:
@@ -39,3 +40,8 @@ func pickedUp():
 #despawn pickups after a while
 func _on_despawn_timer_timeout():
 	queue_free()
+
+func random_pos(r := 200):
+	var x = rng.randf_range(-r, r)
+	var y = rng.randf_range(-r, r)
+	global_position = global_position + Vector2(x, y)

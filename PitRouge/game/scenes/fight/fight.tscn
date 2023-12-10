@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
-[ext_resource type="PackedScene" uid="uid://3h12iefausk0" path="res://game/pickup/pickup.tscn" id="4_0noui"]
 [ext_resource type="Script" path="res://game/scenes/fight/CameraController.gd" id="4_ib2jg"]
+[ext_resource type="PackedScene" uid="uid://cwtpdwqfillym" path="res://game/pickup/pickupSpawner.tscn" id="5_dhhpx"]
 
 [node name="fight" type="Node2D"]
 process_mode = 1
 position = Vector2(-1, 10)
 script = ExtResource("1_6fb1s")
+
+[node name="pickupSpawner" parent="." instance=ExtResource("5_dhhpx")]
+unique_name_in_owner = true
 
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -23,23 +26,3 @@ collision_mask = 2
 [node name="enemy2" parent="." instance=ExtResource("2_abcnf")]
 position = Vector2(1760, 829)
 collision_mask = 2
-
-[node name="pickup" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(531, -149)
-type = 1
-
-[node name="pickup2" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(678, -381)
-
-[node name="pickup3" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(190, -108)
-
-[node name="pickup4" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(899, -76)
-
-[node name="pickup5" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(1128, -358)
-
-[node name="pickup6" parent="." instance=ExtResource("4_0noui")]
-position = Vector2(1342, -97)
-type = 1

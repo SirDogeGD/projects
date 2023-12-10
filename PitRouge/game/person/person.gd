@@ -235,8 +235,6 @@ func on_kill(b : person):
 	call_info()
 
 func be_rewarded(r : rewards_data):
-	print("I got ", r.gold, " gold and ", r.xp, " xp")
 	run_stats["gold"] += r.gold
 	run_stats["xp"] += r.xp
-	print(run_stats["gold"])
 	call_info()
