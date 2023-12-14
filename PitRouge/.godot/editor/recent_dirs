@@ -1,3 +1,4 @@
+res://addons/sound_manager
 res://game/scenes
 res://.godot/imported
 res://game/pickup
@@ -19,4 +20,3 @@ res://game/item
 res://img/particles
 res://game/person/enemy
 res://game/person
-res://game/person/player

@@ -5,7 +5,6 @@ enum typeEnum {GOLD_INGOT, XP_BLOB}
 @export var type := typeEnum.GOLD_INGOT
 
 @onready var handler = pickupHandler.new() 
-@onready var rng := RandomNumberGenerator.new()
 @onready var bobbing_tween = create_tween().set_loops().set_ease(Tween.EASE_OUT)
 
 var picked := false
@@ -30,6 +29,8 @@ func _process(delta):
 	if picked:
 		global_position = global_position.lerp(target_person.global_position, 0.1)
 		if global_position.distance_to(target_person.global_position) < 20:
+			#audio play here
+#			SOUND.play_sound(audiostream, "SFX")
 			pickedUp()
 
 #maybe could have final animation/sound or something
@@ -42,6 +43,7 @@ func _on_despawn_timer_timeout():
 	queue_free()
 
 func random_pos(r := 200):
+	var rng := RandomNumberGenerator.new()
 	var x = rng.randf_range(-r, r)
 	var y = rng.randf_range(-r, r)
 	global_position = global_position + Vector2(x, y)

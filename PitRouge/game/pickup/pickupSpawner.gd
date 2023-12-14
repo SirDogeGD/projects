@@ -13,7 +13,7 @@ func _process(delta):
 
 func spawn():
 	var p : pickup = pickupScene.instantiate()
-	p.type = p.GOLD_INGOT
+	p.type = p.typeEnum.GOLD_INGOT
 	p.random_pos(1000)
 	owner.add_child(p)
 
