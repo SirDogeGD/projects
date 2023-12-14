@@ -5,11 +5,12 @@ var itemname := ""
 var stack_size := 1
 var max_stack_size := 1
 var damage := 1.0
+var my_left_sound : AudioStream
 
 @onready var animation_player := $AnimationPlayer
 
 func left_click():
-	pass
+	SOUND.play_sound(my_left_sound, "SFX")
 
 func right_click():
 	pass

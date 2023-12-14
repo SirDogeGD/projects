@@ -6,6 +6,7 @@ enum typeEnum {GOLD_INGOT, XP_BLOB}
 
 @onready var handler = pickupHandler.new() 
 @onready var bobbing_tween = create_tween().set_loops().set_ease(Tween.EASE_OUT)
+@onready var ingot_sound : AudioStream = load("res://SFX/pickups/ingot.mp3")
 
 var picked := false
 var target_position := Vector2()
@@ -29,8 +30,7 @@ func _process(delta):
 	if picked:
 		global_position = global_position.lerp(target_person.global_position, 0.1)
 		if global_position.distance_to(target_person.global_position) < 20:
-			#audio play here
-#			SOUND.play_sound(audiostream, "SFX")
+			SOUND.play_sound(ingot_sound, "SFX")
 			pickedUp()
 
 #maybe could have final animation/sound or something

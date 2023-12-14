@@ -4,6 +4,7 @@ class_name melee
 var _velocity := Vector2.ZERO
 
 func left_click() -> void:
+	super.left_click()
 	#cant attack while blocking
 	if not animation_player.current_animation == "block": 
 		animation_player.play("RESET")

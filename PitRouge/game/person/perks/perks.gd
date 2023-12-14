@@ -132,6 +132,8 @@ func calc_mult_xp(id : String):
 			num *= add
 
 func can_block(a : person) -> bool:
-	if a.perks.has("BARB"):
-		return false
+	var no_block_perks := ["BARB"]
+	for no_block_perk in no_block_perks:
+		if a.perks.count(no_block_perk) > 0:
+			return false
 	return true

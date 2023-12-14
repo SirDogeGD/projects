@@ -14,7 +14,7 @@ func _process(delta):
 func spawn():
 	var p : pickup = pickupScene.instantiate()
 	p.type = p.typeEnum.GOLD_INGOT
-	p.random_pos(1000)
+	p.random_pos(2500)
 	owner.add_child(p)
 
 func _on_timer_timeout():
