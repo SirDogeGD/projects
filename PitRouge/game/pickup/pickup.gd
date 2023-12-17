@@ -11,6 +11,7 @@ enum typeEnum {GOLD_INGOT, XP_BLOB}
 var picked := false
 var target_position := Vector2()
 var target_person : person #who picked me up
+var spawn_person : person #who do I belong to
 
 func _ready():
 	$Icon.texture = load("res://img/pickups/" + typeEnum.keys()[type] + ".png")
@@ -21,7 +22,7 @@ func _ready():
 	bobbing_tween.play()
 
 func _on_pickup_radius_body_entered(body):
-	if body is person:
+	if body is person and (body == spawn_person or spawn_person == null):
 		target_person = body
 		picked = true
 		bobbing_tween.stop()
@@ -47,3 +48,7 @@ func random_pos(r := 200):
 	var x = rng.randf_range(-r, r)
 	var y = rng.randf_range(-r, r)
 	global_position = global_position + Vector2(x, y)
+
+#pickup becomes pickupable for all persons
+func _on_ffa_timer_timeout():
+	spawn_person = null
