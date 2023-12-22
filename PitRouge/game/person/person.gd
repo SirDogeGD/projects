@@ -149,9 +149,9 @@ func switch_item(num : int):
 		0,1,2,3,4,5,6,7,8:
 			inv.select(num)
 		9:
-			inv.scroll(true)
+			num = inv.scroll(true)
 		10: 
-			inv.scroll(false)
+			num = inv.scroll(false)
 	remove_child(selected_item)
 	var new_item = inv.items[num]
 	add_child(new_item)

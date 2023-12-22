@@ -20,6 +20,7 @@ func scroll(up : bool):
 		selected += 1 if selected < size else 0
 	else:
 		selected -= 1 if selected > 0 else 8
+	return selected
 
 func select(num : int):
 	num = clamp(num, 0, size)

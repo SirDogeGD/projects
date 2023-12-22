@@ -8,3 +8,9 @@ res://game/scenes/Lobby/hole.tscn
 res://game/pickup/pickup.tscn
 res://game/UI/sideboard/sideboard_ui.tscn
 res://game/pickup/pickupSpawner.tscn
+res://game/person/level/level.gd
+res://game/person/level/prestige_data.gd
+res://game/person/player/save/save_data.gd
+res://game/person/player/playerchar.gd
+res://game/person/person.gd
+res://game/person/inventory/inventory.gd

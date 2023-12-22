@@ -6,6 +6,13 @@ func _ready():
 	stats = SAVE.save
 	SAVE.pers = self
 	call_info()
+	
+	var l = level.new()
+	print(l.get_total_xp_needed(self))
+	print(l.get_xp_of(1))
+	print(l.get_xp_of(2))
+	print(l.get_xp_of(10))
+	print(l.get_xp_of(15))
 
 func _physics_process(delta):
 	
