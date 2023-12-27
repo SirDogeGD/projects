@@ -17,13 +17,9 @@ func get_total_xp_needed(pers : person = null) -> int:
 
 func get_xp_of(lvl : int, pers : person = null) -> int:
 	var amount : int
-	var tens := 0
 	
 	for n in range(1, lvl):
-		var why = n % 10
-		if why == 0: #go up every 10 levels
-			tens += 1
-		amount += xp_per_level[tens]
+		amount += xp_per_level[floor(n/10.0)]
 	
 	if pers != null:
 		amount *= mult_per_pres[pers.stats.prestige]
@@ -43,3 +39,6 @@ func get_xp_to_next_level(pers : person) -> int:
 #	print("current xp of level: ", get_xp_of(get_level(pers), pers))
 #	print("next xp of level: ", get_xp_of(get_level(pers) + 1, pers))
 	return get_xp_of(get_level(pers) + 1, pers) - pers.XP
+
+func get_lvl_text(lvl : int) -> String:
+	return "Level: [[color=" + level_colors[floor(lvl/10.0)] + "]" + str(lvl) + "[/color]]"

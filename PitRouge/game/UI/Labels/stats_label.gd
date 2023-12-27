@@ -21,9 +21,8 @@ func update(a : person):
 		"MS":
 			text = "Mystic Shards: [color=" + C.COLOR_YELLOW + "]" + str(a.mystic_shards) + "[/color]"
 		"LVL":
-			var lvl = level.new().get_level(a)
-			text = "Level: " + str(lvl)
+			var lvl = level.new()
+			text = lvl.get_lvl_text(lvl.get_level(a))
 		"NXP":
-			var xp = a.stats.xp + a.run_stats["xp"] 
 			var nxp = level.new().get_xp_to_next_level(a)
-			text = "Needed XP: [color=" + C.COLOR_AQUA + "]" + str(xp) + "[/color]" 
+			text = "Needed XP: [color=" + C.COLOR_AQUA + "]" + str(nxp) + "[/color]" 

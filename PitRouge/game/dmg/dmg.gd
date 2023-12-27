@@ -3,9 +3,9 @@ extends Node
 func calc(a : person, b : person) -> dmg_data:
 	
 	var dmg := a.selected_item.damage
-	var ap := a.perks
+#	var ap := a.perks
 	var ae := a.effect_node
-	var bp := b.perks
+#	var bp := b.perks
 	var be := b.effect_node
 	
 	#BASE

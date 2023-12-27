@@ -7,7 +7,7 @@ func _ready():
 	SAVE.pers = self
 	call_info()
 	
-	var l = level.new()
+#	var l = level.new()
 #	print(l.get_xp_of(12))
 #	print(l.get_total_xp_needed(self))
 #	print("xp: ", stats.xp)

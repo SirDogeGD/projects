@@ -37,10 +37,10 @@ func update_health(hp : hp_data):
 			add_heart(shield_half)
 
 func add_heart(t):
-	var tr = TextureRect.new()
-	tr.texture = t
-	tr.size_flags_horizontal = SIZE_SHRINK_CENTER
-	tr.size_flags_vertical = SIZE_SHRINK_CENTER
+	var trect = TextureRect.new()
+	trect.texture = t
+	trect.size_flags_horizontal = SIZE_SHRINK_CENTER
+	trect.size_flags_vertical = SIZE_SHRINK_CENTER
 	var grid : GridContainer
 	
 #	make sure there is at least one grid
@@ -56,7 +56,7 @@ func add_heart(t):
 		add_child(grid)
 		move_child(grid, 0)
 	
-	grid.add_child(tr)
+	grid.add_child(trect)
 
 func new_grid():
 	var newgrid = GridContainer.new()

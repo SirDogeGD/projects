@@ -11,7 +11,6 @@ func new_choice():
 	var default := ["SHARP", "PUN", "K_BUST", "PF", "GAB", "BERS", "GUTS", "C_DMG", "C_SHIELD", "C_JAN", "C_CRUSH", "LS", "FSTRIKE"]
 	var pool := default
 	#remove perks player already has maxed
-	var maxed = SAVE.pers.perks.get_maxed()
 	for id in SAVE.pers.perks.get_maxed():
 		pool.erase(id)
 	#remove perks that wont fit into slots
