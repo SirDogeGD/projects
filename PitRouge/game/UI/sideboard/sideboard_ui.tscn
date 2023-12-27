@@ -49,3 +49,8 @@ type = "XP"
 layout_mode = 2
 text = "streak_label"
 type = "Str"
+
+[node name="StatsLabel4" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
+layout_mode = 2
+text = "streak_label"
+type = "LVL"

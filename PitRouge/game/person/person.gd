@@ -22,6 +22,15 @@ var run_stats = {
 	"xp" : 0.0,
 	"kills" : 0
 }
+
+# variables containing stats + run_stats
+var XP:
+	get:
+		return stats.xp + run_stats["xp"]
+var GOLD:
+	get:
+		return stats.gold + run_stats["gold"]
+
 var dmg_taken : Array[dmg_data] = []
 #HP
 var health_max := 20.0

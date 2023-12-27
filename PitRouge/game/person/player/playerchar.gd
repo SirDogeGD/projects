@@ -8,11 +8,11 @@ func _ready():
 	call_info()
 	
 	var l = level.new()
-	print(l.get_total_xp_needed(self))
-	print(l.get_xp_of(1))
-	print(l.get_xp_of(2))
-	print(l.get_xp_of(10))
-	print(l.get_xp_of(15))
+#	print(l.get_xp_of(12))
+#	print(l.get_total_xp_needed(self))
+#	print("xp: ", stats.xp)
+#	print("level: ", l.get_level(self))
+#	print("xp to next level: ", l.get_xp_to_next_level(self))
 
 func _physics_process(delta):
 	
