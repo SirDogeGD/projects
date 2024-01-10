@@ -26,7 +26,7 @@ var run_stats = {
 # variables containing stats + run_stats
 var XP:
 	get:
-		return stats.xp + run_stats["xp"]
+		return clamp(stats.xp + run_stats["xp"], 0, level.new().get_total_xp_needed(self))
 var GOLD:
 	get:
 		return stats.gold + run_stats["gold"]

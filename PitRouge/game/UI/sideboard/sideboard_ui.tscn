@@ -43,7 +43,7 @@ type = "G"
 [node name="StatsLabel2" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
 text = "xp_label"
-type = "XP"
+type = "LVL"
 
 [node name="StatsLabel3" parent="MarginContainer/VBox" instance=ExtResource("1_7768r")]
 layout_mode = 2
