@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/GOLD_INGOT.png-c82cff40d4c2c79acd54afe9a59917
 radius = 99.1262
 
 [node name="pickup" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_3xstd")
 
 [node name="Icon" type="Sprite2D" parent="."]

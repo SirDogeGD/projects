@@ -40,5 +40,8 @@ func get_xp_to_next_level(pers : person) -> int:
 #	print("next xp of level: ", get_xp_of(get_level(pers) + 1, pers))
 	return get_xp_of(get_level(pers) + 1, pers) - pers.XP
 
-func get_lvl_text(lvl : int) -> String:
-	return "Level: [[color=" + level_colors[floor(lvl/10.0)] + "]" + str(lvl) + "[/color]]"
+func get_lvl_text(lvl : int) -> String: #replace DARK GREY with color from Prestige later
+	return "Level: " \
+		+ "[color=" + C.COLOR_DARK_GREY + "][[/color]" \
+		+ "[color=" + level_colors[floor(lvl/10.0)] + "]" + str(lvl) + "[/color]" \
+		+ "[color=" + C.COLOR_DARK_GREY + "]][/color]"

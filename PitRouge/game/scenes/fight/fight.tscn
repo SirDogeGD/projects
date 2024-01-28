@@ -20,9 +20,13 @@ offset = Vector2(100, 0)
 script = ExtResource("4_ib2jg")
 
 [node name="enemy" parent="." instance=ExtResource("2_abcnf")]
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(309, 1346)
 collision_mask = 2
 
 [node name="enemy2" parent="." instance=ExtResource("2_abcnf")]
+z_as_relative = true
+y_sort_enabled = false
 position = Vector2(1760, 829)
 collision_mask = 2

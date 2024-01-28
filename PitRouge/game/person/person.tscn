@@ -204,11 +204,15 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [node name="person" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -112)
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_mowpo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_moo6k")
 texture = ExtResource("1_58ron")
 
