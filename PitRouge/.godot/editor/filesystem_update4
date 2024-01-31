@@ -8,5 +8,5 @@ res://game/pickup/pickup.tscn
 res://game/UI/sideboard/sideboard_ui.tscn
 res://game/person/person.tscn
 res://game/UI/UI.tscn
-res://game/scenes/Lobby/Lobby.gd
-res://game/scenes/fight/fight.gd
+res://game/item/item.gd
+res://addons/sound_manager/sound_manager.gd

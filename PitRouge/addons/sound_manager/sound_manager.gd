@@ -53,8 +53,17 @@ func set_sound_volume(volume_between_0_and_1) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ui_sound_effects.bus), linear_to_db(volume_between_0_and_1))
 
 
-func play_sound(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
-	return sound_effects.play(resource, override_bus)
+func play_sound(resource: AudioStream, override_bus: String = "", volume := 1.0) -> AudioStreamPlayer:
+	return sound_effects.play(resource, override_bus, volume)
+
+
+func play_pos_sound(resource: AudioStream, location : Vector2, override_bus: String = "") -> AudioStreamPlayer:
+	var volume := 1.0
+	var max_distance := 750.0
+	var distance = location.distance_to(get_tree().get_nodes_in_group("player")[0].global_position)
+	distance = clamp(distance, 0, max_distance)
+	volume = 1.0 - distance/max_distance
+	return sound_effects.play(resource, override_bus, volume)
 
 
 func play_sound_with_pitch(resource: AudioStream, pitch: float = 1.0, override_bus: String = "") -> AudioStreamPlayer:
@@ -147,7 +156,6 @@ func set_default_music_bus(bus: String) -> void:
 
 
 ### Helpers
-
 
 func _show_shared_bus_warning() -> void:
 	if music.bus == sound_effects.bus or music.bus == ui_sound_effects.bus:

@@ -136,6 +136,11 @@ func take_dmg(d : dmg_data):
 		shield = 0
 		health -= new_amount
 	health -= d.trudmg
+	
+	#SFX
+	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
+	sfx.shuffle()
+	SOUND.play_sound(sfx[1], "SFX")
 
 func knock_back(source_position: Vector2, damage : dmg_data) -> void:
 	

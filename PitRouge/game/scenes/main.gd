@@ -28,9 +28,9 @@ func switchscene(scene : Node):
 		curScene.remove_child(SAVE.pers)
 	
 	remove_child(curScene)
-	print("old scene: ", curScene.name)
+#	print("old scene: ", curScene.name)
 	curScene = scene
-	print("new scene: ", curScene.name)
+#	print("new scene: ", curScene.name)
 	add_child(curScene)
 	if curScene.has_method("_ready"):
 		curScene._ready()

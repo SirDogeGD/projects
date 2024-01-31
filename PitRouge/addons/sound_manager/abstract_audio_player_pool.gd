@@ -30,7 +30,7 @@ func get_possible_bus(possible_busses: PackedStringArray) -> String:
 				return case
 	return "Master"
 
-func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPlayer:
+func prepare(resource: AudioStream, override_bus: String = "", volume := 1.0) -> AudioStreamPlayer:
 	var audio_player: AudioStreamPlayer
 
 	if resource is AudioStreamRandomizer:
@@ -41,7 +41,7 @@ func prepare(resource: AudioStream, override_bus: String = "") -> AudioStreamPla
 
 	audio_player.stream = resource
 	audio_player.bus = override_bus if override_bus != "" else bus
-	audio_player.volume_db = linear_to_db(1.0)
+	audio_player.volume_db = linear_to_db(1.0 * volume)
 	audio_player.pitch_scale = 1
 	return audio_player
 

@@ -10,7 +10,8 @@ var my_left_sound : AudioStream
 @onready var animation_player := $AnimationPlayer
 
 func left_click():
-	SOUND.play_sound(my_left_sound, "SFX")
+#	SOUND.play_sound(my_left_sound, "SFX")
+	SOUND.play_pos_sound(my_left_sound, self.global_position, "SFX")
 
 func right_click():
 	pass

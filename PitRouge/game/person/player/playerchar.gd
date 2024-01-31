@@ -94,3 +94,10 @@ func all_signals():
 	emit_signal("dash_changed", dash_max, dash_left)
 	hp_signal()
 	effect_node.emit_signal("effects_changed", effect_node.active)
+
+func on_kill(b : person):
+	super.on_kill(b)
+	
+	#SFX
+	var kill_sound = load("res://SFX/fight/kill/orb.ogg")
+	SOUND.play_sound(kill_sound, "SFX")
