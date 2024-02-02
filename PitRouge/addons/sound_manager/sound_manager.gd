@@ -56,7 +56,7 @@ func set_sound_volume(volume_between_0_and_1) -> void:
 func play_sound(resource: AudioStream, override_bus: String = "", volume := 1.0) -> AudioStreamPlayer:
 	return sound_effects.play(resource, override_bus, volume)
 
-
+#play sound based on proximity to player
 func play_pos_sound(resource: AudioStream, location : Vector2, override_bus: String = "") -> AudioStreamPlayer:
 	var volume := 1.0
 	var max_distance := 750.0

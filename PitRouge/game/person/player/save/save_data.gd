@@ -7,6 +7,7 @@ class_name save_data
 @export var kills := 0
 @export var deaths := 0
 @export var renown := 0
+@export var megasave := mega_save.new()
 
 func reset():
 	prestige = 0
@@ -15,6 +16,7 @@ func reset():
 	kills = 0
 	deaths = 0
 	renown = 0
+	megasave = mega_save.new()
 
 func random():
 	reset()

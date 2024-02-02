@@ -16,20 +16,15 @@ var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 #Runstats
-var run_stats = {
-	"streak" : 0.0,
-	"gold" : 0.0,
-	"xp" : 0.0,
-	"kills" : 0
-}
+var run_stats = run_data.new()
 
 # variables containing stats + run_stats
 var XP:
 	get:
-		return clamp(stats.xp + run_stats["xp"], 0, level.new().get_total_xp_needed(self))
+		return clamp(stats.xp + run_stats.xp, 0, level.new().get_total_xp_needed(self))
 var GOLD:
 	get:
-		return stats.gold + run_stats["gold"]
+		return stats.gold + run_stats.gold
 
 var dmg_taken : Array[dmg_data] = []
 #HP
@@ -189,9 +184,9 @@ func on_death():
 	emit_signal("death")
 	
 	#Save to stats
-	stats.gold   += run_stats["gold"]
-	stats.xp     += run_stats["xp"]
-	stats.kills  += run_stats["kills"]
+	stats.gold   += run_stats.gold 
+	stats.xp     += run_stats.xp
+	stats.kills  += run_stats.kills 
 	stats.deaths += 1
 	if is_instance_of(self, player):
 		SAVE.save_data()
@@ -218,8 +213,9 @@ func on_death():
 	shield = 0
 	bounty = 0
 	dmg_taken.clear()
-	for key in run_stats.keys():
-		run_stats[key] = 0
+#	for key in run_stats.keys():
+#		run_stats[key] = 0
+	run_stats.reset()
 #	call_info()
 
 func call_info():
@@ -235,20 +231,20 @@ func add_to_dmg_taken(d : dmg_data):
 		dmg_taken.remove_at(0)
 
 func on_assist(b : person, p : float):
-	run_stats["gold"] += 5 * p/100
-	run_stats["xp"] += 5 * p/100
+	run_stats.gold += 5 * p/100
+	run_stats.xp += 5 * p/100
 	call_info()
 
 func on_kill(b : person):
 	var kr := kill_rewards.new()
 	var r := kr.kill(self, b)
-	run_stats["gold"] += r.gold
-	run_stats["xp"] += r.xp
-	run_stats["kills"] += 1
-	run_stats["streak"] += 1
+	run_stats.gold += r.gold
+	run_stats.xp += r.xp
+	run_stats.kills += 1
+	run_stats.streak += 1
 	call_info()
 
 func be_rewarded(r : rewards_data):
-	run_stats["gold"] += r.gold
-	run_stats["xp"] += r.xp
+	run_stats.gold += r.gold
+	run_stats.xp += r.xp
 	call_info()
