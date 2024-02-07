@@ -47,6 +47,7 @@ func calc(a : person, b : person) -> dmg_data:
 		def *= 0.5
 	
 	#TRUE
+	#true dmg of attacker + true dmg of defender
 	var tru := 0.0
 	#perk true
 	#megastreak true

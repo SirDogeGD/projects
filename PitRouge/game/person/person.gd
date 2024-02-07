@@ -17,6 +17,7 @@ var pushback_force := Vector2.ZERO
 var stats : save_data
 #Runstats
 var run_stats = run_data.new()
+var mega_stats = mega_data.new()
 
 # variables containing stats + run_stats
 var XP:
@@ -71,6 +72,7 @@ func _init():
 func _ready():
 	perks.guy = self #connect perks_slots funcs to self
 	switch_item(0)
+	run_stats.streak_changed.connect(mega_stats.update_data())
 	
 func _physics_process(delta):
 	calc_speed()
