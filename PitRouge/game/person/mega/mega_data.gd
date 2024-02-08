@@ -19,5 +19,9 @@ var def := 0.0
 var tru := 0.0
 var true_def := 0.0
 
-func update_data():
-	print("update data")
+func refresh():
+	mega.new().get_mega_data(self)
+	mega.new().get_streak_data(self)
+
+func update_data(s := 0.0):
+	mega.new().get_streak_data(self, s)

@@ -72,8 +72,9 @@ func _init():
 func _ready():
 	perks.guy = self #connect perks_slots funcs to self
 	switch_item(0)
-	run_stats.streak_changed.connect(mega_stats.update_data())
-	
+	run_stats.streak_changed.connect(mega_stats.update_data)
+	mega_stats.refresh()
+
 func _physics_process(delta):
 	calc_speed()
 	move_and_slide()

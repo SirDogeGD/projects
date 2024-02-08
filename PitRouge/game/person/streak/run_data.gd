@@ -7,7 +7,8 @@ signal streak_changed(s : float)
 
 var streak := 0.0:
 	set(s):
-		streak_changed.emit(s)
+		streak = s
+		streak_changed.emit(streak)
 var gold := 0.0
 var xp := 0.0
 var kills := 0
