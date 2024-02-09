@@ -7,11 +7,14 @@ func calc(a : person, b : person) -> dmg_data:
 	var ae := a.effect_node
 #	var bp := b.perks
 	var be := b.effect_node
+	var am := a.mega_stats 
+	var bm := b.mega_stats
 	
 	#BASE
 	var base := dmg
 	#weakness
-	#megastreak b extra base dmg
+	#megastreak extra base dmg
+	base += am.base + bm.base_taken
 	#base dmg perks
 	base += PERKS.calc("base_dmg", a, b)
 	
@@ -22,15 +25,21 @@ func calc(a : person, b : person) -> dmg_data:
 	#multi perks
 	mult += 1 - PERKS.calc("mult_dmg", a, b)
 	#megastreak dmg boost
+	mult += am.mult
 	
 	#CRIT CHANCE
 	var crit := false
 	var cc := 5.0
+	#megastreak cc
+	cc += am.cc
+	
 	if randf() <= cc / 100:
 		crit = true
 	
 	#CRIT DAMAGE
 	var cd := 1.5
+	#megastreak cd
+	cd += am.cd
 	
 	if crit:
 		dmg *= cd
@@ -51,15 +60,19 @@ func calc(a : person, b : person) -> dmg_data:
 	var tru := 0.0
 	#perk true
 	#megastreak true
+	tru += am.tru + bm.tru_taken
 	
-	#TRUE DEFENCE
+	#TRUE DEFENCE (Subtracts from true dmg)
+	var tru_def := 0.0
 	#effect true def
 	#perk true def
+	#megastreak true def
+	tru_def += bm.tru_def
 	
 	#Calculate
 	var d = dmg_data.new()
 	d.amount = base * mult * def
-	d.trudmg = tru
+	d.trudmg = tru - tru_def
 	d.crit = crit
 	d.attacker = a
 	d.defender = b

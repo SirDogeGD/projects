@@ -16,8 +16,8 @@ var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 #Runstats
-var run_stats = run_data.new()
-var mega_stats = mega_data.new()
+var run_stats := run_data.new()
+var mega_stats := mega_data.new()
 
 # variables containing stats + run_stats
 var XP:
