@@ -33,6 +33,7 @@ func kill_gold():
 	#MULT
 	var mult := 1.0
 	mult *= 1 + pkill("mult_gold")
+	mult *= 1 + a.mega_stats.gboost
 	
 	return base * mult
 
@@ -53,6 +54,7 @@ func kill_xp():
 	#MULT
 	var mult := 1.0
 	mult *= pkill("mult_xp")
+	mult *= 1 + a.mega_stats.xpboost
 	
 	return base * mult
 

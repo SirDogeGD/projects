@@ -1,3 +1,6 @@
 res://game/person/player/playerchar.tscn
 res://game/UI/outline.gdshader
-res://game/dmg/dmg.gd
+res://game/person/mega/mega_handler.gd
+res://game/person/mega/mega_data.gd
+res://game/person/streak/run_data.gd
+res://game/person/person.gd

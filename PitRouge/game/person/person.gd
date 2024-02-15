@@ -50,7 +50,8 @@ var dash_max := 2
 var dash_left := 2: 
 	set(d):
 		dash_left = d
-		emit_signal("dash_changed", dash_max, dash_left)
+#		emit_signal("dash_changed", dash_max, dash_left)
+		dash_changed.emit(dash_max, dash_left)
 var DASH_REGEN_TIME := 5.0
 
 var mystic_shards := 10
@@ -72,6 +73,7 @@ func _init():
 func _ready():
 	perks.guy = self #connect perks_slots funcs to self
 	switch_item(0)
+	mega_stats.guy = self
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
 
@@ -216,9 +218,8 @@ func on_death():
 	shield = 0
 	bounty = 0
 	dmg_taken.clear()
-#	for key in run_stats.keys():
-#		run_stats[key] = 0
 	run_stats.reset()
+	mega_stats.active = false
 #	call_info()
 
 func call_info():
@@ -239,8 +240,7 @@ func on_assist(b : person, p : float):
 	call_info()
 
 func on_kill(b : person):
-	var kr := kill_rewards.new()
-	var r := kr.kill(self, b)
+	var r := kill_rewards.new().kill(self, b)
 	run_stats.gold += r.gold
 	run_stats.xp += r.xp
 	run_stats.kills += 1
