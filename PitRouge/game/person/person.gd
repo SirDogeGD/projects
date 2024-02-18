@@ -76,6 +76,7 @@ func _ready():
 	mega_stats.guy = self
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
+	effect_node.owner = self
 
 func _physics_process(delta):
 	calc_speed()

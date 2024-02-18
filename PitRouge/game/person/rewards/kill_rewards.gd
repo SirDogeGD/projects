@@ -30,6 +30,7 @@ func kill_gold():
 	#BASE
 	var base : float = BASE_GOLD
 	base += pkill("base_gold")
+	base += a.mega_stats.g_on_kill
 	#MULT
 	var mult := 1.0
 	mult *= 1 + pkill("mult_gold")
@@ -41,6 +42,7 @@ func kill_xp():
 	#BASE
 	var base : float = BASE_XP
 	base += pkill("base_xp")
+	base += a.mega_stats.xp_on_kill
 	#Streak
 	var streak = a.run_stats["streak"]
 	var streakBoost := 0.0

@@ -90,7 +90,7 @@ func get_streak_data(m : mega_data, s := 0.0):
 		"HIGH":
 			if m.active:
 				m.gboost = 1.1
-				m.high_vs_bounty = 0.333
+				m.vs_bounty = 0.333
 				#missing death gold + speed
 
 		"OPUS":
@@ -110,11 +110,11 @@ func get_streak_data(m : mega_data, s := 0.0):
 		"UBER":
 			if m.active:
 				m.mult_taken = int(s) * 0.001
-				m.uber_vs_pres_0 = 0.4
+				m.vs_pres_0 = 0.4
 				if s >= 200:
-					m.uber_max_hp = 4
+					m.max_hp = 4
 					if s >= 300:
-						m.uber_effect_dura = 0.5
+						m.effect_dura = 0.5
 						if s >= 400:
 							if m.guy != null:
 								m.guy.on_death()

@@ -26,9 +26,16 @@ func _ready():
 func add_effect(type : String, from, dura : float):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")
 	var new_effect = effect_scene.instantiate()
+	var dura_mult := 1.0
+	
 	new_effect.TYPE = type
 	new_effect.FROM = from
-	new_effect.TIME.wait_time = dura
+	
+	#duration
+	if owner is person:
+		dura_mult *= owner.mega_stats.effect_dura
+	new_effect.TIME.wait_time = dura * dura_mult
+	
 	add_child(new_effect)
 	
 	new_effect.TIME.timeout.connect(remove_effect.bind(new_effect.TYPE))

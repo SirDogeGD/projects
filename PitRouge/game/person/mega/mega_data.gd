@@ -37,12 +37,12 @@ var xp_on_kill := 0.0
 var gboost := 0.0
 var xpboost := 0.0
 #more specific
-var high_vs_bounty := 0.0
+var vs_bounty := 0.0
 var moon_stored_xp := 0.0
 var moon_xp_mult := 0.0
-var uber_vs_pres_0 := 0.0
-var uber_max_hp := 0
-var uber_effect_dura := 1.0
+var vs_pres_0 := 0.0
+var max_hp := 0 #needs signal or something
+var effect_dura := 5.0
 
 func refresh():
 	mega.new().get_mega_data(self)
@@ -69,9 +69,9 @@ func reset_streak_data():
 	gboost = 0.0
 	xpboost = 0.0
 	#more specific
-	high_vs_bounty = 0.0
+	vs_bounty = 0.0
 	moon_stored_xp = 0.0
 	moon_xp_mult = 0.0
-	uber_vs_pres_0 = 0.0
-	uber_max_hp = 0
-	uber_effect_dura = 1.0
+	vs_pres_0 = 0.0
+	max_hp = 0
+	effect_dura = 1.0

@@ -31,11 +31,12 @@ func _process(delta):
 	if picked:
 		global_position = global_position.lerp(target_person.global_position, 0.1)
 		if global_position.distance_to(target_person.global_position) < 20:
-			SOUND.play_sound(ingot_sound, "SFX")
 			pickedUp()
 
 #maybe could have final animation/sound or something
 func pickedUp():
+	if target_person.is_in_group("player"):
+		SOUND.play_pos_sound(ingot_sound, self.global_position, "SFX")
 	handler.pickup(self, target_person)
 	queue_free()
 
