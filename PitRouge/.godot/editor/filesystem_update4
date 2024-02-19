@@ -1,5 +1,5 @@
 res://game/person/player/playerchar.tscn
 res://game/UI/outline.gdshader
-res://game/dmg/dmg.gd
-res://game/person/mega/mega_data.gd
-res://game/person/rewards/kill_rewards.gd
+res://game/person/player/playerchar.gd
+res://game/person/hp/hp_data.gd
+res://game/person/person.gd

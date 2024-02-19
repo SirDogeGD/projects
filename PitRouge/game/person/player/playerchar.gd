@@ -92,7 +92,7 @@ func call_info():
 func all_signals():
 	emit_signal("inv_changed", inv)
 	emit_signal("dash_changed", dash_max, dash_left)
-	hp_signal()
+	health.changed.emit()
 	effect_node.emit_signal("effects_changed", effect_node.active)
 
 func on_kill(b : person):

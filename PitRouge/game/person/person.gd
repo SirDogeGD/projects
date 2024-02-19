@@ -29,19 +29,7 @@ var GOLD:
 
 var dmg_taken : Array[dmg_data] = []
 #HP
-var health_max := 20.0
-var health : float = health_max:
-	set(hp):
-		health = clamp(hp, 0, health_max)
-		if health == 0:
-			on_death()
-		hp_signal()
-#Shield
-var shield_max := 20.0
-var shield := 0.0:
-	set(hp):
-		shield = clamp(hp, 0, shield_max)
-		hp_signal()
+var health := hp_data.new()
 #Bounty
 var bounty_max := 5000
 var bounty := 0
@@ -77,6 +65,8 @@ func _ready():
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
 	effect_node.owner = self
+	health.owner = self
+	health.changed.connect(hp_changed)
 
 func _physics_process(delta):
 	calc_speed()
@@ -126,18 +116,8 @@ func click(key : String, pressed : bool):
 func get_hit(attacker : person, damage : dmg_data) -> void:
 	animation_player.play("hit")
 	add_to_dmg_taken(damage)
-	take_dmg(damage)
+	health.take_dmg(damage)
 	knock_back(attacker.global_position, damage)
-
-func take_dmg(d : dmg_data):
-	if d.amount <= shield: #hit does less damage than the amount of shield left
-		shield -= d.amount
-	else:
-		var new_amount = d.amount - shield #normal case, new_amount because of dmg_taken
-		shield = 0
-		health -= new_amount
-	health -= d.trudmg
-	
 	#SFX
 	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
 	sfx.shuffle()
@@ -179,12 +159,8 @@ func _on_dash_regen_time_timeout():
 	if dash_left < dash_max:
 		dash_regen.start()
 
-func hp_signal():
-	var hp = hp_data.new()
-	hp.curHP = health
-	hp.maxHP = health_max
-	hp.curSH = shield
-	emit_signal("health_changed", hp)
+func hp_changed():
+	health_changed.emit(health)
 
 func on_death():
 	emit_signal("death")
@@ -196,7 +172,6 @@ func on_death():
 	stats.deaths += 1
 	if is_instance_of(self, player):
 		SAVE.save_data()
-		
 	
 	#Determine killer / assists
 	var killer := dmg_taken[-1].attacker #last person to do dmg
@@ -211,12 +186,11 @@ func on_death():
 	killer.on_kill(self)
 	for pers in all_dmg.keys():
 		if not pers == killer:
-			pers.on_assist(self, all_dmg[pers] / self.health_max * 100)
+			pers.on_assist(self, all_dmg[pers] / self.health.maxHP * 100)
 	
 	#Reset stuff
 	perks.clear()
-	health = health_max
-	shield = 0
+	health.reset()
 	bounty = 0
 	dmg_taken.clear()
 	run_stats.reset()
@@ -232,7 +206,7 @@ func add_to_dmg_taken(d : dmg_data):
 	var totaldmg := 0.0
 	for e in dmg_taken:
 		totaldmg += e.amount + e.trudmg
-	if totaldmg > health_max:
+	if totaldmg > health.maxHP:
 		dmg_taken.remove_at(0)
 
 func on_assist(b : person, p : float):
