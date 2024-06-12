@@ -1,5 +1,16 @@
 res://game/person/player/playerchar.tscn
 res://game/UI/outline.gdshader
-res://game/person/player/playerchar.gd
 res://game/person/hp/hp_data.gd
+res://game/scenes/fight/fight.gd
+res://game/scenes/main.tscn
+res://game/scenes/fight/fight.tscn
+res://game/scenes/Lobby/Lobby.tscn
+res://game/scenes/Lobby/hole.tscn
+res://game/pickup/pickup.tscn
+res://game/UI/sideboard/sideboard_ui.tscn
+res://game/person/person.tscn
+res://game/UI/UI.tscn
+res://game/person/player/save/save_data.gd
+res://game/person/mega/mega_save.gd
+res://game/scenes/main.gd
 res://game/person/person.gd

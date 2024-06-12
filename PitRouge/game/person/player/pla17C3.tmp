@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgwh7rcuftx80"]
+
+[ext_resource type="PackedScene" uid="uid://xa1m0jd8rand" path="res://game/person/person.tscn" id="1_xewhp"]
+[ext_resource type="Script" path="res://game/person/player/playerchar.gd" id="2_xmjjb"]
+[ext_resource type="Shader" path="res://game/person/person.gdshader" id="3_gw1v0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6l3a"]
+resource_local_to_scene = true
+shader = ExtResource("3_gw1v0")
+shader_parameter/active = false
+
+[node name="player" groups=["player"] instance=ExtResource("1_xewhp")]
+script = ExtResource("2_xmjjb")
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource("ShaderMaterial_g6l3a")

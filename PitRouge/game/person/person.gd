@@ -65,7 +65,8 @@ func _ready():
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
 	effect_node.owner = self
-	health.owner = self
+	health.guy = self
+	print(self, " ", health, " ", health.guy)
 	health.changed.connect(hp_changed)
 
 func _physics_process(delta):
@@ -163,7 +164,8 @@ func hp_changed():
 	health_changed.emit(health)
 
 func on_death():
-	emit_signal("death")
+	print("death!")
+	death.emit()
 	
 	#Save to stats
 	stats.gold   += run_stats.gold 

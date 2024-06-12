@@ -3,6 +3,7 @@ class_name hp_data
 
 signal changed
 
+var guy : person
 var maxHP := 20:
 	set(hp):
 		maxHP = hp
@@ -10,8 +11,10 @@ var maxHP := 20:
 var curHP : float = maxHP:
 	set(hp):
 		curHP = clamp(hp, 0, maxHP)
-		if curHP == 0 and owner is person:
-			owner.on_death()
+		print(curHP, " ", guy)
+		if curHP == 0 and guy != null:
+			print("why not work???")
+			guy.on_death()
 		changed.emit()
 var maxSH := 5
 var curSH : float:
