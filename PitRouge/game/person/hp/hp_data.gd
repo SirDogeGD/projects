@@ -11,9 +11,7 @@ var maxHP := 20:
 var curHP : float = maxHP:
 	set(hp):
 		curHP = clamp(hp, 0, maxHP)
-		print(curHP, " ", guy)
 		if curHP == 0 and guy != null:
-			print("why not work???")
 			guy.on_death()
 		changed.emit()
 var maxSH := 5

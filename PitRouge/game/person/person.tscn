@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://xa1m0jd8rand"]
+[gd_scene load_steps=25 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
 [ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
 [ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
 [ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
+[ext_resource type="Script" path="res://game/person/FeetArea.gd" id="5_dkdsu"]
 [ext_resource type="Script" path="res://game/person/person_Radii.gd" id="5_iihim"]
 [ext_resource type="PackedScene" uid="uid://doydj0kk6whkf" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
 [ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="6_sxh38"]
@@ -16,6 +17,10 @@ shader_parameter/active = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4p7mr"]
 radius = 64.0
+height = 224.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgp8j"]
+radius = 40.0
 height = 224.0
 
 [sub_resource type="Animation" id="Animation_pufwf"]
@@ -210,21 +215,31 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_moo6k")
 texture = ExtResource("1_58ron")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4p7mr")
+debug_color = Color(0.948772, 3.65794e-06, 0.576708, 0.42)
+
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("3_vy38s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_4p7mr")
 
+[node name="FeetArea" type="Area2D" parent="."]
+collision_layer = 13
+collision_mask = 13
+script = ExtResource("5_dkdsu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
+position = Vector2(0, 96)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bgp8j")
+debug_color = Color(0.794759, 0.425233, 0, 0.42)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_68bk2")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_4p7mr")
 
 [node name="Particles" type="Node2D" parent="."]
 
@@ -296,4 +311,6 @@ material = SubResource("ShaderMaterial_hklv2")
 position = Vector2(360, 0)
 texture = ExtResource("1_58ron")
 
+[connection signal="body_entered" from="FeetArea" to="FeetArea" method="_on_body_entered"]
+[connection signal="body_exited" from="FeetArea" to="FeetArea" method="_on_body_exited"]
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]

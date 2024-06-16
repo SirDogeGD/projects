@@ -9,10 +9,12 @@ height = 266.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yda0p"]
 load_path = "res://.godot/imported/hole.png-9f34cffee4aecf08592d9a65b020f500.ctex"
 
-[node name="Hole" type="Area2D"]
+[node name="Hole" type="Area2D" groups=["floor"]]
 z_index = -1
 y_sort_enabled = true
 position = Vector2(992, 580)
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_inmqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

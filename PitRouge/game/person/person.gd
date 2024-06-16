@@ -66,7 +66,6 @@ func _ready():
 	mega_stats.refresh()
 	effect_node.owner = self
 	health.guy = self
-	print(self, " ", health, " ", health.guy)
 	health.changed.connect(hp_changed)
 
 func _physics_process(delta):
@@ -164,7 +163,6 @@ func hp_changed():
 	health_changed.emit(health)
 
 func on_death():
-	print("death!")
 	death.emit()
 	
 	#Save to stats
@@ -197,7 +195,7 @@ func on_death():
 	dmg_taken.clear()
 	run_stats.reset()
 	mega_stats.active = false
-#	call_info()
+	call_info()
 
 func call_info():
 	pass
