@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://game/scenes/Lobby/hole.gd" id="1_inmqd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fo4yf"]
-radius = 18.0
-height = 266.0
+radius = 33.0
+height = 316.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yda0p"]
 load_path = "res://.godot/imported/hole.png-9f34cffee4aecf08592d9a65b020f500.ctex"
@@ -36,4 +36,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CompressedTexture2D_yda0p")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
