@@ -44,6 +44,7 @@ func pickedUp():
 func _on_despawn_timer_timeout():
 	queue_free()
 
+#moves pickups randomly based on current pos
 func random_pos(r := 200):
 	var rng := RandomNumberGenerator.new()
 	var x = rng.randf_range(-r, r)

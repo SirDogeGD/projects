@@ -1,12 +1,10 @@
 extends Node
 
-@onready var rng := RandomNumberGenerator.new()
 @onready var pickupScene := preload("res://game/pickup/pickup.tscn")
 
-var tickspeed := 2.000
-
-func _ready():
-	%Timer.wait_time = tickspeed
+var tickspeed := 2.000:
+	set(t):
+		%Timer.wait_time = t
 
 func _process(delta):
 	pass

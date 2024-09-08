@@ -1,3 +1,4 @@
+res://game/person/enemy/EnemySpawner
 res://.godot/imported
 res://addons/sound_manager
 res://game/scenes
@@ -19,4 +20,3 @@ res://game/item/weapon/melee
 res://game/item
 res://img/particles
 res://game/person/enemy
-res://game/person

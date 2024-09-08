@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ddy6llry5xy"]
+[gd_scene load_steps=6 format=3 uid="uid://b4ddy6llry5xy"]
 
 [ext_resource type="Script" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
 [ext_resource type="Script" path="res://game/scenes/fight/CameraController.gd" id="4_ib2jg"]
+[ext_resource type="PackedScene" uid="uid://cqeukwokg30rt" path="res://game/person/enemy/EnemySpawner/enemy_spawner.tscn" id="5_2ecen"]
 [ext_resource type="PackedScene" uid="uid://cwtpdwqfillym" path="res://game/pickup/pickupSpawner.tscn" id="5_dhhpx"]
 
 [node name="fight" type="Node2D"]
@@ -30,3 +31,6 @@ z_as_relative = true
 y_sort_enabled = false
 position = Vector2(1760, 829)
 collision_mask = 2
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_2ecen")]
+unique_name_in_owner = true

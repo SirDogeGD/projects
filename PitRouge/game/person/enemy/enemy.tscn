@@ -16,16 +16,16 @@ radius = 900.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hjn65"]
 radius = 353.452
 
-[node name="enemy" instance=ExtResource("1_p0t72")]
+[node name="enemy" groups=["enemy"] instance=ExtResource("1_p0t72")]
 script = ExtResource("2_3awlk")
 
 [node name="Sprite" parent="." index="0"]
 material = SubResource("ShaderMaterial_58osx")
 
-[node name="HurtBox" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="HurtBox" parent="." index="2"]
 visible = false
 
 [node name="DetectRadius" type="Area2D" parent="Radii" index="0"]
