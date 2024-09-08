@@ -2,6 +2,8 @@ extends Node2D
 
 signal jumpdown
 
+var has_hole := false
+
 @onready var p : player = SAVE.pers
 @onready var holeScene := preload("res://game/scenes/Lobby/hole.tscn")
 @onready var h : hole = holeScene.instantiate()
@@ -12,8 +14,10 @@ func _ready():
 		add_child(p)
 	in_signals()
 	#Add Hole
-	add_child(h)
-	h.signal_entered.connect(_on_hole_entered)
+	if not has_hole:
+		add_child(h)
+		has_hole = true
+		h.signal_entered.connect(_on_hole_entered)
 	
 	p.position = %Spawnpos.position
 #	print("lobby ready")

@@ -20,8 +20,8 @@ radius = 64.0
 height = 224.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgp8j"]
-radius = 40.0
-height = 224.0
+radius = 16.0
+height = 144.0
 
 [sub_resource type="Animation" id="Animation_pufwf"]
 length = 0.001
@@ -311,6 +311,7 @@ material = SubResource("ShaderMaterial_hklv2")
 position = Vector2(360, 0)
 texture = ExtResource("1_58ron")
 
+[connection signal="area_entered" from="FeetArea" to="FeetArea" method="_on_area_entered"]
 [connection signal="body_entered" from="FeetArea" to="FeetArea" method="_on_body_entered"]
 [connection signal="body_exited" from="FeetArea" to="FeetArea" method="_on_body_exited"]
 [connection signal="timeout" from="Timers/DashRegenTime" to="." method="_on_dash_regen_time_timeout"]
