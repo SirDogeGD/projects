@@ -79,6 +79,7 @@ func accelerate(acceleration_vector):
 
 func on_death():
 	super.on_death()
+	self.queue_free()
 	#respawn()
 
 func _on_AttackRadius_body_entered(body : person):

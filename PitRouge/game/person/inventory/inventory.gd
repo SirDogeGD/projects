@@ -17,9 +17,9 @@ func add(new: item):
 
 func scroll(up : bool):
 	if up:
-		selected += 1 if selected < size else 0
+		selected = selected + 1 if selected < size else 0
 	else:
-		selected -= 1 if selected > 0 else 8
+		selected = selected - 1 if selected > 0 else 8
 	return selected
 
 func select(num : int):

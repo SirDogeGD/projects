@@ -4,11 +4,12 @@ res://game/scenes/fight/fight.tscn
 res://game/person/player/playerchar.tscn
 res://game/scenes/Lobby/hole.tscn
 res://game/person/person.tscn
-res://game/pickup/pickupSpawner.gd
-res://game/pickup/pickup.gd
-res://game/person/enemy/EnemySpawner/enemy_spawner.tscn
-res://game/person/enemy/EnemySpawner/enemy_spawner.gd
 res://game/pickup/pickupSpawner.tscn
+res://game/person/enemy/EnemySpawner/enemy_spawner.tscn
 res://game/person/enemy/enemy.tscn
 res://game/pickup/pickup.tscn
+res://game/person/person.gd
+res://game/person/inventory/inventory.gd
+res://game/person/enemy/EnemySpawner/enemy_spawner.gd
 res://game/person/enemy/enemy.gd
+res://game/scenes/Lobby/hole.gd
