@@ -8,7 +8,7 @@ load_path = "res://.godot/imported/GOLD_INGOT.png-c82cff40d4c2c79acd54afe9a59917
 [sub_resource type="CircleShape2D" id="CircleShape2D_dx24p"]
 radius = 99.1262
 
-[node name="pickup" type="Node2D"]
+[node name="pickup" type="Node2D" groups=["pickup"]]
 y_sort_enabled = true
 script = ExtResource("1_3xstd")
 

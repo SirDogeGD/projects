@@ -29,11 +29,10 @@ func spawn():
 	owner.add_child(e)
 
 func _on_timer_timeout():
-	print("enemy spawned")
 	spawn()
 	despawn_far_enemy()
 
 func despawn_far_enemy():
 	for en in get_tree().get_nodes_in_group("enemy"):
 		if SAVE.pers.global_position.distance_to(en.global_position) > 3000:
-			pass
+			en.queue_free()

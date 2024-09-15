@@ -22,8 +22,8 @@ func new_choice():
 	pool.shuffle()
 	
 	#remove containers
-	for c in %ChoiceContainer.get_children():
-		c.queue_free()
+	for c : perkchoose in %ChoiceContainer.get_children():
+		c.call_deferred("queue_free")
 	
 	var choices = min(3, pool.size())
 	for n in range(choices):

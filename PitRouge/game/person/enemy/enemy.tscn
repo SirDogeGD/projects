@@ -22,9 +22,6 @@ script = ExtResource("2_3awlk")
 [node name="Sprite" parent="." index="0"]
 material = SubResource("ShaderMaterial_58osx")
 
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
-
 [node name="HurtBox" parent="." index="2"]
 visible = false
 
@@ -33,6 +30,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radii/DetectRadius" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_d6hv7")
 debug_color = Color(0.85098, 0.72549, 0.254902, 0.0313726)
 
@@ -41,6 +39,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radii/AttackRadius" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_hjn65")
 debug_color = Color(0.678431, 0.0627451, 0.227451, 0)
 

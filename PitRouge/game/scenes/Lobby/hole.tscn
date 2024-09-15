@@ -18,6 +18,7 @@ collision_mask = 13
 script = ExtResource("1_inmqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_fo4yf")
 

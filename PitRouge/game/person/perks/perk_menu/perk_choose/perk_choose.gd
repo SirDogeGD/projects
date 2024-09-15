@@ -7,6 +7,7 @@ signal no_shards(id : String)
 
 var id := "BARB"
 var data : perk_data
+var is_chosen := false
 
 func _ready():
 	pass
@@ -26,6 +27,7 @@ func _on_click(event):
 			if SAVE.pers.perks.slot_not_full(id):
 				SAVE.pers.perks.add(id)
 				SAVE.pers.mystic_shards -= 1
+				is_chosen = true
 				emit_signal("chosen", id)
 			else:
 				emit_signal("no_space", id)
@@ -37,7 +39,8 @@ func _on_mouse_entered():
 	%Panel.material = m #add outline
 
 func _on_mouse_exited():
-	%Panel.material = null #remove outline
+	if not is_chosen:
+		%Panel.material = null #remove outline
 
 func _on_visibility_changed():
 	if not visible:

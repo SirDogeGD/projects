@@ -128,6 +128,7 @@ region_enabled = true
 script = ExtResource("3_84h7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+visible = false
 position = Vector2(-44, 0)
 shape = SubResource("RectangleShape2D_2nle8")
 disabled = true

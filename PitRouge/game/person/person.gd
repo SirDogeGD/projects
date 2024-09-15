@@ -185,7 +185,7 @@ func on_death():
 	#Activate kill/assists
 	killer.on_kill(self)
 	for pers in all_dmg.keys():
-		if not pers == killer:
+		if not pers == killer and not pers == null:
 			pers.on_assist(self, all_dmg[pers] / self.health.maxHP * 100)
 	
 	#Reset stuff

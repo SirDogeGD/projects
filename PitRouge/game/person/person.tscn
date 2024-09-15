@@ -216,13 +216,14 @@ material = SubResource("ShaderMaterial_moo6k")
 texture = ExtResource("1_58ron")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_4p7mr")
-debug_color = Color(0.948772, 3.65794e-06, 0.576708, 0.42)
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("3_vy38s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 shape = SubResource("CapsuleShape2D_4p7mr")
 
 [node name="FeetArea" type="Area2D" parent="."]
@@ -231,6 +232,7 @@ collision_mask = 13
 script = ExtResource("5_dkdsu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeetArea"]
+visible = false
 position = Vector2(0, 96)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bgp8j")
