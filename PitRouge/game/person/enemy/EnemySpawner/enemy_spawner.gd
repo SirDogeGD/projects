@@ -27,6 +27,8 @@ func spawn():
 					
 	e.global_position = spawn_position
 	owner.add_child(e)
+	
+	tickspeed = new_time()
 
 func _on_timer_timeout():
 	spawn()
@@ -36,3 +38,11 @@ func despawn_far_enemy():
 	for en in get_tree().get_nodes_in_group("enemy"):
 		if SAVE.pers.global_position.distance_to(en.global_position) > 3000:
 			en.queue_free()
+
+#update enemy spawn rate
+func new_time() -> float:
+	var min_timer_speed = 0.1
+	var max_timer_speed = 10.0
+	var streak_factor = 0.05
+	var streak = SAVE.pers.run_stats.streak
+	return max(max_timer_speed - streak * streak_factor, min_timer_speed)

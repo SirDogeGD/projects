@@ -38,4 +38,3 @@ func in_signals():
 
 func out_signals():
 	p.all_signals()
-
