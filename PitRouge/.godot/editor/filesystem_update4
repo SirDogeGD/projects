@@ -1,5 +1,9 @@
 res://game/pickup/pickup.tscn
 res://game/person/person.gdshader
 res://game/UI/outline.gdshader
-res://game/person/enemy/EnemySpawner/enemy_spawner.gd
-res://game/scenes/Lobby/Lobby.gd
+res://game/person/perks/perks.gd
+res://game/dmg/dmg.gd
+res://game/person/person.gd
+res://game/box/HurtBox.gd
+res://game/person/player/playerchar.tscn
+res://game/person/rewards/kill_rewards.gd

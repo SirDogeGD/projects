@@ -34,6 +34,8 @@ func calc(a : person, b : person) -> dmg_data:
 	#CRIT CHANCE
 	var crit := false
 	var cc := 5.0
+	#cc perks
+	cc += PERKS.calc("cc", a, b)
 	#megastreak cc
 	cc += am.cc
 	

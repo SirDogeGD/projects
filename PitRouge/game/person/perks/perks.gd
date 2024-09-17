@@ -6,7 +6,7 @@ var a : person
 var b : person
 
 #Get values of single stuff (like Sweaty)
-func get_value(a : person, id : String, num := 1) -> float:
+func get_value(a : person, id : String, num := 0) -> float:
 	lvl = a.perks.count(id)
 	if lvl >= 1:
 		return get_num(id, num)
@@ -101,7 +101,9 @@ func calc_base_def(id : String):
 
 func calc_cc(id : String):
 	var add := get_num(id)
-	num = add
+	match id:
+		"BERS":
+			num += add
 
 func calc_cd(id : String):
 	var add := get_num(id)
@@ -137,3 +139,13 @@ func can_block(a : person) -> bool:
 		if a.perks.count(no_block_perk) > 0:
 			return false
 	return true
+
+#handle perks that activate on hit
+func on_hit(a : person, b : person, d : dmg_data):
+	var ls_val := get_value(a, "LS")
+	a.health.curHP += d.amount * ls_val / 100
+
+#handle perks that activate on kill
+func on_kill(a : person, b : person):
+	var guts_val := get_value(a, "GUTS")
+	a.health.curHP += guts_val

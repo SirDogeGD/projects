@@ -113,17 +113,20 @@ func click(key : String, pressed : bool):
 			else:
 				selected_item.stop_right_click()
 
+func on_hit(defender : person, damage : dmg_data) -> void:
+	#SFX
+	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
+	sfx.shuffle()
+	#SOUND.play_sound(sfx[1], "SFX")
+	SOUND.play_pos_sound(sfx[1], self.global_position, "SFX")
+
 func get_hit(attacker : person, damage : dmg_data) -> void:
 	animation_player.play("hit")
 	add_to_dmg_taken(damage)
 	health.take_dmg(damage)
-	knock_back(attacker.global_position, damage)
-	#SFX
-	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
-	sfx.shuffle()
-	SOUND.play_sound(sfx[1], "SFX")
+	take_knock_back(attacker.global_position, damage)
 
-func knock_back(source_position: Vector2, damage : dmg_data) -> void:
+func take_knock_back(source_position: Vector2, damage : dmg_data) -> void:
 	
 	var hit_particles := $Particles/HitParticles
 	var crit_particles := $Particles/CritParticles

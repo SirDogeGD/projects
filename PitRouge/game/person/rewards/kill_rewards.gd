@@ -59,4 +59,3 @@ func kill_xp():
 	mult *= 1 + a.mega_stats.xpboost
 	
 	return base * mult
-
