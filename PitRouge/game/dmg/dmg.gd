@@ -82,4 +82,5 @@ func calc(a : person, b : person) -> dmg_data:
 	d.crit = crit
 	d.attacker = a
 	d.defender = b
+	
 	return d

@@ -116,6 +116,8 @@ func click(key : String, pressed : bool):
 func on_hit(defender : person, damage : dmg_data) -> void:
 	#SFX
 	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
+	if damage.crit:
+		sfx = [load("res://SFX/fight/hit/hit_4.mp3"), load("res://SFX/fight/hit/hit_5.mp3")]
 	sfx.shuffle()
 	#SOUND.play_sound(sfx[1], "SFX")
 	SOUND.play_pos_sound(sfx[1], self.global_position, "SFX")
