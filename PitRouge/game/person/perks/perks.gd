@@ -65,20 +65,24 @@ func calc_mult_dmg(id : String):
 		"SHARP":
 			num += add
 		"PUN":
-			if b.health <= b.health_max/2:
+			if b.health.curHP <= b.health.maxHP/2:
 				num += add
 		"K_BUST":
-			if b.health >= b.health_max/2:
+			if b.health.curHP >= b.health.maxHP/2:
 				num += add
 		"PF":
-			for n in range(a.health_max - a.health):
+			for n in range(a.health.maxHP - a.health.curHP):
 				num += add
 		"GAB":
-			if a.shield > 0:
+			for n in range(a.health.curSH):
 				num += add
-		#"C_DMG":
+		"C_DMG":
+			if a.effect_node.get_boost("C_DMG") >= 4:
+				print("YIPPIE ", add)
+				a.effect_node.clear_effect("C_DMG")
+				num += add
 		"FSTRIKE":
-			if b.health >= b.health_max * 0.95:
+			if b.health.curHP >= b.health.maxHPx * 0.95:
 				num += add
 		"BHUNT":
 			var buff = b.bounty / 100 * add
@@ -143,9 +147,16 @@ func can_block(a : person) -> bool:
 #handle perks that activate on hit
 func on_hit(a : person, b : person, d : dmg_data):
 	var ls_val := get_value(a, "LS")
-	a.health.curHP += d.amount * ls_val / 100
+	if ls_val != 0:
+		a.health.curHP += d.amount * ls_val / 100
+#	COMBO
+	var c_dmg_val := get_value(a, "C_DMG")
+	if c_dmg_val != 0:
+		print("C_DMG EFFECT ADDED")
+		a.effect_node.add_effect("C_DMG", 5)
 
 #handle perks that activate on kill
 func on_kill(a : person, b : person):
 	var guts_val := get_value(a, "GUTS")
-	a.health.curHP += guts_val
+	if guts_val != 0:
+		a.health.curHP += guts_val

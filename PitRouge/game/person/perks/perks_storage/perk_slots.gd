@@ -75,9 +75,9 @@ func get_uniques(want := "ALL") -> Array:
 	var uniques : Array
 	for type in slots.keys():
 		if want in ["ALL", type]: #get all or only get of one type
-			uniques = slots[type].keys()
-#			for id in slots[type].keys():
-#				uniques.append(id)
+			#uniques += slots[type].keys()
+			for id in slots[type].keys():
+				uniques.append(id)
 	return uniques
 
 func get_maxed() -> Array:

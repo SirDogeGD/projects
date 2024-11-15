@@ -13,17 +13,17 @@ var active := {
 	}
 
 func _ready():
-	add_effect("RES", "test", 50)
-	add_effect("RES", "test", 50)
-	add_effect("REG", "test", 15)
-	add_effect("REG", "test", 10)
-	add_effect("REG", "test", 10)
-	add_effect("STRENGTH", "test", 7)
-	add_effect("STRENGTH", "test", 7)
-	add_effect("SPEED", "test", 5)
-	add_effect("SPEED", "test", 5)
+	add_effect("RES", 50)
+	add_effect("RES", 50)
+	add_effect("REG", 15)
+	add_effect("REG", 10)
+	add_effect("REG", 10)
+	add_effect("STRENGTH", 7)
+	add_effect("STRENGTH", 7)
+	add_effect("SPEED", 5)
+	add_effect("SPEED", 5)
 
-func add_effect(type : String, from, dura : float):
+func add_effect(type : String, dura : float, from := "self"):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")
 	var new_effect = effect_scene.instantiate()
 	var dura_mult := 1.0
@@ -41,12 +41,23 @@ func add_effect(type : String, from, dura : float):
 	new_effect.TIME.timeout.connect(remove_effect.bind(new_effect.TYPE))
 	
 	#add to active
-	active[type] += 1
+	if active.has(type):
+		active[type] += 1
+	else:
+		active[type] = 1
 	emit_signal("effects_changed", active)
 
 #remove from active
 func remove_effect(type):
 	active[type] = max(0, active[type] - 1)
+	emit_signal("effects_changed", active)
+
+#remove all effects from active
+func clear_effect(type):
+	for e : effect in get_children():
+		if e.TYPE == type:
+			e.queue_free()
+	active[type] = 0
 	emit_signal("effects_changed", active)
 
 func get_boost(type : String) -> float:
@@ -58,4 +69,6 @@ func get_boost(type : String) -> float:
 		"STRENGTH":
 			return float(active[type]) / 20 #1 strength = 5% more dmg
 		_:
-			return active[type]
+			if active.has(type):
+				return float(active[type])
+			return 0

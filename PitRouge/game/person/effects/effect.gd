@@ -9,7 +9,8 @@ func _ready():
 	TIME.timeout.connect(end)
 	TIME.one_shot = true
 	add_child(TIME)
-	TIME.start()
+	if TIME.time_left != 0:
+		TIME.start()
 
 func end():
 	queue_free()

@@ -114,6 +114,7 @@ func click(key : String, pressed : bool):
 				selected_item.stop_right_click()
 
 func on_hit(defender : person, damage : dmg_data) -> void:
+	PERKS.on_hit(self, defender, damage)
 	#SFX
 	var sfx := [load("res://SFX/fight/hit/hit_1.ogg"), load("res://SFX/fight/hit/hit_2.ogg"), load("res://SFX/fight/hit/hit_3.ogg")]
 	if damage.crit:
@@ -220,6 +221,8 @@ func on_assist(b : person, p : float):
 	call_info()
 
 func on_kill(b : person):
+	PERKS.on_kill(self, b)
+#	rewards
 	var r := kill_rewards.new().kill(self, b)
 	run_stats.gold += r.gold
 	run_stats.xp += r.xp
