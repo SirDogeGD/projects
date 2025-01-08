@@ -78,11 +78,10 @@ func calc_mult_dmg(id : String):
 				num += add
 		"C_DMG":
 			if a.effect_node.get_boost("C_DMG") >= 4:
-				print("YIPPIE ", add)
 				a.effect_node.clear_effect("C_DMG")
 				num += add
 		"FSTRIKE":
-			if b.health.curHP >= b.health.maxHPx * 0.95:
+			if b.health.curHP >= b.health.maxHP * 0.95:
 				num += add
 		"BHUNT":
 			var buff = b.bounty / 100 * add
@@ -149,11 +148,21 @@ func on_hit(a : person, b : person, d : dmg_data):
 	var ls_val := get_value(a, "LS")
 	if ls_val != 0:
 		a.health.curHP += d.amount * ls_val / 100
-#	COMBO
-	var c_dmg_val := get_value(a, "C_DMG")
-	if c_dmg_val != 0:
-		print("C_DMG EFFECT ADDED")
-		a.effect_node.add_effect("C_DMG", 5)
+#	add COMBO
+	for c_perk in PINFO.get_combo_perks():
+		var c_val := get_value(a, c_perk)
+		if c_val != 0:
+			a.effect_node.add_effect(c_perk, 5)
+	
+	if a.effect_node.get_boost("C_SHIELD") >= 4:
+		a.effect_node.clear_effect("C_SHIELD")
+		a.health.curSH += get_value(a, "C_SHIELD")
+	
+	if a.effect_node.get_boost("C_CRUSH") >= 4:
+		a.effect_node.clear_effect("C_CRUSH")
+		var nums = [get_value(a, "C_CRUSH"), get_value(a, "C_CRUSH", 1)]
+		for i in range(nums[0]):
+			b.effect_node.add_effect("WEAK", nums[1])
 
 #handle perks that activate on kill
 func on_kill(a : person, b : person):

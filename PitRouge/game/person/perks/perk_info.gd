@@ -147,3 +147,6 @@ func timer_perks(id : String) -> int:
 
 func get_pic(id : String) -> Texture:
 	return load("res://img/perks/perk_" + id + ".png")
+
+func get_combo_perks() -> Array[String]:
+	return ['C_DMG', 'C_SHIELD', 'C_CRUSH']
