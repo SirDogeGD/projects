@@ -162,10 +162,14 @@ func on_hit(a : person, b : person, d : dmg_data):
 		a.effect_node.clear_effect("C_CRUSH")
 		var nums = [get_value(a, "C_CRUSH"), get_value(a, "C_CRUSH", 1)]
 		for i in range(nums[0]):
-			b.effect_node.add_effect("WEAK", nums[1])
+			b.effect_node.add_effect("WEAK", nums[1], a.name)
 
 #handle perks that activate on kill
 func on_kill(a : person, b : person):
 	var guts_val := get_value(a, "GUTS")
 	if guts_val != 0:
 		a.health.curHP += guts_val
+	
+	var jan_val := get_value(a, "C_JAN")
+	if jan_val != 0:
+		a.effect_node.add_effect("RES", get_value(a, "C_JAN", 1))
