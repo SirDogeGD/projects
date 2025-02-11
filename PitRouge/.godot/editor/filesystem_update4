@@ -1,4 +1,9 @@
 res://game/person/effects/effect.tscn
 res://game/person/person.gdshader
 res://game/UI/outline.gdshader
+res://game/person/streak/bounty_handler.gd
+res://game/person/person.gd
+res://game/person/streak/run_data.gd
+res://game/dmg/dmg.gd
 res://game/person/perks/perks.gd
+res://game/person/person.tscn

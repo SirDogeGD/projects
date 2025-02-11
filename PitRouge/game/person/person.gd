@@ -30,9 +30,6 @@ var GOLD:
 var dmg_taken : Array[dmg_data] = []
 #HP
 var health := hp_data.new()
-#Bounty
-var bounty_max := 5000
-var bounty := 0
 #Dashes
 var dash_max := 2
 var dash_left := 2: 
@@ -197,7 +194,6 @@ func on_death():
 	#Reset stuff
 	perks.clear()
 	health.reset()
-	bounty = 0
 	dmg_taken.clear()
 	run_stats.reset()
 	mega_stats.active = false
@@ -228,6 +224,7 @@ func on_kill(b : person):
 	run_stats.xp += r.xp
 	run_stats.kills += 1
 	run_stats.streak += 1
+	bountyHandler.new().bump(self, b)
 	call_info()
 
 func be_rewarded(r : rewards_data):

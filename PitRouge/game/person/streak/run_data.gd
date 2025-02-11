@@ -11,9 +11,11 @@ var streak := 0.0:
 var gold := 0.0
 var xp := 0.0
 var kills := 0
+var bounty := 0
 
 func reset():
 	streak = 0
 	gold = 0
 	xp = 0
 	kills = 0
+	bounty = 0

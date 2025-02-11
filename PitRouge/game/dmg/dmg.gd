@@ -26,7 +26,7 @@ func calc(a : person, b : person) -> dmg_data:
 	mult += 1 - PERKS.calc("mult_dmg", a, b)
 	#megastreak dmg boost
 	mult += am.mult
-	if b.bounty > 0:
+	if b.run_stats.bounty > 0:
 		mult += am.vs_bounty
 	if b.stats.prestige == 0:
 		mult += am.vs_pres_0

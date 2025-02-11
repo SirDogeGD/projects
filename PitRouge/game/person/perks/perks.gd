@@ -84,7 +84,7 @@ func calc_mult_dmg(id : String):
 			if b.health.curHP >= b.health.maxHP * 0.95:
 				num += add
 		"BHUNT":
-			var buff = b.bounty / 100 * add
+			var buff = b.run_stats.bounty / 100 * add
 			if "HTH" in b.perks:
 				buff *= PINFO.perkinfo("HTH", a).nums[b.perks.count("HTH")][0]
 			num += buff
@@ -96,10 +96,10 @@ func calc_base_def(id : String):
 		"DIA_BOOT", "DIA_CHEST":
 			def = add
 		"DAG":
-			if b.bounty > 0:
+			if b.run_stats.bounty > 0:
 				def = add
 		"BILLY":
-			def = a.bounty / 1000 * add
+			def = a.run_stats.bounty / 1000 * add
 	num *= def
 
 func calc_cc(id : String):
