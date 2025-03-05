@@ -85,8 +85,8 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 			return make("Hunt the Hunter", "Enemies with Bounty Hunter deal %sx bonus dmg to you",
 				[[0.5],[0.25],[0.1],[0.05]],"DEF")
 		20, "SCO":
-			return make("Self-Checkout", "Reaching your max bounty clears it and you gain %s%% of it. %s uses.",
-				[[50, 2],[75, 2],[100, 3],[125, 4]],"GXP")
+			return make("Self-Checkout", "Reaching your max bounty clears it and you gain %s%% of it.",
+				[[50],[75],[100],[125]],"GXP")
 #		Rewards
 		21, "MOCT":
 			return make("Moctezuma", "+%s base gold",

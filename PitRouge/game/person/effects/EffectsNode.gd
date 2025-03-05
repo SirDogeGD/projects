@@ -15,14 +15,6 @@ var active := {
 func _ready():
 	pass
 	#add_effect("RES", 50)
-	#add_effect("RES", 50)
-	#add_effect("REG", 15)
-	#add_effect("REG", 10)
-	#add_effect("REG", 10)
-	#add_effect("STRENGTH", 7)
-	#add_effect("STRENGTH", 7)
-	#add_effect("SPEED", 5)
-	#add_effect("SPEED", 5)
 
 func add_effect(type : String, dura : float, from := "self"):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")
@@ -36,6 +28,10 @@ func add_effect(type : String, dura : float, from := "self"):
 	if owner is person:
 		dura_mult *= owner.mega_stats.effect_dura
 	new_effect.TIME.wait_time = dura * dura_mult
+	
+	#perm effect
+	if dura == 0:
+		new_effect.TIME.autostart = false
 	
 	add_child(new_effect)
 	

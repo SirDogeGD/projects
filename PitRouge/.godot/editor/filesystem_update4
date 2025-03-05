@@ -1,9 +1,13 @@
-res://game/person/effects/effect.tscn
+res://game/person/person.tscn
 res://game/person/person.gdshader
 res://game/UI/outline.gdshader
 res://game/person/streak/bounty_handler.gd
-res://game/person/person.gd
 res://game/person/streak/run_data.gd
-res://game/dmg/dmg.gd
 res://game/person/perks/perks.gd
-res://game/person/person.tscn
+res://game/person/perks/perk_info.gd
+res://game/person/mega/mega_handler.gd
+res://game/person/mega/mega_data.gd
+res://game/person/person.gd
+res://game/person/perks/perks_storage/perk_slots.gd
+res://game/person/effects/EffectsNode.gd
+res://game/person/effects/effect.tscn

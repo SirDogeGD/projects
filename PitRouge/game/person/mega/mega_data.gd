@@ -45,11 +45,11 @@ var max_hp := 0 #needs signal or something
 var effect_dura := 5.0
 
 func refresh():
-	mega.new().get_mega_data(self)
-	mega.new().get_streak_data(self)
+	mega.get_mega_data(self)
+	mega.get_streak_data(self)
 
 func update_data(s := 0.0):
-	mega.new().get_streak_data(self, s)
+	mega.get_streak_data(self, s)
 
 func reset_streak_data():
 	base = 0.0

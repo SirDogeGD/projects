@@ -173,3 +173,7 @@ func on_kill(a : person, b : person):
 	var jan_val := get_value(a, "C_JAN")
 	if jan_val != 0:
 		a.effect_node.add_effect("RES", get_value(a, "C_JAN", 1))
+	
+	var sco_val := get_value(a, "SCO")
+	if sco_val != 0:
+		bountyHandler.checkout(a, sco_val)

@@ -4,7 +4,7 @@ class_name mega
 #will need "on_activate" and "on_death"
 #for visuals, adding permanent potion effects and overdrive xp/highlander bounty
 
-func get_mega_data(m : mega_data):
+static func get_mega_data(m : mega_data):
 	
 	match m.m_id:
 		"OVRDRV":
@@ -56,7 +56,7 @@ func get_mega_data(m : mega_data):
 			m.buy_cost = 100000
 			m.activate_at = 100
 
-func get_streak_data(m : mega_data, s := 0.0):
+static func get_streak_data(m : mega_data, s := 0.0):
 	
 	m.reset_streak_data()
 	
@@ -69,7 +69,9 @@ func get_streak_data(m : mega_data, s := 0.0):
 				m.tru_taken = ((int(s) - m.activate_at) / 5) / 10.0
 				m.gboost = 0.5
 				m.xpboost = 1
-				#missing perm speed 1 + 4k death xp
+				if not m.guy.effect_node.get_children().any(func(e): return e.from == "OVRDRV"):
+					m.guy.effect_node.add_effect("SPEED", 0, "OVRDRV")
+				#missing 4k death xp
 
 		"BEAST":
 			if m.active:
@@ -120,7 +122,7 @@ func get_streak_data(m : mega_data, s := 0.0):
 								m.guy.on_death()
 								#missing uberdrop
 
-func check_active(at : int, s := 0.0) -> bool:
+static func check_active(at : int, s := 0.0) -> bool:
 	if s >= at:
 		return true
 	return false
