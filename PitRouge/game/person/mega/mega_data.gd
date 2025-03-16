@@ -47,6 +47,7 @@ var effect_dura := 5.0
 func refresh():
 	mega.get_mega_data(self)
 	mega.get_streak_data(self)
+	mega.on_spawn(self)
 
 func update_data(s := 0.0):
 	mega.get_streak_data(self, s)
@@ -75,3 +76,6 @@ func reset_streak_data():
 	vs_pres_0 = 0.0
 	max_hp = 0
 	effect_dura = 1.0
+
+func mega_on_death():
+	mega.on_death(self)

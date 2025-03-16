@@ -61,7 +61,9 @@ static func get_streak_data(m : mega_data, s := 0.0):
 	m.reset_streak_data()
 	
 	if not m.active:
-		m.active = check_active(m.activate_at, s)
+		if check_active(m.activate_at, s):
+			on_activate(m)
+			m.active = true
 	
 	match m.m_id:
 		"OVRDRV":
@@ -69,8 +71,6 @@ static func get_streak_data(m : mega_data, s := 0.0):
 				m.tru_taken = ((int(s) - m.activate_at) / 5) / 10.0
 				m.gboost = 0.5
 				m.xpboost = 1
-				if not m.guy.effect_node.get_children().any(func(e): return e.from == "OVRDRV"):
-					m.guy.effect_node.add_effect("SPEED", 0, "OVRDRV")
 				#missing 4k death xp
 
 		"BEAST":
@@ -87,13 +87,13 @@ static func get_streak_data(m : mega_data, s := 0.0):
 				m.mult_taken = (int(s) - m.activate_at) * 0.03
 				m.gboost = min((int(s) - m.activate_at) * 0.05 + 0.05, 0.75) #maximum 75% gold and xp
 				m.xpboost = min((int(s) - m.activate_at) * 0.05 + 0.05, 0.75)
-				#missing slowness + resistance + bedrock?
+				#missing bedrock?
 
 		"HIGH":
 			if m.active:
 				m.gboost = 1.1
 				m.vs_bounty = 0.333
-				#missing death gold + speed
+				#missing death gold
 
 		"OPUS":
 			if m.active:
@@ -126,3 +126,33 @@ static func check_active(at : int, s := 0.0) -> bool:
 	if s >= at:
 		return true
 	return false
+
+
+static func on_spawn(m : mega_data):
+	print("MEGA SPAWNED")
+	
+	match m.m_id:
+		"HERMIT":
+			for i in range(10):
+				m.guy.effect_node.add_effect("SLOW", 0, "HERMIT")
+
+static func on_activate(m : mega_data):
+	print("MEGA ACTIVATED")
+	
+	match m.m_id:
+		"OVRDRV":
+			for i in range(10):
+				m.guy.effect_node.add_effect("SPEED", 0, "OVRDRV")
+		"HERMIT":
+			m.guy.effect_node.add_effect("RES", 0, "HERMIT")
+		"HIGH":
+			for i in range(15):
+				m.guy.effect_node.add_effect("SPEED", 0, "HIGH")
+
+static func on_death(m : mega_data):
+	print("MEGA DEATH")
+	
+	match m.m_id:
+		"OVRDRV":
+			if m.active:
+				m.guy.run_stats.xp += 4000

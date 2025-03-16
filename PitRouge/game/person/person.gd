@@ -64,6 +64,7 @@ func _ready():
 	effect_node.owner = self
 	health.guy = self
 	health.changed.connect(hp_changed)
+	death.connect(mega_stats.mega_on_death)
 
 func _physics_process(delta):
 	calc_speed()
