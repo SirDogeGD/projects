@@ -31,6 +31,7 @@ func kill_gold():
 	var base : float = BASE_GOLD
 	base += pkill("base_gold")
 	base += a.mega_stats.g_on_kill
+	
 	#MULT
 	var mult := 1.0
 	mult *= 1 + pkill("mult_gold")
@@ -44,7 +45,7 @@ func kill_xp():
 	base += pkill("base_xp")
 	base += a.mega_stats.xp_on_kill
 	#Streak
-	var streak = a.run_stats["streak"]
+	var streak = a.run_stats.streak
 	var streakBoost := 0.0
 	if streak in range(3,4): #streak boost based on streak
 		streakBoost = 3
@@ -53,6 +54,7 @@ func kill_xp():
 	elif streak >= 20:
 		streakBoost = min(3 * int(streak/10), 30)
 	base += streakBoost * 1 + perks("SWEATY") / 100
+	
 	#MULT
 	var mult := 1.0
 	mult *= pkill("mult_xp")

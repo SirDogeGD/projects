@@ -1,15 +1,3 @@
-res://game/scenes/fight/fight.tscn
+res://game/person/person.tscn
 res://game/person/person.gdshader
 res://game/UI/outline.gdshader
-res://game/person/player/playerchar.tscn
-res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn
-res://game/person/perks/perk_menu/perk_menu.tscn
-res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn
-res://game/pickup/pickup.tscn
-res://game/person/enemy/enemy.tscn
-res://game/scenes/Lobby/hole.tscn
-res://game/person/effects/effect.tscn
-res://game/person/person.tscn
-res://game/person/person.gd
-res://game/person/mega/mega_data.gd
-res://game/person/mega/mega_handler.gd

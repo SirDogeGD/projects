@@ -225,7 +225,7 @@ func on_kill(b : person):
 	run_stats.xp += r.xp
 	run_stats.kills += 1
 	run_stats.streak += 1
-	bountyHandler.new().bump(self, b)
+	bountyHandler.bump(self, b)
 	call_info()
 
 func be_rewarded(r : rewards_data):

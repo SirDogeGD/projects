@@ -71,7 +71,6 @@ static func get_streak_data(m : mega_data, s := 0.0):
 				m.tru_taken = ((int(s) - m.activate_at) / 5) / 10.0
 				m.gboost = 0.5
 				m.xpboost = 1
-				#missing 4k death xp
 
 		"BEAST":
 			if m.active:
@@ -93,7 +92,6 @@ static func get_streak_data(m : mega_data, s := 0.0):
 			if m.active:
 				m.gboost = 1.1
 				m.vs_bounty = 0.333
-				#missing death gold
 
 		"OPUS":
 			if m.active:
@@ -156,3 +154,6 @@ static func on_death(m : mega_data):
 		"OVRDRV":
 			if m.active:
 				m.guy.run_stats.xp += 4000
+		"HIGH":
+			if m.active:
+				m.guy.run_stats.gold += m.guy.run_stats.bounty
