@@ -226,6 +226,7 @@ func on_kill(b : person):
 	run_stats.kills += 1
 	run_stats.streak += 1
 	bountyHandler.bump(self, b)
+	mega.on_kill(mega_stats, r)
 	call_info()
 
 func be_rewarded(r : rewards_data):

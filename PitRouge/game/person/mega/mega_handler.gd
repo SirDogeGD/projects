@@ -125,7 +125,6 @@ static func check_active(at : int, s := 0.0) -> bool:
 		return true
 	return false
 
-
 static func on_spawn(m : mega_data):
 	print("MEGA SPAWNED")
 	
@@ -157,3 +156,10 @@ static func on_death(m : mega_data):
 		"HIGH":
 			if m.active:
 				m.guy.run_stats.gold += m.guy.run_stats.bounty
+
+static func on_kill(m : mega_data, r : rewards_data):
+	print("MEGA KILL")
+	
+	match m.m_id:
+		"MOON":
+			m.moon_stored_xp += r.xp

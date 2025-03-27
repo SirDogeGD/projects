@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1742299453
+::res://::1743077812
 default_bus_layout.tres::AudioBusLayout::7994649970676244036::1706862387::0::1::::<><>::
 ::res://addons/::1702562360
 ::res://addons/sound_manager/::1706876969
@@ -30,11 +30,11 @@ melee.tscn::PackedScene::1491832724578670394::1685022840::0::1::::<><>::uid://d2
 ::res://game/item/weapon/melee/sword/::1702626277
 sword.gd::GDScript::-1::1702626277::0::1::::sword<>melee<>::
 sword.tscn::PackedScene::8877941811097206559::1685022840::0::1::::<><>::res://game/item/weapon/melee/sword/sword.gd<>uid://viwjcwy36tm5::::res://game/item/weapon/melee/melee.tscn
-::res://game/person/::1742227055
+::res://game/person/::1742305137
 FeetArea.gd::GDScript::-1::1726467617::0::1::::<>Area2D<>::
 person.gd::GDScript::-1::1742206469::0::1::::person<>CharacterBody2D<>::
-person.gdshader::Shader::-1::1742206267::0::1::::<><>::
-person.tscn::PackedScene::1615944802181598965::1742227055::0::1::::<><>::uid://dgyjkk16tbuag::::res://img/person.png<>res://game/person/person.gd<>res://game/person/person.gdshader<>res://game/box/HurtBox.gd<>res://game/person/FeetArea.gd<>res://game/person/person_Radii.gd<>uid://doydj0kk6whkf::::res://game/person/effects/effects_node.tscn<>res://game/UI/outline.gdshader<>res://game/person/person_timers.gd
+person.gdshader::Shader::-1::1742304860::0::1::::<><>::
+person.tscn::PackedScene::1615944802181598965::1742305137::0::1::::<><>::uid://dgyjkk16tbuag::::res://img/person.png<>res://game/person/person.gd<>res://game/person/person.gdshader<>res://game/box/HurtBox.gd<>res://game/person/FeetArea.gd<>res://game/person/person_Radii.gd<>uid://doydj0kk6whkf::::res://game/person/effects/effects_node.tscn<>res://game/UI/outline.gdshader<>res://game/person/person_timers.gd
 person_Radii.gd::GDScript::-1::1689150855::0::1::::person_radii<>Node2D<>::
 person_timers.gd::GDScript::-1::1689150855::0::1::::person_timers<>Node2D<>::
 ::res://game/person/effects/::1742118179
@@ -119,8 +119,8 @@ Lobby.tscn::PackedScene::6796391377668411994::1718200683::0::1::::<><>::res://ga
 ::res://game/scenes/main_menu/::1703689879
 main_menu.gd::GDScript::-1::1701174785::0::1::::<>Control<>::
 main_menu.tscn::PackedScene::6053430602668108279::1703689879::0::1::::<><>::res://game/scenes/main_menu/main_menu.gd
-::res://game/UI/::1742227109
-outline.gdshader::Shader::-1::1742227109::0::1::::<><>::
+::res://game/UI/::1742829686
+outline.gdshader::Shader::-1::1742829686::0::1::::<><>::
 outline.tres::ShaderMaterial::2079599052373220282::1688447217::0::1::::<><>::res://game/UI/outline.gdshader
 UI.gd::GDScript::-1::1703680233::0::1::::<>CanvasLayer<>::
 UI.tscn::PackedScene::4586936857471964270::1718200673::0::1::::<><>::res://game/UI/UI.gd<>uid://dh5typ5uy3fg4::::res://game/person/inventory/inventory_ui.tscn<>uid://ch721dw770qm0::::res://game/UI/dash_ui/dash_ui.tscn<>uid://jqobfiy31ltk::::res://game/UI/HP/playerHP_ui/HeartBar.tscn<>uid://d3oiamsxkfb57::::res://game/UI/sideboard/sideboard_ui.tscn<>uid://byoulpu18jban::::res://game/UI/effects_ui/effects_ui.tscn
