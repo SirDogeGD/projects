@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://sit8rxg5nrko"]
 
-[ext_resource type="Script" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.gd" id="1_libub"]
+[ext_resource type="Script" uid="uid://4jdxdmokv851" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.gd" id="1_libub"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ybhio"]
 load_path = "res://.godot/imported/perk_BARB.png-e847d5585e58b8f7c64e2603538299b0.ctex"

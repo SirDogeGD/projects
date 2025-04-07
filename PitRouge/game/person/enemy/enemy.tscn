@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cr348ygnkrpq1"]
 
 [ext_resource type="PackedScene" uid="uid://xa1m0jd8rand" path="res://game/person/person.tscn" id="1_p0t72"]
-[ext_resource type="Script" path="res://game/person/enemy/enemy.gd" id="2_3awlk"]
-[ext_resource type="Shader" path="res://game/person/person.gdshader" id="3_xooji"]
+[ext_resource type="Script" uid="uid://vsiikobwlnjf" path="res://game/person/enemy/enemy.gd" id="2_3awlk"]
+[ext_resource type="Shader" uid="uid://bm0e1fa51gejt" path="res://game/person/person.gdshader" id="3_xooji"]
 [ext_resource type="PackedScene" uid="uid://byoulpu18jban" path="res://game/UI/effects_ui/effects_ui.tscn" id="4_8qxne"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_58osx"]

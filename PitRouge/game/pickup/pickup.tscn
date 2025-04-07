@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3h12iefausk0"]
 
-[ext_resource type="Script" path="res://game/pickup/pickup.gd" id="1_3xstd"]
+[ext_resource type="Script" uid="uid://ctds08cl4nuk2" path="res://game/pickup/pickup.gd" id="1_3xstd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bw3wv"]
 load_path = "res://.godot/imported/GOLD_INGOT.png-c82cff40d4c2c79acd54afe9a59917ef.ctex"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwr2ll7m00yec"]
 
 [ext_resource type="PackedScene" uid="uid://ckgr5pj0t4r5e" path="res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn" id="1_cc8hi"]
-[ext_resource type="Script" path="res://game/person/perks/perk_menu/perk_menu.gd" id="1_urva6"]
+[ext_resource type="Script" uid="uid://40j5e8qapsrk" path="res://game/person/perks/perk_menu/perk_menu.gd" id="1_urva6"]
 [ext_resource type="PackedScene" uid="uid://126f02hq1c75" path="res://game/UI/Labels/stats_label.tscn" id="2_esu86"]
 [ext_resource type="PackedScene" uid="uid://47pquwdo00w5" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui.tscn" id="4_lu4cj"]
 [ext_resource type="PackedScene" uid="uid://sjhhbqknbbp" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn" id="5_hnt8k"]

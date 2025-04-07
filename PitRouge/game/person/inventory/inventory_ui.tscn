@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dh5typ5uy3fg4"]
 
-[ext_resource type="Script" path="res://game/person/inventory/inventory_ui.gd" id="1_rmcm4"]
+[ext_resource type="Script" uid="uid://c2obbnv7dyaf4" path="res://game/person/inventory/inventory_ui.gd" id="1_rmcm4"]
 [ext_resource type="PackedScene" uid="uid://bjt3ykh2vtd8v" path="res://game/person/inventory/inv_slot.tscn" id="2_5achi"]
 
 [node name="inventory" type="HBoxContainer"]

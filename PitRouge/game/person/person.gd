@@ -65,6 +65,7 @@ func _ready():
 	health.guy = self
 	health.changed.connect(hp_changed)
 	death.connect(mega_stats.mega_on_death)
+	timers.owner = self
 
 func _physics_process(delta):
 	calc_speed()
@@ -197,6 +198,7 @@ func on_death():
 	health.reset()
 	dmg_taken.clear()
 	run_stats.reset()
+	timers.remove_all_timers()
 	mega_stats.active = false
 	call_info()
 
@@ -227,9 +229,4 @@ func on_kill(b : person):
 	run_stats.streak += 1
 	bountyHandler.bump(self, b)
 	mega.on_kill(mega_stats, r)
-	call_info()
-
-func be_rewarded(r : rewards_data):
-	run_stats.gold += r.gold
-	run_stats.xp += r.xp
 	call_info()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwj13mx0xuuic"]
 
-[ext_resource type="Script" path="res://game/UI/effects_ui/effects_ui_one.gd" id="1_2peln"]
+[ext_resource type="Script" uid="uid://cafwj88d856td" path="res://game/UI/effects_ui/effects_ui_one.gd" id="1_2peln"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u3kb"]
 load_path = "res://.godot/imported/effect_SPEED.png-a8d65b1fdb4b4184c0631a0d29a26a79.ctex"

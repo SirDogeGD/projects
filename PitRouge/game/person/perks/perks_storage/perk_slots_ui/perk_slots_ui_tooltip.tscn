@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sjhhbqknbbp"]
 
-[ext_resource type="Script" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.gd" id="1_kin48"]
+[ext_resource type="Script" uid="uid://b08c5a258olbx" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.gd" id="1_kin48"]
 
 [node name="perk_slots_ui_tooltip" type="MarginContainer"]
 anchors_preset = 8

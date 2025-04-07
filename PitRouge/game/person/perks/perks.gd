@@ -51,6 +51,7 @@ func calc(which : String, attacker : person, defender : person) -> float:
 
 #get the first number of the current level (most perks just have one number)
 func get_num(id : String, num := 0) -> float:
+	lvl = a.perks.count(id)
 	return float(PINFO.perkinfo(id, a).nums[lvl][num])
 
 func calc_base_dmg(id : String):
@@ -93,13 +94,22 @@ func calc_base_def(id : String):
 	var add := 1 - get_num(id) / 100 #eg 1 - 0.2 = 0.8 = 20% dmg reduction
 	var def := 0.0
 	match id:
-		"DIA_BOOT", "DIA_CHEST":
+		"DIA_BOOT", "DIA_CHEST", "PROT":
 			def = add
 		"DAG":
 			if b.run_stats.bounty > 0:
 				def = add
 		"BILLY":
 			def = a.run_stats.bounty / 1000 * add
+		"DA":
+			for p in b.perks.get_uniques():
+				if p.begins_with("DIA"):
+					def = add
+					break
+		"NGLAD":
+			if a.radii.has_node("perk_NGLAD"):
+				for p in a.radii.perk_GLAD.gpir(id):
+					def += add
 	num *= def
 
 func calc_cc(id : String):
@@ -177,3 +187,24 @@ func on_kill(a : person, b : person):
 	var sco_val := get_value(a, "SCO")
 	if sco_val != 0:
 		bountyHandler.checkout(a, sco_val)
+
+func on_ingot_pickup(a : person):
+	var pebble_hp := get_value(a, "PEBBLE", 1)
+	if pebble_hp != 0:
+		a.health.curSH += pebble_hp
+
+func get_bonus_maxsh(a : person) -> int:
+	var bonus := 0
+	for p in a.perks.get_uniques():
+		if p in ["C_SHIELD", "PEBBLE"]:
+			bonus += 2
+	return bonus
+
+func on_timer_timeout(a : person, id : String):
+	var val := 0.0
+	var lvl := a.perks.count(id)
+	
+	match id:
+		"BOO":
+			val = get_value(a, id, lvl)
+			a.health.curHP += val

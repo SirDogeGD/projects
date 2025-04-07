@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjt3ykh2vtd8v"]
 
-[ext_resource type="Script" path="res://game/person/inventory/inv_slot.gd" id="1_2et5f"]
-[ext_resource type="Script" path="res://game/person/inventory/SelectedFrame.gd" id="2_5mt5m"]
+[ext_resource type="Script" uid="uid://dr1d4wshedseh" path="res://game/person/inventory/inv_slot.gd" id="1_2et5f"]
+[ext_resource type="Script" uid="uid://djpqpmyr67awl" path="res://game/person/inventory/SelectedFrame.gd" id="2_5mt5m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yvh3"]
 

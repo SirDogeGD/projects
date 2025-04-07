@@ -74,6 +74,18 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 		16, "FSTRIKE":
 			return make("First Strike", "Deal +%s%% dmg against enemies above 95%% hp",
 				[[75],[120],[160],[200]],"SWORD")
+		"DA": #missing png
+			return make("Diamond Allergy", "Receive -%s%% dmg from enemies with DIA perks",
+				[[15],[30],[45],[60]],"DEF")
+		"NGLAD": #missing png
+			return make("\"Not\" Gladiator", "Receive -%s%% dmg per enemy within 10 blocks",
+				[[1.5],[2],[2.5],[4]],"DEF")
+		"PROT": #missing png
+			return make("Protection", "Receive -%s%% dmg",
+				[[8],[16],[24],[35]],"DEF")
+		"BOO":
+			return make("Boo-boo", "Heal %s hp every 5 seconds",
+				[[2],[3],[4.5],[6]],"DEF")
 #		Bounties
 		17, "BILLY":
 			return make("Billy", "Take %s less dmg for every 1k bounty you have",
@@ -82,14 +94,17 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 			return make("Bounty Hunter", "Gain +%s%% dmg for every 100 bounty your enemy has",
 				[[1],[1.5],[2],[2.5]],"SWORD")
 		19, "HTH":
-			return make("Hunt the Hunter", "Enemies with Bounty Hunter deal %sx bonus dmg to you",
+			return make("Hunt the Hunter", "Enemies with Bounty Hunter deal %sx of their bonus dmg to you",
 				[[0.5],[0.25],[0.1],[0.05]],"DEF")
 		20, "SCO":
 			return make("Self-Checkout", "Reaching your max bounty clears it and you gain %s%% of it.",
 				[[50],[75],[100],[125]],"GXP")
+		"DAG": #missing png
+			return make("David and Goliath", "Receive -%s%% dmg from enemies with a bounty",
+				[[15],[25],[40],[60]],"DEF")
 #		Rewards
 		21, "MOCT":
-			return make("Moctezuma", "+%s base gold",
+			return make("Moctezuma", "+%s base gold on kills",
 				[[6],[12],[18],[24]],"GXP")
 		22, "GBUMP":
 			return make("Gold Bump", "+%s base gold",
@@ -106,6 +121,12 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 		26, "SWEATY":
 			return make("Sweaty", "+%s%% streak bonus xp",
 				[[50],[100],[200],[300]],"GXP")
+		"CRICH":
+			return make("Critically Rich", "Earn +%s% gold on Crits",
+				[[1],[2],[3],[5]],"GXP")
+		"PEBBLE":
+			return make("Pebble", "Earn +%s% gold from Ingots and gain %s shield",
+				[[1, 0.5],[2],[3],[5]],"GXP")
 		_:
 			return perk_data.new()
 
@@ -115,8 +136,10 @@ func repl_desc(d : String) -> String:
 	d = d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
 	d = d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
 	d = d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
+	d = d.replace("DIA", "[color=" + C.COLOR_AQUA + "]DIA[/color]")
 	d = d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
 	d = d.replace("Weakness", "[color=" + C.COLOR_PURPLE + "]Weakness[/color]")
+	d = d.replace("shield", "[color=" + C.COLOR_YELLOW + "]shield[/color]")
 	
 	#make inserted number green
 	d = d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
@@ -143,6 +166,9 @@ func area_perks(id : String) -> int:
 
 #perks that use a timer
 func timer_perks(id : String) -> int:
+	match id:
+		"BOO":
+			return 5
 	return 0
 
 func get_pic(id : String) -> Texture:

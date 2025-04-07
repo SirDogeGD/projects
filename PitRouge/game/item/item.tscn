@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bwtaq4v2c3qa6"]
 
-[ext_resource type="Script" path="res://game/item/item.gd" id="1_mxwd8"]
-[ext_resource type="Script" path="res://game/box/HitBox.gd" id="3_84h7u"]
+[ext_resource type="Script" uid="uid://b1sahlj0blf1o" path="res://game/item/item.gd" id="1_mxwd8"]
+[ext_resource type="Script" uid="uid://b5u8c17mxo81q" path="res://game/box/HitBox.gd" id="3_84h7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nle8"]
 size = Vector2(216, 20)
@@ -112,9 +112,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g0h8y"]
 _data = {
-"RESET": SubResource("Animation_4scw4"),
-"block": SubResource("Animation_aieh5"),
-"stab": SubResource("Animation_1x1gw")
+&"RESET": SubResource("Animation_4scw4"),
+&"block": SubResource("Animation_aieh5"),
+&"stab": SubResource("Animation_1x1gw")
 }
 
 [node name="item" type="Node2D"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=25 format=3 uid="uid://xa1m0jd8rand"]
 
 [ext_resource type="Texture2D" uid="uid://dgyjkk16tbuag" path="res://img/person.png" id="1_58ron"]
-[ext_resource type="Script" path="res://game/person/person.gd" id="1_mowpo"]
-[ext_resource type="Shader" path="res://game/person/person.gdshader" id="2_caokj"]
-[ext_resource type="Script" path="res://game/box/HurtBox.gd" id="3_vy38s"]
-[ext_resource type="Script" path="res://game/person/FeetArea.gd" id="5_dkdsu"]
-[ext_resource type="Script" path="res://game/person/person_Radii.gd" id="5_iihim"]
+[ext_resource type="Script" uid="uid://fomdqwua0bxk" path="res://game/person/person.gd" id="1_mowpo"]
+[ext_resource type="Shader" uid="uid://bm0e1fa51gejt" path="res://game/person/person.gdshader" id="2_caokj"]
+[ext_resource type="Script" uid="uid://ca3uhn78mqhhn" path="res://game/box/HurtBox.gd" id="3_vy38s"]
+[ext_resource type="Script" uid="uid://5gyxvsn055b5" path="res://game/person/FeetArea.gd" id="5_dkdsu"]
+[ext_resource type="Script" uid="uid://b2id0jp533mlt" path="res://game/person/person_Radii.gd" id="5_iihim"]
 [ext_resource type="PackedScene" uid="uid://doydj0kk6whkf" path="res://game/person/effects/effects_node.tscn" id="5_msr54"]
-[ext_resource type="Shader" path="res://game/UI/outline.gdshader" id="6_sxh38"]
-[ext_resource type="Script" path="res://game/person/person_timers.gd" id="6_vu6c8"]
+[ext_resource type="Shader" uid="uid://cpykl248fg6g1" path="res://game/UI/outline.gdshader" id="6_sxh38"]
+[ext_resource type="Script" uid="uid://dnumyhtl1et83" path="res://game/person/person_timers.gd" id="6_vu6c8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_moo6k"]
 resource_local_to_scene = true
@@ -129,8 +129,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68bk2"]
 _data = {
-"RESET": SubResource("Animation_pufwf"),
-"hit": SubResource("Animation_xsvn4")
+&"RESET": SubResource("Animation_pufwf"),
+&"hit": SubResource("Animation_xsvn4")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y2f4q"]
@@ -145,6 +145,9 @@ scale_max = 6.0
 color = Color(0, 0, 0, 1)
 hue_variation_min = -1.0
 hue_variation_max = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4m0ww"]
+load_path = "res://.godot/imported/ice_particle_white.png-6c47a72108173632f5902d27f963487c.ctex"
 
 [sub_resource type="Curve" id="Curve_fmrwd"]
 _data = [Vector2(0, 0.318182), 0.0, 0.0, 0, 0, Vector2(0.252669, 0.990909), 0.0, 0.0, 0, 0, Vector2(1, 0.0727272), 0.0, 0.0, 0, 0]
@@ -167,11 +170,8 @@ damping_min = 150.0
 damping_max = 150.0
 scale_curve = SubResource("CurveTexture_w2nhc")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4m0ww"]
-load_path = "res://.godot/imported/ice_particle_white.png-6c47a72108173632f5902d27f963487c.ctex"
-
 [sub_resource type="Curve" id="Curve_6n1j6"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 3
 
@@ -240,7 +240,7 @@ debug_color = Color(0.794759, 0.425233, 0, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_68bk2")
+&"": SubResource("AnimationLibrary_68bk2")
 }
 
 [node name="Particles" type="Node2D" parent="."]
@@ -255,7 +255,6 @@ process_material = SubResource("ParticleProcessMaterial_y2f4q")
 scale = Vector2(2, 2)
 emitting = false
 amount = 6
-process_material = SubResource("ParticleProcessMaterial_6tcva")
 texture = SubResource("CompressedTexture2D_4m0ww")
 lifetime = 0.3
 one_shot = true
@@ -264,12 +263,12 @@ explosiveness = 0.8
 randomness = 0.59
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_6tcva")
 
 [node name="CritParticles" type="GPUParticles2D" parent="Particles"]
 scale = Vector2(3, 3)
 emitting = false
 amount = 6
-process_material = SubResource("ParticleProcessMaterial_joou4")
 texture = SubResource("CompressedTexture2D_4m0ww")
 lifetime = 0.3
 one_shot = true
@@ -278,6 +277,7 @@ explosiveness = 0.8
 randomness = 0.59
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_joou4")
 
 [node name="Radii" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8i0t8qxkbtxs"]
 
-[ext_resource type="Script" path="res://game/scenes/Lobby/hole.gd" id="1_inmqd"]
+[ext_resource type="Script" uid="uid://bac1letwneyr7" path="res://game/scenes/Lobby/hole.gd" id="1_inmqd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fo4yf"]
 radius = 33.0

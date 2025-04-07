@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://byoulpu18jban"]
 
-[ext_resource type="Script" path="res://game/UI/effects_ui/effects_ui.gd" id="1_nm3yy"]
+[ext_resource type="Script" uid="uid://dk3hxiuowd3wv" path="res://game/UI/effects_ui/effects_ui.gd" id="1_nm3yy"]
 [ext_resource type="PackedScene" uid="uid://bwj13mx0xuuic" path="res://game/UI/effects_ui/effects_ui_one.tscn" id="2_o0aba"]
 
 [node name="effects_ui" type="MarginContainer"]

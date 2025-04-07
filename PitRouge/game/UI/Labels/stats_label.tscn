@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://126f02hq1c75"]
 
-[ext_resource type="Script" path="res://game/UI/Labels/stats_label.gd" id="1_mo1gf"]
+[ext_resource type="Script" uid="uid://dhxiv02traavy" path="res://game/UI/Labels/stats_label.gd" id="1_mo1gf"]
 
 [node name="StatsLabel" type="RichTextLabel" groups=["info"]]
 bbcode_enabled = true

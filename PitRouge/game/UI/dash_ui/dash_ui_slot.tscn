@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xnv7tr1vwytb"]
 
-[ext_resource type="Script" path="res://game/UI/dash_ui/dash_ui_slot.gd" id="1_n2o0h"]
+[ext_resource type="Script" uid="uid://csknuegrtjwt2" path="res://game/UI/dash_ui/dash_ui_slot.gd" id="1_n2o0h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_65p2b"]
 load_path = "res://.godot/imported/dash_full.png-6edddbc5c2111416cc6b122962018733.ctex"

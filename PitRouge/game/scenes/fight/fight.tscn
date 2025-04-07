@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4ddy6llry5xy"]
 
-[ext_resource type="Script" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
+[ext_resource type="Script" uid="uid://b360nylyj734w" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
-[ext_resource type="Script" path="res://game/scenes/fight/CameraController.gd" id="4_ib2jg"]
+[ext_resource type="Script" uid="uid://0s1st210qwri" path="res://game/scenes/fight/CameraController.gd" id="4_ib2jg"]
 [ext_resource type="PackedScene" uid="uid://cqeukwokg30rt" path="res://game/person/enemy/EnemySpawner/enemy_spawner.tscn" id="5_2ecen"]
 [ext_resource type="PackedScene" uid="uid://cwtpdwqfillym" path="res://game/pickup/pickupSpawner.tscn" id="5_dhhpx"]
 

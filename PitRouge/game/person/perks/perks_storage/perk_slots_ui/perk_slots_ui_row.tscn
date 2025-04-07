@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drnbshdojymo2"]
 
 [ext_resource type="PackedScene" uid="uid://sit8rxg5nrko" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_one.tscn" id="1_0i3b6"]
-[ext_resource type="Script" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.gd" id="1_qxmjs"]
+[ext_resource type="Script" uid="uid://dsju0kbjuiwgu" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_row.gd" id="1_qxmjs"]
 
 [node name="SlotsGrid" type="HBoxContainer" groups=["info"]]
 anchors_preset = 15

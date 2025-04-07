@@ -11,10 +11,12 @@ var streak := 0.0:
 		streak_changed.emit(streak)
 var gold := 0.0:
 	set(g):
-		gold = boosts.gold(g, owner)
+		gold += boosts.gold(g, owner)
+		owner.call_info()
 var xp := 0.0:
 	set(x):
-		xp = boosts.xp(x, owner)
+		xp += boosts.xp(x, owner)
+		owner.call_info()
 var kills := 0
 var bounty := 0:
 	set(b):

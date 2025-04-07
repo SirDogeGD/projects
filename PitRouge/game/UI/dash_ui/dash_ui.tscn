@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch721dw770qm0"]
 
 [ext_resource type="PackedScene" uid="uid://xnv7tr1vwytb" path="res://game/UI/dash_ui/dash_ui_slot.tscn" id="1_08kx1"]
-[ext_resource type="Script" path="res://game/UI/dash_ui/dash_ui.gd" id="1_gc44f"]
+[ext_resource type="Script" uid="uid://0fxc2wohusnk" path="res://game/UI/dash_ui/dash_ui.gd" id="1_gc44f"]
 
 [node name="dash_ui" type="HBoxContainer"]
 anchors_preset = 7

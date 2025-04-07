@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckgr5pj0t4r5e"]
 
-[ext_resource type="Script" path="res://game/person/perks/perk_menu/perk_choose/perk_choose.gd" id="1_avr0m"]
+[ext_resource type="Script" uid="uid://lkig0bpp6kmo" path="res://game/person/perks/perk_menu/perk_choose/perk_choose.gd" id="1_avr0m"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j7h2p"]
 load_path = "res://.godot/imported/black.png-4c4c1270c1c2d6c3feef8b257b24f6ce.ctex"

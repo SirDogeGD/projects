@@ -14,9 +14,10 @@ var curHP : float = maxHP:
 		if curHP == 0 and guy != null:
 			guy.on_death()
 		changed.emit()
-var maxSH := 5
+var maxSH := 6
 var curSH : float:
 	set(sh):
+		calc_maxSH()
 		curSH = clamp(sh, 0, maxSH)
 		changed.emit()
 
@@ -34,3 +35,6 @@ func take_dmg(d : dmg_data):
 		curSH = 0
 		curHP -= new_amount
 	curHP -= d.trudmg
+
+func calc_maxSH():
+	maxSH = 6 + PERKS.get_bonus_maxsh(guy)

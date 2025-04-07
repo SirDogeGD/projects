@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://csild87qxr3eh"]
 
-[ext_resource type="Script" path="res://game/scenes/main_menu/main_menu.gd" id="1_5jsqb"]
+[ext_resource type="Script" uid="uid://cfxq8y03omq1o" path="res://game/scenes/main_menu/main_menu.gd" id="1_5jsqb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3igfr"]
 load_path = "res://.godot/imported/MainMenuIMG.png-6cca85bbdc513507200fa81cf50b9524.ctex"

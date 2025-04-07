@@ -3,11 +3,13 @@ extends Node
 class_name pickupHandler
 
 func pickup(what : pickup, who : person):
-	var r = rewards_data.new()
+	var val := 0.0
 	match what.type:
 		what.typeEnum.GOLD_INGOT:
-			r.gold = 5
+			val = 5
+			val += PERKS.get_value(who, "PEBBLE")
+			PERKS.on_ingot_pickup(who)
+			who.run_stats.gold += val
 		what.typeEnum.XP_BLOB:
-			r.xp = 5
-	
-	who.be_rewarded(r)
+			val = 5
+			who.run_stats.xp += val
