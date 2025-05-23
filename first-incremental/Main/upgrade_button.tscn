@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmwg7wydx3qkc"]
+
+[ext_resource type="Script" uid="uid://w0joihutai3q" path="res://Main/upgrade_button.gd" id="1_k48vh"]
+
+[node name="UpgradeButton" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+script = ExtResource("1_k48vh")
+my_upgrade = "Test"
+my_cost = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="CostLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="ready" from="." to="." method="_on_ready"]
