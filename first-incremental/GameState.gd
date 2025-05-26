@@ -1,16 +1,25 @@
 extends Node
 
-var money: int = 0
+var money: int = 0:
+	set(m):
+		money = m
+		update_stat_labels()
 var upgrades = {}
+
+func _ready() -> void:
+	load_game()
+	update_stat_labels()
 
 func add_money(amount: int):
 	money += amount
-	update_stat_labels()
 
 func buy_upgrade(name: String, cost: int):
 	if money >= cost:
 		money -= cost
-		upgrades[name] = true
+		if upgrades.has(name):
+			upgrades[name] += 1
+		else:
+			upgrades[name] = 1
 		return true
 	return false
 
