@@ -1,6 +1,6 @@
 extends Node
 
-var money: int = 0:
+var money: float = 0:
 	set(m):
 		money = m
 		update_stat_labels()
@@ -10,7 +10,7 @@ func _ready() -> void:
 	load_game()
 	update_stat_labels()
 
-func add_money(amount: int):
+func add_money(amount : float):
 	money += amount
 
 func buy_upgrade(name: String, cost: int):
@@ -20,6 +20,7 @@ func buy_upgrade(name: String, cost: int):
 			upgrades[name] += 1
 		else:
 			upgrades[name] = 1
+		update_stat_labels()
 		return true
 	return false
 
@@ -45,3 +46,8 @@ func load_game():
 
 func update_stat_labels():
 	get_tree().call_group("stats", "update")
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST: #handle game close -> save game
+		save_game()
+		get_tree().quit() # default behavior

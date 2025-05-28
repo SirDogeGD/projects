@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca72nrk4o3wvt"]
+[gd_scene load_steps=6 format=3 uid="uid://ca72nrk4o3wvt"]
 
 [ext_resource type="Script" uid="uid://bb16irxpnh23s" path="res://Main/main.gd" id="1_liyct"]
-[ext_resource type="Script" uid="uid://s42vbnxh3gi2" path="res://Main/money_label.gd" id="2_ib3t1"]
 [ext_resource type="Script" uid="uid://2wjcr20dhsth" path="res://Main/click_button.gd" id="3_f6fdm"]
-[ext_resource type="Script" uid="uid://ca6aum3ebiwkn" path="res://Main/income_timer.gd" id="4_rj11h"]
+[ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Stats/Statslabel.tscn" id="3_ib3t1"]
 [ext_resource type="Script" uid="uid://if8ja7xfv563" path="res://Main/save_timer.gd" id="5_qac2q"]
 [ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrade_button.tscn" id="6_o60nc"]
 
@@ -16,14 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_liyct")
 
-[node name="MoneyLabel" type="Label" parent="." groups=["stats"]]
+[node name="StatsContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 23.0
-offset_right = 149.0
-offset_bottom = 46.0
-text = "Money: "
-script = ExtResource("2_ib3t1")
+offset_right = 150.0
+offset_bottom = 132.0
+
+[node name="MoneyLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+
+[node name="IncomeLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+type = 1
 
 [node name="ClickButton" type="Button" parent="."]
 layout_mode = 0
@@ -33,12 +35,8 @@ offset_right = 522.0
 offset_bottom = 353.0
 script = ExtResource("3_f6fdm")
 
-[node name="IncomeTimer" type="Timer" parent="."]
-autostart = true
-script = ExtResource("4_rj11h")
-
 [node name="SaveTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 script = ExtResource("5_qac2q")
 
@@ -60,9 +58,9 @@ grow_vertical = 2
 
 [node name="UpgradeButton" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
 layout_mode = 2
+my_upgrade = "Clicker"
 my_cost = 1
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="ClickButton" to="ClickButton" method="_on_pressed"]
-[connection signal="timeout" from="IncomeTimer" to="IncomeTimer" method="_on_timeout"]
 [connection signal="timeout" from="SaveTimer" to="SaveTimer" method="_on_timeout"]
