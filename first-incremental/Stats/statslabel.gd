@@ -6,6 +6,6 @@ enum types {MONEY, INCOME}
 func update():
 	match type:
 		types.MONEY:
-			text = 'Money: ' + str(GameState.money)
+			text = 'Money: ' + str("%.2f" % GameState.money) 
 		types.INCOME:
 			text = 'Income: ' + str(IncomeTimer.calc_income())

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745307276
+::res://::1750150485
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::7994649970676244036::1706862387::0::1::::<><><>0<>0<><>::
 ::res://addons/::1702562360
 ::res://addons/sound_manager/::1743665807
@@ -119,8 +119,8 @@ Lobby.tscn::PackedScene/PackedScene::6796391377668411994::1743665830::0::1::::<>
 ::res://game/scenes/main_menu/::1743665830
 main_menu.gd::GDScript/GDScript::5172297977474769346::1701174785::0::1::::<>Control<><>0<>0<><>::
 main_menu.tscn::PackedScene/PackedScene::6053430602668108279::1743665830::0::1::::<><><>0<>0<><>::uid://cfxq8y03omq1o::::res://game/scenes/main_menu/main_menu.gd
-::res://game/UI/::1744038087
-outline.gdshader::Shader::5875847366150845506::1744038087::0::1::::<><><>0<>0<><>::
+::res://game/UI/::1745334013
+outline.gdshader::Shader::5875847366150845506::1745334013::0::1::::<><><>0<>0<><>::
 outline.tres::ShaderMaterial/ShaderMaterial::2079599052373220282::1688450817::0::1::::<><><>0<>0<><>::res://game/UI/outline.gdshader
 UI.gd::GDScript/GDScript::2179530718177825750::1703680233::0::1::::<>CanvasLayer<><>0<>0<><>::
 UI.tscn::PackedScene/PackedScene::4586936857471964270::1743665831::0::1::::<><><>0<>0<><>::uid://6b1s1xi6a1uw::::res://game/UI/UI.gd<>uid://dh5typ5uy3fg4::::res://game/person/inventory/inventory_ui.tscn<>uid://ch721dw770qm0::::res://game/UI/dash_ui/dash_ui.tscn<>uid://jqobfiy31ltk::::res://game/UI/HP/playerHP_ui/HeartBar.tscn<>uid://d3oiamsxkfb57::::res://game/UI/sideboard/sideboard_ui.tscn<>uid://byoulpu18jban::::res://game/UI/effects_ui/effects_ui.tscn

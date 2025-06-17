@@ -1,12 +1,9 @@
 extends Button
 class_name upgradebutton
 
-@export var my_upgrade : String#:
-	#set(t):
-		#%TextLabel.text = t
-@export var my_cost : int#:
-	#set(c):
-		#%CostLabel.text = str(c)
+@export var my_upgrade : String
+@export var my_base_cost : int
+var my_cost : int
 
 var my_level := 0
 
@@ -23,5 +20,5 @@ func update_cost():
 		my_level = GameState.upgrades.get(my_upgrade)
 	else:
 		my_level = 0
-	my_cost = 1 + (my_level * 1.2)
+	my_cost = my_base_cost * my_level * my_level * 0.2
 	%CostLabel.text = str(my_cost)

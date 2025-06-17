@@ -9,10 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 2
+size_flags_vertical = 0
 script = ExtResource("1_k48vh")
 my_upgrade = "Test"
-my_cost = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
