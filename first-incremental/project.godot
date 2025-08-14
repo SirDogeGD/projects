@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://GameState.gd"
 IncomeTimer="*res://Main/income_timer.tscn"
+Calculations="*res://Main/calculations.gd"
 
 [global_group]
 

@@ -66,6 +66,11 @@ layout_mode = 2
 my_upgrade = "Better Clicks"
 my_base_cost = 5
 
+[node name="UpgradeButton3" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+layout_mode = 2
+my_upgrade = "Better Clicker"
+my_base_cost = 50
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="ClickButton" to="ClickButton" method="_on_pressed"]
 [connection signal="timeout" from="SaveTimer" to="SaveTimer" method="_on_timeout"]
