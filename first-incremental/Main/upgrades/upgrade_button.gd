@@ -4,6 +4,7 @@ class_name upgradebutton
 @export var my_upgrade : String
 @export var my_base_cost : int
 var my_cost : int
+var list := upgrade_list.new()
 
 var my_level := 0
 
@@ -22,6 +23,8 @@ func update_cost():
 		my_level = 0
 	my_cost = my_base_cost * my_level * my_level * 0.2
 	%CostLabel.text = str(my_cost)
+	
+	%CostLabel.text = list.get_cost_text(my_upgrade)
 
 func update():
 	match my_upgrade:

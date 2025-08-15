@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://2wjcr20dhsth" path="res://Main/click_button.gd" id="3_f6fdm"]
 [ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Stats/Statslabel.tscn" id="3_ib3t1"]
 [ext_resource type="Script" uid="uid://if8ja7xfv563" path="res://Main/save_timer.gd" id="5_qac2q"]
-[ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrade_button.tscn" id="6_o60nc"]
+[ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrades/upgrade_button.tscn" id="6_o60nc"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -58,17 +58,17 @@ grow_vertical = 2
 
 [node name="UpgradeButton" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
 layout_mode = 2
-my_upgrade = "Clicker"
+my_upgrade = "Soul Well"
 my_base_cost = 2
 
 [node name="UpgradeButton2" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
 layout_mode = 2
-my_upgrade = "Better Clicks"
+my_upgrade = "Wood Minion"
 my_base_cost = 5
 
 [node name="UpgradeButton3" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
 layout_mode = 2
-my_upgrade = "Better Clicker"
+my_upgrade = "Stone Minion"
 my_base_cost = 50
 
 [connection signal="ready" from="." to="." method="_on_ready"]

@@ -64,3 +64,9 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST: #handle game close -> save game
 		save_game()
 		get_tree().quit() # default behavior
+
+func get_upgrade_level(name : String) -> int:
+	if upgrades.has(name):
+		return upgrades.get(name)
+	else:
+		return 0
