@@ -11,8 +11,8 @@ var list := {
 	},
 	"Wood Minion" : {
 		"Cost" : [
-			{"Souls" : 20},
-			{"Souls" : 160},
+			{"Souls" : 80},
+			{"Souls" : 360},
 			{"Souls" : 2540, "Stone" : 680},
 		]
 	},

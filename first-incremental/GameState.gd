@@ -5,6 +5,7 @@ var resources := {
 	"Wood": 0
 }
 var upgrades := {}
+var up_list := upgrade_list.new()
 
 func _ready() -> void:
 	load_game()
@@ -23,17 +24,27 @@ func remove_resource(type: String, amount: int) -> void:
 func get_resource(type: String) -> int:
 	return resources.get(type)
 
-func can_afford(cost: Dictionary) -> bool:
-	for resource in cost.keys():
-		if resources.get(resource) < cost[resource]:
-			return false
-	return true
+func buy_upgrade(name : String):
+	if not (up_list.list.has(name)):
+		return #doesnt exist
+	var cost = up_list.get_upgrade_cost(name)
+	if pay_cost(cost):
+		if upgrades.has(name):
+			upgrades[name] += 1
+		else:
+			upgrades[name] = 1
 
 func pay_cost(cost: Dictionary) -> bool:
 	if not can_afford(cost):
 		return false
 	for resource in cost.keys():
 		remove_resource(resource, cost[resource])
+	return true
+	
+func can_afford(cost: Dictionary) -> bool:
+	for resource in cost.keys():
+		if resources.get(resource) < cost[resource]:
+			return false
 	return true
 
 func save_game():

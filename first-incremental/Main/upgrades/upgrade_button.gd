@@ -9,7 +9,7 @@ var list := upgrade_list.new()
 var my_level := 0
 
 func _on_pressed() -> void:
-	GameState.buy_upgrade(my_upgrade, my_cost)
+	GameState.buy_upgrade(my_upgrade)
 	update_cost()
 
 func _on_ready() -> void:
