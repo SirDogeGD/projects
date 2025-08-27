@@ -27,6 +27,10 @@ layout_mode = 2
 layout_mode = 2
 type = 1
 
+[node name="IncomeLabel2" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+type = 2
+
 [node name="ClickButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 367.0

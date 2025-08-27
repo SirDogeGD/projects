@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameState="*res://GameState.gd"
 IncomeTimer="*res://Main/income_timer.tscn"
 Calculations="*res://Main/calculations.gd"
+UpgradeList="*res://Main/upgrades/upgrade_list.gd"
 
 [global_group]
 

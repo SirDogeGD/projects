@@ -4,7 +4,6 @@ class_name upgradebutton
 @export var my_upgrade : String
 @export var my_base_cost : int
 var my_cost : int
-var list := upgrade_list.new()
 
 var my_level := 0
 
@@ -24,16 +23,9 @@ func update_cost():
 	my_cost = my_base_cost * my_level * my_level * 0.2
 	%CostLabel.text = str(my_cost)
 	
-	%CostLabel.text = list.get_cost_text(my_upgrade)
+	%CostLabel.text = UpgradeList.get_cost_text(my_upgrade)
 
 func update():
 	match my_upgrade:
 		"Wood Minion":
-			tooltip_text = str(Calculations.calc_Minion_cps(my_upgrade))
-		"Better Clicks":
-			tooltip_text = str(Calculations.calc_click_souls())
-		"Better Wood Minion":
-			var val := 0.0
-			if GameState.upgrades.has("Better Wood Minion"):
-				val += GameState.upgrades["Better Wood Minion"] * 0.1
-			tooltip_text = str(val)
+			tooltip_text = str(UpgradeList.get_income("Wood", 1))

@@ -1,11 +1,10 @@
 extends Node
 
 var resources := {
-	"Souls": 0,
-	"Wood": 0
+	"Souls": 0.0,
+	"Wood": 0.0
 }
 var upgrades := {}
-var up_list := upgrade_list.new()
 
 func _ready() -> void:
 	load_game()
@@ -16,18 +15,20 @@ func add_resource(type : String, amount : float):
 		resources[type] += amount
 		GameState.update_stat_labels()
 
-func remove_resource(type: String, amount: int) -> void:
+func remove_resource(type: String, amount: float) -> void:
 	if resources.has(type):
 		resources[type] = max(resources[type] - amount, 0)
 		GameState.update_stat_labels()
 
-func get_resource(type: String) -> int:
-	return resources.get(type)
+func get_resource(type: String) -> float:
+	if resources.has(type):
+		return resources.get(type)
+	return 0
 
 func buy_upgrade(name : String):
-	if not (up_list.list.has(name)):
+	if not (UpgradeList.list.has(name)):
 		return #doesnt exist
-	var cost = up_list.get_upgrade_cost(name)
+	var cost = UpgradeList.get_upgrade_cost(name)
 	if pay_cost(cost):
 		if upgrades.has(name):
 			upgrades[name] += 1
