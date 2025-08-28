@@ -1,10 +1,11 @@
 extends Label
+class_name resources_label
 
 enum types {SOULS, WOOD, STONE}
 @export var type: types
+var my_type : String
 
 func update():
-	var my_type : String
 	match type:
 		types.SOULS:
 			my_type = 'Souls'
@@ -13,9 +14,4 @@ func update():
 		types.STONE:
 			my_type = 'Stone'
 	
-	var my_amount = int(GameState.get_resource(my_type))
-	if my_amount == 0:
-		visible = false
-	else:
-		visible = true
-		text = my_type + ': ' + str(my_amount)
+	text = my_type + ': ' + str(int(GameState.get_resource(my_type)))

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca72nrk4o3wvt"]
+[gd_scene load_steps=7 format=3 uid="uid://ca72nrk4o3wvt"]
 
 [ext_resource type="Script" uid="uid://bb16irxpnh23s" path="res://Main/main.gd" id="1_liyct"]
+[ext_resource type="Script" uid="uid://dtj3fwuxjkdbb" path="res://Resources/resources_shower.gd" id="2_liyct"]
 [ext_resource type="Script" uid="uid://2wjcr20dhsth" path="res://Main/click_button.gd" id="3_f6fdm"]
-[ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Stats/Statslabel.tscn" id="3_ib3t1"]
+[ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Resources/Resources_label.tscn" id="3_ib3t1"]
 [ext_resource type="Script" uid="uid://if8ja7xfv563" path="res://Main/save_timer.gd" id="5_qac2q"]
 [ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrades/upgrade_button.tscn" id="6_o60nc"]
 
@@ -15,10 +16,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_liyct")
 
-[node name="StatsContainer" type="VBoxContainer" parent="."]
+[node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats"]]
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 132.0
+script = ExtResource("2_liyct")
 
 [node name="MoneyLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
 layout_mode = 2
