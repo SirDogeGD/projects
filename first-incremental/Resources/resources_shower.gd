@@ -8,7 +8,7 @@ func update():
 #	add labels
 	for r in GameState.resources:
 		if GameState.resources.get(r) > 0:
-			var label = resources_label.new()
-			label.my_type = r
-			add_child(label)
-			#print(r, ': ', GameState.resources.get(r))
+			var mylabel = resources_label.new()
+			mylabel.my_type = r
+			add_child(mylabel)
+			mylabel.update()

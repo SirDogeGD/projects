@@ -1,0 +1,4 @@
+res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn
+res://game/person/person.gdshader
+res://game/UI/outline.gdshader
+res://game/person/perks/perk_menu/perk_choose/perk_choose.gd

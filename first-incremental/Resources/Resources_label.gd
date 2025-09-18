@@ -6,12 +6,13 @@ enum types {SOULS, WOOD, STONE}
 var my_type : String
 
 func update():
-	match type:
-		types.SOULS:
-			my_type = 'Souls'
-		types.WOOD:
-			my_type = 'Wood'
-		types.STONE:
-			my_type = 'Stone'
+	if my_type == '':
+		match type:
+			types.SOULS:
+				my_type = 'Souls'
+			types.WOOD:
+				my_type = 'Wood'
+			types.STONE:
+				my_type = 'Stone'
 	
 	text = my_type + ': ' + str(int(GameState.get_resource(my_type)))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca72nrk4o3wvt"]
+[gd_scene load_steps=9 format=3 uid="uid://ca72nrk4o3wvt"]
 
 [ext_resource type="Script" uid="uid://bb16irxpnh23s" path="res://Main/main.gd" id="1_liyct"]
 [ext_resource type="Script" uid="uid://dtj3fwuxjkdbb" path="res://Resources/resources_shower.gd" id="2_liyct"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Resources/Resources_label.tscn" id="3_ib3t1"]
 [ext_resource type="Script" uid="uid://if8ja7xfv563" path="res://Main/save_timer.gd" id="5_qac2q"]
 [ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrades/upgrade_button.tscn" id="6_o60nc"]
+[ext_resource type="Script" uid="uid://b11r6d5grnucm" path="res://UI/HoverGrow.gd" id="8_f6fdm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib3t1"]
+load_path = "res://.godot/imported/SW0.png-190d3b4e84ac8b634ff227c43214ecd8.ctex"
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -17,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_liyct")
 
 [node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats"]]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 132.0
@@ -76,6 +81,18 @@ my_base_cost = 5
 layout_mode = 2
 my_upgrade = "Stone Minion"
 my_base_cost = 50
+
+[node name="SoulWell" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 267.0
+offset_right = 513.0
+offset_bottom = 392.0
+pivot_offset = Vector2(150, 0)
+texture = SubResource("CompressedTexture2D_ib3t1")
+
+[node name="Node" type="Node" parent="SoulWell"]
+script = ExtResource("8_f6fdm")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="ClickButton" to="ClickButton" method="_on_pressed"]
