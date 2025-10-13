@@ -57,7 +57,7 @@ autostart = true
 script = ExtResource("5_qac2q")
 
 [node name="ShopPanel" type="Panel" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 798.0
 offset_top = 58.0
 offset_right = 1133.0

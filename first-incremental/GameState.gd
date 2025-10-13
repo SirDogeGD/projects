@@ -5,6 +5,7 @@ var resources := {
 	"Wood": 0.0
 }
 var upgrades := {}
+enum types {SOULS, WOOD, STONE}
 
 func _ready() -> void:
 	load_game()
