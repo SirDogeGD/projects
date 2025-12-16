@@ -18,13 +18,14 @@ func _ready():
 		add_child(h)
 		has_hole = true
 		h.signal_entered.connect(_on_hole_entered)
+	print(h.signal_entered.get_connections())
 	
 	p.position = %Spawnpos.position
-#	print("lobby ready")
 
 func _on_hole_entered():
 	remove_child(p)
 	jumpdown.emit()
+	print("JUMP")
 
 func _enter_tree():
 	UI.show()

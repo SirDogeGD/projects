@@ -26,7 +26,6 @@ var cc := 0.0
 var cd := 0.0
 var def := 0.0
 var tru := 0.0
-#taken
 var base_taken := 0.0
 var mult_taken := 0.0
 var tru_taken := 0.0

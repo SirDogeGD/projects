@@ -61,11 +61,12 @@ func _ready():
 	mega_stats.guy = self
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
-	effect_node.owner = self
-	health.guy = self
+	add_child(effect_node)
+	add_child(health)
 	health.changed.connect(hp_changed)
 	death.connect(mega_stats.mega_on_death)
-	timers.owner = self
+	add_child(timers)
+	add_child(run_stats)
 
 func _physics_process(delta):
 	calc_speed()

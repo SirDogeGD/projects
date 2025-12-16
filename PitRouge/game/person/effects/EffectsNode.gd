@@ -25,8 +25,8 @@ func add_effect(type : String, dura : float, from := "self"):
 	new_effect.FROM = from
 	
 	#duration
-	if owner is person:
-		dura_mult *= owner.mega_stats.effect_dura
+	if get_parent() is person:
+		dura_mult *= get_parent().mega_stats.effect_dura
 	new_effect.TIME.wait_time = dura * dura_mult
 	
 	#perm effect

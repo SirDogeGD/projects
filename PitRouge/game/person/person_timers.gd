@@ -9,7 +9,7 @@ func add_timer(id : String):
 	timer.one_shot = false
 	timer.autostart = true
 	%Timers.add_child(timer)
-	timer.timeout.connect(PERKS.on_timer_timeout.bind(owner, id))
+	timer.timeout.connect(PERKS.on_timer_timeout.bind(get_parent(), id))
 
 func get_timer(id : String) -> Timer:
 	var timer := %Timers.get_node_or_null("timer_" + id)

@@ -3,7 +3,6 @@ class_name hp_data
 
 signal changed
 
-var guy : person
 var maxHP := 20:
 	set(hp):
 		maxHP = hp
@@ -11,8 +10,8 @@ var maxHP := 20:
 var curHP : float = maxHP:
 	set(hp):
 		curHP = clamp(hp, 0, maxHP)
-		if curHP == 0 and guy != null:
-			guy.on_death()
+		if curHP == 0 and get_parent() != null:
+			get_parent().on_death()
 		changed.emit()
 var maxSH := 6
 var curSH : float:
@@ -37,4 +36,4 @@ func take_dmg(d : dmg_data):
 	curHP -= d.trudmg
 
 func calc_maxSH():
-	maxSH = 6 + PERKS.get_bonus_maxsh(guy)
+	maxSH = 6 + PERKS.get_bonus_maxsh(get_parent())
