@@ -17,16 +17,16 @@ func update(a : person):
 #	var tooltip : perk_tooltip = tooltip_scene.instantiate()
 #	add_child(tooltip)
 	
-	var amount_of_slots : int = SAVE.pers.perks.get_max(type)
-	var perks : Array = SAVE.pers.perks.slots[type].keys()
+	var amount_of_slots : int = a.perks.get_max(type)
+	var perks : Array = a.perks.slots[type].keys()
 	for n in range(amount_of_slots):
 		var po : perk_slot_one = perk_one.instantiate()
 		
 		if n < perks.size(): #not empty
 			po.id = perks[n]
-			po.lvl = SAVE.pers.perks.slots[type][perks[n]]
+			po.lvl = a.perks.slots[type][perks[n]]
 		
 		add_child(po)
-#		po.mouse_entered.connect(tooltip.update.bind(po.id, SAVE.pers))
-#		po.mouse_exited.connect(tooltip.update.bind(po.id, SAVE.pers, false))
+#		po.mouse_entered.connect(tooltip.update.bind(po.id, a))
+#		po.mouse_exited.connect(tooltip.update.bind(po.id, a, false))
 		po.update()

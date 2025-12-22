@@ -24,6 +24,7 @@ func _ready():
 	selected_item.connect("RESET",Callable(self,"attack_players"))
 	stats = save_data.new()
 	stats.random()
+	%effects_ui.connected_person = self
 
 func _physics_process(delta):
 	match state:

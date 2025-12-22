@@ -5,3 +5,6 @@ func _on_button_pressed():
 
 func _on_button_quit_pressed():
 	get_tree().quit()
+
+func _enter_tree():
+	UI.hide()

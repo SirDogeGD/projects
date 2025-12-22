@@ -24,6 +24,6 @@ func _process(delta):
 		position = tooltip_position
 
 func update(id : String, lvl : int):
-	data = PINFO.perkinfo(id, SAVE.pers)
+	data = PINFO.perkinfo(id, PREF.getp())
 	%PerkName.text = "[center][b]" + data.pname + " " + str(lvl) + "[/b][/center]"
 	%PerkDesc.text = "[center]" + data.desc + "[/center]"

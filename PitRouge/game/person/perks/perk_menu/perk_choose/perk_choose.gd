@@ -23,10 +23,11 @@ func update(a : person):
 #CHOOSE A PERK
 func _on_click(event):
 	if Input.is_action_just_pressed("left_click"):
-		if SAVE.pers.mystic_shards > 0:
-			if SAVE.pers.perks.slot_not_full(id):
-				SAVE.pers.perks.add(id)
-				SAVE.pers.mystic_shards -= 1
+		var player = get_tree().get_first_node_in_group("player")
+		if player.mystic_shards > 0:
+			if player.perks.slot_not_full(id):
+				player.perks.add(id)
+				player.mystic_shards -= 1
 				is_chosen = true
 				emit_signal("chosen", id)
 			else:

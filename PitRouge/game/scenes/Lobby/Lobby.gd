@@ -4,38 +4,18 @@ signal jumpdown
 
 var has_hole := false
 
-@onready var p : player = SAVE.pers
 @onready var holeScene := preload("res://game/scenes/Lobby/hole.tscn")
 @onready var h : hole = holeScene.instantiate()
 
 func _ready():
-#	call_deferred("add_child", p)
-	if not p in get_children():
-		add_child(p)
-	in_signals()
 	#Add Hole
 	if not has_hole:
 		add_child(h)
 		has_hole = true
 		h.signal_entered.connect(_on_hole_entered)
-	print(h.signal_entered.get_connections())
-	
-	p.position = %Spawnpos.position
 
 func _on_hole_entered():
-	remove_child(p)
-	jumpdown.emit()
-	print("JUMP")
+	SCENE.switch_to("fight")
 
 func _enter_tree():
 	UI.show()
-
-func in_signals():
-	p.inv_changed.connect(Callable(UI,"update_inv"))
-	p.dash_changed.connect(Callable(UI,"update_dash"))
-	p.health_changed.connect(Callable(UI,"update_health"))
-	p.effect_node.connect("effects_changed",Callable(UI,"update_effects"))
-	out_signals()
-
-func out_signals():
-	p.all_signals()

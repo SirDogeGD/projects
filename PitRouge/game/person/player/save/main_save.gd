@@ -1,13 +1,11 @@
 extends Node
 
 var save : save_data
-var pers : player
 
-func _enter_tree():
-	pers = preload("res://game/person/player/playerchar.tscn").instantiate()
-	load_data()
+#func _enter_tree():
+	#load_data()
 
-func load_data():
+func load_data(pers : person):
 	if ResourceLoader.exists("user://save.res"):
 		var saved = ResourceLoader.load("user://save.res")
 		if saved is save_data:

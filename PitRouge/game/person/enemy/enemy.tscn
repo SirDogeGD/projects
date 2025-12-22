@@ -25,12 +25,6 @@ material = SubResource("ShaderMaterial_58osx")
 [node name="CollisionShape2D" parent="." index="1"]
 visible = true
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = true
-
-[node name="CollisionShape2D" parent="FeetArea" index="0"]
-visible = true
-
 [node name="DetectRadius" type="Area2D" parent="Radii" index="0"]
 collision_layer = 0
 monitorable = false

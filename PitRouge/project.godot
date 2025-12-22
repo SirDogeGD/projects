@@ -26,6 +26,7 @@ PINFO="*res://game/person/perks/perk_info.gd"
 PUI="*res://game/person/perks/perk_menu/perk_menu.tscn"
 SOUND="*res://addons/sound_manager/sound_manager.gd"
 SCENE="*res://game/scenes/sceneHandler.gd"
+PREF="*res://game/person/player/playerRef.gd"
 
 [display]
 

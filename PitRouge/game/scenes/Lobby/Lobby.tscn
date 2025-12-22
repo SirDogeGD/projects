@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c33htqof6pmba"]
+[gd_scene load_steps=3 format=3 uid="uid://c33htqof6pmba"]
 
 [ext_resource type="Script" uid="uid://d221k17668w57" path="res://game/scenes/Lobby/Lobby.gd" id="1_jv3rf"]
+[ext_resource type="PackedScene" uid="uid://bd80ch2kyvhfk" path="res://game/scenes/PlayerSpawn.tscn" id="2_mtyyt"]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_jv3rf")
 
-[node name="Spawnpos" type="Node2D" parent="."]
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_mtyyt")]
 unique_name_in_owner = true
 position = Vector2(989, 847)

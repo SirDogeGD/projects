@@ -1,19 +1,23 @@
 extends Node
 class_name effect
 
+signal ended
+
 var TYPE : String
 var FROM : String
-var TIME := Timer.new()
+var TIME := 99.0
+var START := true
 
 func _ready():
-	TIME.timeout.connect(end)
-	TIME.one_shot = true
-	add_child(TIME)
-	if TIME.time_left != 0:
-		TIME.start()
+	%Timer.timeout.connect(end)
+	%Timer.one_shot = true
+	%Timer.wait_time = TIME
+	if START:
+		%Timer.start()
 
 func end():
+	ended.emit()
 	queue_free()
 
 func add_time(t : float):
-	TIME.start(TIME.time_left + t)
+	%Timer.start(%Timer.time_left + t)

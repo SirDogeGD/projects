@@ -1,13 +1,11 @@
 extends Node2D
 
-@onready var p : player = SAVE.pers
-
 func _ready():
-#	call_deferred("add_child", p)
-	add_child(p)
-	%Camera.following = p
-	PUI.new_choice()
+	var p = PREF.getp()
+	if p:
+		_on_player_ready(p)
+	else:
+		PREF.player_ready.connect(_on_player_ready, CONNECT_ONE_SHOT)
 
-func spawn_enemy():
-	var enemyScene = preload("res://game/person/enemy/enemy.tscn").instantiate()
-	add_child(enemyScene)
+func _on_player_ready(player):
+	PUI.new_choice()

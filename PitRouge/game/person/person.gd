@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name person
 
 signal health_changed(hp : hp_data)
-#signal effects_changed(effect_node : effects)
 #signal perks_changed(perks : perks_slots)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
@@ -61,14 +60,14 @@ func _ready():
 	mega_stats.guy = self
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
-	add_child(effect_node)
+	#add_child(effect_node)
 	add_child(health)
 	health.changed.connect(hp_changed)
 	death.connect(mega_stats.mega_on_death)
-	add_child(timers)
+	#add_child(timers)
 	add_child(run_stats)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	calc_speed()
 	move_and_slide()
 
@@ -89,7 +88,7 @@ func dash(direction : Vector2):
 		particles.emitting = false
 
 func calc_speed():
-	SPEED = 300
+	SPEED = 400
 	#1% speed per effect
 	SPEED += effect_node.get_boost("SPEED")
 	#multiplier

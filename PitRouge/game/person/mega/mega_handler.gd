@@ -126,7 +126,6 @@ static func check_active(at : int, s := 0.0) -> bool:
 	return false
 
 static func on_spawn(m : mega_data):
-	print("MEGA SPAWNED")
 	
 	match m.m_id:
 		"HERMIT":
@@ -134,7 +133,6 @@ static func on_spawn(m : mega_data):
 				m.guy.effect_node.add_effect("SLOW", 0, "HERMIT")
 
 static func on_activate(m : mega_data):
-	print("MEGA ACTIVATED")
 	
 	match m.m_id:
 		"OVRDRV":
@@ -147,7 +145,6 @@ static func on_activate(m : mega_data):
 				m.guy.effect_node.add_effect("SPEED", 0, "HIGH")
 
 static func on_death(m : mega_data):
-	print("MEGA DEATH")
 	
 	match m.m_id:
 		"OVRDRV":
@@ -158,7 +155,6 @@ static func on_death(m : mega_data):
 				m.guy.run_stats.gold += m.guy.run_stats.bounty
 
 static func on_kill(m : mega_data, r : rewards_data):
-	print("MEGA KILL")
 	
 	match m.m_id:
 		"MOON":

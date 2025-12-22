@@ -7,7 +7,7 @@ var C := Constants.new()
 var level_colors := [C.COLOR_DARK_GREY, C.COLOR_DARK_BLUE, C.COLOR_DARK_AQUA, C.COLOR_DARK_GREEN, C.COLOR_GREEN, C.COLOR_YELLOW, C.COLOR_GOLD, C.COLOR_RED, C.COLOR_DARK_RED, C.COLOR_PURPLE, C.COLOR_PINK, C.COLOR_WHITE, C.COLOR_AQUA]
 
 func get_total_xp_needed(pers : person = null) -> int:
-	var total : int
+	var total := 0
 	var pres := pers.stats.prestige if pers != null else 0
 	
 	for n in xp_per_level:
@@ -16,7 +16,7 @@ func get_total_xp_needed(pers : person = null) -> int:
 	return total
 
 func get_xp_of(lvl : int, pers : person = null) -> int:
-	var amount : int
+	var amount := 0
 	
 	for n in range(1, lvl):
 		amount += xp_per_level[floor(n/10.0)]
