@@ -18,9 +18,6 @@ func _on_effects_changed(e : Dictionary):
 	for c in %effectsContainer.get_children():
 		c.queue_free()
 	
-	if e.has("RES"):
-		print(e["RES"])
-	
 	if connected_person:
 		
 		for ef in e:
