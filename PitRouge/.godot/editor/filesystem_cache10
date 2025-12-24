@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766492733
+::res://::1766564332
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::7994649970676244036::1755677998::0::1::::<><><>0<>0<><>::
 ::res://addons/::1755678067
 ::res://addons/sound_manager/::1755678067
@@ -63,8 +63,8 @@ level.gd::GDScript::6821075898913039247::1766414711::0::1::::level<>Node<><>0<>0
 mega_data.gd::GDScript::1066918711058008186::1765789282::0::1::::mega_data<>Node<><>0<>0<><>::
 mega_handler.gd::GDScript::4197306225553650847::1766414400::0::1::::mega<>Node<><>0<>0<><>::
 mega_save.gd::GDScript/GDScript::7509058774376293221::1755677998::0::1::::mega_save<>Resource<><>0<>0<><>::
-::res://game/person/perks/::1766418027
-perks.gd::GDScript::5838499399585377419::1766418027::0::1::::<>Node<><>0<>0<><>::
+::res://game/person/perks/::1766498801
+perks.gd::GDScript::5838499399585377419::1766498801::0::1::::<>Node<><>0<>0<><>::
 perk_data.gd::GDScript/GDScript::2518397774135738006::1755677998::0::1::::perk_data<>Node<><>0<>0<><>::
 perk_info.gd::GDScript/GDScript::6655962876639659722::1755677998::0::1::::<>Node<><>0<>0<><>::
 ::res://game/person/perks/perks_storage/::1765788337
@@ -123,8 +123,8 @@ Lobby.tscn::PackedScene::6796391377668411994::1766339872::0::1::::<><><>0<>0<><>
 ::res://game/scenes/main_menu/::1766399695
 main_menu.gd::GDScript::5172297977474769346::1766399695::0::1::::<>Control<><>0<>0<><>::
 main_menu.tscn::PackedScene::6053430602668108279::1765812048::0::1::::<><><>0<>0<><>::uid://cfxq8y03omq1o::::res://game/scenes/main_menu/main_menu.gd
-::res://game/UI/::1766414717
-outline.gdshader::Shader::5875847366150845506::1766396328::0::1::::<><><>0<>0<><>::
+::res://game/UI/::1766495781
+outline.gdshader::Shader::5875847366150845506::1766495781::0::1::::<><><>0<>0<><>::
 outline.tres::ShaderMaterial/ShaderMaterial::2079599052373220282::1755677998::0::1::::<><><>0<>0<><>::res://game/UI/outline.gdshader
 UI.gd::GDScript::2179530718177825750::1766413209::0::1::::<>CanvasLayer<><>0<>0<><>::
 UI.tscn::PackedScene::4586936857471964270::1766414717::0::1::::<><><>0<>0<><>::uid://6b1s1xi6a1uw::::res://game/UI/UI.gd<>uid://dh5typ5uy3fg4::::res://game/person/inventory/inventory_ui.tscn<>uid://ch721dw770qm0::::res://game/UI/dash_ui/dash_ui.tscn<>uid://jqobfiy31ltk::::res://game/UI/HP/playerHP_ui/HeartBar.tscn<>uid://d3oiamsxkfb57::::res://game/UI/sideboard/sideboard_ui.tscn<>uid://byoulpu18jban::::res://game/UI/effects_ui/effects_ui.tscn
@@ -133,11 +133,11 @@ dash_ui.gd::GDScript/GDScript::1766444494904955612::1755677998::0::1::::<>HBoxCo
 dash_ui.tscn::PackedScene/PackedScene::5331909343482008889::1755677998::0::1::::<><><>0<>0<><>::uid://xnv7tr1vwytb::::res://game/UI/dash_ui/dash_ui_slot.tscn<>uid://0fxc2wohusnk::::res://game/UI/dash_ui/dash_ui.gd
 dash_ui_slot.gd::GDScript/GDScript::6057709587355844241::1683796939::0::1::::dash_ui_slot<>CenterContainer<><>0<>0<><>::
 dash_ui_slot.tscn::PackedScene/PackedScene::1642513542146179303::1755677998::0::1::::<><><>0<>0<><>::uid://csknuegrtjwt2::::res://game/UI/dash_ui/dash_ui_slot.gd
-::res://game/UI/effects_ui/::1766419094
-effects_ui.gd::GDScript::7919419608531014441::1766419076::0::1::::<>MarginContainer<><>0<>0<><>::
+::res://game/UI/effects_ui/::1766507577
+effects_ui.gd::GDScript::7919419608531014441::1766498353::0::1::::<>MarginContainer<><>0<>0<><>::
 effects_ui.tscn::PackedScene::4101089023123113769::1766411940::0::1::::<><><>0<>0<><>::uid://dk3hxiuowd3wv::::res://game/UI/effects_ui/effects_ui.gd<>uid://bwj13mx0xuuic::::res://game/UI/effects_ui/effects_ui_one.tscn
 effects_ui_one.gd::GDScript::4784516886573228709::1766418646::0::1::::effect_UI_one<>CenterContainer<><>0<>0<><>::
-effects_ui_one.tscn::PackedScene::3950783954535750738::1766419094::0::1::::<><><>0<>0<><>::uid://cafwj88d856td::::res://game/UI/effects_ui/effects_ui_one.gd
+effects_ui_one.tscn::PackedScene::3950783954535750738::1766507577::0::1::::<><><>0<>0<><>::uid://cafwj88d856td::::res://game/UI/effects_ui/effects_ui_one.gd
 ::res://game/UI/HP/::1755671591
 ::res://game/UI/HP/playerHP_ui/::1755677998
 HeartBar.gd::GDScript/GDScript::9184951607387205115::1755677998::0::1::::ui_heartbar<>VBoxContainer<><>0<>0<><>::

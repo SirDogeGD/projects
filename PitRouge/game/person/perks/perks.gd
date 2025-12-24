@@ -50,6 +50,10 @@ func get_num(id : String, _num := 0) -> float:
 		return float(PINFO.perkinfo(id, a).nums[lvl-1][_num])
 	return 0
 
+func get_a_num(_a : person, id : String, _num := 0) -> float:
+	a = _a
+	return get_num(id, _num)
+
 func calc_base_dmg(id : String):
 	var add := get_num(id)
 	match id:

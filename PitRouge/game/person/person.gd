@@ -14,6 +14,7 @@ var inv := inventory.new()
 var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
+var is_dead := false #can be toggled before death signal, so other nodes overlook it while its still in tree
 #Runstats
 var run_stats := run_data.new()
 var mega_stats := mega_data.new()
@@ -66,6 +67,7 @@ func _ready():
 	death.connect(mega_stats.mega_on_death)
 	#add_child(timers)
 	add_child(run_stats)
+	is_dead = false
 
 func _physics_process(_delta):
 	calc_speed()
@@ -168,6 +170,7 @@ func hp_changed():
 	health_changed.emit(health)
 
 func on_death():
+	is_dead = true
 	death.emit()
 	
 	#Save to stats

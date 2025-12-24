@@ -7,7 +7,7 @@ func pickup(what : pickup, who : person):
 	match what.type:
 		what.typeEnum.GOLD_INGOT:
 			val = 5
-			val += PERKS.get_value(who, "PEBBLE")
+			val += PERKS.get_a_num(who, "PEBBLE")
 			PERKS.on_ingot_pickup(who)
 			who.run_stats.gold += val
 		what.typeEnum.XP_BLOB:
