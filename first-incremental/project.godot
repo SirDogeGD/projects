@@ -25,6 +25,7 @@ UpgradeList="*res://Main/upgrades/upgrade_list.gd"
 [global_group]
 
 stats=""
+statshower=""
 
 [input]
 

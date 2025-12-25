@@ -83,3 +83,13 @@ func get_upgrade_level(name : String) -> int:
 		return upgrades.get(name)
 	else:
 		return 0
+
+func get_name_of_type(t : types) -> String:
+	match t:
+		types.SOULS:
+			return 'Souls'
+		types.WOOD:
+			return 'Wood'
+		types.STONE:
+			return 'Stone'
+	return ''

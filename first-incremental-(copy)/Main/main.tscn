@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://ca72nrk4o3wvt"]
+
+[ext_resource type="Script" uid="uid://bb16irxpnh23s" path="res://Main/main.gd" id="1_liyct"]
+[ext_resource type="Script" uid="uid://dtj3fwuxjkdbb" path="res://Resources/resources_shower.gd" id="2_liyct"]
+[ext_resource type="Script" uid="uid://2wjcr20dhsth" path="res://Main/soulwell.gd" id="3_f6fdm"]
+[ext_resource type="PackedScene" uid="uid://ddlfuhwiec4p1" path="res://Resources/Resources_label.tscn" id="3_ib3t1"]
+[ext_resource type="Script" uid="uid://if8ja7xfv563" path="res://Main/save_timer.gd" id="5_qac2q"]
+[ext_resource type="PackedScene" uid="uid://cmwg7wydx3qkc" path="res://Main/upgrades/upgrade_button.tscn" id="6_o60nc"]
+[ext_resource type="Script" uid="uid://b11r6d5grnucm" path="res://UI/HoverGrow.gd" id="8_f6fdm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib3t1"]
+load_path = "res://.godot/imported/SW0.png-190d3b4e84ac8b634ff227c43214ecd8.ctex"
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_liyct")
+
+[node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats"]]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 132.0
+script = ExtResource("2_liyct")
+
+[node name="MoneyLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+
+[node name="IncomeLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+type = 1
+
+[node name="IncomeLabel2" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+layout_mode = 2
+type = 2
+
+[node name="SoulWell" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 267.0
+offset_right = 513.0
+offset_bottom = 392.0
+pivot_offset = Vector2(150, 0)
+texture = SubResource("CompressedTexture2D_ib3t1")
+script = ExtResource("3_f6fdm")
+
+[node name="Node" type="Node" parent="SoulWell"]
+script = ExtResource("8_f6fdm")
+
+[node name="SaveTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+script = ExtResource("5_qac2q")
+
+[node name="ShopPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 58.0
+offset_right = 1133.0
+offset_bottom = 541.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpgradeButton" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+layout_mode = 2
+my_upgrade = "Soul Well"
+my_base_cost = 2
+
+[node name="UpgradeButton2" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+layout_mode = 2
+my_upgrade = "Wood Minion"
+my_base_cost = 5
+
+[node name="UpgradeButton3" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+layout_mode = 2
+my_upgrade = "Stone Minion"
+my_base_cost = 50
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="gui_input" from="SoulWell" to="SoulWell" method="_on_pressed"]
+[connection signal="timeout" from="SaveTimer" to="SaveTimer" method="_on_timeout"]

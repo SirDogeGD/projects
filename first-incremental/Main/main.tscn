@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_liyct")
 
-[node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats"]]
+[node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats", "statshower"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_right = 150.0

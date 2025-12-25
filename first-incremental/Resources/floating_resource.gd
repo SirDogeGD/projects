@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var type: GameState.types
+var origin : String
 @export var travel_time := 0.8
 @export var curve_height := 50.0
 var target_ui: NodePath
@@ -22,25 +23,21 @@ func start_flight(from_pos: Vector2, to_pos: Vector2):
 
 func _on_reached_target():
 	queue_free()
+	GameState.add_resource(GameState.get_name_of_type(type), UpgradeList.get_income("Soul Well"))
 	if target_ui != NodePath():
 		var ui_node = get_node(target_ui)
 		if ui_node and ui_node.has_method("Update"):
 			ui_node.Update()
 
 func set_target():
-	
-	var nodes = get_tree().get_nodes_in_group("stats")
+	var nodes := get_tree().get_nodes_in_group("%s_counter" % type)
 	if nodes.size() > 0:
-		var target_ui = nodes[0]
-		for n in nodes:
-			if n.is_class("resources_label"):
-				match type:
-					GameState.types.SOULS:
-						if n.my_type == 'Souls':
-							target_ui = n
-					GameState.types.WOOD:
-						if n.my_type == 'Wood':
-							target_ui = n
-					GameState.types.STONE:
-						if n.my_type == 'Stone':
-							target_ui = n
+		target_ui = nodes[0]
+		return
+	#doesnt exist yet
+	if not get_node_or_null(target_ui):
+		var statshowers := get_tree().get_nodes_in_group("statshower")
+		if statshowers.size() > 0:
+			target_ui = statshowers[0]
+			return
+		return

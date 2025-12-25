@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://de780oj838i0n"]
+
+[ext_resource type="Script" uid="uid://ca6aum3ebiwkn" path="res://Main/income_timer.gd" id="1_iw0ms"]
+
+[node name="IncomeTimer" type="Timer"]
+autostart = true
+script = ExtResource("1_iw0ms")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
