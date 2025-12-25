@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/effect_SPEED.png-a8d65b1fdb4b4184c0631a0d29a2
 script = ExtResource("1_2peln")
 
 [node name="icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = SubResource("CompressedTexture2D_1u3kb")

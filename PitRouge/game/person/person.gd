@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name person
 
 signal health_changed(hp : hp_data)
-#signal effects_changed(effect_node : effects)
 #signal perks_changed(perks : perks_slots)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
@@ -15,6 +14,7 @@ var inv := inventory.new()
 var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
+var is_dead := false #can be toggled before death signal, so other nodes overlook it while its still in tree
 #Runstats
 var run_stats := run_data.new()
 var mega_stats := mega_data.new()
@@ -61,13 +61,15 @@ func _ready():
 	mega_stats.guy = self
 	run_stats.streak_changed.connect(mega_stats.update_data)
 	mega_stats.refresh()
-	effect_node.owner = self
-	health.guy = self
+	#add_child(effect_node)
+	add_child(health)
 	health.changed.connect(hp_changed)
 	death.connect(mega_stats.mega_on_death)
-	timers.owner = self
+	#add_child(timers)
+	add_child(run_stats)
+	is_dead = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	calc_speed()
 	move_and_slide()
 
@@ -88,7 +90,7 @@ func dash(direction : Vector2):
 		particles.emitting = false
 
 func calc_speed():
-	SPEED = 300
+	SPEED = 400
 	#1% speed per effect
 	SPEED += effect_node.get_boost("SPEED")
 	#multiplier
@@ -168,6 +170,7 @@ func hp_changed():
 	health_changed.emit(health)
 
 func on_death():
+	is_dead = true
 	death.emit()
 	
 	#Save to stats

@@ -7,7 +7,11 @@ const SPEED_THRESHOLD = 50
 var initialZoom: Vector2
 
 func _ready():
+	PREF.player_ready.connect(start, CONNECT_ONE_SHOT)
 	initialZoom = zoom
+	
+func start(p : player):
+	following = p
 
 func _process(delta):
 	if following != null:

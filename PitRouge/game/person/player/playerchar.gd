@@ -3,9 +3,10 @@ class_name player
 
 func _ready():
 	super._ready()
-	stats = SAVE.save
-	SAVE.pers = self
+	SAVE.load_data(self)
+	PREF._on_player_spawned(self)
 	call_info()
+	all_signals()
 	
 #	var l = level.new()
 #	print(l.get_xp_of(12))
@@ -13,6 +14,9 @@ func _ready():
 #	print("xp: ", stats.xp)
 #	print("level: ", l.get_level(self))
 #	print("xp to next level: ", l.get_xp_to_next_level(self))
+
+func _exit_tree() -> void:
+	SAVE.save_data()
 
 func _physics_process(delta):
 	
@@ -101,3 +105,7 @@ func on_kill(b : person):
 	#SFX
 	var kill_sound = load("res://SFX/fight/kill/orb.ogg")
 	SOUND.play_sound(kill_sound, "SFX")
+
+func on_death():
+	super.on_death()
+	SCENE.switch_to("lobby")

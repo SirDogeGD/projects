@@ -8,6 +8,8 @@ func update():
 	var c := Constants.new()
 	var l : RichTextLabel = $numLabel
 	$icon.texture = load("res://img/effects/effect_" + eff + ".png")
+	if not %icon.texture:
+		self.queue_free()
 	l.clear()
 	l.push_outline_color(c.COLOR_BLACK)
 	l.push_outline_size(5)

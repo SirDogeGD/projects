@@ -12,10 +12,6 @@ var active := {
 	"REG" : 0
 	}
 
-func _ready():
-	pass
-	#add_effect("RES", 50)
-
 func add_effect(type : String, dura : float, from := "self"):
 	var effect_scene = preload("res://game/person/effects/effect.tscn")
 	var new_effect = effect_scene.instantiate()
@@ -25,17 +21,17 @@ func add_effect(type : String, dura : float, from := "self"):
 	new_effect.FROM = from
 	
 	#duration
-	if owner is person:
-		dura_mult *= owner.mega_stats.effect_dura
-	new_effect.TIME.wait_time = dura * dura_mult
+	if get_parent() is person:
+		dura_mult *= get_parent().mega_stats.effect_dura
+	new_effect.TIME = dura * dura_mult
 	
 	#perm effect
 	if dura == 0:
-		new_effect.TIME.autostart = false
+		new_effect.START = false
 	
 	add_child(new_effect)
 	
-	new_effect.TIME.timeout.connect(remove_effect.bind(new_effect.TYPE))
+	new_effect.ended.connect(remove_effect.bind(new_effect.TYPE))
 	
 	#add to active
 	if active.has(type):

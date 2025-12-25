@@ -4,3 +4,6 @@
 
 [node name="effect" type="Node"]
 script = ExtResource("1_uiqc8")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true

@@ -13,7 +13,7 @@ func pkill(what : String):
 
 #get non kill perks
 func perks(what : String):
-	return PERKS.get_value(a, what)
+	return PERKS.get_a_num(a, what)
 
 #main function
 func kill(killer : person, died : person) -> rewards_data:

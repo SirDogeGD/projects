@@ -10,8 +10,13 @@ enum {
 var state = IDLE
 var run_speed = 100
 #var velocity = Vector2.ZERO
-var target : person = null
+var target : person = null:
+	set(t):
+		if t:
+			target = t
+			target.death.connect(target_died)
 var bodies_in_attack_range : Array[person]
+var bodies_in_detect_range : Array[person]
 const TOLERANCE = 4.0
 const ACCELERATION = 300
 const MAX_SPEED = 200
@@ -24,6 +29,7 @@ func _ready():
 	selected_item.connect("RESET",Callable(self,"attack_players"))
 	stats = save_data.new()
 	stats.random()
+	%effects_ui.connected_person = self
 
 func _physics_process(delta):
 	match state:
@@ -51,15 +57,21 @@ func _physics_process(delta):
 
 func _on_DetectRadius_body_entered(body : person):
 	if body != null and body != self:
+		bodies_in_detect_range.append(body)
 		state = ATTACK
 		target = body
+		#print("body entered: ", body)
+		#print(bodies_in_detect_range)
 
 func _on_DetectRadius_body_exited(body : person):
 	if body != null:
+		bodies_in_detect_range.erase(body)
 		if body == target:
 			state = IDLE
 			target = null
 			change_target()
+		#print("body left: ", body)
+		#print(bodies_in_detect_range)
 
 func update_target_position():
 	var target_vector = Vector2(randf_range(-32, 32), randf_range(-32, 32))
@@ -96,18 +108,44 @@ func attack_players():
 		selected_item.left_click()
 
 func change_target():
+	print("before change", bodies_in_attack_range)
+	print(bodies_in_detect_range)
+	get_nearby_targets()
+	randomize()
+	print("after change", bodies_in_attack_range)
+	print(bodies_in_detect_range)
 	if not bodies_in_attack_range.is_empty():
-		randomize()
 		bodies_in_attack_range.shuffle()
 		target = bodies_in_attack_range[0]
+	elif not bodies_in_detect_range.is_empty():
+		bodies_in_detect_range.shuffle()
+		target = bodies_in_detect_range[0]
+	if target:
 		state = ATTACK
+
+func target_died():
+	print("target died")
+	change_target()
 
 func respawn():
 	await animation_player.animation_finished
 	global_position = start_position
 	state = IDLE
-	#get all persons in range
+	change_target()
+
+#get all persons in range
+func get_nearby_targets():
+	var b : person
+	
+	bodies_in_attack_range.clear()
+	bodies_in_detect_range.clear()
+	for body in $Radii/AttackRadius.get_overlapping_bodies():
+		if body != self and body is person:
+			b = body
+			if not b.is_dead:
+				bodies_in_attack_range.append(body)
 	for body in $Radii/DetectRadius.get_overlapping_bodies():
 		if body != self and body is person:
-			bodies_in_attack_range.append(body)
-	change_target()
+			b = body
+			if not b.is_dead:
+				bodies_in_detect_range.append(body)

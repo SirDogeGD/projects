@@ -5,6 +5,12 @@ extends Node
 var tickspeed := 2.000:
 	set(t):
 		%Timer.wait_time = t
+		
+func _ready():
+	PREF.player_ready.connect(start, CONNECT_ONE_SHOT)
+	
+func start(_p : player):
+	%Timer.start()
 
 func spawn():
 	var p : pickup = pickupScene.instantiate()
@@ -18,5 +24,6 @@ func _on_timer_timeout():
 
 func despawn_far_pickup():
 	for pi in get_tree().get_nodes_in_group("pickup"):
-		if SAVE.pers.global_position.distance_to(pi.global_position) > 4000:
-			pi.queue_free()
+		if PREF.getp():
+			if PREF.getp().global_position.distance_to(pi.global_position) > 4000:
+				pi.queue_free()

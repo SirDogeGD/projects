@@ -10,8 +10,8 @@ func _ready():
 	connect("area_entered",Callable(self,"_on_area_entered"))
 
 func _on_area_entered(hitbox: HitBox) -> void:
-	var attacker : person = hitbox.owner.owner
-	var defender : person = owner
+	var attacker : person = hitbox.owner.get_parent()
+	var defender : person = get_parent()
 	var damage_done := DMG.calc(attacker, defender)
 	defender.get_hit(attacker, damage_done)
 	attacker.on_hit(defender, damage_done)

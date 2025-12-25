@@ -5,13 +5,6 @@ var lvl : int
 var a : person
 var b : person
 
-#Get values of single stuff (like Sweaty)
-func get_value(a : person, id : String, num := 0) -> float:
-	lvl = a.perks.count(id)
-	if lvl >= 1:
-		return get_num(id, num)
-	return 0
-
 #which = base, mult, true, etc
 #a = attacker
 #b = defender
@@ -49,10 +42,17 @@ func calc(which : String, attacker : person, defender : person) -> float:
 				calc_mult_xp(p)
 	return num
 
-#get the first number of the current level (most perks just have one number)
-func get_num(id : String, num := 0) -> float:
+# returns [num] of perk
+# eg [1, 2, 3, 5] returns 2 if num = 1
+func get_num(id : String, _num := 0) -> float:
 	lvl = a.perks.count(id)
-	return float(PINFO.perkinfo(id, a).nums[lvl][num])
+	if lvl > 0:
+		return float(PINFO.perkinfo(id, a).nums[lvl-1][_num])
+	return 0
+
+func get_a_num(_a : person, id : String, _num := 0) -> float:
+	a = _a
+	return get_num(id, _num)
 
 func calc_base_dmg(id : String):
 	var add := get_num(id)
@@ -66,10 +66,10 @@ func calc_mult_dmg(id : String):
 		"SHARP":
 			num += add
 		"PUN":
-			if b.health.curHP <= b.health.maxHP/2:
+			if b.health.curHP <= b.health.maxHP/2.0:
 				num += add
 		"K_BUST":
-			if b.health.curHP >= b.health.maxHP/2:
+			if b.health.curHP >= b.health.maxHP/2.0:
 				num += add
 		"PF":
 			for n in range(a.health.maxHP - a.health.curHP):
@@ -85,7 +85,7 @@ func calc_mult_dmg(id : String):
 			if b.health.curHP >= b.health.maxHP * 0.95:
 				num += add
 		"BHUNT":
-			var buff = b.run_stats.bounty / 100 * add
+			var buff = b.run_stats.bounty / 100.0 * add
 			if "HTH" in b.perks:
 				buff *= PINFO.perkinfo("HTH", a).nums[b.perks.count("HTH")][0]
 			num += buff
@@ -100,7 +100,7 @@ func calc_base_def(id : String):
 			if b.run_stats.bounty > 0:
 				def = add
 		"BILLY":
-			def = a.run_stats.bounty / 1000 * add
+			def = a.run_stats.bounty / 1000.0 * add
 		"DA":
 			for p in b.perks.get_uniques():
 				if p.begins_with("DIA"):
@@ -146,65 +146,74 @@ func calc_mult_xp(id : String):
 		"XPBOOST":
 			num *= add
 
-func can_block(a : person) -> bool:
+func can_block(_a : person) -> bool:
+	a = _a
 	var no_block_perks := ["BARB"]
 	for no_block_perk in no_block_perks:
-		if a.perks.count(no_block_perk) > 0:
+		if _a.perks.count(no_block_perk) > 0:
 			return false
 	return true
 
 #handle perks that activate on hit
-func on_hit(a : person, b : person, d : dmg_data):
-	var ls_val := get_value(a, "LS")
+func on_hit(_a : person, _b : person, d : dmg_data):
+	a = _a
+	var ls_val := get_num("LS")
 	if ls_val != 0:
-		a.health.curHP += d.amount * ls_val / 100
+		_a.health.curHP += d.amount * ls_val / 100
 #	add COMBO
 	for c_perk in PINFO.get_combo_perks():
-		var c_val := get_value(a, c_perk)
+		var c_val := get_num(c_perk)
 		if c_val != 0:
-			a.effect_node.add_effect(c_perk, 5)
+			_a.effect_node.add_effect(c_perk, 5)
 	
-	if a.effect_node.get_boost("C_SHIELD") >= 4:
-		a.effect_node.clear_effect("C_SHIELD")
-		a.health.curSH += get_value(a, "C_SHIELD")
+	if _a.effect_node.get_boost("C_SHIELD") >= 4:
+		_a.effect_node.clear_effect("C_SHIELD")
+		_a.health.curSH += get_num("C_SHIELD")
 	
-	if a.effect_node.get_boost("C_CRUSH") >= 4:
-		a.effect_node.clear_effect("C_CRUSH")
-		var nums = [get_value(a, "C_CRUSH"), get_value(a, "C_CRUSH", 1)]
+	if _a.effect_node.get_boost("C_CRUSH") >= 4:
+		_a.effect_node.clear_effect("C_CRUSH")
+		var nums = [get_num("C_CRUSH"), get_num("C_CRUSH", 1)]
 		for i in range(nums[0]):
-			b.effect_node.add_effect("WEAK", nums[1], a.name)
+			_b.effect_node.add_effect("WEAK", nums[1], _a.name)
 
 #handle perks that activate on kill
-func on_kill(a : person, b : person):
-	var guts_val := get_value(a, "GUTS")
+func on_kill(_a : person, _b : person):
+	a = _a
+	var guts_val := get_num("GUTS")
 	if guts_val != 0:
 		a.health.curHP += guts_val
 	
-	var jan_val := get_value(a, "C_JAN")
+	var jan_val := get_num("C_JAN")
 	if jan_val != 0:
-		a.effect_node.add_effect("RES", get_value(a, "C_JAN", 1))
+		var nums = [get_num("C_JAN"), get_num("C_JAN", 1)]
+		print(nums)
+		for i in range(nums[0]):
+			_a.effect_node.add_effect("RES", nums[1])
 	
-	var sco_val := get_value(a, "SCO")
+	var sco_val := get_num("SCO")
 	if sco_val != 0:
-		bountyHandler.checkout(a, sco_val)
+		bountyHandler.checkout(_a, sco_val) 
 
-func on_ingot_pickup(a : person):
-	var pebble_hp := get_value(a, "PEBBLE", 1)
+func on_ingot_pickup(_a : person):
+	a = _a
+	var pebble_hp := get_num("PEBBLE", 1)
 	if pebble_hp != 0:
-		a.health.curSH += pebble_hp
+		_a.health.curSH += pebble_hp
 
-func get_bonus_maxsh(a : person) -> int:
+func get_bonus_maxsh(_a : person) -> int:
+	a = _a
 	var bonus := 0
-	for p in a.perks.get_uniques():
+	for p in _a.perks.get_uniques():
 		if p in ["C_SHIELD", "PEBBLE"]:
 			bonus += 2
 	return bonus
 
-func on_timer_timeout(a : person, id : String):
+func on_timer_timeout(_a : person, id : String):
+	a = _a
 	var val := 0.0
-	var lvl := a.perks.count(id)
+	lvl = _a.perks.count(id)
 	
 	match id:
 		"BOO":
-			val = get_value(a, id, lvl)
-			a.health.curHP += val
+			val = get_num(id, lvl)
+			_a.health.curHP += val

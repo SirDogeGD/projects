@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bepffqgthx8i0"]
+
+[ext_resource type="Script" uid="uid://0s1st210qwri" path="res://game/person/player/playerCamera.gd" id="1_mmsga"]
+
+[node name="Camera" type="Camera2D" groups=["camera"]]
+offset = Vector2(100, 0)
+script = ExtResource("1_mmsga")
