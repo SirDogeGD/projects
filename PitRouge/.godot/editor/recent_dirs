@@ -1,3 +1,4 @@
+res://game/UI/chat
 res://game/person/player
 res://game/scenes
 res://game/person/enemy/EnemySpawner
@@ -19,4 +20,3 @@ res://game/person/inventory
 res://game/item/weapon/melee/sword
 res://game/item/weapon/melee
 res://game/item
-res://img/particles

@@ -20,7 +20,7 @@ func kill(killer : person, died : person) -> rewards_data:
 	a = killer
 	b = died
 	
-	var r = rewards_data.new()
+	var r := rewards_data.new()
 	r.gold = kill_gold()
 	r.xp = kill_xp()
 	

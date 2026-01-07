@@ -1,7 +1,4 @@
 res://game/person/enemy/enemy.tscn
 res://game/UI/outline.gdshader
+res://game/UI/chat/chat.gd
 res://game/person/rewards/kill_rewards.gd
-res://game/pickup/pickupHandler.gd
-res://game/person/perks/perks.gd
-res://game/person/enemy/enemy.gd
-res://game/person/person.gd

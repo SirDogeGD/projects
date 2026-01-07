@@ -27,6 +27,7 @@ PUI="*res://game/person/perks/perk_menu/perk_menu.tscn"
 SOUND="*res://addons/sound_manager/sound_manager.gd"
 SCENE="*res://game/scenes/sceneHandler.gd"
 PREF="*res://game/person/player/playerRef.gd"
+CHAT="*res://game/UI/chat/chat.gd"
 
 [display]
 
