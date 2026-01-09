@@ -1,4 +1,9 @@
 res://game/person/enemy/enemy.tscn
 res://game/UI/outline.gdshader
 res://game/UI/chat/chat.gd
-res://game/person/rewards/kill_rewards.gd
+res://game/person/perks/perk_info.gd
+res://game/scenes/constants.gd
+res://game/person/person.gd
+res://game/person/enemy/enemy.gd
+res://game/person/mega/mega_data.gd
+res://game/person/mega/mega_handler.gd

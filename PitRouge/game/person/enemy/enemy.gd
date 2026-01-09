@@ -30,6 +30,7 @@ func _ready():
 	stats = save_data.new()
 	stats.random()
 	%effects_ui.connected_person = self
+	new_name()
 
 func _physics_process(delta):
 	match state:
@@ -108,12 +109,8 @@ func attack_players():
 		selected_item.left_click()
 
 func change_target():
-	print("before change", bodies_in_attack_range)
-	print(bodies_in_detect_range)
 	get_nearby_targets()
 	randomize()
-	print("after change", bodies_in_attack_range)
-	print(bodies_in_detect_range)
 	if not bodies_in_attack_range.is_empty():
 		bodies_in_attack_range.shuffle()
 		target = bodies_in_attack_range[0]
@@ -149,3 +146,8 @@ func get_nearby_targets():
 			b = body
 			if not b.is_dead:
 				bodies_in_detect_range.append(body)
+
+#possibility in future for better names
+func new_name():
+	randomize()
+	person_name = "enemy" + char(randi_range(1, 999999))

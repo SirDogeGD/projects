@@ -12,7 +12,7 @@ func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_d
 	if n:
 		lvl += 1
 	lvl = max(1, lvl) #at least 0
-	data.desc = repl_desc(desc) % nums[lvl - 1]
+	data.desc = C.repl_desc(desc) % nums[lvl - 1]
 	data.nums = nums
 	data.type = type
 	return data
@@ -125,28 +125,28 @@ func perkinfo(id : String, a : person, next := false) -> perk_data:
 			return make("Critically Rich", "Earn +%s% gold on Crits",
 				[[1],[2],[3],[5]],"GXP")
 		"PEBBLE":
-			return make("Pebble", "Earn +%s% gold from Ingots and gain %s shield",
-				[[1, 0.5],[2],[3],[5]],"GXP")
+			return make("Pebble", "Earn +%s%% gold from Ingots and gain %s shield",
+				[[1, 0.5],[2, 1],[3, 1.5],[5, 2]],"GXP")
 		_:
 			return perk_data.new()
 
 #Add color bbcode to certain words
-func repl_desc(d : String) -> String:
-	d = d.replace("dmg", "[color=" + C.COLOR_RED + "]dmg[/color]")
-	d = d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
-	d = d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
-	d = d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
-	d = d.replace("DIA", "[color=" + C.COLOR_AQUA + "]DIA[/color]")
-	d = d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
-	d = d.replace("Weakness", "[color=" + C.COLOR_PURPLE + "]Weakness[/color]")
-	d = d.replace("shield", "[color=" + C.COLOR_YELLOW + "]shield[/color]")
-	
-	#make inserted number green
-	d = d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
-	d = d.replace(" +%s ", "[color=" + C.COLOR_GREEN + "] +%s [/color]")
-	d = d.replace(" %s%% ", "[color=" + C.COLOR_GREEN + "] %s%% [/color]")
-	d = d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
-	return d
+#func repl_desc(d : String) -> String:
+	#d = d.replace("dmg", "[color=" + C.COLOR_RED + "]dmg[/color]")
+	#d = d.replace("damage", "[color=" + C.COLOR_RED + "]damage[/color]")
+	#d = d.replace("gold", "[color=" + C.COLOR_GOLD + "]gold[/color]")
+	#d = d.replace("xp", "[color=" + C.COLOR_AQUA + "]xp[/color]")
+	#d = d.replace("DIA", "[color=" + C.COLOR_AQUA + "]DIA[/color]")
+	#d = d.replace("hp", "[color=" + C.COLOR_GREEN + "]hp[/color]")
+	#d = d.replace("Weakness", "[color=" + C.COLOR_PURPLE + "]Weakness[/color]")
+	#d = d.replace("shield", "[color=" + C.COLOR_YELLOW + "]shield[/color]")
+	#
+	##make inserted number green
+	#d = d.replace(" %s ", "[color=" + C.COLOR_GREEN + "] %s [/color]")
+	#d = d.replace(" +%s ", "[color=" + C.COLOR_GREEN + "] +%s [/color]")
+	#d = d.replace(" %s%% ", "[color=" + C.COLOR_GREEN + "] %s%% [/color]")
+	#d = d.replace(" +%s%% ", "[color=" + C.COLOR_GREEN + "] +%s%% [/color]")
+	#return d
 
 #perks that use a radius
 func area_perks(id : String) -> int:

@@ -6,6 +6,8 @@ signal mega_activated(id : String)
 
 var guy : person
 
+#var mega := mega_data.new()
+
 #MEGA DATA - get_mega_data(self)
 var m_id := "OVRDRV"
 var m_name := "Overdrive"
@@ -42,6 +44,8 @@ var moon_xp_mult := 0.0
 var vs_pres_0 := 0.0
 var max_hp := 0 #needs signal or something
 var effect_dura := 5.0
+#UI
+var color : String
 
 func refresh():
 	mega.get_mega_data(self)

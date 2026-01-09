@@ -15,5 +15,23 @@ const COLOR_PINK = "#FF55FF"
 const COLOR_PURPLE = "#AA00AA"
 const COLOR_WHITE = "#FFFFFF"
 const COLOR_GREY = "#AAAAAA"
-const COLOR_DARK_GREY = "#555555"
+const COLOR_DARK_GREY := "#555555" 
 const COLOR_BLACK = "#000000"
+
+#Add color bbcode to certain words
+static func repl(d : String) -> String:
+	d = d.replace("dmg", "[color=" + COLOR_RED + "]dmg[/color]")
+	d = d.replace("damage", "[color=" + COLOR_RED + "]damage[/color]")
+	d = d.replace("gold", "[color=" + COLOR_GOLD + "]gold[/color]")
+	d = d.replace("xp", "[color=" + COLOR_AQUA + "]xp[/color]")
+	d = d.replace("DIA", "[color=" + COLOR_AQUA + "]DIA[/color]")
+	d = d.replace("hp", "[color=" + COLOR_GREEN + "]hp[/color]")
+	d = d.replace("Weakness", "[color=" + COLOR_PURPLE + "]Weakness[/color]")
+	d = d.replace("shield", "[color=" + COLOR_YELLOW + "]shield[/color]")
+	
+	#make inserted number green
+	d = d.replace(" %s ", "[color=" + COLOR_GREEN + "] %s [/color]")
+	d = d.replace(" +%s ", "[color=" + COLOR_GREEN + "] +%s [/color]")
+	d = d.replace(" %s%% ", "[color=" + COLOR_GREEN + "] %s%% [/color]")
+	d = d.replace(" +%s%% ", "[color=" + COLOR_GREEN + "] +%s%% [/color]")
+	return d

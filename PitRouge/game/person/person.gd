@@ -15,6 +15,7 @@ var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 var is_dead := false #can be toggled before death signal, so other nodes overlook it while its still in tree
+var person_name : String
 #Runstats
 var run_stats := run_data.new()
 var mega_stats := mega_data.new()

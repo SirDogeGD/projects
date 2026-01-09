@@ -13,6 +13,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 0
 			m.buy_cost = 0
 			m.activate_at = 10
+			m.color = Constants.COLOR_AQUA
 
 		"BEAST":
 			m.m_name = "Beastmode"
@@ -20,6 +21,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 10
 			m.buy_cost = 10000
 			m.activate_at = 20
+			m.color = Constants.COLOR_RED
 
 		"HERMIT":
 			m.m_name = "Hermit"
@@ -27,6 +29,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 20
 			m.buy_cost = 15000
 			m.activate_at = 30
+			m.color = Constants.COLOR_DARK_RED
 
 		"HIGH":
 			m.m_name = "Highlander"
@@ -34,6 +37,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 25
 			m.buy_cost = 30000
 			m.activate_at = 50
+			m.color = Constants.COLOR_GOLD
 
 		"OPUS":
 			m.m_name = "Magnum Opus"
@@ -41,6 +45,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 50
 			m.buy_cost = 60000
 			m.activate_at = 50
+			m.color = Constants.COLOR_YELLOW
 
 		"MOON":
 			m.m_name = "To the Moon"
@@ -48,6 +53,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 70
 			m.buy_cost = 80000
 			m.activate_at = 100
+			m.color = Constants.COLOR_WHITE
 
 		"UBER":
 			m.m_name = "Uberstreak"
@@ -55,6 +61,7 @@ static func get_mega_data(m : mega_data):
 			m.unl_cost = 100
 			m.buy_cost = 100000
 			m.activate_at = 100
+			m.color = Constants.COLOR_PINK
 
 static func get_streak_data(m : mega_data, s := 0.0):
 	
