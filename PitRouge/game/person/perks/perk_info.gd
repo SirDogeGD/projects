@@ -12,7 +12,7 @@ func make(nam: String, desc: String, nums: Array[Array], type: String) -> perk_d
 	if n:
 		lvl += 1
 	lvl = max(1, lvl) #at least 0
-	data.desc = C.repl_desc(desc) % nums[lvl - 1]
+	data.desc = C.repl(desc) % nums[lvl - 1]
 	data.nums = nums
 	data.type = type
 	return data

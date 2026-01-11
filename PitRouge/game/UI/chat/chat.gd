@@ -1,6 +1,5 @@
 extends Node
 
-var C := Constants.new()
 var texts : Array[String]
 
 func add_to_texts(t : String):
@@ -18,23 +17,23 @@ func add(type : String, meta = 0):
 #Kill
 		"K":
 			if meta is rewards_data:
-				t = "Kill! +%sxp +%sgold"
-				t = C.repl(t) % [meta.xp, meta.gold]
+				t = "[color=" + Constants.COLOR_RED + "]KILL![/color] +%sxp +%sg"
+				t = Constants.repl(t) % [meta.xp, meta.gold]
 #Assist
 		"A":
 			if meta is rewards_data:
-				t = "Assist! +%sxp +%sgold"
-				t = C.repl(t) % [meta.xp, meta.gold]
+				t = "[color=" + Constants.COLOR_RED + "]Assist![/color] +%sxp +%sgold"
+				t = Constants.repl(t) % [meta.xp, meta.gold]
 #Streak
 		"S":
-			if meta is float:
-				t = "STREAK! of %s kills by %s"
-				t = C.repl(t) % [meta]
+			if meta is streak_data:
+				t = "[color=" + Constants.COLOR_RED + "]STREAK![/color] of %s kills by %s"
+				t = Constants.repl(t) % [meta.streak, meta.p.get_fancy_name()]
 #Megastreak
 		"S":
 			if meta is mega_data:
-				t = "MEGASTREAK! %s activated %s"
-				t = C.repl(t) % [meta.guy.person_name, meta.m_name]
+				t = "[color=" + Constants.COLOR_RED + "]MEGASTREAK![/color] %s activated %s"
+				t = Constants.repl(t) % [meta.guy.get_fancy_name(), meta.m_name]
 #Bounty Bump
 		"BB":
 			pass
@@ -56,4 +55,5 @@ func add(type : String, meta = 0):
 		_:
 			pass
 	
+	print(t)
 	add_to_texts(t)

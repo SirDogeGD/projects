@@ -69,6 +69,8 @@ func _ready():
 	#add_child(timers)
 	add_child(run_stats)
 	is_dead = false
+	stats = save_data.new()
+	print(get_fancy_name())
 
 func _physics_process(_delta):
 	calc_speed()
@@ -180,7 +182,7 @@ func on_death():
 	stats.kills  += run_stats.kills 
 	stats.deaths += 1
 	if is_instance_of(self, player):
-		SAVE.save_data()
+		SAVE._save_data()
 	
 	#Determine killer / assists
 	var killer := dmg_taken[-1].attacker #last person to do dmg
@@ -219,8 +221,12 @@ func add_to_dmg_taken(d : dmg_data):
 		dmg_taken.remove_at(0)
 
 func on_assist(b : person, p : float):
-	run_stats.gold += 5 * p/100
-	run_stats.xp += 5 * p/100
+	var r = rewards_data.new()
+	r.gold = 5 * p/100
+	r.xp = 5 * p/100
+	run_stats.gold += r.gold
+	run_stats.xp += r.xp
+	CHAT.add("A", r)
 	call_info()
 
 func on_kill(b : person):
@@ -233,4 +239,10 @@ func on_kill(b : person):
 	run_stats.streak += 1
 	bountyHandler.bump(self, b)
 	mega.on_kill(mega_stats, r)
+	CHAT.add("K", r)
 	call_info()
+
+func get_fancy_name() -> String:
+	var lvl = level.new()
+	var t = lvl.get_lvl_text(lvl.get_level(self)) + person_name
+	return t

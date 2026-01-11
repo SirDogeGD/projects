@@ -16,7 +16,7 @@ func _ready():
 #	print("xp to next level: ", l.get_xp_to_next_level(self))
 
 func _exit_tree() -> void:
-	SAVE.save_data()
+	SAVE._save_data()
 
 func _physics_process(delta):
 	
