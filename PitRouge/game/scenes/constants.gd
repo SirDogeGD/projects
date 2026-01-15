@@ -25,9 +25,9 @@ static func repl(d : String) -> String:
 #	GOLD
 	d = d.replace("gold", "[color=" + COLOR_GOLD + "]gold[/color]")
 	d = d.replace("GOLD", "[color=" + COLOR_GOLD + "]GOLD[/color]")
-	d = d.replace("%sG", "[color=" + COLOR_GOLD + "]%sG[/color]")
+	d = d.replace("+%sG", "[color=" + COLOR_GOLD + "]+%sG[/color]")
 #	XP
-	d = d.replace("%sXP", "[color=" + COLOR_AQUA + "]%sXP[/color]")
+	d = d.replace("+%sXP", "[color=" + COLOR_AQUA + "]+%sXP[/color]")
 	d = d.replace("XP", "[color=" + COLOR_AQUA + "]XP[/color]")
 	d = d.replace("xp", "[color=" + COLOR_AQUA + "]xp[/color]")
 	

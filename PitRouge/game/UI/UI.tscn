@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6l7gd7dy2mlq"]
+[gd_scene load_steps=8 format=3 uid="uid://b6l7gd7dy2mlq"]
 
 [ext_resource type="Script" uid="uid://6b1s1xi6a1uw" path="res://game/UI/UI.gd" id="1_8mdmi"]
 [ext_resource type="PackedScene" uid="uid://dh5typ5uy3fg4" path="res://game/person/inventory/inventory_ui.tscn" id="1_bhrq0"]
@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://jqobfiy31ltk" path="res://game/UI/HP/playerHP_ui/HeartBar.tscn" id="4_caaul"]
 [ext_resource type="PackedScene" uid="uid://d3oiamsxkfb57" path="res://game/UI/sideboard/sideboard_ui.tscn" id="5_qt03h"]
 [ext_resource type="PackedScene" uid="uid://byoulpu18jban" path="res://game/UI/effects_ui/effects_ui.tscn" id="6_g2nrv"]
+[ext_resource type="PackedScene" uid="uid://d2c8ejsjkn628" path="res://game/UI/chat/chat_ui.tscn" id="7_s66f8"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 5
-visible = false
 script = ExtResource("1_8mdmi")
 
 [node name="inventory" parent="." instance=ExtResource("1_bhrq0")]
@@ -43,3 +43,9 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="ChatUi" parent="." instance=ExtResource("7_s66f8")]
+offset_left = 3.0
+offset_top = 686.0
+offset_right = -1318.0
+offset_bottom = -198.0

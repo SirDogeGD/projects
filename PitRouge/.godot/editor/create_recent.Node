@@ -1,3 +1,7 @@
+VBoxContainer
+ScrollContainer
+Panel
+Control
 Timer
 Marker2D
 Node2D
@@ -6,9 +10,5 @@ CollisionShape2D
 Area2D
 AnimationPlayer
 TextureRect
-VBoxContainer
 Button
 Label
-RichTextLabel
-MarginContainer
-Panel

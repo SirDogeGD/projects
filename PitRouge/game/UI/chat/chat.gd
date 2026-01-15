@@ -1,5 +1,7 @@
 extends Node
 
+signal texts_changed
+
 var texts : Array[String]
 
 func add_to_texts(t : String):
@@ -7,7 +9,8 @@ func add_to_texts(t : String):
 	
 	if len(texts) > 100:
 		texts.remove_at(0)
-
+	
+	texts_changed.emit()
 
 func add(type : String, meta = 0):
 	
@@ -17,12 +20,12 @@ func add(type : String, meta = 0):
 #Kill
 		"K":
 			if meta is rewards_data:
-				t = "[color=" + Constants.COLOR_RED + "]KILL![/color] +%sxp +%sg"
+				t = "[color=" + Constants.COLOR_RED + "]KILL![/color] +%sXP +%sG"
 				t = Constants.repl(t) % [meta.xp, meta.gold]
 #Assist
 		"A":
 			if meta is rewards_data:
-				t = "[color=" + Constants.COLOR_RED + "]Assist![/color] +%sxp +%sgold"
+				t = "[color=" + Constants.COLOR_RED + "]Assist![/color] +%sXP +%sG"
 				t = Constants.repl(t) % [meta.xp, meta.gold]
 #Streak
 		"S":
