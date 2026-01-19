@@ -3,14 +3,16 @@
 [ext_resource type="Script" uid="uid://btvjy8cgok8ak" path="res://game/UI/chat/chat_ui_one.gd" id="1_w0ebe"]
 
 [node name="ChatUiOne" type="Control"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 8
 script = ExtResource("1_w0ebe")
 
 [node name="Panel" type="Panel" parent="."]
@@ -27,8 +29,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
+text = "Test"
 fit_content = true
+vertical_alignment = 1
 text_direction = 1
+
+[node name="FadeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+autostart = true

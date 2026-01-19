@@ -3,14 +3,14 @@ class_name perk_menu
 
 var choice_container = preload("res://game/person/perks/perk_menu/perk_choose/perk_choose.tscn")
 
-func _physics_process(delta):
-	if SCENE.current_scene_id == 'fight':
-		if Input.is_action_just_pressed("tab"):
-			get_tree().paused = true
-			self.show()
-		if Input.is_action_just_released("tab"):
-			get_tree().paused = false
-			self.hide()
+#func _physics_process(delta):
+	#if SCENE.current_scene_id == 'fight':
+		#if Input.is_action_just_pressed("tab"):
+			#get_tree().paused = true
+			#self.show()
+		#if Input.is_action_just_released("tab"):
+			#get_tree().paused = false
+			#self.hide()
 
 func _on_perk_chosen(id : String):
 	new_choice()

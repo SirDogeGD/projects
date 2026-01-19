@@ -24,3 +24,12 @@ func switch_to(scene_id: String):
 		var p = preload("res://game/person/player/playerchar.tscn").instantiate()
 		current_scene.add_child(p)
 		p.global_position = spawn.global_position
+
+func _physics_process(delta):
+	if SCENE.current_scene_id == 'fight':
+		if Input.is_action_just_pressed("tab"):
+			PUI.show()
+			get_tree().paused = true
+		if Input.is_action_just_released("tab"):
+			PUI.hide()
+			get_tree().paused = false

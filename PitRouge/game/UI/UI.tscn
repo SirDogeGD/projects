@@ -45,7 +45,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="ChatUi" parent="." instance=ExtResource("7_s66f8")]
-offset_left = 3.0
-offset_top = 686.0
-offset_right = -1318.0
-offset_bottom = -198.0
+offset_left = 5.0
+offset_top = 375.0
+offset_right = -1337.0
+offset_bottom = -193.0

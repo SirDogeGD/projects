@@ -1,9 +1,9 @@
+Timer
 Panel
 RichTextLabel
 Control
 VBoxContainer
 ScrollContainer
-Timer
 Marker2D
 Node2D
 Sprite2D
