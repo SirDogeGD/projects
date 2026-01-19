@@ -23,13 +23,19 @@ static func repl(d : String) -> String:
 	d = d.replace("dmg", "[color=" + COLOR_RED + "]dmg[/color]")
 	d = d.replace("damage", "[color=" + COLOR_RED + "]damage[/color]")
 #	GOLD
-	d = d.replace("gold", "[color=" + COLOR_GOLD + "]gold[/color]")
-	d = d.replace("GOLD", "[color=" + COLOR_GOLD + "]GOLD[/color]")
-	d = d.replace("+%sG", "[color=" + COLOR_GOLD + "]+%sG[/color]")
+	if d.contains("+%sG"):
+		d = d.replace("+%sG", "[color=" + COLOR_GOLD + "]+%sG[/color]")
+	elif d.contains("GOLD"):
+		d = d.replace("GOLD", "[color=" + COLOR_GOLD + "]GOLD[/color]")
+	elif d.contains("gold"):
+		d = d.replace("gold", "[color=" + COLOR_GOLD + "]gold[/color]")
 #	XP
-	d = d.replace("+%sXP", "[color=" + COLOR_AQUA + "]+%sXP[/color]")
-	d = d.replace("XP", "[color=" + COLOR_AQUA + "]XP[/color]")
-	d = d.replace("xp", "[color=" + COLOR_AQUA + "]xp[/color]")
+	if d.contains("+%sXP"):
+		d = d.replace("+%sXP", "[color=" + COLOR_AQUA + "]+%sXP[/color]")
+	elif d.contains("XP"):
+		d = d.replace("XP", "[color=" + COLOR_AQUA + "]XP[/color]")
+	elif d.contains("xp"):
+		d = d.replace("xp", "[color=" + COLOR_AQUA + "]XP[/color]")
 	
 	d = d.replace("DIA", "[color=" + COLOR_AQUA + "]DIA[/color]")
 	d = d.replace("hp", "[color=" + COLOR_GREEN + "]hp[/color]")

@@ -1,8 +1,6 @@
-res://game/scenes/main.tscn
+res://game/UI/chat/chat_ui_one.tscn
 res://game/UI/outline.gdshader
 res://game/UI/chat/chat_ui.tscn
-res://game/UI/chat/chat.gd
 res://game/UI/chat/chat_ui.gd
-res://game/UI/UI.tscn
-res://game/UI/Labels/stats_label.tscn
 res://game/scenes/constants.gd
+res://game/UI/chat/chat.gd

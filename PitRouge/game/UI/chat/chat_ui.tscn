@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2c8ejsjkn628"]
+[gd_scene load_steps=3 format=3 uid="uid://d2c8ejsjkn628"]
 
 [ext_resource type="Script" uid="uid://b6xqf3t0ip5l8" path="res://game/UI/chat/chat_ui.gd" id="1_lhsi6"]
+[ext_resource type="PackedScene" uid="uid://bs4qtsc164w4j" path="res://game/UI/chat/chat_ui_one.tscn" id="2_evrw0"]
 
 [node name="ChatUi" type="Control"]
 layout_mode = 3
@@ -10,14 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lhsi6")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -33,4 +26,10 @@ vertical_scroll_mode = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 10
+size_flags_vertical = 3
+
+[node name="ChatUiOne" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne2" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2

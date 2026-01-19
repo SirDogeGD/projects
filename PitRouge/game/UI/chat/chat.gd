@@ -58,5 +58,7 @@ func add(type : String, meta = 0):
 		_:
 			pass
 	
+	t = t.replace(".0G", "G")
+	t = t.replace(".0X", "X")
 	print(t)
 	add_to_texts(t)
