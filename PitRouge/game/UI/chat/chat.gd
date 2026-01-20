@@ -1,6 +1,6 @@
 extends Node
 
-signal texts_changed
+signal text_added(String)
 
 var texts : Array[String]
 
@@ -10,7 +10,7 @@ func add_to_texts(t : String):
 	if len(texts) > 100:
 		texts.remove_at(0)
 	
-	texts_changed.emit()
+	text_added.emit(t)
 
 func add(type : String, meta = 0):
 	

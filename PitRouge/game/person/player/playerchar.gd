@@ -1,6 +1,8 @@
 extends person
 class_name player
 
+var can_input := true
+
 func _ready():
 	super._ready()
 	SAVE.load_data(self)
@@ -20,7 +22,8 @@ func _exit_tree() -> void:
 
 func _physics_process(delta):
 	
-	handle_inputs()
+	if can_input:
+		handle_inputs()
 	
 	super._physics_process(delta)
 	

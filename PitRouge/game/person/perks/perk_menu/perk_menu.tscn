@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sjhhbqknbbp" path="res://game/person/perks/perks_storage/perk_slots_ui/perk_slots_ui_tooltip.tscn" id="5_hnt8k"]
 
 [node name="perk_menu" type="CanvasLayer"]
-process_mode = 3
+process_mode = 2
 layer = 10
 visible = false
 script = ExtResource("1_urva6")
