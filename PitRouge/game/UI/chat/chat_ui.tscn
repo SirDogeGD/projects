@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bs4qtsc164w4j" path="res://game/UI/chat/chat_ui_one.tscn" id="2_evrw0"]
 
 [node name="ChatUi" type="Control"]
-clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +28,7 @@ vertical_scroll_mode = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 10
+size_flags_vertical = 8
 
 [node name="ChatUiOne" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
 layout_mode = 2
@@ -47,4 +46,88 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ChatUiOne6" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne7" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne8" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne9" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne10" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne11" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne12" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne13" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne14" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne15" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne16" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne17" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne18" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne19" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne20" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne21" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne22" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne23" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne24" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne25" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne26" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne27" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne28" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne29" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne30" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne31" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne32" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne33" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne34" parent="ScrollContainer/Lines" instance=ExtResource("2_evrw0")]
 layout_mode = 2
