@@ -3,30 +3,8 @@ extends Control
 var active := false
  
 func _ready():
-	set_passive_mode()
 	CHAT.text_added.connect(new_line)
-	CHAT.add_to_texts("Test1")
-	CHAT.add_to_texts("Test2")
-	CHAT.add_to_texts("Test3")
-	CHAT.add_to_texts("Test4")
-	CHAT.add_to_texts("Test5")
-	CHAT.add_to_texts("Test6")
-	CHAT.add_to_texts("Test7")
-	CHAT.add_to_texts("Test8")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
-	CHAT.add_to_texts("Test9")
+	set_passive_mode()
 
 func new_line(t):
 	var l : Control = load("res://game/UI/chat/chat_ui_one.tscn").instantiate()
@@ -44,13 +22,17 @@ func _unhandled_input(event):
 			PREF.getp().can_input = true
 
 func set_passive_mode():
-	$ScrollContainer.vertical_scroll_mode = 0
 	$ScrollContainer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for c : chat_ui_one in %Lines.get_children():
 		c.chat_closed()
+	set_scroll_to_bottom()
 	
 func set_active_mode():
-	%ScrollContainer.vertical_scroll_mode = 3
 	$ScrollContainer.mouse_filter = Control.MOUSE_FILTER_PASS
 	for c : chat_ui_one in %Lines.get_children():
 		c.chat_opened()
+	set_scroll_to_bottom()
+
+func set_scroll_to_bottom():
+	await get_tree().process_frame
+	$ScrollContainer.scroll_vertical = $ScrollContainer.get_v_scroll_bar().max_value
