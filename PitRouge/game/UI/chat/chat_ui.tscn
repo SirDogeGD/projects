@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2c8ejsjkn628"]
+[gd_scene format=3 uid="uid://d2c8ejsjkn628"]
 
 [ext_resource type="Script" uid="uid://b6xqf3t0ip5l8" path="res://game/UI/chat/chat_ui.gd" id="1_lhsi6"]
+[ext_resource type="PackedScene" uid="uid://bs4qtsc164w4j" path="res://game/UI/chat/chat_ui_one.tscn" id="2_evrw0"]
 
-[node name="ChatUi" type="Control"]
+[node name="ChatUi" type="Control" unique_id=4001683]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -14,20 +15,54 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_lhsi6")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="AllContainer" type="VBoxContainer" parent="." unique_id=1626605712]
 unique_name_in_owner = true
-clip_contents = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllContainer" unique_id=1970592843]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="Lines" type="VBoxContainer" parent="ScrollContainer"]
+[node name="Lines" type="VBoxContainer" parent="AllContainer/ScrollContainer" unique_id=231153586]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 2
+
+[node name="ChatUiOne" parent="AllContainer/ScrollContainer/Lines" unique_id=149390383 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne2" parent="AllContainer/ScrollContainer/Lines" unique_id=647032664 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne3" parent="AllContainer/ScrollContainer/Lines" unique_id=815265568 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne4" parent="AllContainer/ScrollContainer/Lines" unique_id=161891657 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne5" parent="AllContainer/ScrollContainer/Lines" unique_id=66988005 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="ChatUiOne6" parent="AllContainer/ScrollContainer/Lines" unique_id=1744094542 instance=ExtResource("2_evrw0")]
+layout_mode = 2
+
+[node name="Line" type="LineEdit" parent="AllContainer" unique_id=721782444]
+unique_name_in_owner = true
+layout_mode = 2
+max_length = 100
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[connection signal="text_submitted" from="AllContainer/Line" to="." method="_on_line_text_submitted"]

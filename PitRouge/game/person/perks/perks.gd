@@ -186,7 +186,6 @@ func on_kill(_a : person, _b : person):
 	var jan_val := get_num("C_JAN")
 	if jan_val != 0:
 		var nums = [get_num("C_JAN"), get_num("C_JAN", 1)]
-		print(nums)
 		for i in range(nums[0]):
 			_a.effect_node.add_effect("RES", nums[1])
 	

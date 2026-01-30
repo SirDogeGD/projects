@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6l7gd7dy2mlq"]
+[gd_scene format=3 uid="uid://b6l7gd7dy2mlq"]
 
 [ext_resource type="Script" uid="uid://6b1s1xi6a1uw" path="res://game/UI/UI.gd" id="1_8mdmi"]
 [ext_resource type="PackedScene" uid="uid://dh5typ5uy3fg4" path="res://game/person/inventory/inventory_ui.tscn" id="1_bhrq0"]
@@ -8,31 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://byoulpu18jban" path="res://game/UI/effects_ui/effects_ui.tscn" id="6_g2nrv"]
 [ext_resource type="PackedScene" uid="uid://d2c8ejsjkn628" path="res://game/UI/chat/chat_ui.tscn" id="7_s66f8"]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=1046634375]
 layer = 5
 script = ExtResource("1_8mdmi")
 
-[node name="inventory" parent="." instance=ExtResource("1_bhrq0")]
+[node name="inventory" parent="." unique_id=129932656 instance=ExtResource("1_bhrq0")]
 unique_name_in_owner = true
 
-[node name="dash_ui" parent="." instance=ExtResource("3_p1ws0")]
+[node name="dash_ui" parent="." unique_id=1740542369 instance=ExtResource("3_p1ws0")]
 unique_name_in_owner = true
 offset_left = -464.0
 offset_top = -168.0
 offset_right = -360.0
 offset_bottom = -118.0
 
-[node name="HeartBar" parent="." instance=ExtResource("4_caaul")]
+[node name="HeartBar" parent="." unique_id=469171135 instance=ExtResource("4_caaul")]
 unique_name_in_owner = true
 offset_left = -274.0
 offset_top = -143.0
 offset_right = 32.0
 offset_bottom = -120.0
 
-[node name="sideboard_ui" parent="." instance=ExtResource("5_qt03h")]
+[node name="sideboard_ui" parent="." unique_id=1990973641 instance=ExtResource("5_qt03h")]
 unique_name_in_owner = true
 
-[node name="effects_ui" parent="." groups=["info"] instance=ExtResource("6_g2nrv")]
+[node name="effects_ui" parent="." unique_id=927605397 groups=["info"] instance=ExtResource("6_g2nrv")]
 unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.533854
@@ -44,7 +44,7 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="ChatUi" parent="." instance=ExtResource("7_s66f8")]
+[node name="ChatUi" parent="." unique_id=249578428 instance=ExtResource("7_s66f8")]
 offset_left = 21.0
 offset_top = 179.0
 offset_right = -1310.0

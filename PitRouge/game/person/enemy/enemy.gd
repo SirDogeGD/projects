@@ -121,7 +121,6 @@ func change_target():
 		state = ATTACK
 
 func target_died():
-	print("target died")
 	change_target()
 
 func respawn():

@@ -70,7 +70,7 @@ func _ready():
 	add_child(run_stats)
 	is_dead = false
 	stats = save_data.new()
-	print(get_fancy_name())
+	#print(get_fancy_name())
 
 func _physics_process(_delta):
 	calc_speed()

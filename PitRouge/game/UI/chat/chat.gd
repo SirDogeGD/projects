@@ -4,6 +4,7 @@ signal text_added(String)
 
 var texts : Array[String]
 
+#Add Text
 func add_to_texts(t : String):
 	texts.append(t)
 	
@@ -12,6 +13,7 @@ func add_to_texts(t : String):
 	
 	text_added.emit(t)
 
+#Add event Text
 func add(type : String, meta = 0):
 	
 	var t : String
@@ -60,5 +62,13 @@ func add(type : String, meta = 0):
 	
 	t = t.replace(".0G", "G")
 	t = t.replace(".0X", "X")
-	print(t)
+	add_to_texts(t)
+
+func write(t : String):
+
+	match t:
+		"/oof":
+			print("OOF")
+			PREF.getp().on_death()
+
 	add_to_texts(t)

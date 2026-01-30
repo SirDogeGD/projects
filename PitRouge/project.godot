@@ -8,17 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="PitRouge"
 run/main_scene="res://game/scenes/main.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.0730407, 0.184612, 0.130606, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
 SAVE="*res://game/person/player/save/main_save.gd"
+PREF="*res://game/person/player/playerRef.gd"
 UI="*res://game/UI/UI.tscn"
 DMG="*res://game/dmg/dmg.gd"
 PERKS="*res://game/person/perks/perks.gd"
@@ -26,7 +31,6 @@ PINFO="*res://game/person/perks/perk_info.gd"
 PUI="*res://game/person/perks/perk_menu/perk_menu.tscn"
 SOUND="*res://addons/sound_manager/sound_manager.gd"
 SCENE="*res://game/scenes/sceneHandler.gd"
-PREF="*res://game/person/player/playerRef.gd"
 CHAT="*res://game/UI/chat/chat.gd"
 
 [display]
@@ -136,9 +140,10 @@ tab={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-Toggle_Chat={
+Open_Chat={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
