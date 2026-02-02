@@ -57,5 +57,5 @@ func set_scroll_to_bottom():
 func _on_line_text_submitted(_new_text: String):
 	if can_unactive:
 		if %Line.text != '':
-			CHAT.add_to_texts(%Line.text)
+			CHAT.write(%Line.text)
 		set_passive_mode()

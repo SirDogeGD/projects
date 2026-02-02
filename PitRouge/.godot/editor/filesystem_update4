@@ -1,9 +1,5 @@
 res://game/UI/chat/chat_ui.tscn
 res://game/UI/outline.gdshader
-res://game/UI/chat/chat_ui.gd
 res://game/UI/chat/chat.gd
-res://game/person/enemy/enemy.gd
-res://game/person/perks/perks.gd
+res://game/UI/chat/chat_ui.gd
 res://game/person/person.gd
-res://game/UI/UI.tscn
-res://game/person/player/playerRef.gd

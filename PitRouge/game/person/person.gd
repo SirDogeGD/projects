@@ -185,19 +185,20 @@ func on_death():
 		SAVE._save_data()
 	
 	#Determine killer / assists
-	var killer := dmg_taken[-1].attacker #last person to do dmg
-	var all_dmg = {} # Dictionary to store [attacker, damage] pairs
+	if not dmg_taken.is_empty():
+		var killer := dmg_taken[-1].attacker #last person to do dmg
+		var all_dmg = {} # Dictionary to store [attacker, damage] pairs
 
-	for e in dmg_taken:
-		if e.attacker not in all_dmg:
-			all_dmg[e.attacker] = 0.0
-		all_dmg[e.attacker] += e.amount + e.trudmg
-	
-	#Activate kill/assists
-	killer.on_kill(self)
-	for pers in all_dmg.keys():
-		if not pers == killer and not pers == null:
-			pers.on_assist(self, all_dmg[pers] / self.health.maxHP * 100)
+		for e in dmg_taken:
+			if e.attacker not in all_dmg:
+				all_dmg[e.attacker] = 0.0
+			all_dmg[e.attacker] += e.amount + e.trudmg
+		
+		#Activate kill/assists
+		killer.on_kill(self)
+		for pers in all_dmg.keys():
+			if not pers == killer and not pers == null:
+				pers.on_assist(self, all_dmg[pers] / self.health.maxHP * 100)
 	
 	#Reset stuff
 	perks.clear()
