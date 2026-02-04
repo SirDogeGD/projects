@@ -15,6 +15,8 @@ var perks := perk_slots.new()
 var pushback_force := Vector2.ZERO
 var stats : save_data
 var is_dead := false #can be toggled before death signal, so other nodes overlook it while its still in tree
+var invulnerable := true
+var in_combat := false
 var person_name : String
 #Runstats
 var run_stats := run_data.new()
@@ -128,10 +130,11 @@ func on_hit(defender : person, damage : dmg_data) -> void:
 	SOUND.play_pos_sound(sfx[1], self.global_position, "SFX")
 
 func get_hit(attacker : person, damage : dmg_data) -> void:
-	animation_player.play("hit")
-	add_to_dmg_taken(damage)
-	health.take_dmg(damage)
-	take_knock_back(attacker.global_position, damage)
+	if not invulnerable:
+		animation_player.play("hit")
+		add_to_dmg_taken(damage)
+		health.take_dmg(damage)
+		take_knock_back(attacker.global_position, damage)
 
 func take_knock_back(source_position: Vector2, damage : dmg_data) -> void:
 	
@@ -207,6 +210,7 @@ func on_death():
 	run_stats.reset()
 	timers.remove_all_timers()
 	mega_stats.active = false
+	invulnerable = true
 	call_info()
 
 func call_info():

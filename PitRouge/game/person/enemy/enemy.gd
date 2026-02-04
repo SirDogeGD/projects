@@ -31,6 +31,7 @@ func _ready():
 	stats.random()
 	%effects_ui.connected_person = self
 	new_name()
+	invulnerable = false
 
 func _physics_process(delta):
 	match state:

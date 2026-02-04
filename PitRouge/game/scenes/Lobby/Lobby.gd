@@ -16,6 +16,7 @@ func _ready():
 
 func _on_hole_entered():
 	SCENE.switch_to("fight")
+	PREF.getp().invulnerable = false
 
 func _enter_tree():
 	UI.show()

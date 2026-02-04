@@ -110,5 +110,6 @@ func on_kill(b : person):
 	SOUND.play_sound(kill_sound, "SFX")
 
 func on_death():
-	super.on_death()
-	SCENE.switch_to("lobby")
+	if not invulnerable:
+		super.on_death()
+		SCENE.switch_to("lobby")
