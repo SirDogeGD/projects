@@ -65,4 +65,5 @@ editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 
+[connection signal="gui_input" from="AllContainer/Line" to="." method="_on_line_gui_input"]
 [connection signal="text_submitted" from="AllContainer/Line" to="." method="_on_line_text_submitted"]

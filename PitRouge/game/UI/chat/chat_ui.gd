@@ -2,6 +2,7 @@ extends Control
 
 var active := false
 var can_unactive := true #So chat doesnt open by pressing enter, and immediately closes after releasing enter triggers _on_line_text_submitted()
+var written_line_num := -1
  
 func _ready():
 	CHAT.text_added.connect(new_line)
@@ -12,7 +13,7 @@ func new_line(t):
 	l.set_text(t)
 	%Lines.add_child(l)
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("Open_Chat") and not active:
 		set_active_mode()
 		can_unactive = false
@@ -20,6 +21,12 @@ func _unhandled_input(event):
 		set_passive_mode()
 	if event.is_action_released("ui_text_submit") and active:
 		can_unactive = true
+
+func _on_line_gui_input(event: InputEvent):
+	if event.is_action_pressed("ui_up") and active:
+		scroll_written_texts(true)
+	if event.is_action_pressed("ui_down") and active:
+		scroll_written_texts(false)
 
 func set_passive_mode():
 	active = false
@@ -49,6 +56,7 @@ func set_active_mode():
 	%Line.editable = true
 	%Line.visible = true
 	%Line.grab_focus()
+	written_line_num = -1
 
 func set_scroll_to_bottom():
 	await get_tree().process_frame
@@ -59,3 +67,15 @@ func _on_line_text_submitted(_new_text: String):
 		if %Line.text != '':
 			CHAT.write(%Line.text)
 		set_passive_mode()
+
+func scroll_written_texts(up : bool):
+#	Change written_line_num up/down
+	if up:
+		written_line_num = min(written_line_num + 1, CHAT.written_texts.size() -1)
+	else:
+		written_line_num = max(written_line_num - 1, -1)
+#	get corresponding written chat line
+	if written_line_num == -1:
+		%Line.clear()
+	elif written_line_num <= CHAT.written_texts.size() - 1:
+		%Line.text = CHAT.written_texts[written_line_num]

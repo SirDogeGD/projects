@@ -1,0 +1,4 @@
+res://game/UI/chat/chat_ui.tscn
+res://game/UI/outline.gdshader
+res://game/UI/chat/chat.gd
+res://game/UI/chat/chat_ui.gd

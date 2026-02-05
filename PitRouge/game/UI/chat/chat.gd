@@ -3,13 +3,23 @@ extends Node
 signal text_added(String)
 
 var texts : Array[String]
+var written_texts : Array[String]
 
 #Add Text
 func add_to_texts(t : String):
-	texts.append(t)
+	texts.push_front(t)
 	
 	if len(texts) > 100:
-		texts.remove_at(0)
+		texts.resize(100)
+	
+	text_added.emit(t)
+
+#Add Written Text
+func add_to_written_texts(t : String):
+	written_texts.push_front(t)
+	
+	if len(written_texts) > 100:
+		written_texts.resize(100)
 	
 	text_added.emit(t)
 
@@ -68,7 +78,6 @@ func write(t : String):
 
 	match t:
 		"/oof":
-			print("OOF")
 			PREF.getp().on_death()
 
-	add_to_texts(t)
+	add_to_written_texts(t)
