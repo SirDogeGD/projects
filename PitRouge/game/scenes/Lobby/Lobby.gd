@@ -1,7 +1,5 @@
 extends Node2D
 
-signal jumpdown
-
 var has_hole := false
 
 @onready var holeScene := preload("res://game/scenes/Lobby/hole.tscn")
@@ -15,6 +13,7 @@ func _ready():
 		h.signal_entered.connect(_on_hole_entered)
 
 func _on_hole_entered():
+	SIGNAL.speak("JUMP")
 	SCENE.switch_to("fight")
 	PREF.getp().invulnerable = false
 

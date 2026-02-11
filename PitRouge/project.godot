@@ -32,6 +32,8 @@ PUI="*res://game/person/perks/perk_menu/perk_menu.tscn"
 SOUND="*res://addons/sound_manager/sound_manager.gd"
 SCENE="*res://game/scenes/sceneHandler.gd"
 CHAT="*res://game/UI/chat/chat.gd"
+ACH="*uid://chsvjvwph5f2v"
+SIGNAL="*uid://dsdc35i403ax2"
 
 [display]
 

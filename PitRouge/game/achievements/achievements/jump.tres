@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="jump" format=3 uid="uid://xa1tdknvxt07"]
+
+[sub_resource type="GDScript" id="GDScript_34xfb"]
+script/source = "extends Achievement
+
+func register():
+	SIGNAL.listen.connect(_on_jump)
+
+func _on_jump(signal_id, data):
+	if signal_id == \"JUMP\":
+		progress += 1
+"
+
+[resource]
+script = SubResource("GDScript_34xfb")
+id = "JUMP"
+metadata/_custom_type_script = "uid://dvkgi4guxcu6l"

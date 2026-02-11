@@ -1,4 +1,14 @@
 res://game/UI/chat/chat_ui.tscn
 res://game/UI/outline.gdshader
-res://game/UI/chat/chat.gd
 res://game/UI/chat/chat_ui.gd
+res://game/person/person.gd
+res://game/scenes/fight/fight.tscn
+res://game/unlocks/unlockHandler.gd
+res://game/achievements/achievementHandler.gd
+res://game/achievements/achievement.gd
+res://game/achievements/achievements/test.tres
+res://game/achievements/achievements/jump.tres
+res://game/scenes/Lobby/Lobby.gd
+res://game/backend/signalHandler.gd
+res://game/achievements/achievements/jump10.tres
+res://game/scenes/main.gd

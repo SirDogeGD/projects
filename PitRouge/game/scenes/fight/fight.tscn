@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4ddy6llry5xy"]
+[gd_scene format=3 uid="uid://b4ddy6llry5xy"]
 
 [ext_resource type="Script" uid="uid://b360nylyj734w" path="res://game/scenes/fight/fight.gd" id="1_6fb1s"]
 [ext_resource type="PackedScene" uid="uid://cr348ygnkrpq1" path="res://game/person/enemy/enemy.tscn" id="2_abcnf"]
@@ -7,30 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://cwtpdwqfillym" path="res://game/pickup/pickupSpawner.tscn" id="5_dhhpx"]
 [ext_resource type="PackedScene" uid="uid://bd80ch2kyvhfk" path="res://game/scenes/PlayerSpawn.tscn" id="6_sf5sn"]
 
-[node name="fight" type="Node2D"]
+[node name="fight" type="Node2D" unique_id=289094366]
 process_mode = 1
 script = ExtResource("1_6fb1s")
 
-[node name="pickupSpawner" parent="." instance=ExtResource("5_dhhpx")]
+[node name="pickupSpawner" parent="." unique_id=1797741190 instance=ExtResource("5_dhhpx")]
 unique_name_in_owner = true
 
-[node name="Camera" parent="." instance=ExtResource("3_sf5sn")]
+[node name="Camera" parent="." unique_id=883889967 instance=ExtResource("3_sf5sn")]
 unique_name_in_owner = true
 position = Vector2(859, 531)
 
-[node name="enemy" parent="." instance=ExtResource("2_abcnf")]
+[node name="enemy" parent="." unique_id=2107667018 instance=ExtResource("2_abcnf")]
 z_as_relative = true
 y_sort_enabled = false
 position = Vector2(309, 1346)
 collision_mask = 2
 
-[node name="enemy2" parent="." instance=ExtResource("2_abcnf")]
+[node name="enemy2" parent="." unique_id=1610214850 instance=ExtResource("2_abcnf")]
 z_as_relative = true
 y_sort_enabled = false
 position = Vector2(1760, 829)
 collision_mask = 2
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_2ecen")]
+[node name="EnemySpawner" parent="." unique_id=77798201 instance=ExtResource("5_2ecen")]
 unique_name_in_owner = true
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("6_sf5sn")]
+[node name="PlayerSpawn" parent="." unique_id=810708378 instance=ExtResource("6_sf5sn")]

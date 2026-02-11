@@ -6,6 +6,7 @@ signal health_changed(hp : hp_data)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death
+signal kill
 
 var SPEED : float
 var is_sneaking : bool
@@ -225,7 +226,7 @@ func add_to_dmg_taken(d : dmg_data):
 	if totaldmg > health.maxHP:
 		dmg_taken.remove_at(0)
 
-func on_assist(b : person, p : float):
+func on_assist(_b : person, p : float):
 	var r = rewards_data.new()
 	r.gold = 5 * p/100
 	r.xp = 5 * p/100
@@ -245,6 +246,7 @@ func on_kill(b : person):
 	bountyHandler.bump(self, b)
 	mega.on_kill(mega_stats, r)
 	CHAT.add("K", r)
+	kill.emit()
 	call_info()
 
 func get_fancy_name() -> String:
