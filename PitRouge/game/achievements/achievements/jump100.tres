@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://cyo3wya4ulfab"]
+[gd_resource type="Resource" format=3 uid="uid://catspot4ftl2"]
 
 [sub_resource type="GDScript" id="GDScript_34xfb"]
 script/source = "extends Achievement
@@ -8,5 +8,5 @@ script/source = "extends Achievement
 script = SubResource("GDScript_34xfb")
 id = "JUMP10"
 listen_for = "JUMP"
-goal = 10
+goal = 100
 metadata/_custom_type_script = "uid://dvkgi4guxcu6l"

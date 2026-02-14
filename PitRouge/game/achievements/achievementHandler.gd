@@ -32,7 +32,6 @@ func load_achievements():
 	var f = FileAccess.open(save_file_path, FileAccess.READ)
 	var data = f.get_var()
 	f.close()
-	print(data)
 	for id in data:
 		if id in achievements:
 			var a = achievements[id]

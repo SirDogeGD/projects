@@ -62,8 +62,6 @@ func _on_DetectRadius_body_entered(body : person):
 		bodies_in_detect_range.append(body)
 		state = ATTACK
 		target = body
-		#print("body entered: ", body)
-		#print(bodies_in_detect_range)
 
 func _on_DetectRadius_body_exited(body : person):
 	if body != null:
@@ -72,8 +70,6 @@ func _on_DetectRadius_body_exited(body : person):
 			state = IDLE
 			target = null
 			change_target()
-		#print("body left: ", body)
-		#print(bodies_in_detect_range)
 
 func update_target_position():
 	var target_vector = Vector2(randf_range(-32, 32), randf_range(-32, 32))

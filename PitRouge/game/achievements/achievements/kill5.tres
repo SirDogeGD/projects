@@ -1,0 +1,16 @@
+[gd_resource type="Resource" format=3 uid="uid://q8cxw12gpwqo"]
+
+[sub_resource type="GDScript" id="GDScript_x3s66"]
+script/source = "extends Achievement
+
+func handle_signal(signal_id, data):
+	if data is person:
+		print(data.person_name, \" got a kill\")
+"
+
+[resource]
+script = SubResource("GDScript_x3s66")
+id = "KILL5"
+listen_for = "KILL"
+goal = 5
+metadata/_custom_type_script = "uid://dvkgi4guxcu6l"

@@ -6,7 +6,6 @@ signal health_changed(hp : hp_data)
 signal inv_changed(inv : inventory)
 signal dash_changed(dash_max : int, dash_left : int)
 signal death
-signal kill
 
 var SPEED : float
 var is_sneaking : bool
@@ -73,7 +72,6 @@ func _ready():
 	add_child(run_stats)
 	is_dead = false
 	stats = save_data.new()
-	#print(get_fancy_name())
 
 func _physics_process(_delta):
 	calc_speed()
@@ -246,7 +244,7 @@ func on_kill(b : person):
 	bountyHandler.bump(self, b)
 	mega.on_kill(mega_stats, r)
 	CHAT.add("K", r)
-	kill.emit()
+	SIGNAL.speak("KILL", self)
 	call_info()
 
 func get_fancy_name() -> String:
