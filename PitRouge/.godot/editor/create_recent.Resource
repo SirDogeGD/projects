@@ -1,2 +1,2 @@
-res://game/achievements/achievement.gd
+Resource
 ShaderMaterial
