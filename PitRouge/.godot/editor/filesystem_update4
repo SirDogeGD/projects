@@ -1,0 +1,4 @@
+res://game/scenes/fight/fight.tscn
+res://game/UI/outline.gdshader
+res://game/person/perks/perk.gd
+res://game/person/person.tscn
