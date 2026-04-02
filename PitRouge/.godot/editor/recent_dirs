@@ -1,3 +1,4 @@
+res://game/person/perks/perks/
 res://game/achievements/achievements/
 res://game/backend/
 res://game/achievements/
@@ -19,4 +20,3 @@ res://game/person/effects/
 res://game/dmg/
 res://game/item/weapon/
 res://game/person/inventory/
-res://game/item/weapon/melee/sword/
