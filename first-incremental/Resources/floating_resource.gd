@@ -32,12 +32,12 @@ func _on_reached_target():
 func set_target():
 	var nodes := get_tree().get_nodes_in_group("%s_counter" % type)
 	if nodes.size() > 0:
-		target_ui = nodes[0]
+		target_ui = nodes[0].get_path()
 		return
 	#doesnt exist yet
 	if not get_node_or_null(target_ui):
 		var statshowers := get_tree().get_nodes_in_group("statshower")
 		if statshowers.size() > 0:
-			target_ui = statshowers[0]
+			target_ui = statshowers[0].get_path()
 			return
 		return

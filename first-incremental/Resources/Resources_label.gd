@@ -2,24 +2,13 @@ extends Label
 class_name resources_label
 
 @export var type: GameState.types
-var my_type : String
+var my_type_text : String
 
 func update():
-	
+	my_type_text = GameState.get_name_of_type(type)
+	text = my_type_text + ': ' + str(snapped(GameState.get_resource(my_type_text),0.1))
+
+func boing():
 	var t = create_tween()
-	t.tween_property(self, "scale", Vector2(1.3, 1.3), 0.1)
+	t.tween_property(self, "scale", Vector2(1.2, 1.2), 0.1)
 	t.tween_property(self, "scale", Vector2.ONE, 0.1)
-	
-	if my_type == '':
-		match type:
-			GameState.types.SOULS:
-				my_type = 'Souls'
-				add_to_group("soul_label")
-			GameState.types.WOOD:
-				my_type = 'Wood'
-				add_to_group("wood_label")
-			GameState.types.STONE:
-				my_type = 'Stone'
-				add_to_group("stone_label")
-	
-	text = my_type + ': ' + str(int(GameState.get_resource(my_type)))

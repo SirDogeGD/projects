@@ -15,6 +15,10 @@ func add_resource(type : String, amount : float):
 	if resources.has(type):
 		resources[type] += amount
 		GameState.update_stat_labels()
+		
+		for n in get_tree().get_nodes_in_group("%s_counter" % type):
+			if n.has_method("boing"):
+				n.boing()
 
 func remove_resource(type: String, amount: float) -> void:
 	if resources.has(type):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca72nrk4o3wvt"]
+[gd_scene format=3 uid="uid://ca72nrk4o3wvt"]
 
 [ext_resource type="Script" uid="uid://bb16irxpnh23s" path="res://Main/main.gd" id="1_liyct"]
 [ext_resource type="Script" uid="uid://dtj3fwuxjkdbb" path="res://Resources/resources_shower.gd" id="2_liyct"]
@@ -11,7 +11,7 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib3t1"]
 load_path = "res://.godot/imported/SW0.png-190d3b4e84ac8b634ff227c43214ecd8.ctex"
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=731754937]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,25 +20,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_liyct")
 
-[node name="StatsContainer" type="VBoxContainer" parent="." groups=["stats", "statshower"]]
+[node name="StatsContainer" type="VBoxContainer" parent="." unique_id=842436626 groups=["stats", "statshower"]]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 132.0
 script = ExtResource("2_liyct")
 
-[node name="MoneyLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+[node name="MoneyLabel" parent="StatsContainer" unique_id=1253627422 instance=ExtResource("3_ib3t1")]
 layout_mode = 2
 
-[node name="IncomeLabel" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+[node name="IncomeLabel" parent="StatsContainer" unique_id=597175008 instance=ExtResource("3_ib3t1")]
 layout_mode = 2
 type = 1
 
-[node name="IncomeLabel2" parent="StatsContainer" instance=ExtResource("3_ib3t1")]
+[node name="IncomeLabel2" parent="StatsContainer" unique_id=1426532270 instance=ExtResource("3_ib3t1")]
 layout_mode = 2
 type = 2
 
-[node name="SoulWell" type="TextureRect" parent="."]
+[node name="SoulWell" type="TextureRect" parent="." unique_id=688701534]
 layout_mode = 0
 offset_left = 388.0
 offset_top = 267.0
@@ -48,15 +48,15 @@ pivot_offset = Vector2(150, 0)
 texture = SubResource("CompressedTexture2D_ib3t1")
 script = ExtResource("3_f6fdm")
 
-[node name="Node" type="Node" parent="SoulWell"]
+[node name="Node" type="Node" parent="SoulWell" unique_id=1285114775]
 script = ExtResource("8_f6fdm")
 
-[node name="SaveTimer" type="Timer" parent="."]
+[node name="SaveTimer" type="Timer" parent="." unique_id=586625399]
 wait_time = 5.0
 autostart = true
 script = ExtResource("5_qac2q")
 
-[node name="ShopPanel" type="Panel" parent="."]
+[node name="ShopPanel" type="Panel" parent="." unique_id=738193776]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 58.0
@@ -64,7 +64,7 @@ offset_right = 1133.0
 offset_bottom = 541.0
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel" unique_id=290382393]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,17 +72,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpgradeButton" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+[node name="UpgradeButton" parent="ShopPanel/VBoxContainer" unique_id=1057268274 instance=ExtResource("6_o60nc")]
 layout_mode = 2
 my_upgrade = "Soul Well"
 my_base_cost = 2
 
-[node name="UpgradeButton2" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+[node name="UpgradeButton2" parent="ShopPanel/VBoxContainer" unique_id=2031175949 instance=ExtResource("6_o60nc")]
 layout_mode = 2
 my_upgrade = "Wood Minion"
 my_base_cost = 5
 
-[node name="UpgradeButton3" parent="ShopPanel/VBoxContainer" instance=ExtResource("6_o60nc")]
+[node name="UpgradeButton3" parent="ShopPanel/VBoxContainer" unique_id=953207574 instance=ExtResource("6_o60nc")]
 layout_mode = 2
 my_upgrade = "Stone Minion"
 my_base_cost = 50
