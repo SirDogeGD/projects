@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://cnhu3ieowwx1i"]
 
 [ext_resource type="Script" uid="uid://cdu7oxdq42bpx" path="res://Resources/floating_resource.gd" id="1_yc7te"]
+[ext_resource type="Texture2D" uid="uid://7yatjuekffv" path="res://Img/Soul Well/SW0.png" id="2_1xurv"]
 
 [node name="FloatingResource" type="Node2D" unique_id=1770317930]
 script = ExtResource("1_yc7te")
+travel_time = 0.6
+curve_height = 100.0
 
 [node name="Image" type="Sprite2D" parent="." unique_id=515368064]
 unique_name_in_owner = true
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1xurv")

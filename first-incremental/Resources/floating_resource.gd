@@ -10,9 +10,11 @@ var _tween: Tween
 
 func _ready():
 	set_target()
-	start_flight(global_position, get_node(target_ui).global_position)
+	start_flight(self, get_node(target_ui))
 
-func start_flight(from_pos: Vector2, to_pos: Vector2):
+func start_flight(from_node: Node, to_node: Node):
+	var from_pos = from_node.global_position
+	var to_pos = to_node.global_position + to_node.size/2
 	position = from_pos
 	_tween = create_tween()
 	# optional little curve (upward arc)
@@ -28,9 +30,11 @@ func _on_reached_target():
 		var ui_node = get_node(target_ui)
 		if ui_node and ui_node.has_method("Update"):
 			ui_node.Update()
+	
+	set_target()
 
 func set_target():
-	var nodes := get_tree().get_nodes_in_group("%s_counter" % type)
+	var nodes := get_tree().get_nodes_in_group("%s_counter" % GameState.get_name_of_type(type))
 	if nodes.size() > 0:
 		target_ui = nodes[0].get_path()
 		return
